@@ -1,8 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 
 function Users() {
+    // return;
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        let url = "https://jsonplaceholder.typicode.com/users";
+        fetch(url).then(response => {
+            response.json().then(result => {
+                console.log("result", result);
+                setData(result);
+            }).catch(err => {
+                console.log('Api error Parse json', err);
+            })
+        }).catch(err => {
+            console.log('Api error failed', err);
+        })
+    }, [])
     return (
-        <div>Users Page</div>
+        <div>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Company</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        data.map(item => {
+                            return(
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.username}</td>
+                                <td>{item.name}</td>
+                                <td>{item.company.name}</td>
+                            </tr>)
+                        })
+                    }
+
+                </tbody>
+            </Table>
+        </div>
     );
 }
 
