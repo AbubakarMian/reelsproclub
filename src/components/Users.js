@@ -10,11 +10,15 @@ function Users() {
             response.json().then(result => {
                 console.log("result", result);
                 setData(result);
+                localStorage.setItem("users",JSON.stringify(result));
             }).catch(err => {
                 console.log('Api error Parse json', err);
             })
         }).catch(err => {
             console.log('Api error failed', err);
+            let collection = localStorage.getItem("users");
+            console.log('collection',collection);
+            setData(JSON.parse(collection));
         })
     }, [])
     return (
