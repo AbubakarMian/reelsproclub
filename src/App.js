@@ -13,9 +13,9 @@ function App() {
         <Navbar bg="primary" data-bs-theme="light">
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link><Link to="/">Home</Link></Nav.Link>
-            <Nav.Link><Link to="contactus">Contact us</Link></Nav.Link>
-            <Nav.Link><Link to="users">Users</Link></Nav.Link>
+            <Link to="/">Home</Link>
+            <Link to="contactus">Contact us</Link>
+            <Link to="users">Users</Link>
           </Nav>
         </Navbar>
         <Routes>
