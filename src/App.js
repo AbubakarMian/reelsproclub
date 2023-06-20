@@ -13,9 +13,9 @@ function App() {
         <Navbar bg="primary" data-bs-theme="light">
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/">Home</Link>
-            <Link to="contactus">Contact us</Link>
-            <Link to="users">Users</Link>
+            <Link style={{color:"darkblue",marginLeft:5}} to="/">Home</Link>
+            <Link style={{color:"darkblue",marginLeft:5}} to="contactus">Contact us</Link>
+            <Link style={{color:"darkblue",marginLeft:5}} to="users">Users</Link>
           </Nav>
         </Navbar>
         <Routes>
