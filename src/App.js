@@ -5,6 +5,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Contactus from './components/Contactus';
 import Users from './components/Users';
+import Cammera from './components/Cammera';
 
 function App() {
   return (
@@ -14,11 +15,13 @@ function App() {
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
             <Link style={{color:"darkblue",marginLeft:5}} to="/">Home</Link>
+            <Link style={{color:"darkblue",marginLeft:5}} to="cammera">Cammera</Link>
             <Link style={{color:"darkblue",marginLeft:5}} to="contactus">Contact us</Link>
             <Link style={{color:"darkblue",marginLeft:5}} to="users">Users</Link>
           </Nav>
         </Navbar>
         <Routes>
+          <Route Component={Cammera} path='cammera'></Route>
           <Route Component={Contactus} path='contactus'></Route>
           <Route Component={Users} path='users'></Route>
           <Route Component={Home} path='/'></Route>
