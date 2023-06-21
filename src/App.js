@@ -9,7 +9,7 @@ import Users from './components/Users';
 function App() {
   return (
     <div className="App">
-      <Router basename='/reelsproclub'>
+      <Router basename='/reelsproclub/build'>
         <Navbar bg="primary" data-bs-theme="light">
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
