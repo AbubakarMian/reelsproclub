@@ -6,7 +6,20 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.offcanvas.show:not(.hiding), .offcanvas.showing {
+  width: 290px !important;
+}
+img.collapse_logo {
+  width: 230px;
+}
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: #e1ebe3 !important;
+}
+div#offcanvasNavbar-expand-lg {
+  background-color: #e1ebe3 !important;
+  /* color: red; */
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

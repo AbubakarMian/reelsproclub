@@ -1,0 +1,19 @@
+.landing_logo img {
+    width: 21%;
+}
+.bodybg {
+    background: black;
+    height: 100vh;
+}
+.hgt {
+    height: 190px;
+}
+@media only screen and (max-width : 480px) {
+    .landing_logo img {
+        width: 73%;
+    }
+    .bodybg {
+        background: black;
+        height: 100vh;
+    }
+}
