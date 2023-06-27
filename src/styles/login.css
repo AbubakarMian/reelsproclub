@@ -1,0 +1,71 @@
+.bg_img{
+    background-image: url("../../public/images/Reelsclub-34.jpg");
+    height: 100vh;
+}
+label.labl.form-label {
+    float: left;
+    color: white;
+
+}
+.login_logo img {
+    width: 222px;
+}
+button.login_btn.btn.btn-primary {
+    width: 174px;
+    height: 42px;
+    font-weight: bold;
+    background-color: #087bbc;
+    float: right;
+}
+.remember {
+    color: white;
+    float: left;
+    margin-top: 37px;
+}
+.forget {
+    color: white;
+    float: left;
+    margin-left: 30px;
+
+}
+hr.line {
+    color: white;
+    margin: 30px;
+    padding: 10px;
+    width: 95%;
+}
+.new_Acc{
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+    }
+    button.skip_btn.btn.btn-primary {
+        float: right;
+        margin-top: 20px;
+        height: 47px;
+        /* margin-bottom: 17px; */
+        background-color: white;
+        color: black;
+        border-radius: 31px;
+        border: solid 1px white;
+    }
+    .login_area {
+        padding: 0px 30px;
+    }
+    .signup_area {
+        padding: 0px 30px;
+    }
+
+
+    @media only screen and (max-width : 480px) {
+      
+        
+
+        button.login_btn.btn.btn-primary {
+            width: 100%;
+        }
+        hr.line {
+            width: 332px;
+        }
+    }
+    
