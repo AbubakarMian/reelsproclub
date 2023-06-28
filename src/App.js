@@ -21,6 +21,8 @@ import Login from './components/Login';
 import Cammera from './components/Cammera';
 import Help_page from './components/Help_page';
 import Search_page from './components/Search_page';
+import Mechanic from './components/Mechanic';
+import Reels from './components/Reels';
 
 function App() {
   return (
@@ -29,10 +31,12 @@ function App() {
       <Router>
         <Nav_bar_area/>
         <Routes>
-        <Route Component={Help_page} path='Help_page'></Route>
-        <Route Component={Search_page} path='Search_page'></Route>
-        <Route Component={Login} path='Login'></Route>
-        <Route Component={Landing_page} path='Landing_page'></Route>
+        <Route Component={Reels} path='reels'></Route>
+        <Route Component={Mechanic} path='mechanic'></Route>
+        <Route Component={Help_page} path='help_page'></Route>
+        <Route Component={Search_page} path='search_page'></Route>
+        <Route Component={Login} path='login'></Route>
+        <Route Component={Landing_page} path='landing_page'></Route>
           <Route Component={Cammera} path='cammera'></Route>
           <Route Component={Contactus} path='contactus'></Route>
           <Route Component={Users} path='users'></Route>
@@ -81,6 +85,8 @@ const Nav_bar_area = () => {
                 <div className='nav_bottom'><Nav.Link href="Landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faUsers} /> Search_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faUsers} /> Help_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="Mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="Reels"><FontAwesomeIcon icon={faUsers} /> Reels</Nav.Link></div>
               
                 <NavDropdown
                   title="Dropdown"
