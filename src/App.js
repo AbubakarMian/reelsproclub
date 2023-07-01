@@ -87,11 +87,11 @@ const Nav_bar_area = () => {
                 <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> login</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faHandHoldingHand} /> Help_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="help"><FontAwesomeIcon icon={faHandHoldingHand} /> Help_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
                 {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
               
                 <NavDropdown
