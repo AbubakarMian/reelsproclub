@@ -19,8 +19,14 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
+import { useNavigate } from "react-router-dom";
 
 export default function Mechanics_page_export() {
+  const navigate = useNavigate();
+
+    const navigateToPath = (path) => {
+      navigate(path);
+    };
   return (
     <section className="">
       <Container fluid>
@@ -31,7 +37,7 @@ export default function Mechanics_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof1.jpg" />
 
@@ -49,7 +55,7 @@ export default function Mechanics_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof2.jpg" />
                 <div className="img_box_txt">
@@ -66,7 +72,7 @@ export default function Mechanics_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof3.jpg" />
                 <div className="img_box_txt">
@@ -85,7 +91,7 @@ export default function Mechanics_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof4.jpg" />
                 <div className="img_box_txt">
@@ -102,7 +108,7 @@ export default function Mechanics_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof5.jpg" />
                 <div className="img_box_txt">
@@ -119,7 +125,7 @@ export default function Mechanics_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof6.jpg" />
                 <div className="img_box_txt">
@@ -138,7 +144,7 @@ export default function Mechanics_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof7.jpg" />
                 <div className="img_box_txt">
@@ -155,7 +161,7 @@ export default function Mechanics_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof8.jpg" />
                 <div className="img_box_txt">
@@ -172,7 +178,7 @@ export default function Mechanics_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" href="reels">
+            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="reels">
               <div className="img_box">
                 <img src="./images/prof9.jpg" />
                 <div className="img_box_txt">
