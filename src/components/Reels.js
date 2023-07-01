@@ -11,21 +11,33 @@ import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Reels_page_export() {
+  const navigate = useNavigate();
+
+  const navigateToPath = (path) => {
+    navigate(path);
+  };
   return (
     <section className="">
       <Container fluid>
         <Row>
           <Col>
             <div className="top_head_mec">REELS</div>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button onClick={()=>navigateToPath('/cammera')} className="add_reelbtn"><FontAwesomeIcon icon={faCameraRetro} /> +   Add Reel</Button>
           </Col>
         </Row>
         <Row className="reel_box">
@@ -35,8 +47,10 @@ export default function Reels_page_export() {
             </div>
           </Col>
           <Col>
-          <div className="info_area">
-          <p><b>Robert</b></p>
+            <div className="info_area">
+              <p>
+                <b>Robert</b>
+              </p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -45,7 +59,8 @@ export default function Reels_page_export() {
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
-              <FontAwesomeIcon className="like" icon={faThumbsUp} />(112 likes)
+                <FontAwesomeIcon className="like" icon={faThumbsUp} />
+                (112 likes)
               </p>
             </div>
           </Col>
@@ -57,8 +72,10 @@ export default function Reels_page_export() {
             </div>
           </Col>
           <Col>
-          <div className="info_area">
-              <p><b>Albert</b></p>
+            <div className="info_area">
+              <p>
+                <b>Albert</b>
+              </p>
 
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -68,7 +85,8 @@ export default function Reels_page_export() {
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
-              <FontAwesomeIcon className="like" icon={faThumbsUp} />(112 likes)
+                <FontAwesomeIcon className="like" icon={faThumbsUp} />
+                (112 likes)
               </p>
             </div>
           </Col>
@@ -80,8 +98,10 @@ export default function Reels_page_export() {
             </div>
           </Col>
           <Col>
-          <div className="info_area">
-              <p><b>Smith</b></p>
+            <div className="info_area">
+              <p>
+                <b>Smith</b>
+              </p>
 
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -91,12 +111,13 @@ export default function Reels_page_export() {
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
-              <FontAwesomeIcon className="like" icon={faThumbsUp} />(112 likes)
+                <FontAwesomeIcon className="like" icon={faThumbsUp} />
+                (112 likes)
               </p>
             </div>
           </Col>
         </Row>
-       
+
         <Row className="reel_box">
           <Col>
             <div className="img_area">
@@ -105,7 +126,9 @@ export default function Reels_page_export() {
           </Col>
           <Col>
             <div className="info_area">
-              <p><b>Jacob</b></p>
+              <p>
+                <b>Jacob</b>
+              </p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -114,12 +137,12 @@ export default function Reels_page_export() {
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
-                <FontAwesomeIcon className="like" icon={faThumbsUp} />(112 likes)
+                <FontAwesomeIcon className="like" icon={faThumbsUp} />
+                (112 likes)
               </p>
             </div>
           </Col>
         </Row>
-       
       </Container>
     </section>
   );

@@ -18,6 +18,7 @@ export default function Home_page_style() {
       navigate(path);
     };
     return (
+        
         <div className="bodybg" onClick={()=>navigateToPath('/login')}>
 
             <Container fluid>

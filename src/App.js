@@ -12,7 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers,faHouse,
   faCamera,
   faPhoneVolume,
+  faMagnifyingGlass,
   faRightToBracket,
+  faHandHoldingHand,
+  faReel,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home';
@@ -36,8 +39,8 @@ function App() {
         <Route Component={Reels} path='reels'></Route>
         {/* <Route Component={Home} path='home'></Route> */}
         <Route Component={Mechanic} path='mechanic'></Route>
-        <Route Component={Help_page} path='help_page'></Route>
-        <Route Component={Search_page} path='search_page'></Route>
+        <Route Component={Help_page} path='help'></Route>
+        <Route Component={Search_page} path='search'></Route>
         <Route Component={Login} path='login'></Route>
         <Route Component={Landing_page} path='landing_page'></Route>
         <Route Component={Cammera} path='cammera'></Route>
@@ -86,10 +89,10 @@ const Nav_bar_area = () => {
                 <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> login</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faUsers} /> Search_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faUsers} /> Help_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faHandHoldingHand} /> Help_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Reels"><FontAwesomeIcon icon={faUsers} /> Reels</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="Reels"><FontAwesomeIcon icon={faReel} /> Reels</Nav.Link></div>
                 {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
               
                 <NavDropdown

@@ -77,7 +77,7 @@ export default function Signup() {
                 <Row>
                 <Col md={1}></Col>
                     <Col md={10}>
-                    <Button className="skip_btn" variant="primary">Skip For Now <FontAwesomeIcon icon={faArrowRight} /></Button>
+                    <Button  onClick={()=>navigateToPath('/search')}  className="skip_btn" variant="primary">Skip For Now <FontAwesomeIcon icon={faArrowRight} /></Button>
                     </Col>
                     <Col md={1}></Col>
                 <div className="asdsa"></div>
