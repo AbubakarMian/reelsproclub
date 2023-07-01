@@ -9,10 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
-import { faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faUsers,faFileVideo, faMagnifyingGlass, faPlay, faFileCircleQuestion, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home';
 import Contactus from './components/Contactus';
 import Users from './components/Users';
@@ -27,16 +24,17 @@ function App() {
     <div className="App">
       {/* <Router basename='/reelsproclub/build'> */}
       <Router>
-        <Nav_bar_area/>
+        <Nav_bar_area />
         <Routes>
-        <Route Component={Help_page} path='Help_page'></Route>
-        <Route Component={Search_page} path='Search_page'></Route>
-        <Route Component={Login} path='Login'></Route>
-        <Route Component={Landing_page} path='Landing_page'></Route>
+          <Route Component={Help_page} path='help'></Route>
+          <Route Component={Search_page} path='search'></Route>
+          <Route Component={Login} path='login'></Route>
+          <Route Component={Landing_page} path='landing'></Route>
           <Route Component={Cammera} path='cammera'></Route>
           <Route Component={Contactus} path='contactus'></Route>
           <Route Component={Users} path='users'></Route>
-          <Route Component={Home} path='/'></Route>
+          <Route Component={Landing_page} path='/'></Route>
+
         </Routes>
       </Router>
     </div>
@@ -63,7 +61,7 @@ const Nav_bar_area = () => {
             <Offcanvas.Header>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
                 <div>
-                <img className="collapse_logo" src="./../images/1.png"></img>
+                  <img className="collapse_logo" src="./../images/1.png"></img>
 
                 </div>
                 <div>
@@ -73,16 +71,17 @@ const Nav_bar_area = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <div className='nav_bottom'><Nav.Link href="/"><FontAwesomeIcon icon={faHouse} /> Home</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="/cammera"><FontAwesomeIcon icon={faAddressCard} /> cammera</Nav.Link></div>
+                {/* <div className='nav_bottom'><Nav.Link href="/"><FontAwesomeIcon icon={faHouse} /> Home</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faUsers} /> contactus</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faUsers} /> login</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faUsers} /> Search_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faUsers} /> Help_page</Nav.Link></div>
-              
-                <NavDropdown
+                <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
+                {/* <div className='nav_bottom'><Nav.Link href="/"><FontAwesomeIcon icon={faUsers} /> login</Nav.Link></div> */}
+                <div className='nav_bottom'><Nav.Link href="landing"><FontAwesomeIcon icon={faPlay} /> Splash</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faArrowRightFromBracket} /> Login</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="cammera"><FontAwesomeIcon icon={faFileVideo} /> New Reel</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="help"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
+
+                {/* <NavDropdown
                   title="Dropdown"
                   id={`offcanvasNavbarDropdown-expand-lg`}
                 >
@@ -94,9 +93,9 @@ const Nav_bar_area = () => {
                   <NavDropdown.Item href="#action5">
                     Something else here
                   </NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
               </Nav>
-              <Form className="d-flex">
+              {/* <Form className="d-flex">
                 <Form.Control
                   type="search"
                   placeholder="Search"
@@ -104,7 +103,7 @@ const Nav_bar_area = () => {
                   aria-label="Search"
                 />
                 <Button className='search_btn' variant="outline-success"><FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
-              </Form>
+              </Form> */}
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
