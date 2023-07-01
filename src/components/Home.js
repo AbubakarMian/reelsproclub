@@ -22,7 +22,7 @@ import Collapse from 'react-bootstrap/Collapse';
 
 
 
-export default function home_page_style() {
+export default function Home_page_export() {
   return (
     <div>
       <Row>

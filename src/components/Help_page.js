@@ -19,7 +19,7 @@ import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 
-export default function home_page_style() {
+export default function Help_page_export() {
   return (
     <section className="">
       <Container fluid>

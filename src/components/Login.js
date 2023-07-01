@@ -23,7 +23,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 
 
-export default function home_page_style() {
+export default function Login_page_export() {
     return (
         <section className="bg_img">
             <Container fluid>

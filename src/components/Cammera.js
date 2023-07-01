@@ -133,7 +133,7 @@ export default class App extends Component {
     const { images, videos, isVertical } = this.state;
     return (
       <div
-        className={cx("container gallery", {
+        className={cx("container accc gallery", {
           vertical: isVertical,
           empty: images.length === 0 && videos.length === 0
         })}
@@ -186,7 +186,7 @@ export default class App extends Component {
       stopping
     } = this.state;
     return (
-      <div className={cx("container", { captured, vertical: isVertical })}>
+      <div className={cx("container accc", { captured, vertical: isVertical })}>
         {isRecording && <span className="recording">Recording</span>}
         {isRecording ? (
           <video

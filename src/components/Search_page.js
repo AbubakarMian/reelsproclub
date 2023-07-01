@@ -23,7 +23,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 
 
-export default function home_page_style() {
+export default function Search_page_export() {
     return (
         <section className="bg_body_color">
             <Container fluid>

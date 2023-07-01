@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 
 
-export default function home_page_style() {
+export default function Landing_page_export() {
     return (
         <div className="bodybg">
 

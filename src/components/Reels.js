@@ -19,7 +19,7 @@ import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 
-export default function home_page_style() {
+export default function Reels_page_export() {
   return (
     <section className="">
       <Container fluid>
@@ -36,7 +36,7 @@ export default function home_page_style() {
           </Col>
           <Col>
           <div className="info_area">
-              <p>Albert</p>
+          <p><b>Robert</b></p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -58,7 +58,8 @@ export default function home_page_style() {
           </Col>
           <Col>
           <div className="info_area">
-              <p>Albert</p>
+              <p><b>Albert</b></p>
+
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -80,7 +81,8 @@ export default function home_page_style() {
           </Col>
           <Col>
           <div className="info_area">
-              <p>Albert</p>
+              <p><b>Smith</b></p>
+
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
@@ -103,7 +105,7 @@ export default function home_page_style() {
           </Col>
           <Col>
             <div className="info_area">
-              <p>Albert</p>
+              <p><b>Jacob</b></p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
