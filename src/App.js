@@ -15,7 +15,6 @@ import { faUsers,faHouse,
   faMagnifyingGlass,
   faRightToBracket,
   faHandHoldingHand,
-  faReel,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home';
@@ -92,7 +91,7 @@ const Nav_bar_area = () => {
                 <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faHandHoldingHand} /> Help_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="Reels"><FontAwesomeIcon icon={faReel} /> Reels</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="Reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
                 {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
               
                 <NavDropdown
