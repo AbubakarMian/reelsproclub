@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 export default function Home_page_style() {
     const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ export default function Home_page_style() {
       navigate(path);
     };
     return (
+        
         <div className="bodybg" onClick={()=>navigateToPath('/login')}>
 
             <Container fluid>

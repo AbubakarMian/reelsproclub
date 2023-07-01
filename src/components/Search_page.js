@@ -74,11 +74,11 @@ export default function Search_Page() {
 
                 </Row>
                 <Row>
-                <div className="serch_big_img">
-                    {/* <img
-                        src="../images/2.png"
-                    /> */}
-                    </div>
+                <Col xsm><div className="serch_big_img"> </div></Col>
+
+                
+                    
+                   
                 </Row>
 
 

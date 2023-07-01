@@ -1,4 +1,4 @@
-/* html,
+html,
 body {
   padding: 0;
   margin: 0;
@@ -9,27 +9,27 @@ iframe {
   display: none;
 }
 
-.container {
+.accc {
   position: relative;
   padding: 0;
   margin: 0;
-  height: 100vh;
+  height: 94vh;
   background-color: black;
 }
 
-.container.captured .webcam {
+.accc.captured .webcam {
   opacity: 0.5;
   transition: opacity 0.1s ease-in;
 }
 
-.container.empty {
+.accc.empty {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
 }
 
-.container.gallery .gallery-items {
+.accc.gallery .gallery-items {
   width: calc(100% - 80px);
   max-height: 150px;
   overflow: auto;
@@ -39,14 +39,14 @@ iframe {
   padding: 20px 0 20px 0;
 }
 
-.container.vertical.gallery .gallery-items {
+.accc.vertical.gallery .gallery-items {
   height: calc(100vh - 80px);
   max-height: 180px;
   width: 100%;
   flex-direction: column;
 }
 
-.container.gallery .gallery-items h2 {
+.accc.gallery .gallery-items h2 {
   color: white;
   font-size: 14px;
   font-weight: normal;
@@ -54,75 +54,75 @@ iframe {
   margin: 0;
 }
 
-.container.gallery .images {
+.accc.gallery .images {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.container.gallery .videos {
+.accc.gallery .videos {
   width: calc(100% - 80px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.container.vertical.gallery .videos {
+.accc.vertical.gallery .videos {
   height: calc(100% - 80px);
   width: 100%;
 }
 
-.container.gallery .actions {
+.accc.gallery .actions {
   justify-content: space-between;
 }
 
-.container.gallery .action-webcam {
+.accc.gallery .action-webcam {
   margin: 30px 0 0 0;
 }
 
-.container.gallery .action-clear {
+.accc.gallery .action-clear {
   margin: 0 0 30px 0;
 }
 
-.container.vertical.gallery .action-webcam {
+.accc.vertical.gallery .action-webcam {
   margin: 0 0 0 30px;
 }
 
-.container.vertical.gallery .action-clear {
+.accc.vertical.gallery .action-clear {
   margin: 0 30px 0 0;
 }
 
-.container.empty span.empty {
+.accc.empty span.empty {
   padding: 0 80px 0 0;
 }
 
-.container.vertical.empty span.empty {
+.accc.vertical.empty span.empty {
   padding: 0 0 80px 0;
 }
 
-.container .stream {
+.accc .stream {
   width: calc(100% - 80px);
   height: 100%;
 }
 
-.container.vertical .stream {
+.accc.vertical .stream {
   width: 100%;
   height: calc(100% - 80px);
 }
 
-.container img {
+.accc img {
   max-width: 26%;
   margin: 5px;
   border: 1px solid #448;
 }
 
-.container video.recorded {
+.accc video.recorded {
   max-width: 30%;
   margin: 5px;
   border: 1px solid #448;
 }
 
-.container .recording {
+.accc .recording {
   position: absolute;
   left: 10px;
   top: 10px;
@@ -130,14 +130,14 @@ iframe {
   font-size: 14px;
 }
 
-.container .webcam {
+.accc .webcam {
   width: calc(100% - 80px);
   height: 100vh;
   opacity: 1;
   transition: opacity 0.1s ease-out;
 }
 
-.container .actions {
+.accc .actions {
   position: absolute;
   right: 0;
   top: 0;
@@ -151,12 +151,12 @@ iframe {
   justify-content: space-around;
 }
 
-.container.vertical .webcam {
+.accc.vertical .webcam {
   width: 100%;
   height: calc(100vh - 80px);
 }
 
-.container.vertical .actions {
+.accc.vertical .actions {
   right: initial;
   top: initial;
   left: 0;
@@ -168,7 +168,7 @@ iframe {
   flex-direction: row;
 }
 
-.container button {
+.accc button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -176,7 +176,7 @@ iframe {
   background-color: black;
 }
 
-.container button:focus {
+.accc button:focus {
   outline: 0;
 }
 
@@ -237,4 +237,4 @@ button.action-clear {
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}

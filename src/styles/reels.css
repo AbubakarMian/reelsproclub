@@ -1,0 +1,29 @@
+.img_area img {
+    width: 100%;
+}
+.like {
+    margin: 0px 6px;
+}
+.reel_box {
+    border: solid 1px #f8f9fa;
+    padding: 8px;
+    height: 126px;
+    margin: 10px 1px;
+    box-shadow: 1px 2px 5px 4px #ddd2d2;
+}
+.info_area p {
+    margin: 5px;
+}
+.info_area {
+    margin-top: 21px;
+}
+button.add_reelbtn.btn.btn-primary {
+    margin: 10px;
+    width: 100%;
+    background: white;
+    color: #696060;
+    border: solid 1px #696060;
+    height: 52px;
+    border-radius: 10px;
+    font-weight: bold;
+}
