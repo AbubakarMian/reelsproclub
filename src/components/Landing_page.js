@@ -4,14 +4,21 @@ import './../styles/Landing_page.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Row from 'react-bootstrap/Row';
 import Spinner from 'react-bootstrap/Spinner';
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
-export default function Landing_page_export() {
+
+export default function Home_page_style() {
+    const navigate = useNavigate();
+
+    const navigateToPath = (path) => {
+      navigate(path);
+    };
     return (
-        <div className="bodybg">
+        <div className="bodybg" onClick={()=>navigateToPath('/login')}>
 
             <Container fluid>
 

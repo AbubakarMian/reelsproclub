@@ -18,12 +18,19 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
-export default function Login_page_export() {
+
+export default function Signup() {
+    const navigate = useNavigate();
+
+    const navigateToPath = (path) => {
+      navigate(path);
+    };
     return (
         <section className="bg_img">
             <Container fluid>
@@ -59,7 +66,8 @@ export default function Login_page_export() {
                 <Col xsm={1} md={3}></Col>
                 <Col xsm={10} md={6}>
                         <div className="signup_area">
-                            <Button className="login_btn" variant="primary">SIGN UP</Button>
+                            <Button onClick={()=>navigateToPath('/search')} className="login_btn" variant="primary">
+                                SIGN UP</Button>
                         </div>
 
                     </Col>
@@ -83,6 +91,11 @@ export default function Login_page_export() {
 }
 
 const Login_form = () => {
+    const navigate = useNavigate();
+
+    const navigateToPath = (path) => {
+      navigate(path);
+    };
     return (
 
         <>
@@ -112,7 +125,7 @@ const Login_form = () => {
                     className="remember"
                 />
             </div>
-            <Button className="login_btn" variant="primary">LOG IN</Button>
+            <Button  onClick={()=>navigateToPath('/search')}  className="login_btn" variant="primary">LOG IN</Button>
 
         </>
     );

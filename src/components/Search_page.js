@@ -18,12 +18,18 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
-export default function Search_page_export() {
+export default function Search_Page() {
+    const navigate = useNavigate();
+
+    const navigateToPath = (path) => {
+      navigate(path);
+    };
     return (
         <section className="bg_body_color">
             <Container fluid>
@@ -45,7 +51,10 @@ export default function Search_page_export() {
                                     aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm"
                                 />
+                            <Button  onClick={()=>navigateToPath('/help')}  className="" variant="primary">GO</Button>
+
                             </InputGroup>
+
                         </div>
 
                     </Col>
@@ -79,39 +88,4 @@ export default function Search_page_export() {
     );
 }
 
-const Login_form = () => {
-    return (
-
-        <>
-            <Form.Label className="labl" htmlFor="basic-url">Email (required*)</Form.Label>
-            <InputGroup className="mb-3">
-                <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-                <Form.Control
-                    placeholder="Enter your Email Address"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                />
-            </InputGroup>
-            <Form.Label className="labl" htmlFor="basic-url">Password (required*)</Form.Label>
-            <InputGroup className="mb-3">
-                <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
-                <Form.Control
-                    placeholder="Enter Password"
-                    aria-label="Password"
-                    aria-describedby="basic-addon1"
-                />
-            </InputGroup>
-            <div key={`default-checkbox`} className="mb-3">
-                <Form.Check // prettier-ignore
-                    type='checkbox'
-                    id={`default-checkbox`}
-                    label={`Remember Me`}
-                    className="remember"
-                />
-            </div>
-            <Button className="login_btn" variant="primary">LOG IN</Button>
-
-        </>
-    );
-}
 

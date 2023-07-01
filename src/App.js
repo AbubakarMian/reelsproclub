@@ -9,7 +9,12 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUsers,faHouse, faMagnifyingGlass, faPlay, faFileCircleQuestion, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faUsers,faHouse,
+  faCamera,
+  faPhoneVolume,
+  faRightToBracket,
+      faArrowRightFromBracket 
+    } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home';
 import Contactus from './components/Contactus';
 import Users from './components/Users';
@@ -76,10 +81,10 @@ const Nav_bar_area = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                 <div className='nav_bottom'><Nav.Link href="Cammera"><FontAwesomeIcon icon={faUsers} /> Cammera</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faUsers} /> contactus</Nav.Link></div>
+                 <div className='nav_bottom'><Nav.Link href="Cammera"><FontAwesomeIcon icon={faCamera} /> Cammera</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faUsers} /> login</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> login</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Search_page"><FontAwesomeIcon icon={faUsers} /> Search_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="Help_page"><FontAwesomeIcon icon={faUsers} /> Help_page</Nav.Link></div>
@@ -88,6 +93,7 @@ const Nav_bar_area = () => {
                 {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
               
                 <NavDropdown
+
 
                   title="Dropdown"
                   id={`offcanvasNavbarDropdown-expand-lg`}
@@ -101,6 +107,7 @@ const Nav_bar_area = () => {
                     Something else here
                   </NavDropdown.Item>
                 </NavDropdown> 
+
               </Nav>
               {/* <Form className="d-flex">
                 <Form.Control
