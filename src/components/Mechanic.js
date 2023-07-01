@@ -37,8 +37,8 @@ export default function Mechanics_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
+            {/* <a className="link_dec"href=""> */}
+              <div className="img_box"  onClick={()=>navigateToPath('/reels')} >
                 <img src="./images/prof1.jpg" />
 
                 <div className="img_box_txt">
@@ -52,11 +52,11 @@ export default function Mechanics_page_export() {
                   </p>
                 </div>
               </div>
-            </a>
+            {/* </a> */}
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
+            {/* <a className="link_dec" onClick={()=>navigateToPath('/reels')}href=""> */}
+              <div className="img_box"  onClick={()=>navigateToPath('/reels')} >
                 <img src="./images/prof2.jpg" />
                 <div className="img_box_txt">
                   <p>Albert</p>
@@ -69,9 +69,9 @@ export default function Mechanics_page_export() {
                   </p>
                 </div>
               </div>
-            </a>
+            {/* </a> */}
           </Col>
-          <Col>
+          {/* <Col>
             <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
               <div className="img_box">
                 <img src="./images/prof3.jpg" />
@@ -86,10 +86,10 @@ export default function Mechanics_page_export() {
                   </p>
                 </div>
               </div>
-            </a>
-          </Col>
+            </a> 
+          </Col>*/}
         </Row>
-        <Row>
+        {/* <Row>
           <Col>
             <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
               <div className="img_box">
@@ -141,8 +141,8 @@ export default function Mechanics_page_export() {
               </div>
             </a>
           </Col>
-        </Row>
-        <Row>
+        </Row> */}
+        {/* <Row>
           <Col>
             <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
               <div className="img_box">
@@ -194,7 +194,7 @@ export default function Mechanics_page_export() {
               </div>
             </a>
           </Col>
-        </Row>
+        </Row> */}
         
       </Container>
     </section>
