@@ -37,7 +37,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec"  onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec"  onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/moving-truck.png" />
 
@@ -48,7 +48,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/plumber (1).png" />
                 <div className="img_box_txt">
@@ -58,7 +58,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/conference.png" />
                 <div className="img_box_txt">
@@ -70,7 +70,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/fitness.png" />
                 <div className="img_box_txt">
@@ -80,7 +80,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/driver.png" />
                 <div className="img_box_txt">
@@ -90,7 +90,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/tile (1).png" />
                 <div className="img_box_txt">
@@ -102,7 +102,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/doctor-consultation.png" />
                 <div className="img_box_txt">
@@ -112,7 +112,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/insecticide.png" />
                 <div className="img_box_txt">
@@ -122,7 +122,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/locksmith.png" />
                 <div className="img_box_txt">
@@ -134,7 +134,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/technician.png" />
                 <div className="img_box_txt">
@@ -144,7 +144,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/cctv-camera.png" />
                 <div className="img_box_txt">
@@ -154,7 +154,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/welder.png" />
                 <div className="img_box_txt">
@@ -167,7 +167,7 @@ export default function Help_page_export() {
         {/* //// nxt///// */}
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/cleaning.png" />
                 <div className="img_box_txt">
@@ -177,7 +177,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/air-conditioner.png" />
                 <div className="img_box_txt">
@@ -187,7 +187,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/electrician.png" />
                 <div className="img_box_txt">
@@ -199,7 +199,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/plumber.png" />
                 <div className="img_box_txt">
@@ -209,7 +209,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/carpenter.png" />
                 <div className="img_box_txt">
@@ -219,7 +219,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/painter.png" />
                 <div className="img_box_txt">
@@ -231,7 +231,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/programmer.png" />
                 <div className="img_box_txt">
@@ -241,7 +241,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/digital-campaign.png" />
                 <div className="img_box_txt">
@@ -251,7 +251,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/sewing.png" />
                 <div className="img_box_txt">
@@ -263,7 +263,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/delivery.png" />
                 <div className="img_box_txt">
@@ -273,7 +273,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/workers.png" />
                 <div className="img_box_txt">
@@ -283,7 +283,7 @@ export default function Help_page_export() {
             </a>
           </Col>
           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="mechanic">
+            <a className="link_dec" onClick={()=>navigateToPath('/mechanic')} href="">
               <div className="img_box">
                 <img src="./images/repairing.png" />
                 <div className="img_box_txt">
