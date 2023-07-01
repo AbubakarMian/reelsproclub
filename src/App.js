@@ -41,7 +41,7 @@ function App() {
         <Route Component={Help_page} path='help'></Route>
         <Route Component={Search_page} path='search'></Route>
         <Route Component={Login} path='login'></Route>
-        <Route Component={Landing_page} path='landing_page'></Route>
+        <Route Component={Landing_page} path='landing'></Route>
         <Route Component={Cammera} path='cammera'></Route>
         <Route Component={Contactus} path='contactus'></Route>
         <Route Component={Users} path='users'></Route>
@@ -83,11 +83,11 @@ const Nav_bar_area = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                 <div className='nav_bottom'><Nav.Link href="Cammera"><FontAwesomeIcon icon={faCamera} /> Cammera</Nav.Link></div>
+                 <div className='nav_bottom'><Nav.Link href="cammera"><FontAwesomeIcon icon={faCamera} /> Cammera</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> login</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="landing_page"><FontAwesomeIcon icon={faUsers} /> Landing_page</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="landing"><FontAwesomeIcon icon={faUsers} /> Landing</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="help"><FontAwesomeIcon icon={faHandHoldingHand} /> Help_page</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
