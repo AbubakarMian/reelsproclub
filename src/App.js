@@ -27,6 +27,7 @@ import Categories from './components/Categories';
 import Search_page from './components/Search_page';
 import People from './components/People';
 import Reels from './components/Reels';
+import ReelVideo from './components/ReelVideo';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route Component={Camera} path='camera'></Route>
         <Route Component={Contactus} path='contactus'></Route>
         <Route Component={Users} path='users'></Route>
+        <Route Component={ReelVideo} path='reelvideo'></Route>
         <Route Component={Landing_page} path='/'></Route>
 
         </Routes>
