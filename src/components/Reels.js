@@ -7,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "./../styles/reels.css";
+import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +20,7 @@ import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
-
+import { Player } from "video-react";
 
 export default function Reels_page_export() {
   const navigate = useNavigate();
@@ -42,8 +43,14 @@ export default function Reels_page_export() {
         </Row> */}
         <Row className="reel_box">
           <Col>
-            <div className="img_area">
-              <img src="./images/prof2.jpg" />
+            <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
+              <img src="./images/prof3.jpg" />
+              {/* <Player
+                className="asdadsas"
+                playsInline
+                poster="./images/prof3.jpg"
+                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+              /> */}
             </div>
           </Col>
           <Col>

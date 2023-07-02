@@ -11,6 +11,13 @@
     margin: 10px 1px;
     box-shadow: 1px 2px 5px 4px #ddd2d2;
 }
+.reel_box1 {
+    border: solid 1px #f8f9fa;
+    padding: 8px;
+    height: 126px;
+    margin: 10px 1px;
+    box-shadow: 1px 2px 5px 4px #ddd2d2;
+}
 .info_area p {
     margin: 5px;
 }
@@ -26,4 +33,7 @@ button.add_reelbtn.btn.btn-primary {
     height: 52px;
     border-radius: 10px;
     font-weight: bold;
+}
+.video_area {
+    margin-top: 167px;
 }
