@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import "./../styles/help_page.css";
+import "./../styles/categories.css";
 import "./../styles/mechanic.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +21,7 @@ import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 
-export default function Mechanics_page_export() {
+export default function People_page_export() {
   const navigate = useNavigate();
 
     const navigateToPath = (path) => {
@@ -32,7 +32,7 @@ export default function Mechanics_page_export() {
       <Container fluid>
         <Row>
           <Col>
-            <div className="top_head_mec">Mechanic</div>
+            <div className="top_head_mec">Professionals</div>
           </Col>
         </Row>
         <Row>
@@ -71,7 +71,7 @@ export default function Mechanics_page_export() {
               </div>
             {/* </a> */}
           </Col>
-          {/* <Col>
+           <Col>
             <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
               <div className="img_box">
                 <img src="./images/prof3.jpg" />
@@ -87,9 +87,9 @@ export default function Mechanics_page_export() {
                 </div>
               </div>
             </a> 
-          </Col>*/}
+          </Col>
         </Row>
-        {/* <Row>
+         <Row>
           <Col>
             <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
               <div className="img_box">
@@ -141,8 +141,8 @@ export default function Mechanics_page_export() {
               </div>
             </a>
           </Col>
-        </Row> */}
-        {/* <Row>
+        </Row> 
+         <Row>
           <Col>
             <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
               <div className="img_box">
@@ -194,7 +194,7 @@ export default function Mechanics_page_export() {
               </div>
             </a>
           </Col>
-        </Row> */}
+        </Row>
         
       </Container>
     </section>

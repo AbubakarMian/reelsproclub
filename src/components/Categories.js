@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import "./../styles/help_page.css";
+import "./../styles/categories.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +21,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Help_page_export() {
+export default function Categories() {
   const navigate = useNavigate();
 
     const navigateToPath = (path) => {
@@ -37,7 +37,7 @@ export default function Help_page_export() {
         </Row>
         <Row>
           <Col>
-            <a className="link_dec"  onClick={()=>navigateToPath('/mechanic')} href="">
+            <a className="link_dec"  onClick={()=>navigateToPath('/people')} href="">
               <div className="img_box">
                 <img src="./images/moving-truck.png" />
 
