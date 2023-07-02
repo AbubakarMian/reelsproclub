@@ -22,10 +22,10 @@ import Contactus from './components/Contactus';
 import Users from './components/Users';
 import Landing_page from './components/Landing_page';
 import Login from './components/Login';
-import Cammera from './components/Cammera';
-import Help_page from './components/Help_page';
+import Camera from './components/Camera';
+import Categories from './components/Categories';
 import Search_page from './components/Search_page';
-import Mechanic from './components/Mechanic';
+import People from './components/People';
 import Reels from './components/Reels';
 
 function App() {
@@ -37,12 +37,12 @@ function App() {
         <Routes>
         <Route Component={Reels} path='reels'></Route>
         {/* <Route Component={Home} path='home'></Route> */}
-        <Route Component={Mechanic} path='mechanic'></Route>
-        <Route Component={Help_page} path='help'></Route>
+        <Route Component={People} path='people'></Route>
+        <Route Component={Categories} path='categories'></Route>
         <Route Component={Search_page} path='search'></Route>
         <Route Component={Login} path='login'></Route>
         <Route Component={Landing_page} path='landing'></Route>
-        <Route Component={Cammera} path='cammera'></Route>
+        <Route Component={Camera} path='camera'></Route>
         <Route Component={Contactus} path='contactus'></Route>
         <Route Component={Users} path='users'></Route>
         <Route Component={Landing_page} path='/'></Route>
@@ -83,18 +83,18 @@ const Nav_bar_area = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                 <div className='nav_bottom'><Nav.Link href="cammera"><FontAwesomeIcon icon={faCamera} /> Cammera</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div>
+                 <div className='nav_bottom'><Nav.Link href="camera"><FontAwesomeIcon icon={faCamera} /> New Reel</Nav.Link></div>
+                {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
                 <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> login</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="landing"><FontAwesomeIcon icon={faUsers} /> Landing</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="help"><FontAwesomeIcon icon={faHandHoldingHand} /> Help_page</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="mechanic"><FontAwesomeIcon icon={faUsers} /> Mechanic</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faHandHoldingHand} /> Categories</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="people"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
                 {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
               
-                <NavDropdown
+                {/* <NavDropdown
 
 
                   title="Dropdown"
@@ -108,7 +108,7 @@ const Nav_bar_area = () => {
                   <NavDropdown.Item href="#action5">
                     Something else here
                   </NavDropdown.Item>
-                </NavDropdown> 
+                </NavDropdown>  */}
 
               </Nav>
               {/* <Form className="d-flex">

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import cx from "classnames";
 import Webcam from "react-webcam";
 import RecordRTC from "recordrtc";
-import "./../styles/cammera.css";
+import "./../styles/camera.css";
 
 const views = {
   webcam: "webcam",

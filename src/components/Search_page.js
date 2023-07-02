@@ -51,7 +51,7 @@ export default function Search_Page() {
                                     aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm"
                                 />
-                            <Button  onClick={()=>navigateToPath('/help')}  className="" variant="primary">GO</Button>
+                            <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">GO</Button>
 
                             </InputGroup>
 
