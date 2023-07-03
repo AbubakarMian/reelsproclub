@@ -26,7 +26,7 @@ export default function Home_page_style() {
                 <Row>
                 <div className="hgt"></div>
                     <div className="landing_logo"><img
-                        src="../images/logoshadow.jpg"
+                        src="../images/new2.png"
                     /></div>
                 </Row>
                 <Row>
