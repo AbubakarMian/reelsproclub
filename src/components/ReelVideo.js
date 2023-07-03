@@ -39,7 +39,7 @@ export default function Reels_video() {
       </Container>
 
       <style>{'body { background-color: black; }'}</style>
-      <div className="">
+      <div >
         <Player
           controls={{position:'center'}}
           position={'center'}
