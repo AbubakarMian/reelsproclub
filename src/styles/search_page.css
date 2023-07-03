@@ -39,4 +39,8 @@ section.bg_body_color {
         background-position-y: -67px;
         height: 50vh;
     }
+    .login_logo img {
+        width: 200px;
+        margin-top: 42px;
+    }
 }

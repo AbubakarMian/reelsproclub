@@ -10,7 +10,7 @@ import "./../styles/reelsvideo.css";
 import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
@@ -20,7 +20,7 @@ import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
-import { Player,autoPlay,playsInline } from "video-react";
+import { Player, autoPlay, playsInline } from "video-react";
 
 export default function Reels_video() {
   const navigate = useNavigate();
@@ -30,21 +30,29 @@ export default function Reels_video() {
   };
   return (
     <div className="bg_color">
+      <Container>
+        <Row>
+          <Col>
+            <Button className="backbtn" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faArrowLeft} /> </Button>
+          </Col>
+        </Row>
+      </Container>
+
       <style>{'body { background-color: black; }'}</style>
-    <div className="">
-    <Player
-    // controls
-    position={'center'}  
-      
-                className="asdadsas"
-                playsInline={true}
-                poster="./images/prof3.jpg"
-                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                autoPlay={true}
-                isFullscreen='Expand'
-              />
-              </div>
-              </div>
+      <div className="">
+        <Player
+          controls={{position:'center'}}
+          position={'center'}
+          className="asdadsas"
+          playsInline={true}
+          poster="./images/poster.jpg"
+          // src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+          src="./images/pizza.mp4"
+          autoPlay={true}
+          isFullscreen='Expand'
+        />
+      </div>
+    </div>
   );
 }
 

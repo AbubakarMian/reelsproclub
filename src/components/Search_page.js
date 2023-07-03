@@ -35,7 +35,7 @@ export default function Search_Page() {
             <Container fluid>
                 <Row>
                     <div className="login_logo"><img
-                        src="../images/1.png"
+                        src="../images/new1.png"
                     /></div>
                 </Row>
                 <Row>

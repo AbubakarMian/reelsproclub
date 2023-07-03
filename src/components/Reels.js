@@ -44,13 +44,8 @@ export default function Reels_page_export() {
         <Row className="reel_box">
           <Col>
             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
-              <img src="./images/prof3.jpg" />
-              {/* <Player
-                className="asdadsas"
-                playsInline
-                poster="./images/prof3.jpg"
-                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-              /> */}
+              <img src="./images/prof1.jpg" />
+             
             </div>
           </Col>
           <Col>
@@ -74,7 +69,7 @@ export default function Reels_page_export() {
         </Row>
         <Row className="reel_box">
           <Col>
-            <div className="img_area">
+             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof3.jpg" />
             </div>
           </Col>
@@ -100,7 +95,7 @@ export default function Reels_page_export() {
         </Row>
         <Row className="reel_box">
           <Col>
-            <div className="img_area">
+             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof4.jpg" />
             </div>
           </Col>
@@ -127,7 +122,7 @@ export default function Reels_page_export() {
 
         <Row className="reel_box">
           <Col>
-            <div className="img_area">
+             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof10.jpg" />
             </div>
           </Col>
