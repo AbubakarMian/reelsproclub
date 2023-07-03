@@ -1,15 +1,16 @@
 .landing_logo img {
-    width: 55%;
+    width: 70%;
 }
- .bodybg {
-    background: #fcfcfc;
+.bodybg {
     height: 100vh;
+    background: rgb(146,22,67);
+    background: linear-gradient(270deg, rgba(145,22,67,1) 0%, rgba(48,10,55,1) 60%, rgba(11,3,16,1) 100%);
 }
 .hgt {
     height: 190px;
 }
 @media only screen and (max-width : 480px) {
     .landing_logo img {
-        width: 73%;
+        width: 85%;
     }
 }
