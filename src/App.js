@@ -15,6 +15,7 @@ import { faUsers,faHouse,
   faMagnifyingGlass,
   faRightToBracket,
   faHandHoldingHand,
+  faFilm,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home';
@@ -28,6 +29,7 @@ import Search_page from './components/Search_page';
 import People from './components/People';
 import Reels from './components/Reels';
 import ReelVideo from './components/ReelVideo';
+import MyReels from './components/MyReels';
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
       <Router>
         <Nav_bar_area />
         <Routes>
+        <Route Component={MyReels} path='myreels'></Route>
         <Route Component={Reels} path='reels'></Route>
         {/* <Route Component={Home} path='home'></Route> */}
         <Route Component={People} path='people'></Route>
@@ -94,6 +97,7 @@ const Nav_bar_area = () => {
                 <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faHandHoldingHand} /> Categories</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="people"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
                 <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
+                <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
                 {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
               
                 {/* <NavDropdown
