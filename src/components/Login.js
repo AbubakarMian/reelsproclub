@@ -37,7 +37,7 @@ export default function Signup() {
                 <Row>
                     <div>
                         <div className="login_logo"><img
-                            src="../images/Reelsclub-[Recovered].png"
+                            src="../images/new1.png"
                         /></div>
                     </div>
                 </Row>

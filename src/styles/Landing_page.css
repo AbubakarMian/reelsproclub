@@ -1,8 +1,8 @@
 .landing_logo img {
-    width: 21%;
+    width: 55%;
 }
-.bodybg {
-    background: black;
+ .bodybg {
+    background: #fcfcfc;
     height: 100vh;
 }
 .hgt {
@@ -11,9 +11,5 @@
 @media only screen and (max-width : 480px) {
     .landing_logo img {
         width: 73%;
-    }
-    .bodybg {
-        background: black;
-        height: 100vh;
     }
 }

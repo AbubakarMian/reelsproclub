@@ -7,10 +7,12 @@
   pointer-events: none;
 }
 .offcanvas.show:not(.hiding), .offcanvas.showing {
-  width: 290px !important;
+  width: 382px !important;
+  font-size: 27px;
 }
 img.collapse_logo {
   width: 230px;
+  width: 346px;
 }
 .bg-body-tertiary {
   --bs-bg-opacity: 1;
@@ -47,5 +49,17 @@ div#offcanvasNavbar-expand-lg {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+
+@media only screen and (max-width : 480px) {
+  .offcanvas.show:not(.hiding), .offcanvas.showing {
+    width: 290px !important;
+    font-size: 17px;
+  }
+  img.collapse_logo {
+    width: 230px;
   }
 }
