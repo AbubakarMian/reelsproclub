@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import loginContext from '../context/login/loginContext';
 import '../App.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -30,10 +32,15 @@ import People from './People';
 import Reels from './Reels';
 import ReelVideo from './ReelVideo';
 import MyReels from './MyReels';
+import lanuageContext from '../context/language/languageContext';
+
 
 
 
 export default function Nav_bar_area() {
+        const authUser = useContext(loginContext);
+        const langUser = useContext(lanuageContext);
+        console.log('lang',langUser);
         return (
             <>
             {/* {[false, 'sm', 'lg', 'lg', 'xl', 'xxl'].map((expand) => ( */}
@@ -48,6 +55,13 @@ export default function Nav_bar_area() {
                 >
                   <Offcanvas.Header>
                     <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+                      <div onClick={()=>{
+                        langUser.update({                          
+                            "id":2,
+                            "name":"russian",
+                            "prefix":"_ru"                          
+                        })
+                      }}>{authUser.name} </div>
                       <div>
                         <img className="collapse_logo" src="./../images/new1.png"></img>
       

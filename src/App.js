@@ -31,6 +31,7 @@ import People from './components/People';
 import Reels from './components/Reels';
 import ReelVideo from './components/ReelVideo';
 import MyReels from './components/MyReels';
+import LoginState from './context/login/LoginState';
 import SignUp from './components/SignUp';
 import Map from './components/Map';
 
@@ -38,6 +39,7 @@ function App() {
   return (
     <div className="App">
       {/* <Router basename='/reelsproclub/build'> */}
+      <LoginState>
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
@@ -59,6 +61,7 @@ function App() {
 
         </Routes>
       </Router>
+      </LoginState>
     </div>
   );
 }
