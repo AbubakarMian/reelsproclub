@@ -19,6 +19,7 @@ import { faUsers,faHouse,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home';
+import Nav_bar_area from './components/NavBar';
 import Contactus from './components/Contactus';
 import Users from './components/Users';
 import Landing_page from './components/Landing_page';
@@ -36,7 +37,7 @@ function App() {
     <div className="App">
       {/* <Router basename='/reelsproclub/build'> */}
       <Router>
-        <Nav_bar_area />
+        {/* <Nav_bar_area /> */}
         <Routes>
         <Route Component={MyReels} path='myreels'></Route>
         <Route Component={Reels} path='reels'></Route>
@@ -62,75 +63,8 @@ export default App;
 
 
 
-const Nav_bar_area = () => {
-  return (
-    <>
-      {/* {[false, 'sm', 'lg', 'lg', 'xl', 'xxl'].map((expand) => ( */}
-      <Navbar key='xl' expand='lg' className="bg-body-tertiary" variant="light">
-        <Container fluid className="nav_back">
-          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
-          <Navbar.Brand href="#">Reels Pro Club</Navbar.Brand>
-          <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand-lg`}
-            aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
-            placement="start"
-          >
-            <Offcanvas.Header>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
-                <div>
-                  <img className="collapse_logo" src="./../images/1.png"></img>
+// const Nav_bar_area = () => {
+//   return (
+   
+//   );
 
-                </div>
-                <div>
-
-                </div>
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
-                 <div className='nav_bottom'><Nav.Link href="camera"><FontAwesomeIcon icon={faCamera} /> New Reel</Nav.Link></div>
-                {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
-                <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> Login</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="landing"><FontAwesomeIcon icon={faUsers} /> Landing</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faHandHoldingHand} /> Categories</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="people"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
-                <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
-                {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
-              
-                {/* <NavDropdown
-
-
-                  title="Dropdown"
-                  id={`offcanvasNavbarDropdown-expand-lg`}
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>  */}
-
-              </Nav>
-              {/* <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button className='search_btn' variant="outline-success"><FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
-              </Form> */}
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
-        </Container>
-      </Navbar>
-      {/* ))} */}
-    </>
-  );
-}
