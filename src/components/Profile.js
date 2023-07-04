@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import './../styles/signup.css';
+import './../styles/profile.css';
 import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus,
@@ -27,38 +27,39 @@ import Nav_bar_area from './NavBar';
 
 
 
-export default function Signup() {
+export default function Profile() {
     const navigate = useNavigate();
 
     const navigateToPath = (path) => {
         navigate(path);
     };
     return (
-        
-        <section className="bg_clr">
+        <div>
             <Nav_bar_area />
-            <h3 className="signup_head">Sign Up</h3>
+        <section className="bg_color">
+            
+            <h3 className="profile_head">Profile</h3>
             <Container fluid>
                 <Row>
                     <div>
                         <div className="pic_area">
-                            <Button onClick={()=>navigateToPath('/camera')} className="add_picbtn">
-                                <FontAwesomeIcon icon={faUserPlus} />
-                            </Button>
+                        <img
+                            src="../images/profile.png"
+                        />
                         </div>
                     </div>
                 </Row>
 
             </Container>
             <Container>
-                <div className="form_cover_signup">
+                <div className="form_cover_profile">
                     <Row>
                         <Col>
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Label>First Name*</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter First Name" />
+                                        <Form.Control type="text" placeholder="Enter First Name" value={'Jhon'} readOnly/>
                                     </Form.Group>
 
                                 </Form>
@@ -71,7 +72,7 @@ export default function Signup() {
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Label>Last Name*</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Last Name" />
+                                        <Form.Control type="text" placeholder="Enter Last Name"  value={'Michel'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -84,58 +85,49 @@ export default function Signup() {
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Label>Email*</Form.Label>
-                                        <Form.Control type="email" placeholder="name@example.com" />
+                                        <Form.Control type="email" placeholder="name@example.com" value={'Jhon@mail.com'} readOnly />
                                     </Form.Group>
 
                                 </Form>
                             </div>
                         </Col>
                     </Row>
+                    
                     <Row>
                         <Col>
                             <div className="form_area">
-                                <Form>
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Password*</Form.Label>
-                                        <Form.Control type="password" placeholder="Enter Password" />
-                                    </Form.Group>
-
-                                </Form>
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="form_area">
-                                <Form>
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Confirm Password*</Form.Label>
-                                        <Form.Control type="password" placeholder="ReEnter Password" />
-                                    </Form.Group>
-
-                                </Form>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <div className="form_area">
-                                <Form.Label>Categories*</Form.Label>
+                                {/* <Form.Label>Categories*</Form.Label>
                                 <Form.Select aria-label="Default select example">
                                     <option>Select Category</option>
                                     <option value="1">Category One</option>
                                     <option value="2">Category Two</option>
                                     <option value="3">Category Three</option>
-                                </Form.Select>
+                                </Form.Select> */}
+                                <Form>
+                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                        <Form.Label>Category*</Form.Label>
+                                        <Form.Control type="text" placeholder="name@example.com" value={'Category One'} readOnly />
+                                    </Form.Group>
+
+                                </Form>
                             </div>
                         </Col>
                         <Col>
                             <div className="form_area">
-                                <Form.Label>Skills*</Form.Label>
+                                {/* <Form.Label>Skills*</Form.Label>
                                 <Form.Select aria-label="Default select example">
                                     <option>Select Skill</option>
                                     <option value="1">Skill One</option>
                                     <option value="2">Skill Two</option>
                                     <option value="3">Skill Three</option>
-                                </Form.Select>
+                                </Form.Select> */}
+                                 <Form>
+                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                        <Form.Label>Skill*</Form.Label>
+                                        <Form.Control type="text" placeholder="name@example.com" value={'Skill One'} readOnly />
+                                    </Form.Group>
+
+                                </Form>
                             </div>
                         </Col>
                     </Row>
@@ -145,7 +137,7 @@ export default function Signup() {
                                 <Form>
                                     <Form.Group className="mb-3 mob_num" controlId="exampleForm.ControlInput1">
                                         <Form.Label>Mobile Number*</Form.Label>
-                                        <Form.Control type="number" placeholder="Enter Mobile No" />
+                                        <Form.Control type="text" placeholder="Enter Mobile No" value={'+123-456-789'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -156,7 +148,7 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Email address*</Form.Label>
+                                        <Form.Label>Location*</Form.Label>
                                         <Button onClick={()=>navigateToPath('/map')} className="loc_btn">My Location <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
                                     </Form.Group>
 
@@ -168,7 +160,7 @@ export default function Signup() {
                         <Col>
                             <div className="form_area">
                                 <Form>
-                                    <Button onClick={()=>navigateToPath('/search')}className="sub_btn">Submit</Button>
+                                    <Button onClick={()=>navigateToPath('/search')}className="submit_btn">Delete</Button>
 
                                 </Form>
                             </div>
@@ -177,6 +169,7 @@ export default function Signup() {
                 </div>
             </Container>
         </section>
+        </div>
 
     );
 }

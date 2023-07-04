@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.b9eb65d8.css",
-    "main.js": "./static/js/main.2f609695.js",
+    "main.css": "./static/css/main.cd400c02.css",
+    "main.js": "./static/js/main.b44557d7.js",
+    "static/media/map.png": "./static/media/map.305cdf005ee76a816c00.png",
     "static/media/Reelsclub-34.jpg": "./static/media/Reelsclub-34.f5a887050542bd284e9d.jpg",
     "static/media/logo.svg": "./static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "./index.html",
-    "main.b9eb65d8.css.map": "./static/css/main.b9eb65d8.css.map",
-    "main.2f609695.js.map": "./static/js/main.2f609695.js.map"
+    "main.cd400c02.css.map": "./static/css/main.cd400c02.css.map",
+    "main.b44557d7.js.map": "./static/js/main.b44557d7.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9eb65d8.css",
-    "static/js/main.2f609695.js"
+    "static/css/main.cd400c02.css",
+    "static/js/main.b44557d7.js"
   ]
 }
