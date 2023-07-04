@@ -22,7 +22,6 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from './NavBar';
-{/* <Nav_bar_area /> */}
 
 export default function Reels_page_export() {
   const navigate = useNavigate();

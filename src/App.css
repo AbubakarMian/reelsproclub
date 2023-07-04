@@ -11,9 +11,10 @@
   font-size: 27px;
 }
 img.collapse_logo {
-  width: 230px;
-  width: 346px;
+  width: 266px;
+  margin: 44px;
 }
+
 .bg-body-tertiary {
   --bs-bg-opacity: 1;
   background-color: #e1ebe3 !important;
