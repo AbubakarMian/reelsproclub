@@ -19,6 +19,8 @@ import { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
+import Nav_bar_area from './NavBar';
+
 
 
 
@@ -32,7 +34,10 @@ export default function Search_Page() {
     };
     return (
         <section className="bg_body_color">
+            <Nav_bar_area />
+
             <Container fluid>
+
                 <Row>
                     <div className="login_logo"><img
                         src="../images/new1.png"
