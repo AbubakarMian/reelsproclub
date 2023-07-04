@@ -19,24 +19,30 @@ import { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 
 
 
 
 
-export default function Signup() {
+
+export default function LogIn() {
     const navigate = useNavigate();
 
     const navigateToPath = (path) => {
-      navigate(path);
+        navigate(path);
     };
     return (
         <section className="bg_img">
+
             <Container fluid>
+                <div className="language_area"><LanguageToggle /></div>
+
                 <Row>
                     <div>
-                        <div className="login_logo"><img
+                        <div className="login_logo1"><img
                             src="../images/new1.png"
                         /></div>
                     </div>
@@ -52,35 +58,37 @@ export default function Signup() {
 
                 </Row>
                 <Row>
-                <Col xsm={1} md={3}></Col>
+                    <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
-                <div className="forget">Forgot Password</div>
-                </Col>
+                        <div className="forget">Forgot Password</div>
+                    </Col>
                     <Col xsm={1} md={3}></Col>
 
-                <hr className="line" />
+                    <hr className="line" />
                 </Row>
                 <Row>
-                <div className="new_Acc">Create New Account</div>
-               
-                <Col xsm={1} md={3}></Col>
-                <Col xsm={10} md={6}>
+                    <div className="new_Acc">Create New Account</div>
+
+                    <Col xsm={1} md={3}></Col>
+                    <Col xsm={10} md={6}>
                         <div className="signup_area">
-                            <Button onClick={()=>navigateToPath('/search')} className="login_btn" variant="primary">
+                            <Button onClick={() => navigateToPath('/signup')} className="login_btn" variant="primary">
                                 SIGN UP</Button>
                         </div>
 
                     </Col>
                     <Col xsm={1} md={3}></Col>
-                <div className="asdsa"></div>
+                    <div className="asdsa"></div>
                 </Row>
                 <Row>
-                <Col md={1}></Col>
+                    <Col md={1}></Col>
                     <Col md={10}>
-                    <Button  onClick={()=>navigateToPath('/search')}  className="skip_btn" variant="primary">Skip For Now <FontAwesomeIcon icon={faArrowRight} /></Button>
+                        <div className="skip_area">
+                            <Button onClick={() => navigateToPath('/search')} className="skip_btn" variant="primary">Skip Now <FontAwesomeIcon icon={faArrowRight} /></Button>
+                        </div>
                     </Col>
                     <Col md={1}></Col>
-                <div className="asdsa"></div>
+                    <div className="asdsa"></div>
                 </Row>
 
 
@@ -94,11 +102,12 @@ const Login_form = () => {
     const navigate = useNavigate();
 
     const navigateToPath = (path) => {
-      navigate(path);
+        navigate(path);
     };
     return (
 
         <>
+
             <Form.Label className="labl" htmlFor="basic-url">Email (required*)</Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
@@ -125,9 +134,46 @@ const Login_form = () => {
                     className="remember"
                 />
             </div>
-            <Button  onClick={()=>navigateToPath('/search')}  className="login_btn" variant="primary">LOG IN</Button>
+            <Button onClick={() => navigateToPath('/search')} className="login_btn" variant="primary">LOG IN</Button>
 
         </>
     );
 }
+
+
+const LanguageToggle = () => {
+
+    const [checked, setChecked] = useState(false);
+    const [radioValue, setRadioValue] = useState('1');
+
+    const radios = [
+        { name: 'English', value: '1' },
+        { name: 'Russian', value: '2' },
+    ];
+    const radio = { name: 'Russian', value: '1' };
+    const idx = 1;
+
+    return (
+        <>
+            <ButtonGroup>
+                {radios.map((radio, idx) => (
+                    <ToggleButton
+                        key={idx}
+                        id={`radio-${idx}`}
+                        type="radio"
+                        variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+                        name="radio"
+                        value={radio.value}
+                        checked={radioValue === radio.value}
+                        onChange={(e) => setRadioValue(e.currentTarget.value)}
+                    >
+                        {radio.name}
+                    </ToggleButton>
+                ))}
+            </ButtonGroup>
+        </>
+    );
+}
+
+
 
