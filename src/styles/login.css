@@ -1,14 +1,18 @@
 .bg_img{
     background-image: url("../../public/images/Reelsclub-34.jpg");
     height: 100vh;
+    background-repeat: round;
 }
 label.labl.form-label {
     float: left;
     color: white;
 
 }
-.login_logo img {
+.login_logo1 img {
     width: 200px;
+}
+.login_logo img {
+    width: 260px;
 }
 button.login_btn.btn.btn-primary {
     width: 174px;
@@ -42,7 +46,7 @@ hr.line {
     button.skip_btn.btn.btn-primary {
         float: right;
         margin-top: 20px;
-        height: 47px;
+        height: 38px;
         /* margin-bottom: 17px; */
         background-color: white;
         color: black;
@@ -55,17 +59,22 @@ hr.line {
     .signup_area {
         padding: 0px 30px;
     }
-
-
+    .language_area {
+        padding: 10px;
+        text-align: left;
+    }
+    .skip_area {
+        padding: 0px 30px;
+    }
     @media only screen and (max-width : 480px) {
       
-        
-
         button.login_btn.btn.btn-primary {
             width: 100%;
         }
         hr.line {
             width: 332px;
         }
+        .login_logo1 img {
+            margin-top: 20px;        }
     }
     

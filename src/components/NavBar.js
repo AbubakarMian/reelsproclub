@@ -16,6 +16,7 @@ import { faUsers,faHouse,
   faMagnifyingGlass,
   faRightToBracket,
   faHandHoldingHand,
+  faUserPlus,
   faFilm,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
@@ -82,6 +83,7 @@ export default function Nav_bar_area() {
                       <div className='nav_bottom'><Nav.Link href="people"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="signup"><FontAwesomeIcon icon={faUserPlus} /> Sign Up</Nav.Link></div>
                       {/* <div className='nav_bottom'><Nav.Link href="Home"><FontAwesomeIcon icon={faUsers} /> Home</Nav.Link></div> */}
                     
                       {/* <NavDropdown

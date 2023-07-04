@@ -32,6 +32,8 @@ import Reels from './components/Reels';
 import ReelVideo from './components/ReelVideo';
 import MyReels from './components/MyReels';
 import LoginState from './context/login/LoginState';
+import SignUp from './components/SignUp';
+import Map from './components/Map';
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+        <Route Component={Map} path='map'></Route>
+        <Route Component={SignUp} path='signup'></Route>
         <Route Component={MyReels} path='myreels'></Route>
         <Route Component={Reels} path='reels'></Route>
         {/* <Route Component={Home} path='home'></Route> */}
@@ -64,10 +68,4 @@ function App() {
 
 export default App;
 
-
-
-// const Nav_bar_area = () => {
-//   return (
-   
-//   );
 
