@@ -42,9 +42,11 @@ export default function LogIn() {
 
                 <Row>
                     <div>
-                        <div className="login_logo1"><img
+                        <div className="login_logo1">
+                            <img
                             src="../images/new1.png"
-                        /></div>
+                        />
+                        </div>
                     </div>
                 </Row>
                 <Row>
