@@ -19,4 +19,4 @@ const LanuageState = (props) =>{
     )
 }
 
-export default LoginState;
+export default LanuageState;
