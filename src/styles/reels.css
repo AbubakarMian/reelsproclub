@@ -16,21 +16,37 @@
     border: solid 1px #f8f9fa;
     padding: 8px;
     margin: 10px 1px;
-    box-shadow: 1px 2px 5px 4px #ddd2d2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* box-shadow: 1px 2px 5px 4px #ddd2d2; */
 }
-.reel_box1 {
+.container-fluid.reelArea {
+    padding: 0px 24px;
+    padding-top: 15px;
+}
+
+.ratingColour{
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffc578+0,fb9d23+100;Orange+3D+%233 */
+background: #ffc578; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #ffc578 0%, #fb9d23 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover,  #ffc578 0%,#fb9d23 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center,  #ffc578 0%,#fb9d23 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+/* .reel_box1 {
     border: solid 1px #f8f9fa;
     padding: 8px;
     height: 126px;
     margin: 10px 1px;
     box-shadow: 1px 2px 5px 4px #ddd2d2;
-}
+} */
 .info_area p {
     margin: 5px;
 }
 
 .info_area {
-    margin-top: 21px;
+    /* margin-top: 21px; */
     font-size: 30px;
 }
 button.add_reelbtn.btn.btn-primary {
@@ -46,12 +62,15 @@ button.add_reelbtn.btn.btn-primary {
 .video_area {
     margin-top: 167px;
 }
+.reel_box .img_area {
+    margin-top: 0px;
+}
 @media only screen and (max-width : 480px) {
     .reel_box {
-        height: 126px;
+        /* height: 126px; */
     }
     .info_area {
-        margin-top: 21px;
+        /* margin-top: 21px; */
         font-size: 17px;
     }
 }
