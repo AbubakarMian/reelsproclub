@@ -23,12 +23,16 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ContextApiContext from '../context/ContextApiContext';
 
+import Common,{googleTranslate} from '../common/Common';
+import Language_arr from "../common/Lang";
 
+async function  Translate (text){
+    const context = useContext(ContextApiContext);
 
-
-
-
-
+    let translation = await googleTranslate(text,'ru');
+    return translation;
+    // console.log('asdsa gg',gg);
+}
 export default function LogIn() {
     const navigate = useNavigate();
 
@@ -107,6 +111,11 @@ const Login_form = () => {
     const navigateToPath = (path) => {
         navigate(path);
     };
+    
+    const context = useContext(ContextApiContext);
+    const lang = context.language.prefix;
+    console.log('aaaa',"LOG IN"+lang);
+    console.log('aaaa a ',Language_arr["LOG IN"+lang]);
     return (
 
         <>
@@ -120,7 +129,10 @@ const Login_form = () => {
                     aria-describedby="basic-addon1"
                 />
             </InputGroup>
-            <Form.Label className="labl" htmlFor="basic-url">Password (required*)</Form.Label>
+            <Form.Label className="labl" htmlFor="basic-url">
+                {/* Password (required*) */}
+                {Language_arr["Password (required*)"+lang]}
+                </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
@@ -137,14 +149,17 @@ const Login_form = () => {
                     className="remember"
                 />
             </div>
-            <Button onClick={() => navigateToPath('/search')} className="login_btn" variant="primary">LOG IN</Button>
+            <Button onClick={() => navigateToPath('/search')} className="login_btn" variant="primary">
+                {/* LOG IN */}
+                {Language_arr["LOG IN"+lang]}
+            </Button>
 
         </>
     );
 }
 
 
-const LanguageToggle = () => {
+const LanguageToggle =  () => {
 
     // const [checked, setChecked] = useState(false);
     const [radioValue, setLanguageValue] = useState('1');
@@ -152,12 +167,17 @@ const LanguageToggle = () => {
     const context = useContext(ContextApiContext);
     const languageRadios = context.avalible_languages;
 
-    const change_language =(lang_id)=>{
+    const change_language = (lang_id)=>{
         setLanguageValue(lang_id);
         console.log('lang_id',lang_id);
         console.log('context',context);
         context.updateContext(lang_id,'language');
+        console.log('eeeeeee');
+        
+        // let t =  googleTranslate('How are you','ru');
+        // console.log('translation ',t);
     }
+    
     // [
     //     { name: 'English', value: '1' },
     //     { name: 'Russian', value: '2' },
