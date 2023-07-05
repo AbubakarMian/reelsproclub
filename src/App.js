@@ -31,14 +31,17 @@ import People from './components/People';
 import Reels from './components/Reels';
 import ReelVideo from './components/ReelVideo';
 import MyReels from './components/MyReels';
+import LoginState from './context/login/LoginState';
 import SignUp from './components/SignUp';
 import Map from './components/Map';
+import ContexApifun from './context/ContextApi';
 import Profile from './components/Profile';
 
 function App() {
   return (
     <div className="App">
       {/* <Router basename='/reelsproclub/build'> */}
+      <ContexApifun>
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
@@ -61,6 +64,7 @@ function App() {
 
         </Routes>
       </Router>
+      </ContexApifun>
     </div>
   );
 }

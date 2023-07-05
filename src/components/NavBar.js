@@ -1,3 +1,7 @@
+import { useContext } from 'react';
+import loginContext from '../context/login/loginContext';
+// import ContexApifun from '../context/ContextApi';
+import ContextApiContext from '../context/ContextApiContext';
 import '../App.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -30,10 +34,19 @@ import People from './People';
 import Reels from './Reels';
 import ReelVideo from './ReelVideo';
 import MyReels from './MyReels';
+import lanuageContext from '../context/language/languageContext';
+
 
 
 
 export default function Nav_bar_area() {
+        const context = useContext(ContextApiContext);
+        const authUser = {name:'use1'};
+        const langUser = {name:'use1'};
+        // const authUser = useContext(ContexApifun);
+        // const langUser = useContext(lanuageContext);
+        console.log('context',context);
+        console.log('context 2',context.language);
         return (
             <>
             {/* {[false, 'sm', 'lg', 'lg', 'xl', 'xxl'].map((expand) => ( */}
@@ -48,6 +61,8 @@ export default function Nav_bar_area() {
                 >
                   <Offcanvas.Header>
                     <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+                      <div onClick={()=>{
+                      }}>{context.user.name} {context.language.name}</div>
                       <div>
                         <img className="collapse_logo" src="./../images/new1.png"></img>
       
