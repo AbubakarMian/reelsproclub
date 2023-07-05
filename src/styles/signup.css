@@ -1,13 +1,13 @@
 button.add_picbtn.btn.btn-primary {
-    font-size: 100px;
+    font-size: 70px;
     margin: 10px;
     border: 1px solid #b56302;
     border-radius: 97px;
-    width: 181px;
+    width: 150px;
     background-color: transparent;
     color: #087bbc;
     box-shadow: 6px 7px 17px 1px gray;
-    height: 181px;
+    height: 150px;
 }
 
 section.bg_clr {
@@ -42,10 +42,19 @@ button.sub_btn.btn.btn-primary {
 button.sub_btn.btn.btn-primary:hover {
     background-color: #adaaaa;
 }
-.form.area {
+.form_cover_signup {
     padding: 0px 30px;
 }
 svg.svg-inline--fa.fa-location-dot.loc_icon {
     float: right;
     margin: 4px;
+}
+h3.signup_head {
+    text-align: left;
+    font-weight: bold;
+    margin: 10px;
+    color: #087bbc;
+}
+.mb-3.mob_num {
+    margin-top: 10px;
 }

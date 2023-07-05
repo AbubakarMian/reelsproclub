@@ -35,6 +35,7 @@ import LoginState from './context/login/LoginState';
 import SignUp from './components/SignUp';
 import Map from './components/Map';
 import ContexApifun from './context/ContextApi';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+        <Route Component={Profile} path='profile'></Route>
         <Route Component={Map} path='map'></Route>
         <Route Component={SignUp} path='signup'></Route>
         <Route Component={MyReels} path='myreels'></Route>
