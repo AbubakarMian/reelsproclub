@@ -1,15 +1,15 @@
 button.add_picbtn.btn.btn-primary {
-    font-size: 70px;
+    font-size: 50px;
     margin: 10px;
     border: 1px solid #b56302;
     border-radius: 97px;
-    width: 150px;
+    width: 100px;
     background-color: transparent;
     color: #087bbc;
     box-shadow: 6px 7px 17px 1px gray;
-    height: 150px;
+    height: 100px;
+    float: right;
 }
-
 section.bg_clr {
     background-color: #e7e7e7;
 }
@@ -50,11 +50,21 @@ svg.svg-inline--fa.fa-location-dot.loc_icon {
     margin: 4px;
 }
 h3.signup_head {
-    text-align: left;
+    /* text-align: left; */
     font-weight: bold;
-    margin: 10px;
+    margin: 45px 44px;
     color: #087bbc;
+    float: left;
+    font-size: 28px;
 }
 .mb-3.mob_num {
     margin-top: 10px;
+}
+button.backbtnsignup.btn.btn-primary {
+    float: left;
+    background-color: transparent;
+    border-radius: 19px;
+    margin: 4px;
+    border: 0px;
+    color: black;
 }

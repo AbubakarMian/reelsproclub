@@ -10,6 +10,7 @@ import './../styles/signup.css';
 import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus,
+        faArrowLeft,
         faLocationDot }
         from '@fortawesome/free-solid-svg-icons'
 import Row from 'react-bootstrap/Row';
@@ -34,9 +35,16 @@ export default function Signup() {
         navigate(path);
     };
     return (
-        
+        <div>
+        <Container>
+        <Row>
+          <Col>
+            <Button className="backbtnsignup" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faArrowLeft} /> </Button>
+          </Col>
+        </Row>
+      </Container>
         <section className="bg_clr">
-            <Nav_bar_area />
+            
             <h3 className="signup_head">Sign Up</h3>
             <Container fluid>
                 <Row>
@@ -120,7 +128,7 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form.Label>Categories*</Form.Label>
                                 <Form.Select aria-label="Default select example">
-                                    <option>Select Category</option>
+                                    <option>Select</option>
                                     <option value="1">Category One</option>
                                     <option value="2">Category Two</option>
                                     <option value="3">Category Three</option>
@@ -131,7 +139,7 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form.Label>Skills*</Form.Label>
                                 <Form.Select aria-label="Default select example">
-                                    <option>Select Skill</option>
+                                    <option>Select</option>
                                     <option value="1">Skill One</option>
                                     <option value="2">Skill Two</option>
                                     <option value="3">Skill Three</option>
@@ -177,6 +185,7 @@ export default function Signup() {
                 </div>
             </Container>
         </section>
+        </div>
 
     );
 }
