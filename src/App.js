@@ -34,12 +34,13 @@ import MyReels from './components/MyReels';
 import LoginState from './context/login/LoginState';
 import SignUp from './components/SignUp';
 import Map from './components/Map';
+import ContexApifun from './context/ContextApi';
 
 function App() {
   return (
     <div className="App">
       {/* <Router basename='/reelsproclub/build'> */}
-      <LoginState>
+      <ContexApifun>
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
@@ -61,7 +62,7 @@ function App() {
 
         </Routes>
       </Router>
-      </LoginState>
+      </ContexApifun>
     </div>
   );
 }
