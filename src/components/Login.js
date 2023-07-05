@@ -129,7 +129,10 @@ const Login_form = () => {
                     aria-describedby="basic-addon1"
                 />
             </InputGroup>
-            <Form.Label className="labl" htmlFor="basic-url">Password (required*)</Form.Label>
+            <Form.Label className="labl" htmlFor="basic-url">
+                {/* Password (required*) */}
+                {Language_arr["Password (required*)"+lang]}
+                </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
