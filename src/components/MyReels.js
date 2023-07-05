@@ -34,7 +34,7 @@ export default function MyReels_page_export() {
   return (
     <section className="">
       <Nav_bar_area />
-      <Container fluid>
+      <Container fluid className="myreelarea">
         {/* <Row>
           <Col>
             <div className="top_head_mec">REELS</div>
