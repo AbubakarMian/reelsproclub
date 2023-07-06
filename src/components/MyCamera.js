@@ -33,7 +33,7 @@ export default function Reels_page_export() {
   return (
     <section className="">
       <Nav_bar_area />
-      <Container fluid className="reelArea">
+      <Container fluid className="">
       <Camera/>
 
         {/* <Row className="reel_box">

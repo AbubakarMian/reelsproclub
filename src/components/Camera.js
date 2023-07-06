@@ -57,8 +57,8 @@ export default function WebcamVideo() {
   }, [recordedChunks]);
 
   const videoConstraints = {
-    width: 420,
-    height: 420,
+    width: 1280,
+  height: 720,
     facingMode: "user",
   };
 
@@ -72,24 +72,38 @@ export default function WebcamVideo() {
   return (
     <div className="Container">
       <Webcam
-        height={400}
-        width={400}
+        height={720}
+        width={1280}
         audio={false}
         mirrored={true}
         ref={webcamRef}
         videoConstraints={videoConstraints}
+        style={{
+          position: "absolute",
+            textAlign: "center",
+            zindex: 8,
+            right:0,
+            height: "93vh",
+             width: "100%",
+             objectFit: "cover",
+          }}
       />
-      {capturing ? (
-        <button onClick={handleStopCaptureClick}>Stop Capture</button>
-      ) : (
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
-      )}
-      {recordedChunks.length > 0 && (
-        <button onClick={handleDownload}>Download</button>
-      )}
-      <button onClick={()=>navigate('/myreels')}>
-        Back
-      </button>
+      <div className="camerBtns">
+      {/* <button onClick={()=>navigate('/myreels')}>
+          Back
+        </button> */}
+        {capturing ? (
+          // <button className="stopCapture" onClick={handleStopCaptureClick}>Stop Capture</button>
+          <button className="stopCapture" onClick={()=>navigate('/myreels')}> </button>
+        ) : (
+          <button className="startCapture" onClick={handleStartCaptureClick}> </button>//Start Capture
+          // <button className="startCapture" onClick={()=>navigate('/myreels')}> </button>//Start Capture
+        )}
+        {/* {recordedChunks.length > 0 && (
+          <button onClick={handleDownload}>Download</button>
+        )} */}
+        
+      </div>
     </div>
   );
 }
