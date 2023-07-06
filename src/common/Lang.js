@@ -88,6 +88,45 @@ lang['Labour_ru'] = ' Труд ';
 lang['Home&Office Repairs_en'] = 'Home&Office Repairs';
 lang['Home&Office Repairs_ru'] = ' Ремонт дома и офиса ';
 
+lang['Enter your Email Address_en'] = 'Enter your Email Address';
+lang['Enter your Email Address_ru'] = ' Введите ваш адрес электронной почты ';
+
+lang['Enter Password_en'] = 'Enter Password';
+lang['Enter Password_ru'] = ' Введите пароль ';
+
+lang['remember_en'] = 'remember';
+lang['remember_ru'] = ' помнить';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
 lang['_en'] = '';
 lang['_ru'] = '  ';
 

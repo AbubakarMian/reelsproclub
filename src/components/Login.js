@@ -23,6 +23,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import {ContextApiContext} from '../context/ContextApi';
 
+
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
 
@@ -136,9 +137,12 @@ const Login_form = () => {
                 </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-                <Form.Control
-                    // placeholder="Enter your Email Address"
-                    placeholder="Enter your Email Address"
+                <Form.Control placeholder=
+                // Enter your Email Address
+                {Language_arr["Enter your Email Address"+lang]}
+                
+                
+                    
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                 />
@@ -150,7 +154,9 @@ const Login_form = () => {
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
-                    placeholder="Enter Password"
+                    placeholder=    
+                // "Enter Password"
+                {Language_arr["Enter Password"+lang]}
                     aria-label="Password"
                     aria-describedby="basic-addon1"
                 />
@@ -159,7 +165,11 @@ const Login_form = () => {
                 <Form.Check // prettier-ignore
                     type='checkbox'
                     id={`default-checkbox`}
-                    label={`Remember Me`}
+                    label={
+                        // `Remember Me`
+                        `{Language_arr["Remember Me"+lang]}`
+                    }
+                    
                     className="remember"
                 />
             </div>
