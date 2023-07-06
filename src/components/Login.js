@@ -120,7 +120,10 @@ const Login_form = () => {
 
         <>
 
-            <Form.Label className="labl" htmlFor="basic-url">Email (required*)</Form.Label>
+            <Form.Label className="labl" htmlFor="basic-url">
+                {/* Email (required*) */}
+                {Language_arr["Email (required*)"+lang]}
+                </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 <Form.Control
