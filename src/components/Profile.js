@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useContext}from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -24,6 +24,9 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Nav_bar_area from './NavBar';
+import {ContextApiContext} from '../context/ContextApi';
+
+
 {/* <Nav_bar_area /> */ }
 
 
@@ -188,19 +191,27 @@ export default function Profile() {
 const LanguageToggle = () => {
 
     const [checked, setChecked] = useState(false);
-    const [radioValue, setRadioValue] = useState('1');
+    const [radioValue, setLanguageValue] = useState('1');
 
-    const radios = [
-        { name: 'English', value: '1' },
-        { name: 'Russian', value: '2' },
-    ];
-    const radio = { name: 'Russian', value: '1' };
-    const idx = 1;
+    const context = useContext(ContextApiContext);
+    console.log('ccc',context);
+    const languageRadios = context.avalible_languages;
+
+    const change_language = (lang_id)=>{
+        setLanguageValue(lang_id);
+        console.log('lang_id',lang_id);
+        console.log('context',context);
+        context.updateContext(lang_id,'language');
+        console.log('eeeeeee');
+        
+        // let t =  googleTranslate('How are you','ru');
+        // console.log('translation ',t);
+    }
 
     return (
         <>
             <ButtonGroup>
-                {radios.map((radio, idx) => (
+                {languageRadios.map((language, idx) => (
                     <ToggleButton
                     className="tbtn"
                         key={idx}
@@ -208,11 +219,11 @@ const LanguageToggle = () => {
                         type="radio"
                         variant={idx % 2 ? 'outline-primary' : 'outline-primary'}
                         name="radio"
-                        value={radio.value}
-                        checked={radioValue === radio.value}
-                        onChange={(e) => setRadioValue(e.currentTarget.value)}
+                        value={language.id}
+                        checked={radioValue === language.id}
+                        onChange={(e) => change_language(e.currentTarget.value)}
                     >
-                        {radio.name}
+                        {language.name}
                     </ToggleButton>
                 ))}
             </ButtonGroup>

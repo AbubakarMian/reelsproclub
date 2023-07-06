@@ -21,7 +21,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import Nav_bar_area from './NavBar';
 //------
-import ContextApiContext from '../context/ContextApiContext';
+import {ContextApiContext} from '../context/ContextApi';
 import {useContext} from "react";
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
@@ -40,6 +40,7 @@ export default function Search_Page() {
     };
     //-------
     const context = useContext(ContextApiContext);
+    console.log('sear lang',context);
     const lang = context.language.prefix;
     console.log('aaaa',"LOG IN"+lang);
     console.log('aaaa a ',Language_arr["LOG IN"+lang]);
