@@ -20,7 +20,12 @@ import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate  } from "react-router-dom";
 import Nav_bar_area from './NavBar';
-
+//------
+import ContextApiContext from '../context/ContextApiContext';
+import {useContext} from "react";
+import Common,{googleTranslate} from '../common/Common';
+import Language_arr from "../common/Lang";
+//------
 
 export default function Categories() {
   const navigate = useNavigate();
@@ -28,6 +33,12 @@ export default function Categories() {
     const navigateToPath = (path) => {
       navigate(path);
     };
+     //-------
+     const context = useContext(ContextApiContext);
+     const lang = context.language.prefix;
+     console.log('aaaa',"LOG IN"+lang);
+     console.log('aaaa a ',Language_arr["LOG IN"+lang]);
+     //-------
   return (
     <section className="">
       <Nav_bar_area />
@@ -35,7 +46,10 @@ export default function Categories() {
       <Container fluid>
         <Row>
           <Col>
-            <div className="top_head">What do you need help with ?</div>
+            <div className="top_head">
+              {/* What do you need help with ? */}
+              {Language_arr["What do you need help with ?"+lang]}
+              </div>
           </Col>
         </Row>
         <Row>
