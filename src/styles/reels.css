@@ -78,3 +78,39 @@ svg.svg-inline--fa.fa-thumbs-up.like {
         font-size: 17px;
     }
 }
+
+.camerBtns {
+    /* position: absolute;
+    bottom: 50px;
+    width: 100%; */
+  }
+  video {
+    z-index: -1 !important;
+  }
+  button.startCapture {
+    padding: 30px;
+      border-radius: 54px;
+      background: red;
+      border: 5px solid #fff;
+      position: absolute;
+      bottom: 50px;
+      text-align: center;
+      left: 40%;
+  }
+  button.stopCapture {
+    padding: 30px;
+      border-radius: 54px;
+      background: red;
+      border: 5px solid blue;
+      position: absolute;
+      bottom: 50px;
+      text-align: center;
+      left: 40%;
+  }
+  
+  .camerBtns {
+    position: absolute;
+      bottom: 0;
+      width: 100%;
+  }
+  
