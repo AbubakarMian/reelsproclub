@@ -37,3 +37,12 @@ h3.profile_head {
 label.tbtn.btn.btn-outline-primary {
     color: white;
 }
+
+button.profile-backbtnsignup.btn.btn-primary {
+    float: left;
+    background-color: transparent;
+    border-radius: 19px;
+    margin: 4px;
+    border: 0px;
+    color: black;
+}

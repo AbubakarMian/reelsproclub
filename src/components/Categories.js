@@ -62,7 +62,11 @@ export default function Categories() {
                 <img src="./images/moving-truck.png" />
 
                 <div className="img_box_txt">
-                  <p>Moving</p>
+                  <p>
+                    {/* Moving */}
+                    {Language_arr["Moving"+lang]}
+
+                    </p>
                 </div>
               </div>
             </a>
@@ -72,7 +76,11 @@ export default function Categories() {
               <div className="img_box"  onClick={()=>navigateToPath('/people')}>
                 <img src="./images/plumber (1).png" />
                 <div className="img_box_txt">
-                  <p>Handyman</p>
+                  <p>
+                    {/* Handyman */}
+                    {Language_arr["Handyman"+lang]}
+                    
+                    </p>
                 </div>
               </div>
             </a>
@@ -82,7 +90,12 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/conference.png" />
                 <div className="img_box_txt">
-                  <p>Event Planner</p>
+                  <p>
+                    {/* Event Planner */}
+                    {Language_arr["Event Planner"+lang]}
+
+                    
+                    </p>
                 </div>
               </div>
             </a>
@@ -94,7 +107,11 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/fitness.png" />
                 <div className="img_box_txt">
-                  <p>Fitness Trainer</p>
+                  <p>
+                    {/* Fitness Trainer */}
+                    {Language_arr["Fitness Trainer"+lang]}
+                    
+                    </p>
                 </div>
               </div>
             </a>
@@ -104,7 +121,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/driver.png" />
                 <div className="img_box_txt">
-                  <p>Drivers & Cab</p>
+                  <p>
+                    {/* Drivers & Cab */}
+                    {Language_arr["Drivers & Cab"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -114,7 +134,12 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/tile (1).png" />
                 <div className="img_box_txt">
-                  <p>Tile Fixer</p>
+                  <p>
+                    {/* Tile Fixer */}
+                    {Language_arr["Tile Fixer"+lang]}
+
+
+                  </p>
                 </div>
               </div>
             </a>
@@ -126,7 +151,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/doctor-consultation.png" />
                 <div className="img_box_txt">
-                  <p>Consultant</p>
+                  <p>
+                    {/* Consultant */}
+                    {Language_arr["Consultant"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -136,7 +164,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/insecticide.png" />
                 <div className="img_box_txt">
-                  <p>Pest Control</p>
+                  <p>
+                    {/* Pest Control */}
+                    {Language_arr["Pest Control"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -146,7 +177,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/locksmith.png" />
                 <div className="img_box_txt">
-                  <p>Lock Master</p>
+                  <p>
+                    {/* Lock Master */}
+                    {Language_arr["Lock Master"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -158,7 +192,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/technician.png" />
                 <div className="img_box_txt">
-                  <p>people</p>
+                  <p>
+                    {/* people */}
+                    {Language_arr["people"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -168,7 +205,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/cctv-camera.png" />
                 <div className="img_box_txt">
-                  <p>CCTV</p>
+                  <p>
+                    {/* CCTV */}
+                    {Language_arr["CCTV"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -178,7 +218,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/welder.png" />
                 <div className="img_box_txt">
-                  <p>Welder</p>
+                  <p>
+                    {/* Welder */}
+                    {Language_arr["Welder"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -191,7 +234,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/cleaning.png" />
                 <div className="img_box_txt">
-                  <p>Cleaning</p>
+                  <p>
+                    {/* Cleaning */}
+                    {Language_arr["Cleaning"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -201,7 +247,11 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/air-conditioner.png" />
                 <div className="img_box_txt">
-                  <p>Ac Serivce</p>
+                  <p>
+                    {/* Ac Serivce */}
+                    {Language_arr["Ac Serivce"+lang]}
+                    
+                    </p>
                 </div>
               </div>
             </a>
@@ -211,7 +261,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/electrician.png" />
                 <div className="img_box_txt">
-                  <p>Electrician</p>
+                  <p>
+                    {/* Electrician */}
+                    {Language_arr["Electrician"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -223,7 +276,11 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/plumber.png" />
                 <div className="img_box_txt">
-                  <p>Plumber</p>
+                  <p>
+                    {/* Plumber */}
+                    {Language_arr["Plumber"+lang]}
+
+                  </p>
                 </div>
               </div>
             </a>
@@ -233,7 +290,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/carpenter.png" />
                 <div className="img_box_txt">
-                  <p>Carpenter</p>
+                  <p>
+                    {/* Carpenter */}
+                    {Language_arr["Carpenter"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -243,7 +303,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/painter.png" />
                 <div className="img_box_txt">
-                  <p>Painter</p>
+                  <p>
+                    {/* Painter */}
+                    {Language_arr["Painter"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -255,7 +318,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/programmer.png" />
                 <div className="img_box_txt">
-                  <p>Web Developer</p>
+                  <p>
+                    {/* Web Developer */}
+                    {Language_arr["Web Developer"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -265,7 +331,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/digital-campaign.png" />
                 <div className="img_box_txt">
-                  <p>Digital Marketing</p>
+                  <p>
+                    {/* Digital Marketing */}
+                    {Language_arr["Digital Marketing"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -275,7 +344,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/sewing.png" />
                 <div className="img_box_txt">
-                  <p>Tailor</p>
+                  <p>
+                    {/* Tailor */}
+                    {Language_arr["Tailor"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -287,7 +359,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/delivery.png" />
                 <div className="img_box_txt">
-                  <p>Pickup Delivery</p>
+                  <p>
+                    {/* Pickup Delivery */}
+                    {Language_arr["Pickup Delivery"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -297,7 +372,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/workers.png" />
                 <div className="img_box_txt">
-                  <p>Labour</p>
+                  <p>
+                    {/* Labour */}
+                    {Language_arr["Labour"+lang]}
+                    </p>
                 </div>
               </div>
             </a>
@@ -307,7 +385,10 @@ export default function Categories() {
               <div className="img_box">
                 <img src="./images/repairing.png" />
                 <div className="img_box_txt">
-                  <p>Home&Office Repairs</p>
+                  <p>
+                    {/* Home&Office Repairs */}
+                    {Language_arr["Home&Office Repairs"+lang]}
+                    </p>
                 </div>
               </div>
             </a>

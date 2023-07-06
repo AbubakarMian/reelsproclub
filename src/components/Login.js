@@ -21,10 +21,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import ContextApiContext from '../context/ContextApiContext';
-
-import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
+import ContextApiContext from '../context/ContextApiContext';
+import Common,{googleTranslate} from '../common/Common';
+
+
+
+
+
 
 async function  Translate (text){
     const context = useContext(ContextApiContext);
@@ -39,6 +43,12 @@ export default function LogIn() {
     const navigateToPath = (path) => {
         navigate(path);
     };
+
+    
+
+
+
+
     return (
         <section className="bg_img">
 
@@ -127,6 +137,7 @@ const Login_form = () => {
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 <Form.Control
+                    // placeholder="Enter your Email Address"
                     placeholder="Enter your Email Address"
                     aria-label="Username"
                     aria-describedby="basic-addon1"

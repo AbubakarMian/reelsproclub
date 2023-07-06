@@ -59,6 +59,10 @@ button.add_reelbtn.btn.btn-primary {
     border-radius: 10px;
     font-weight: bold;
 }
+svg.svg-inline--fa.fa-thumbs-up.like {
+    color: #2392e1;
+}
+
 .video_area {
     margin-top: 167px;
 }
