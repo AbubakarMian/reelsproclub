@@ -20,6 +20,12 @@ import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import Nav_bar_area from './NavBar';
+//------
+import ContextApiContext from '../context/ContextApiContext';
+import {useContext} from "react";
+import Common,{googleTranslate} from '../common/Common';
+import Language_arr from "../common/Lang";
+//------
 
 
 
@@ -32,6 +38,12 @@ export default function Search_Page() {
     const navigateToPath = (path) => {
       navigate(path);
     };
+    //-------
+    const context = useContext(ContextApiContext);
+    const lang = context.language.prefix;
+    console.log('aaaa',"LOG IN"+lang);
+    console.log('aaaa a ',Language_arr["LOG IN"+lang]);
+    //-------
     return (
         <section className="bg_body_color">
             <Nav_bar_area />
@@ -47,7 +59,8 @@ export default function Search_Page() {
                     <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
                         <div className="ques">
-                            What are you looking for ?
+                            {/* What are you looking for ? */}
+                            {Language_arr[" What are you looking for ?"+lang]}
                         </div>
                         <div className="ques_bar">
                             <InputGroup size="lg">
