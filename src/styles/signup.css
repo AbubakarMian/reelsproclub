@@ -10,9 +10,7 @@ button.add_picbtn.btn.btn-primary {
     height: 100px;
     float: right;
 }
-section.bg_clr {
-    background-color: #e7e7e7;
-}
+
 
 button.add_picbtn.btn.btn-primary:hover {
     background-color: rgb(172 190 217 / 25%);
@@ -67,4 +65,12 @@ button.backbtnsignup.btn.btn-primary {
     margin: 4px;
     border: 0px;
     color: black;
+}
+section.bg_clr {
+    background-color: #e7e7e7;
+    height: 100vh;
+}
+@media only screen and (max-width : 480px) {
+    section.bg_clr {
+    height: auto;    }
 }
