@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+// import React,{useContext} from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -21,23 +21,25 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import {ContextApiContext} from '../context/ContextApi';
 
-
+// import ContextApiContext from '../context/ContextApiContext';
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
+import {ContextApiContext} from '../context/ContextApi';
+import {useContext} from "react";
+// import Common,{googleTranslate} from '../common/Common';
 
 
 
 
 
+async function  Translate (text){
+    const context = useContext(ContextApiContext);
 
-// async function  Translate (text){
-//     const context = useContext(ContextApiContext);
-
-//     let translation = await googleTranslate(text,'ru');
-//     return translation;
-// }
+    let translation = await googleTranslate(text,'ru');
+    return translation;
+    // console.log('asdsa gg',gg);
+}
 export default function LogIn() {
     const navigate = useNavigate();
 
@@ -78,20 +80,29 @@ export default function LogIn() {
                 <Row>
                     <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
-                        <div className="forget">Forgot Password</div>
+                        <div className="forget">
+                            {/* Forgot Password */}
+                            {Language_arr["Forgot Password"+lang]}
+                            
+                            </div>
                     </Col>
                     <Col xsm={1} md={3}></Col>
 
                     <hr className="line" />
                 </Row>
                 <Row>
-                    <div className="new_Acc">Create New Account</div>
+                    <div className="new_Acc">
+                        {/* Create New Account */}
+                        {Language_arr["Create New Account"+lang]}
+                        </div>
 
                     <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
                         <div className="signup_area">
                             <Button onClick={() => navigateToPath('/signup')} className="login_btn" variant="primary">
-                                SIGN UP</Button>
+                                {/* SIGN UP */}
+                                {Language_arr["SIGN UP"+lang]}
+                                </Button>
                         </div>
 
                     </Col>
@@ -127,6 +138,8 @@ const Login_form = () => {
     const lang = context.language.prefix;
     console.log('aaaa',"LOG IN"+lang);
     console.log('aaaa a ',Language_arr["LOG IN"+lang]);
+
+    
     return (
 
         <>
@@ -189,7 +202,6 @@ const LanguageToggle =  () => {
     const [radioValue, setLanguageValue] = useState('1');
 
     const context = useContext(ContextApiContext);
-    console.log('ccc',context);
     const languageRadios = context.avalible_languages;
 
     const change_language = (lang_id)=>{
