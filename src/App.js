@@ -34,6 +34,7 @@ import MyReels from './components/MyReels';
 import LoginState from './context/login/LoginState';
 import SignUp from './components/SignUp';
 import Map from './components/Map';
+// import ContexApifun from './context/ContextApi';
 import ContexApifun from './context/ContextApi';
 import Profile from './components/Profile';
 
