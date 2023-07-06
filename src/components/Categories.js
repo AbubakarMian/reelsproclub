@@ -21,7 +21,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate  } from "react-router-dom";
 import Nav_bar_area from './NavBar';
 //------
-import ContextApiContext from '../context/ContextApiContext';
+import {ContextApiContext} from '../context/ContextApi';
+
 import {useContext} from "react";
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
