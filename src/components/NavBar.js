@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import loginContext from '../context/login/loginContext';
 // import ContexApifun from '../context/ContextApi';
-import ContextApiContext from '../context/ContextApiContext';
+// import ContextApiContext from '../context/ContextApiContext';
+import {ContextApiContext} from '../context/ContextApi';
+
 import '../App.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Navbar, Nav, Container } from 'react-bootstrap';

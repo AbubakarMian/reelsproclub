@@ -21,18 +21,18 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import ContextApiContext from '../context/ContextApiContext';
+// import ContextApiContext from '../context/ContextApiContext';
+import {ContextApiContext} from '../context/ContextApi';
 
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
 
-async function  Translate (text){
-    const context = useContext(ContextApiContext);
+// async function  Translate (text){
+//     const context = useContext(ContextApiContext);
 
-    let translation = await googleTranslate(text,'ru');
-    return translation;
-    // console.log('asdsa gg',gg);
-}
+//     let translation = await googleTranslate(text,'ru');
+//     return translation;
+// }
 export default function LogIn() {
     const navigate = useNavigate();
 
@@ -165,6 +165,7 @@ const LanguageToggle =  () => {
     const [radioValue, setLanguageValue] = useState('1');
 
     const context = useContext(ContextApiContext);
+    console.log('ccc',context);
     const languageRadios = context.avalible_languages;
 
     const change_language = (lang_id)=>{
