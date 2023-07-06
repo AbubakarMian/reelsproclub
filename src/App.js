@@ -25,6 +25,7 @@ import Users from './components/Users';
 import Landing_page from './components/Landing_page';
 import Login from './components/Login';
 import Camera from './components/Camera';
+import MyCamera from './components/MyCamera';
 import Categories from './components/Categories';
 import Search_page from './components/Search_page';
 import People from './components/People';
@@ -57,7 +58,8 @@ function App() {
         <Route Component={Search_page} path='search'></Route>
         <Route Component={Login} path='login'></Route>
         <Route Component={Landing_page} path='landing'></Route>
-        <Route Component={Camera} path='camera'></Route>
+        {/* <Route Component={Camera} path='camera'></Route> */}
+        <Route Component={MyCamera} path='camera'></Route>
         <Route Component={Contactus} path='contactus'></Route>
         <Route Component={Users} path='users'></Route>
         <Route Component={ReelVideo} path='reelvideo'></Route>

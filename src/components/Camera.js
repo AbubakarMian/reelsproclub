@@ -222,13 +222,13 @@ export default class App extends Component {
             <div />
             <div />
           </button>
-          <button
+          {/* <button
             className="action-photo"
             onClick={this.capturePhoto}
             disabled={isRecording || starting || stopping}
-          >
-            <div />
-          </button>
+          > */}
+            {/* <div /> */}
+          {/* </button> */}
           {isRecording ? (
             <button
               className="action-stop-video"
