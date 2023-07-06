@@ -10,6 +10,7 @@ import './../styles/profile.css';
 import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus,
+    faArrowLeft,
         faLocationDot }
         from '@fortawesome/free-solid-svg-icons'
 import Row from 'react-bootstrap/Row';
@@ -35,8 +36,14 @@ export default function Profile() {
     };
     return (
         <div>
-            <Nav_bar_area />
-            
+       
+            <Container>
+        <Row>
+          <Col>
+            <Button className="profile-backbtnsignup" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faArrowLeft} /> </Button>
+          </Col>
+        </Row>
+      </Container>
         <section className="bg_color">
         <div className="language_area"><LanguageToggle /></div>
 

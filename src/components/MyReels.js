@@ -65,7 +65,7 @@ export default function MyReels_page_export() {
             <div className="info_area">
                 <div className="likes_area">
               <p>
-              <FontAwesomeIcon icon={faEye} />(129)<FontAwesomeIcon className="like" icon={faThumbsUp} />
+              <FontAwesomeIcon icon={faEye} />(129)<FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                 (112 )   </p>
                 </div>
               <Button onClick={()=>{navigate('/reelvideo')}} className="viewbtn">View</Button>
@@ -92,7 +92,7 @@ export default function MyReels_page_export() {
           <div className="info_area">
                 <div className="likes_area">
               <p>
-              <FontAwesomeIcon icon={faEye} />(129)            <FontAwesomeIcon className="like" icon={faThumbsUp} />
+              <FontAwesomeIcon icon={faEye} />(129)            <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                 (112 )   </p>
                 </div>
               <Button onClick={()=>{navigate('/reelvideo')}} className="viewbtn">View</Button>
@@ -119,7 +119,7 @@ export default function MyReels_page_export() {
           <div className="info_area">
                 <div className="likes_area">
               <p>
-              <FontAwesomeIcon icon={faEye} />(129)            <FontAwesomeIcon className="like" icon={faThumbsUp} />
+              <FontAwesomeIcon icon={faEye} />(129)            <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                 (112 )   </p>
                 </div>
               <Button onClick={()=>{navigate('/reelvideo')}} className="viewbtn">View</Button>
@@ -147,7 +147,7 @@ export default function MyReels_page_export() {
           <div className="info_area">
                 <div className="likes_area">
               <p>
-              <FontAwesomeIcon icon={faEye} />(129)            <FontAwesomeIcon className="like" icon={faThumbsUp} />
+              <FontAwesomeIcon icon={faEye} />(129)            <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                 (112 )   </p>
                 </div>
               <Button onClick={()=>{navigate('/reelvideo')}} className="viewbtn">View</Button>

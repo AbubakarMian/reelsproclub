@@ -26,6 +26,13 @@ import {ContextApiContext} from '../context/ContextApi';
 
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
+import ContextApiContext from '../context/ContextApiContext';
+import Common,{googleTranslate} from '../common/Common';
+
+
+
+
+
 
 // async function  Translate (text){
 //     const context = useContext(ContextApiContext);
@@ -39,6 +46,12 @@ export default function LogIn() {
     const navigateToPath = (path) => {
         navigate(path);
     };
+
+    
+
+
+
+
     return (
         <section className="bg_img">
 
@@ -120,10 +133,14 @@ const Login_form = () => {
 
         <>
 
-            <Form.Label className="labl" htmlFor="basic-url">Email (required*)</Form.Label>
+            <Form.Label className="labl" htmlFor="basic-url">
+                {/* Email (required*) */}
+                {Language_arr["Email (required*)"+lang]}
+                </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 <Form.Control
+                    // placeholder="Enter your Email Address"
                     placeholder="Enter your Email Address"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
