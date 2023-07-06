@@ -48,11 +48,11 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Alex</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   </p>
                 </div>
               </div>
@@ -65,10 +65,10 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Albert</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   </p>
                 </div>
@@ -82,10 +82,10 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Jacob</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   </p>
                 </div>
@@ -101,9 +101,9 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Brad</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   </p>
@@ -118,9 +118,9 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Smith</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   </p>
@@ -135,8 +135,8 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Jhon</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
@@ -154,8 +154,8 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Michel</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
@@ -171,8 +171,8 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>David</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
@@ -188,7 +188,7 @@ export default function People_page_export() {
                 <div className="img_box_txt">
                   <p>Clark</p>
                   <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "#fbff14",}} />
+                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
                   <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />

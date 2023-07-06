@@ -23,6 +23,9 @@ div#offcanvasNavbar-expand-lg {
   background-color: #e1ebe3 !important;
   /* color: red; */
 }
+.nav_bottom svg.svg-inline--fa {
+  padding-right: 15px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

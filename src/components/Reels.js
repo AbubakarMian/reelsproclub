@@ -32,7 +32,7 @@ export default function Reels_page_export() {
   return (
     <section className="">
       <Nav_bar_area />
-      <Container fluid>
+      <Container fluid className="reelArea">
         {/* <Row>
           <Col>
             <div className="top_head_mec">REELS</div>
@@ -56,10 +56,10 @@ export default function Reels_page_export() {
                 <b>Robert</b>
               </p>
               <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
@@ -82,10 +82,10 @@ export default function Reels_page_export() {
               </p>
 
               <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
@@ -108,10 +108,10 @@ export default function Reels_page_export() {
               </p>
 
               <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
@@ -134,10 +134,10 @@ export default function Reels_page_export() {
                 <b>Jacob</b>
               </p>
               <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fbff14" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
+                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
               <p>
