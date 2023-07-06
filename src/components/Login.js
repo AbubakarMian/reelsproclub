@@ -21,13 +21,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-// import ContextApiContext from '../context/ContextApiContext';
 import {ContextApiContext} from '../context/ContextApi';
 
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
-import ContextApiContext from '../context/ContextApiContext';
-import Common,{googleTranslate} from '../common/Common';
 
 
 
