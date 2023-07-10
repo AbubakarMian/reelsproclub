@@ -19,8 +19,12 @@ export function change_time_stamp(start_time) {
   }
   
   export async function googleTranslate(text,lang,that) {
+    console.log('googleTranslate',text);
+    console.log('googleTranslate lang',lang);
+    console.log('googleTranslate',Lang[text]);
+    return 'googleTranslate' ;
 
-    if(lang == 'en'){
+    if(lang == '_en'){
         return text;
     }
     else{
