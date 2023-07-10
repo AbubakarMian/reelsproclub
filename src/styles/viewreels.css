@@ -14,3 +14,14 @@
     
     
     }
+    video#background-video1 {
+        width: 100%;
+    }
+    section.reeel_cover {
+        background-color: black;
+        height: 100vh;
+        /* padding: 1px; */
+    }
+    .row.nomargin {
+        margin-top: -7px;
+    }

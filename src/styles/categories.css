@@ -35,6 +35,14 @@ a.link_dec {
     font-size: 19px;
 }
 
+
+.colCat {
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
 @media only screen and (max-width : 480px) {
       
         
@@ -49,7 +57,8 @@ a.link_dec {
         height: 165px;
     }
     .img_box_txt p {
-        margin-top: 2px;
         font-size: 14px;
+        margin: 0px;
+        margin-top: 5px;
     }
 }
