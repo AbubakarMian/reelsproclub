@@ -67,6 +67,11 @@ export default function Reels_page_export() {
                 (112 likes)
               </p>
             </div>
+            <div className="btn_areaa">
+            <Button className="reel_btn">view</Button>
+            <Button className="reel_btn">Hire</Button>
+            </div>
+
           </Col>
         </Row>
         <Row className="reel_box">
@@ -93,6 +98,11 @@ export default function Reels_page_export() {
                 (112 likes)
               </p>
             </div>
+            <div className="btn_areaa">
+            <Button className="reel_btn">view</Button>
+            <Button className="reel_btn">Hire</Button>
+            </div>
+
           </Col>
         </Row>
         <Row className="reel_box">
@@ -119,6 +129,11 @@ export default function Reels_page_export() {
                 (112 likes)
               </p>
             </div>
+            <div className="btn_areaa">
+            <Button className="reel_btn">view</Button>
+            <Button className="reel_btn">Hire</Button>
+            </div>
+
           </Col>
         </Row>
 
@@ -145,6 +160,11 @@ export default function Reels_page_export() {
                 (112 likes)
               </p>
             </div>
+            <div className="btn_areaa">
+            <Button className="reel_btn">view</Button>
+            <Button className="reel_btn">Hire</Button>
+            </div>
+
           </Col>
         </Row>
       </Container>

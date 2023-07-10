@@ -29,7 +29,14 @@ import Language_arr from "../common/Lang";
 //------
 
 export default function Categories() {
+  const max_length = 13;
   const navigate = useNavigate();
+
+  const get_string_lable =(str_n)=>{
+    const str = Language_arr[str_n+lang];
+    return str.length < max_length?str :
+                      str.substring(0,max_length)+'....'
+  }
 
     const navigateToPath = (path) => {
       navigate(path);
@@ -64,8 +71,8 @@ export default function Categories() {
 
                 <div className="img_box_txt">
                   <p>
-                    {/* Moving */}
-                    {Language_arr["Moving"+lang]}
+                    {get_string_lable("Moving")}
+                    {/* {Language_arr["Moving"+lang]} */}
 
                     </p>
                 </div>
@@ -250,7 +257,9 @@ export default function Categories() {
                 <div className="img_box_txt">
                   <p>
                     {/* Ac Serivce */}
-                    {Language_arr["Ac Serivce"+lang]}
+                    {
+                      get_string_lable("Ac Serivce")
+                    }
                     
                     </p>
                 </div>

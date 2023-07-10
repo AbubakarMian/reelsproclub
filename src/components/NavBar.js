@@ -88,6 +88,7 @@ export default function Nav_bar_area() {
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="signup"><FontAwesomeIcon icon={faUserPlus} /> Sign Up</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faUsers} /> Profile</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faUsers} /> View Reels</Nav.Link></div>
                     
                       {/* <NavDropdown
       
