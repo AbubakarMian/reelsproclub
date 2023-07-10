@@ -30,8 +30,12 @@ import video2 from "../videos/vid2.mp4";
 import video3 from "../videos/vid3.mp4";
 import video4 from "../videos/vid4.mp4";
 import video5 from "../videos/vid5.mp4";
-import video7 from "../videos/vid7.mp4";
+import vide06 from "../videos/vid7.mp4";
+import vide07 from "../videos/vid7.mp4";
+import video8 from "../videos/vid7.mp4";
+import video9 from "../videos/vid7.mp4";
 
+import { RWebShare } from "react-web-share";
 
 export default function MyReels_page_export() {
   const navigate = useNavigate();
@@ -48,131 +52,259 @@ export default function MyReels_page_export() {
     //             src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     //             // width={1320}
     //             // height={"100vh"}
-    //             /> 
+    //             />
     <div>
       <section className="reeel_back">
         <Container>
-          <Row className="" >
+          <Row className="">
             <Col>
-              <Button className="backbtnsignup" onClick={() => navigate(-1)}><FontAwesomeIcon icon={faArrowLeft} /> </Button>
+              <Button className="backbtnsignup" onClick={() => navigate(-1)}>
+                <FontAwesomeIcon icon={faArrowLeft} />{" "}
+              </Button>
             </Col>
           </Row>
         </Container>
       </section>
       <section className="reeel_cover">
-
         <Container fluid>
           <Row className="">
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1"  resizeMode='cover'  // height="720" width="1280"  ratio="16:9" 
-                //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                source src={Road}
-
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  resizeMode="cover" // height="720" width="1280"  ratio="16:9"
+                  //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                  source
+                  src={Road}
+                ></video>
+                <div>
+                  <h1>Web Share - GeeksforGeeks</h1>
+                  <RWebShare
+                    data={{
+                      text: "Web Share",
+                      url: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+                      title: "GfG",
+                    }}
+                    onClick={() => console.log("shared successfully!")}
+                  >
+                    <button>Share on Web</button>
+                  </RWebShare>
+                </div>
               </div>
             </Col>
 
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-
-              <video id="background-video1" loop autoPlay // height="720" width="1280"
-                source src={video1}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay // height="720" width="1280"
+                  source
+                  src={video1}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover'  // height="720" width="1280"
-                source src={Pizza}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-                {/* <source src={require(Video)} type="video/mp4"/>         */}
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={Pizza}
+                >
+                  {/* <source src={require(Video)} type="video/mp4"/>         */}
+                </video>
               </div>
             </Col>
           </Row>
           <Row className="nomargin">
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video2}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video2}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video3}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video3}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video4}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video4}
+                ></video>
               </div>
             </Col>
           </Row>
           <Row className="nomargin ">
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video5}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video5}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video6}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={vide06}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video7}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={vide07}
+                ></video>
               </div>
             </Col>
           </Row>
           <Row className="nomargin ">
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video8}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video8}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video9}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video9}
+                ></video>
               </div>
             </Col>
             <Col className="columnn">
-            <div className="clickable" onClick={()=>{navigate('/reelvideo')}}>
-              <video id="background-video1" loop autoPlay ratio="16:9" resizeMode='cover' // height="720" width="1280"
-                source src={video1}
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
               >
-              </video>
+                <video
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video1}
+                ></video>
               </div>
             </Col>
           </Row>
         </Container>
       </section>
     </div>
-  )
+  );
 }
