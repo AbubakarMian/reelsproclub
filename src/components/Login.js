@@ -25,6 +25,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 // import ContextApiContext from '../context/ContextApiContext';
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
+
 import {ContextApiContext} from '../context/ContextApi';
 import {useContext} from "react";
 // import Common,{googleTranslate} from '../common/Common';
@@ -40,15 +41,26 @@ async function  Translate (text){
     return translation;
     // console.log('asdsa gg',gg);
 }
-export default function LogIn() {
+export default  function LogIn() {
     const navigate = useNavigate();
 
     const navigateToPath = (path) => {
         navigate(path);
     };
+// yaha sa 
+    const context = useContext(ContextApiContext);
 
-    
+    const lang = context.language.prefix;
+    const max_length = 13;
 
+
+    const get_string_lable =(str_n)=>{
+        const str = Language_arr[str_n+lang];
+        return str.length < max_length?str :
+                          str.substring(0,max_length)+'....'
+      }
+
+// yaha tk utthalo 
 
 
 
@@ -82,7 +94,8 @@ export default function LogIn() {
                     <Col xsm={10} md={6}>
                         <div className="forget">
                             {/* Forgot Password */}
-                            {Language_arr["Forgot Password"+lang]}
+                            {/* {Language_arr["Forgot Password"+lang]} */}
+                            {get_string_lable("Forgot Password")}
                             
                             </div>
                     </Col>
