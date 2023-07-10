@@ -28,7 +28,7 @@ import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
 //------
 
-export default function Categories() {
+function Categories() {
   const max_length = 13;
   const navigate = useNavigate();
 
@@ -56,7 +56,8 @@ export default function Categories() {
           <Col>
             <div className="top_head">
               {/* What do you need help with ? */}
-              {Language_arr["What do you need help with ?"+lang]}
+              {/* {Language_arr["What do you need help with ?"+lang]} */}
+              {get_string_lable("What do you need help with ?")}
               </div>
           </Col>
         </Row>
@@ -410,42 +411,4 @@ export default function Categories() {
   );
 }
 
-const Login_form = () => {
-  return (
-    <>
-      <Form.Label className="labl" htmlFor="basic-url">
-        Email (required*)
-      </Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-        <Form.Control
-          placeholder="Enter your Email Address"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-      <Form.Label className="labl" htmlFor="basic-url">
-        Password (required*)
-      </Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
-        <Form.Control
-          placeholder="Enter Password"
-          aria-label="Password"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-      <div key={`default-checkbox`} className="mb-3">
-        <Form.Check // prettier-ignore
-          type="checkbox"
-          id={`default-checkbox`}
-          label={`Remember Me`}
-          className="remember"
-        />
-      </div>
-      <Button className="login_btn" variant="primary">
-        LOG IN
-      </Button>
-    </>
-  );
-};
+export default Categories;
