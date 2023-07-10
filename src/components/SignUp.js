@@ -80,7 +80,7 @@ export default function Signup(props) {
                       <Form.Label>First Name*</Form.Label>
                       <Form.Control
                         type="text"
-                        placeholder="Enter First Name"
+                        placeholder="First Name"
                       />
                     </Form.Group>
                   </Form>
@@ -96,7 +96,7 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Last Name*</Form.Label>
-                      <Form.Control type="text" placeholder="Enter Last Name" />
+                      <Form.Control type="text" placeholder="Last Name" />
                     </Form.Group>
                   </Form>
                 </div>
@@ -134,7 +134,7 @@ export default function Signup(props) {
                   </Form>
                 </div>
               </Col>
-              <Col>
+              {/* <Col>
                 <div className="form_area">
                   <Form>
                     <Form.Group
@@ -146,7 +146,7 @@ export default function Signup(props) {
                     </Form.Group>
                   </Form>
                 </div>
-              </Col>
+              </Col> */}
             </Row>
             <Row>
               <Col>
@@ -154,9 +154,8 @@ export default function Signup(props) {
                   <Form.Label>Categories*</Form.Label>
                   <Form.Select aria-label="Default select example">
                     <option>Select</option>
-                    <option value="1">Category One</option>
-                    <option value="2">Category Two</option>
-                    <option value="3">Category Three</option>
+                    <option value="1">Food</option>
+                    <option value="2">Mechanics</option>
                   </Form.Select>
                 </div>
               </Col>
@@ -165,9 +164,8 @@ export default function Signup(props) {
                   <Form.Label>Skills*</Form.Label>
                   <Form.Select aria-label="Default select example">
                     <option>Select</option>
-                    <option value="1">Skill One</option>
-                    <option value="2">Skill Two</option>
-                    <option value="3">Skill Three</option>
+                    <option value="1">Chef </option>
+                    <option value="2">Waiter</option>
                   </Form.Select>
                 </div>
               </Col>
