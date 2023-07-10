@@ -140,12 +140,12 @@ export const ContexApifun = (props) => {
     let initState = {
         "avalible_languages": [
             {
-                "id": 1,
+                "id": '1',
                 "name": "English",
                 "prefix": "_en"
             },
             {
-                "id": 2,
+                "id": '2',
                 "name": "Russian",
                 "prefix": "_ru"
             }
@@ -156,7 +156,7 @@ export const ContexApifun = (props) => {
         //     "prefix": "_en"
         // },
         "language":{
-            "id":2,
+            "id":'2',
             "name":"Russian",
             "prefix":"_ru"
         },
@@ -170,8 +170,6 @@ export const ContexApifun = (props) => {
     }
 
     const setContextState = (update_obj, obj_name) => {
-
-
 
         switch (obj_name) {
             case 'language':
