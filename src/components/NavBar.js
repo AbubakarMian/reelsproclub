@@ -24,19 +24,6 @@ import { faUsers,faHouse,
   faFilm,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
-import Home from './Home';
-import Contactus from './Contactus';
-import Users from './Users';
-import Landing_page from './Landing_page';
-import Login from './Login';
-import Camera from './Camera';
-import Categories from './Categories';
-import Search_page from './Search_page';
-import People from './People';
-import Reels from './Reels';
-import ReelVideo from './ReelVideo';
-import MyReels from './MyReels';
-import lanuageContext from '../context/language/languageContext';
 
 
 
@@ -89,6 +76,7 @@ export default function Nav_bar_area() {
                       <div className='nav_bottom'><Nav.Link href="signup"><FontAwesomeIcon icon={faUserPlus} /> Sign Up</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faUsers} /> Profile</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faUsers} /> View Reels</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="hire"><FontAwesomeIcon icon={faUsers} /> Hire</Nav.Link></div>
                     
                       {/* <NavDropdown
       

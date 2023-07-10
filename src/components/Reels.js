@@ -11,7 +11,7 @@ import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp ,faEye ,faShare} from "@fortawesome/free-solid-svg-icons";
 import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -68,8 +68,9 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn">view</Button>
-            <Button className="reel_btn">Hire</Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>            
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
           </Col>
@@ -99,8 +100,9 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn">view</Button>
-            <Button className="reel_btn">Hire</Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
           </Col>
@@ -130,8 +132,9 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn">view</Button>
-            <Button className="reel_btn">Hire</Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
           </Col>
@@ -161,8 +164,9 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn">view</Button>
-            <Button className="reel_btn">Hire</Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
           </Col>
@@ -211,3 +215,4 @@ const Login_form = () => {
     </>
   );
 };
+//7e1c4d  
