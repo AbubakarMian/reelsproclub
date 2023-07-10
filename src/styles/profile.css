@@ -13,6 +13,7 @@ section.bg_color {
     background-color: rgb(100 113 133 / 70%);
     /* background-color: cadetblue; */
     padding: 10px;
+    height: 100vh;
 }
 button.submit_btn.btn.btn-primary {
     width: 100%;
@@ -45,4 +46,10 @@ button.profile-backbtnsignup.btn.btn-primary {
     margin: 4px;
     border: 0px;
     color: black;
+}
+@media only screen and (max-width : 480px) {
+  
+    section.bg_color {
+        height: auto;    
+    }
 }

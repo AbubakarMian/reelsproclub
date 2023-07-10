@@ -19,7 +19,7 @@ import { faUsers,faHouse,
   faPhoneVolume,
   faMagnifyingGlass,
   faRightToBracket,
-  faHandHoldingHand,
+  faBoxesStacked,
   faUserPlus,
   faFilm,
       faArrowRightFromBracket 
@@ -82,12 +82,13 @@ export default function Nav_bar_area() {
                       <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> Login</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="landing"><FontAwesomeIcon icon={faUsers} /> Landing</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faHandHoldingHand} /> Categories</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faBoxesStacked} />Categories</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="people"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="signup"><FontAwesomeIcon icon={faUserPlus} /> Sign Up</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faUsers} /> Profile</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faUsers} /> View Reels</Nav.Link></div>
                     
                       {/* <NavDropdown
       

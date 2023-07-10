@@ -23,7 +23,8 @@ lang['Handyman_en'] = 'Handyman';
 lang['Handyman_ru'] = 'Разнорабочий';
 
 lang['Event Planner_en'] = 'Event Planner';
-lang['Event Planner_ru'] = ' Планировщик мероприятий ';
+// lang['Event Planner_ru'] = ' Планировщик мероприятий ';
+lang['Event Planner_ru'] = 'Планировщик';
 
 lang['Fitness Trainer_en'] = 'Fitness Trainer';
 lang['Fitness Trainer_ru'] = ' Тренер по фитнесу ';
@@ -99,6 +100,12 @@ lang['remember_ru'] = ' помнить';
 
 lang['Forgot Password_en'] = 'Forgot Password';
 lang['Forgot Password_ru'] = ' Забыли пароль ';
+
+lang['Remember Me_en'] = 'Remember Me';
+lang['Remember Me_ru'] = 'Запомнить меня';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
 
 lang['Create New Account_en'] = 'Create New Account';
 lang['Create New Account_ru'] = ' Создать новый аккаунт ';

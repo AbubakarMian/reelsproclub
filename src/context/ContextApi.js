@@ -103,36 +103,36 @@ export const ContextApiContext = React.createContext({
         name: "Guest",
         token: "basictoken"
     },
-    setContextState: (update_obj, obj_name) => {
+    // setContextState: (update_obj, obj_name) => {
 
 
 
-        switch (obj_name) {
-            case 'language':
-                let lang = contextState['avalible_languages'].find((element) => {
-                    console.log('element.id === update_obj', element.id, parseInt(update_obj));
-                    return element.id === parseInt(update_obj);
-                });
-                contextState[obj_name] = lang;
-                setContextState(contextState)
-                console.log('updated context', contextState);
+    //     switch (obj_name) {
+    //         case 'language':
+    //             let lang = contextState['avalible_languages'].find((element) => {
+    //                 console.log('element.id === update_obj', element.id, parseInt(update_obj));
+    //                 return element.id === parseInt(update_obj);
+    //             });
+    //             contextState[obj_name] = lang;
+    //             setContextState(contextState)
+    //             console.log('updated context', contextState);
 
-                //   console.log('update_obj ',update_obj);
-                //   console.log('found  contextState[avalible_languages ',contextState['avalible_languages']);
-                console.log('found  lang ', lang);
-                //   console.log('contextState obj_name ',obj_name);
-                //   console.log('contextState ',contextState);
-                //   console.log('contextState lang',contextState[obj_name]);
-                break;
+    //             //   console.log('update_obj ',update_obj);
+    //             //   console.log('found  contextState[avalible_languages ',contextState['avalible_languages']);
+    //             console.log('found  lang ', lang);
+    //             //   console.log('contextState obj_name ',obj_name);
+    //             //   console.log('contextState ',contextState);
+    //             //   console.log('contextState lang',contextState[obj_name]);
+    //             break;
 
-            default:
-                contextState[obj_name] = update_obj;
-                setContextState(contextState)
-                break;
+    //         default:
+    //             contextState[obj_name] = update_obj;
+    //             setContextState(contextState)
+    //             break;
 
-        }
+    //     }
 
-    }
+    // }
 })
 
 export const ContexApifun = (props) => {

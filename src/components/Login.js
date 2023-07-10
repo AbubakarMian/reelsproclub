@@ -180,7 +180,9 @@ const Login_form = () => {
                     id={`default-checkbox`}
                     label={
                         // `Remember Me`
-                        `{Language_arr["Remember Me"+lang]}`
+                        // {Language_arr["Remember Me"+lang]}
+                Language_arr["Remember Me"+lang]
+
                     }
                     
                     className="remember"

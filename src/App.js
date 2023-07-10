@@ -25,6 +25,7 @@ import Users from './components/Users';
 import Landing_page from './components/Landing_page';
 import Login from './components/Login';
 import Camera from './components/Camera';
+import MyCamera from './components/MyCamera';
 import Categories from './components/Categories';
 import Search_page from './components/Search_page';
 import People from './components/People';
@@ -37,6 +38,7 @@ import Map from './components/Map';
 // import ContexApifun from './context/ContextApi';
 import ContexApifun from './context/ContextApi';
 import Profile from './components/Profile';
+import ViewReels from './components/ViewReels';
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+        <Route Component={ViewReels} path='viewreels'></Route>
         <Route Component={Profile} path='profile'></Route>
         <Route Component={Map} path='map'></Route>
         <Route Component={SignUp} path='signup'></Route>
@@ -57,7 +60,8 @@ function App() {
         <Route Component={Search_page} path='search'></Route>
         <Route Component={Login} path='login'></Route>
         <Route Component={Landing_page} path='landing'></Route>
-        <Route Component={Camera} path='camera'></Route>
+        {/* <Route Component={Camera} path='camera'></Route> */}
+        <Route Component={MyCamera} path='camera'></Route>
         <Route Component={Contactus} path='contactus'></Route>
         <Route Component={Users} path='users'></Route>
         <Route Component={ReelVideo} path='reelvideo'></Route>
@@ -69,7 +73,16 @@ function App() {
     </div>
   );
 }
-
+ function Test (){
+  return(
+    <video id="background-video1"  loop autoPlay // height="720" width="1280"
+                // source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                >
+                  <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"/>
+              </video>
+  )
+} 
 export default App;
+// export default App;
 
 
