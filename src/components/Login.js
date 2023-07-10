@@ -47,6 +47,8 @@ export default  function LogIn() {
     const navigateToPath = (path) => {
         navigate(path);
     };
+
+    
 // yaha sa 
     const context = useContext(ContextApiContext);
 
@@ -114,7 +116,8 @@ export default  function LogIn() {
                         <div className="signup_area">
                             <Button onClick={() => navigateToPath('/signup')} className="login_btn" variant="primary">
                                 {/* SIGN UP */}
-                                {Language_arr["SIGN UP"+lang]}
+                                {/* {Language_arr["SIGN UP"+lang]} */}
+                                {get_string_lable("SIGN UP")}
                                 </Button>
                         </div>
 
@@ -140,6 +143,7 @@ export default  function LogIn() {
     );
 }
 
+
 const Login_form = () => {
     const navigate = useNavigate();
 
@@ -147,10 +151,22 @@ const Login_form = () => {
         navigate(path);
     };
     
-    const context = useContext(ContextApiContext);
-    const lang = context.language.prefix;
-    console.log('aaaa',"LOG IN"+lang);
-    console.log('aaaa a ',Language_arr["LOG IN"+lang]);
+   
+    
+// yaha sa 
+const context = useContext(ContextApiContext);
+
+const lang = context.language.prefix;
+const max_length = 13;
+
+
+const get_string_lable =(str_n)=>{
+    const str = Language_arr[str_n+lang];
+    return str.length < max_length?str :
+                      str.substring(0,max_length)+'....'
+  }
+
+// yaha tk utthalo 
 
     
     return (
@@ -159,13 +175,15 @@ const Login_form = () => {
 
             <Form.Label className="labl" htmlFor="basic-url">
                 {/* Email (required*) */}
-                {Language_arr["Email (required*)"+lang]}
+                {/* {Language_arr["Email (required*)"+lang]} */}
+                {get_string_lable("SIGN UP")}
                 </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 <Form.Control placeholder=
                 // Enter your Email Address
-                {Language_arr["Enter your Email Address"+lang]}
+                // {Language_arr["Enter your Email Address"+lang]}
+                {get_string_lable("Enter your Email Address")}
                 
                 
                     
@@ -175,14 +193,17 @@ const Login_form = () => {
             </InputGroup>
             <Form.Label className="labl" htmlFor="basic-url">
                 {/* Password (required*) */}
-                {Language_arr["Password (required*)"+lang]}
+                {/* {Language_arr["Password (required*)"+lang]} */}
+                {get_string_lable("Password (required*)")}
                 </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
                     placeholder=    
                 // "Enter Password"
-                {Language_arr["Enter Password"+lang]}
+                // {Language_arr["Enter Password"+lang]}
+                {get_string_lable("Enter Password")}
+                
                     aria-label="Password"
                     aria-describedby="basic-addon1"
                 />
@@ -191,19 +212,24 @@ const Login_form = () => {
                 <Form.Check // prettier-ignore
                     type='checkbox'
                     id={`default-checkbox`}
-                    label={
-                        // `Remember Me`
-                        // {Language_arr["Remember Me"+lang]}
-                Language_arr["Remember Me"+lang]
+                    label=
+                    // {
+                    //     // `Remember Me`
+                    //     // {Language_arr["Remember Me"+lang]} 
+                    //     Language_arr["Remember Me"+lang]}
+                    {get_string_lable("Remember Me")}
 
-                    }
-                    
-                    className="remember"
-                />
+
+                         className="remember"/>
+
+
+            
+
             </div>
             <Button onClick={() => navigateToPath('/search')} className="login_btn" variant="primary">
                 {/* LOG IN */}
-                {Language_arr["LOG IN"+lang]}
+                {/* {Language_arr["LOG IN"+lang]} */}
+                {get_string_lable("LOG IN")}
             </Button>
 
         </>
@@ -229,6 +255,8 @@ const LanguageToggle =  () => {
         // let t =  googleTranslate('How are you','ru');
         // console.log('translation ',t);
     }
+
+
     
     // [
     //     { name: 'English', value: '1' },
