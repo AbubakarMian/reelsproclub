@@ -66,11 +66,29 @@ button.backbtnsignup.btn.btn-primary {
     border: 0px;
     color: black;
 }
+.buttons_area {
+    display: flex;
+    justify-content: center;
+}
 section.bg_clr {
     background-color: #e7e7e7;
     height: 100vh;
 }
+button.modal_btn.btn.btn-primary {
+    width: 134px;
+    font-weight: bold;
+    margin-right: 16px;
+    border: solid #087bbc 1px;
+    background-color: transparent;
+    color: #087bbc;
+    box-shadow: 3px 6px 8px 0px #087bbc;
+}
+.modl_submit {
+    width: 100%;
+    margin: 22px 0px;
+}
 @media only screen and (max-width : 480px) {
     section.bg_clr {
-    height: auto;    }
+        height: 100vh;
+        }
 }

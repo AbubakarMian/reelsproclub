@@ -17,14 +17,19 @@ img.collapse_logo {
 
 .bg-body-tertiary {
   --bs-bg-opacity: 1;
-  background-color: #e1ebe3 !important;
+  background-color: #7e1c4d !important;
+  border-bottom: 1px solid white ;
 }
 div#offcanvasNavbar-expand-lg {
-  background-color: #e1ebe3 !important;
-  /* color: red; */
+  background-color: #7e1c4d !important;
+  color: white;
 }
 .nav_bottom svg.svg-inline--fa {
   padding-right: 15px;
+}
+.nav-link {
+  
+  border-bottom: 1px solid #410737 !important;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

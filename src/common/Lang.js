@@ -113,11 +113,11 @@ lang['Create New Account_ru'] = ' Создать новый аккаунт ';
 lang['SIGN UP_en'] = 'SIGN UP';
 lang['SIGN UP_ru'] = ' ЗАРЕГИСТРИРОВАТЬСЯ ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['GO_en'] = 'GO';
+lang['GO_ru'] = 'идти';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['See more_en'] = 'See more';
+lang['See more_ru'] = 'Узнать больше';
 
 lang['_en'] = '';
 lang['_ru'] = '  ';
