@@ -45,6 +45,21 @@ export default function Search_Page() {
     console.log('aaaa',"LOG IN"+lang);
     console.log('aaaa a ',Language_arr["LOG IN"+lang]);
     //-------
+      
+// yaha sa 
+
+const max_length = 13;
+
+
+const get_string_lable =(str_n)=>{
+    const str = Language_arr[str_n+lang];
+    return str.length < max_length?str :
+                      str.substring(0,max_length)+'....'
+  }
+
+// yaha tk utthalo 
+
+
     return (
         <section className="bg_body_color">
             <Nav_bar_area />
@@ -70,7 +85,10 @@ export default function Search_Page() {
                                     aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm"
                                 />
-                            <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">GO</Button>
+                            <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">
+                                {/* GO */}
+                                {get_string_lable("GO")}
+                                </Button>
 
                             </InputGroup>
 
@@ -84,7 +102,10 @@ export default function Search_Page() {
                     <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
                         <div className="seemore">
-                            <a href="#">See more <FontAwesomeIcon icon={faArrowRight} /></a>
+                            <a href="#">
+                                {/* See more */}
+                                {get_string_lable("See more")}
+                                 <FontAwesomeIcon icon={faArrowRight} /></a>
                         </div>
                         
 

@@ -30,18 +30,18 @@ import video2 from "../videos/vid2.mp4";
 import video3 from "../videos/vid3.mp4";
 import video4 from "../videos/vid4.mp4";
 import video5 from "../videos/vid5.mp4";
-import vide06 from "../videos/vid7.mp4";
+import vide06 from "../videos/vid6.mp4";
 import vide07 from "../videos/vid7.mp4";
-import video8 from "../videos/vid7.mp4";
-import video9 from "../videos/vid7.mp4";
+import video8 from "../videos/vid8.mp4";
+import video9 from "../videos/vid9.mp4";
 
 import { RWebShare } from "react-web-share";
 
 export default function MyReels_page_export() {
   const navigate = useNavigate();
 
-  const navigateToPath = (path) => {
-    navigate(path);
+  const navigateToPath = (path, _obj) => {
+    navigate(path, _obj);
   };
   return (
     // <Player
@@ -72,7 +72,7 @@ export default function MyReels_page_export() {
               <div
                 className="clickable"
                 onClick={() => {
-                  navigate("/reelvideo");
+                  navigate("/reelvideo", { video_src: video1 });
                 }}
               >
                 <video
@@ -80,21 +80,8 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"  ratio="16:9"
                   //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
                   source
-                  src={Road}
+                  src={video1}
                 ></video>
-                <div>
-                  <h1>Web Share - GeeksforGeeks</h1>
-                  <RWebShare
-                    data={{
-                      text: "Web Share",
-                      url: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
-                      title: "GfG",
-                    }}
-                    onClick={() => console.log("shared successfully!")}
-                  >
-                    <button>Share on Web</button>
-                  </RWebShare>
-                </div>
               </div>
             </Col>
 
