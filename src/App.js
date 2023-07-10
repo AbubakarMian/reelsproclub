@@ -38,6 +38,7 @@ import Map from './components/Map';
 // import ContexApifun from './context/ContextApi';
 import ContexApifun from './context/ContextApi';
 import Profile from './components/Profile';
+import ViewReels from './components/ViewReels';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+        <Route Component={ViewReels} path='viewreels'></Route>
         <Route Component={Profile} path='profile'></Route>
         <Route Component={Map} path='map'></Route>
         <Route Component={SignUp} path='signup'></Route>
@@ -71,7 +73,16 @@ function App() {
     </div>
   );
 }
-
+ function Test (){
+  return(
+    <video id="background-video1"  loop autoPlay // height="720" width="1280"
+                // source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                >
+                  <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"/>
+              </video>
+  )
+} 
 export default App;
+// export default App;
 
 
