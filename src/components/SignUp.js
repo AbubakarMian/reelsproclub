@@ -24,6 +24,13 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Nav_bar_area from './NavBar';
+
+//------ yaha sa 
+import Common,{googleTranslate} from '../common/Common';
+import Language_arr from "../common/Lang";
+import {ContextApiContext} from '../context/ContextApi';
+import {useContext} from "react";
+//------yaha tk utthalo 
 {/* <Nav_bar_area /> */ }
 
 
@@ -34,6 +41,20 @@ export default function Signup() {
     const navigateToPath = (path) => {
         navigate(path);
     };
+
+
+    // yaha sa 
+    const context = useContext(ContextApiContext);
+    const lang = context.language.prefix;
+    const max_length = 13;
+    const get_string_lable =(str_n)=>{
+        const str = Language_arr[str_n+lang];
+        return str.length < max_length?str :
+                          str.substring(0,max_length)+'....'
+      }
+// yaha tk utthalo 
+
+
     return (
         <div>
         <Container>
@@ -45,7 +66,11 @@ export default function Signup() {
       </Container>
         <section className="bg_clr">
             
-            <h3 className="signup_head">Sign Up</h3>
+            <h3 className="signup_head">
+                {/* Sign Up */}
+                {get_string_lable("Sign Up")}
+                </h3>
+
             <Container fluid>
                 <Row>
                     <div>
@@ -65,7 +90,10 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>First Name*</Form.Label>
+                                        <Form.Label>
+                                            {/* First Name* */}
+                                            {get_string_lable("First Name*")}
+                                            </Form.Label>
                                         <Form.Control type="text" placeholder="Enter First Name" />
                                     </Form.Group>
 
@@ -78,7 +106,10 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Last Name*</Form.Label>
+                                        <Form.Label>
+                                            {/* Last Name* */}
+                                            {get_string_lable("Last Name*")}
+                                            </Form.Label>
                                         <Form.Control type="text" placeholder="Enter Last Name" />
                                     </Form.Group>
 
@@ -91,7 +122,10 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Email*</Form.Label>
+                                        <Form.Label>
+                                            {/* Email* */}
+                                            {get_string_lable("Email*")}
+                                            </Form.Label>
                                         <Form.Control type="email" placeholder="name@example.com" />
                                     </Form.Group>
 
@@ -104,7 +138,10 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Password*</Form.Label>
+                                        <Form.Label>
+                                            {/* Password* */}
+                                            {get_string_lable("Password*")}
+                                            </Form.Label>
                                         <Form.Control type="password" placeholder="Enter Password" />
                                     </Form.Group>
 
@@ -115,7 +152,10 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Confirm Password*</Form.Label>
+                                        <Form.Label>
+                                            {/* Confirm Password* */}
+                                            {get_string_lable("Confirm Password*")}
+                                            </Form.Label>
                                         <Form.Control type="password" placeholder="ReEnter Password" />
                                     </Form.Group>
 
@@ -126,23 +166,57 @@ export default function Signup() {
                     <Row>
                         <Col>
                             <div className="form_area">
-                                <Form.Label>Categories*</Form.Label>
+                                <Form.Label>
+                                    {/* Categories* */}
+                                    {get_string_lable("Categories*")}
+
+                                    </Form.Label>
                                 <Form.Select aria-label="Default select example">
-                                    <option>Select</option>
-                                    <option value="1">Category One</option>
-                                    <option value="2">Category Two</option>
-                                    <option value="3">Category Three</option>
+                                    <option>
+                                        {/* Select */}
+                                        {get_string_lable("Select")}
+                                        </option>
+                                    <option value="1">
+                                        {/* Category One */}
+                                        {get_string_lable("Category One")}
+
+                                    </option>
+                                    <option value="2">
+                                        {/* Category Two */}
+                                        {get_string_lable("Category Two")}
+
+                                    </option>
+                                    <option value="3">
+                                        {/* Category Three */}
+                                        {get_string_lable("Category Three")}
+
+                                    </option>
                                 </Form.Select>
                             </div>
                         </Col>
                         <Col>
                             <div className="form_area">
-                                <Form.Label>Skills*</Form.Label>
+                                <Form.Label>
+                                    {/* Skills* */}
+                                    {get_string_lable("Skills*")}
+                                    </Form.Label>
                                 <Form.Select aria-label="Default select example">
-                                    <option>Select</option>
-                                    <option value="1">Skill One</option>
-                                    <option value="2">Skill Two</option>
-                                    <option value="3">Skill Three</option>
+                                    <option>
+                                        {/* Select */}
+                                        {get_string_lable("Select")}
+                                        </option>
+                                    <option value="1">
+                                        {/* Skill One */}
+                                        {get_string_lable("Skill One")}
+                                        </option>
+                                    <option value="2">
+                                        {/* Skill Two */}
+                                        {get_string_lable("")}
+                                        </option>
+                                    <option value="3">
+                                        {/* Skill Three */}
+                                        {get_string_lable("Skill Three")}
+                                        </option>
                                 </Form.Select>
                             </div>
                         </Col>
@@ -152,7 +226,12 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3 mob_num" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Mobile Number*</Form.Label>
+                                        <Form.Label>
+                                            {/* Mobile Number* */}
+                                            {get_string_lable("Mobile Number*")}
+
+
+                                        </Form.Label>
                                         <Form.Control type="number" placeholder="Enter Mobile No" />
                                     </Form.Group>
 
@@ -164,8 +243,17 @@ export default function Signup() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Email address*</Form.Label>
-                                        <Button onClick={()=>navigateToPath('/map')} className="loc_btn">My Location <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
+                                        <Form.Label>
+                                            {/* Email address* */}
+                                            {get_string_lable("Email address*")}
+
+
+                                        </Form.Label>
+                                        <Button onClick={()=>navigateToPath('/map')} className="loc_btn">
+                                            {/* My Location */}
+                                            {get_string_lable("My Location")}
+
+                                         <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
                                     </Form.Group>
 
                                 </Form>
@@ -176,7 +264,11 @@ export default function Signup() {
                         <Col>
                             <div className="form_area">
                                 <Form>
-                                    <Button onClick={()=>navigateToPath('/search')}className="sub_btn">Submit</Button>
+                                    <Button onClick={()=>navigateToPath('/search')}className="sub_btn">
+                                        {/* Submit */}
+                                        {get_string_lable("Submit")}
+
+                                    </Button>
 
                                 </Form>
                             </div>

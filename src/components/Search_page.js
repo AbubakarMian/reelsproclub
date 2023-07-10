@@ -20,15 +20,13 @@ import Collapse from 'react-bootstrap/Collapse';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 import Nav_bar_area from './NavBar';
-//------
-import {ContextApiContext} from '../context/ContextApi';
-import {useContext} from "react";
+
+//------ yaha sa 
 import Common,{googleTranslate} from '../common/Common';
 import Language_arr from "../common/Lang";
-//------
-
-
-
+import {ContextApiContext} from '../context/ContextApi';
+import {useContext} from "react";
+//------yaha tk utthalo 
 
 
 
@@ -39,11 +37,19 @@ export default function Search_Page() {
       navigate(path);
     };
     //-------
+    // yaha sa 
     const context = useContext(ContextApiContext);
-    console.log('sear lang',context);
-    const lang = context.language.prefix;
-    console.log('aaaa',"LOG IN"+lang);
-    console.log('aaaa a ',Language_arr["LOG IN"+lang]);
+    const lang = context.language.prefix; 
+    const max_length = 13;
+    const get_string_lable =(str_n)=>{
+        const str = Language_arr[str_n+lang];
+        console.log("strn",str_n);
+        console.log( "language arr",Language_arr[str_n+lang]);
+        return str.length < max_length?str :
+                          str.substring(0,max_length)+'....'
+                        //   return '...';
+      }
+    // yaha tk utthalo 
     //-------
     return (
         <section className="bg_body_color">
@@ -61,7 +67,8 @@ export default function Search_Page() {
                     <Col xsm={10} md={6}>
                         <div className="ques">
                             {/* What are you looking for ? */}
-                            {Language_arr[" What are you looking for ?"+lang]}
+                            {/* {Language_arr[" What are you looking for ?"+lang]} */}
+                            {get_string_lable("What are you looking for ?")}
                         </div>
                         <div className="ques_bar">
                             <InputGroup size="lg">
@@ -70,37 +77,32 @@ export default function Search_Page() {
                                     aria-label="Large"
                                     aria-describedby="inputGroup-sizing-sm"
                                 />
-                            <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">GO</Button>
-
+                            <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">
+                                {/* GO */}
+                                {/* {Language_arr["GO"+lang]} */}
+                            {get_string_lable("GO")}
+                                </Button>
                             </InputGroup>
-
                         </div>
-
                     </Col>
                     <Col xsm={1} md={3}></Col>
-
                 </Row>
                 <Row>
                     <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
                         <div className="seemore">
-                            <a href="#">See more <FontAwesomeIcon icon={faArrowRight} /></a>
+                            <a href="#">
+                                {/* See more */}
+                                {/* {Language_arr["See more"+lang]} */}
+                            {get_string_lable("See more")}
+                                 <FontAwesomeIcon icon={faArrowRight} /></a>
                         </div>
-                        
-
                     </Col>
                     <Col xsm={1} md={3}></Col>
-
                 </Row>
                 <Row>
-                <Col xsm><div className="serch_big_img"> </div></Col>
-
-                
-                    
-                   
+                <Col xsm><div className="serch_big_img"> </div></Col>                   
                 </Row>
-
-
             </Container>
         </section>
 
