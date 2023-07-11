@@ -24,8 +24,15 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Nav_bar_area from './NavBar';
+
+
+//------ yaha sa 
+import Common,{googleTranslate} from '../common/Common';
+import Language_arr from "../common/Lang";
 import {ContextApiContext} from '../context/ContextApi';
 
+
+//------yaha tk utthalo 
 
 {/* <Nav_bar_area /> */ }
 
@@ -37,6 +44,21 @@ export default function Profile() {
     const navigateToPath = (path) => {
         navigate(path);
     };
+
+    
+    // yaha sa 
+    const context = useContext(ContextApiContext);
+    const lang = context.language.prefix;
+    const max_length = 13;
+    const get_string_lable =(str_n)=>{
+        const str = Language_arr[str_n+lang];
+        return str.length < max_length?str :
+                          str.substring(0,max_length)+'....'
+      }
+// yaha tk utthalo 
+
+
+
     return (
         <div>
        
@@ -51,7 +73,10 @@ export default function Profile() {
         <div className="language_area"><LanguageToggle /></div>
 
             
-            <h3 className="profile_head">Profile</h3>
+            <h3 className="profile_head">
+                {/* Profile */}
+                {get_string_lable("Profile")}
+                </h3>
             <Container fluid>
                 <Row>
                     <div>
@@ -71,8 +96,15 @@ export default function Profile() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>First Name*</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter First Name" value={'Jhon'} readOnly/>
+                                        <Form.Label>
+                                            {/* First Name* */}
+                                            {get_string_lable(" First Name*")}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        // "Enter First Name"
+                                        {get_string_lable("Enter First Name")}
+                                         value={'Jhon'} readOnly/>
                                     </Form.Group>
 
                                 </Form>
@@ -84,8 +116,15 @@ export default function Profile() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Last Name*</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Last Name"  value={'Michel'} readOnly />
+                                        <Form.Label>
+                                            {/* Last Name* */}
+                                            {get_string_lable("Last Name*")}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        // "Enter Last Name"
+                                        {get_string_lable("Enter Last Name")}
+                                          value={'Michel'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -97,8 +136,15 @@ export default function Profile() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Email*</Form.Label>
-                                        <Form.Control type="email" placeholder="name@example.com" value={'Jhon@mail.com'} readOnly />
+                                        <Form.Label>
+                                            {/* Email* */}
+                                            {get_string_lable("Email")}
+
+                                        </Form.Label>
+                                        <Form.Control type="email" placeholder=
+                                        "name@example.com"
+                                        // {get_string_lable("name@example.com")}
+                                         value={'Jhon@mail.com'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -118,8 +164,15 @@ export default function Profile() {
                                 </Form.Select> */}
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Category*</Form.Label>
-                                        <Form.Control type="text" placeholder="name@example.com" value={'Category One'} readOnly />
+                                        <Form.Label>
+                                            {/* Category* */}
+                                            {get_string_lable("Category*")}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        "name@example.com"
+                                        // {get_string_lable("name@example.com")}
+                                         value={'Category One'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -136,8 +189,15 @@ export default function Profile() {
                                 </Form.Select> */}
                                  <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Skill*</Form.Label>
-                                        <Form.Control type="text" placeholder="name@example.com" value={'Skill One'} readOnly />
+                                        <Form.Label>
+                                            {/* Skill* */}
+                                            {get_string_lable("Skill*")}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        "name@example.com"
+                                        // {get_string_lable("name@example.com")}
+                                         value={'Skill One'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -149,8 +209,15 @@ export default function Profile() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3 mob_num" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Mobile Number*</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Mobile No" value={'+123-456-789'} readOnly />
+                                        <Form.Label>
+                                            Mobile Number*
+                                            {/* {get_string_lable("Mobile Number")} */}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        "Enter Mobile No"
+                                        // {get_string_lable("Enter Mobile No")}
+                                         value={'+123-456-789'} readOnly />
                                     </Form.Group>
 
                                 </Form>
@@ -161,8 +228,15 @@ export default function Profile() {
                             <div className="form_area">
                                 <Form>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Location*</Form.Label>
-                                        <Button onClick={()=>navigateToPath('/map')} className="loc_btn">My Location <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
+                                        <Form.Label>
+                                            Location*
+                                            {/* {get_string_lable("Location")} */}
+
+                                        </Form.Label>
+                                        <Button onClick={()=>navigateToPath('/map')} className="loc_btn">
+                                            My Location
+                                            {/* {get_string_lable("My Location")} */}
+                                         <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
                                     </Form.Group>
 
                                 </Form>
@@ -173,7 +247,10 @@ export default function Profile() {
                         <Col>
                             <div className="form_area">
                                 <Form>
-                                    <Button onClick={()=>navigateToPath('/search')}className="submit_btn">Delete</Button>
+                                    <Button onClick={()=>navigateToPath('/search')}className="submit_btn">
+                                        Delete
+                                    {/* {get_string_lable("Delete")}</Button> */}
+                                    </Button>
 
                                 </Form>
                             </div>

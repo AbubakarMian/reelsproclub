@@ -183,27 +183,27 @@ lang['My Location_ru'] = ' Мое местонахождение ';
 
 lang['Submit_en'] = 'Submit';
 lang['Submit_ru'] = ' Представлять на рассмотрение ';
+// ------------------------------------------
+lang['Profile_en'] = 'Profile';
+lang['Profile_ru'] = ' Профиль ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['First Name*_en'] = 'First Name*';
+lang['First Name*_ru'] = ' Имя* ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['Enter First Name_en'] = 'Enter First Name';
+lang['Enter First Name_ru'] = ' Введите имя ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['Last Name*_en'] = 'Last Name*';
+lang['Last Name*_ru'] = ' Фамилия* ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['Enter Last Name_en'] = 'Enter Last Name';
+lang['Enter Last Name_ru'] = ' Введите фамилию ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['Category*_en'] = 'Category*';
+lang['Category*_ru'] = ' Категория* ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
-
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['Skill*_en'] = 'Skill*';
+lang['Skill*_ru'] = ' Навык* ';
 
 lang['_en'] = '';
 lang['_ru'] = '  ';

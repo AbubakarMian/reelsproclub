@@ -94,7 +94,10 @@ export default function Signup() {
                                             {/* First Name* */}
                                             {get_string_lable("First Name*")}
                                             </Form.Label>
-                                        <Form.Control type="text" placeholder="Enter First Name" />
+                                        <Form.Control type="text" placeholder=
+                                        // "Enter First Name"
+                                        {get_string_lable("Enter Last Name")}
+                                        />
                                     </Form.Group>
 
                                 </Form>
@@ -110,7 +113,10 @@ export default function Signup() {
                                             {/* Last Name* */}
                                             {get_string_lable("Last Name*")}
                                             </Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Last Name" />
+                                        <Form.Control type="text" placeholder=
+                                        // "Enter Last Name"
+                                        {get_string_lable("Enter Last Name")}
+                                        />
                                     </Form.Group>
 
                                 </Form>
@@ -126,7 +132,10 @@ export default function Signup() {
                                             {/* Email* */}
                                             {get_string_lable("Email*")}
                                             </Form.Label>
-                                        <Form.Control type="email" placeholder="name@example.com" />
+                                        <Form.Control type="email" placeholder=
+                                        // "name@example.com"
+                                        {get_string_lable("name@example.com")}
+                                        />
                                     </Form.Group>
 
                                 </Form>
@@ -142,7 +151,11 @@ export default function Signup() {
                                             {/* Password* */}
                                             {get_string_lable("Password*")}
                                             </Form.Label>
-                                        <Form.Control type="password" placeholder="Enter Password" />
+                                        <Form.Control type="password" placeholder=
+                                        // "Enter Password"
+                                        {get_string_lable("Enter Password")}
+                                        
+                                        />
                                     </Form.Group>
 
                                 </Form>
@@ -156,7 +169,10 @@ export default function Signup() {
                                             {/* Confirm Password* */}
                                             {get_string_lable("Confirm Password*")}
                                             </Form.Label>
-                                        <Form.Control type="password" placeholder="ReEnter Password" />
+                                        <Form.Control type="password" placeholder=
+                                        // "ReEnter Password"
+                                        {get_string_lable("ReEnter Password")}
+                                         />
                                     </Form.Group>
 
                                 </Form>
@@ -232,7 +248,10 @@ export default function Signup() {
 
 
                                         </Form.Label>
-                                        <Form.Control type="number" placeholder="Enter Mobile No" />
+                                        <Form.Control type="number" placeholder=
+                                        // "Enter Mobile No"
+                                        {get_string_lable("Enter Mobile No")}
+                                         />
                                     </Form.Group>
 
                                 </Form>
