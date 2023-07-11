@@ -54,14 +54,6 @@ export default function Search_Page() {
       
 // yaha sa 
 
-const max_length = 13;
-
-
-const get_string_lable =(str_n)=>{
-    const str = Language_arr[str_n+lang];
-    return str.length < max_length?str :
-                      str.substring(0,max_length)+'....'
-  }
 
 // yaha tk utthalo 
 
