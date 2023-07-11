@@ -26,9 +26,14 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Nav_bar_area from "./NavBar";
-{
-  /* <Nav_bar_area /> */
-}
+// import ContextApiContext from '../context/ContextApiContext';
+import Common,{googleTranslate} from '../common/Common';
+import Language_arr from "../common/Lang";
+
+import {ContextApiContext} from '../context/ContextApi';
+import {useContext} from "react";
+// import Common,{googleTranslate} from '../common/Common';
+
 
 
 export default function Signup(props) {
@@ -42,9 +47,6 @@ export default function Signup(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-    const navigateToPath = (path) => {
-        navigate(path);
-    };
 
 
     // yaha sa 
