@@ -1,9 +1,17 @@
+/* .img_area img {
+    width: 100%;
+    border-radius: 10px;
+} */
+
 .img_area img {
     width: 100%;
     border-radius: 10px;
+    object-fit: cover;
+    height: 90px;
 }
-.img_area {
-    padding: 10px;
+.reelArea .img_area {
+    /* padding: 10px; */
+    padding: 10px 0px;
 }
 .like {
     margin: 0px 6px;
@@ -20,6 +28,7 @@
     border-radius: 5px;
     /* box-shadow: 1px 2px 5px 4px #ddd2d2; */
 }
+
 .container-fluid.reelArea {
     padding: 0px 24px;
     padding-top: 15px;
@@ -42,9 +51,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', end
     box-shadow: 1px 2px 5px 4px #ddd2d2;
 } */
 .info_area p {
-    margin: 5px;
+    margin: 1px;
 }
-
+.reel_box .info_area p:last-child {
+    font-size: 11px;
+    font-weight: 700;
+}
 .info_area {
     /* margin-top: 21px; */
     font-size: 30px;
@@ -119,5 +131,9 @@ svg.svg-inline--fa.fa-thumbs-up.like {
 button.reel_btn.btn.btn-primary {
     width: 100%;
     margin: 1px 2px;
-    font-weight: bold;
+    font-weight: 500;
+    padding: 3px 0px;
+    background: #087bbc;
+    border: #087bbc;
+    text-transform: capitalize;
 }

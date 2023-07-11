@@ -53,7 +53,7 @@ function Categories() {
 
       <Container fluid>
         <Row>
-          <Col>
+          <Col >
             <div className="top_head">
               {/* What do you need help with ? */}
               {/* {Language_arr["What do you need help with ?"+lang]} */}
@@ -62,13 +62,13 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             {/* <a className="link_dec"  onClick={()=>navigate(-1)} > */}
             {/* <a className="link_dec"  > */}
-              {/* <div className="img_box"  onClick={()=>navigate(-1)}> */}
+              {/* <div className=" "  onClick={()=>navigate(-1)}> */}
               <a className="link_dec">
-              <div className="img_box"  onClick={()=>navigateToPath('/people')}>
-                <img src="./images/moving-truck.png" />
+              <div className=" "  onClick={()=>navigateToPath('/people')}>
+                <img class="img-fluid" src="./images/moving-truck.png" />
 
                 <div className="img_box_txt">
                   <p>
@@ -80,10 +80,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" >
-              <div className="img_box"  onClick={()=>navigateToPath('/people')}>
-                <img src="./images/plumber (1).png" />
+              <div className=" "  onClick={()=>navigateToPath('/people')}>
+                <img class="img-fluid" src="./images/plumber (1).png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Handyman */}
@@ -94,10 +94,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/conference.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/conference.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Event Planner */}
@@ -111,10 +111,10 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/fitness.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/fitness.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Fitness Trainer */}
@@ -125,10 +125,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/driver.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/driver.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Drivers & Cab */}
@@ -138,10 +138,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/tile (1).png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/tile (1).png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Tile Fixer */}
@@ -155,10 +155,10 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/doctor-consultation.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/doctor-consultation.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Consultant */}
@@ -168,10 +168,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/insecticide.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/insecticide.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Pest Control */}
@@ -181,10 +181,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/locksmith.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/locksmith.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Lock Master */}
@@ -196,10 +196,10 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/technician.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/technician.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* people */}
@@ -209,10 +209,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/cctv-camera.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/cctv-camera.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* CCTV */}
@@ -222,10 +222,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/welder.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/welder.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Welder */}
@@ -238,10 +238,10 @@ function Categories() {
         </Row>
         {/* //// nxt///// */}
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/cleaning.png" />
+              <div className=" ">
+                <img  class="img-fluid" src="./images/cleaning.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Cleaning */}
@@ -251,10 +251,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/air-conditioner.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/air-conditioner.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Ac Serivce */}
@@ -267,10 +267,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/electrician.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/electrician.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Electrician */}
@@ -282,10 +282,10 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/plumber.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/plumber.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Plumber */}
@@ -296,10 +296,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/carpenter.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/carpenter.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Carpenter */}
@@ -309,10 +309,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/painter.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/painter.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Painter */}
@@ -324,10 +324,10 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/programmer.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/programmer.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Web Developer */}
@@ -337,10 +337,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/digital-campaign.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/digital-campaign.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Digital Marketing */}
@@ -350,10 +350,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/sewing.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/sewing.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Tailor */}
@@ -365,10 +365,10 @@ function Categories() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/delivery.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/delivery.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Pickup Delivery */}
@@ -378,10 +378,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/workers.png" />
+              <div className=" ">
+                <img class="img-fluid"  src="./images/workers.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Labour */}
@@ -391,10 +391,10 @@ function Categories() {
               </div>
             </a>
           </Col>
-          <Col>
+          <Col className="colCat">
             <a className="link_dec" onClick={()=>navigateToPath('/people')} >
-              <div className="img_box">
-                <img src="./images/repairing.png" />
+              <div className=" ">
+                <img class="img-fluid" src="./images/repairing.png" />
                 <div className="img_box_txt">
                   <p>
                     {/* Home&Office Repairs */}

@@ -274,8 +274,9 @@ lang['_ru'] = '  ';
 lang['_en'] = '';
 lang['_ru'] = '  ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+
+lang['See more_en'] = 'See more';
+lang['See more_ru'] = 'Узнать больше';
 
 lang['_en'] = '';
 lang['_ru'] = '  ';

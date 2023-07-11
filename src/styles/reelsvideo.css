@@ -4,4 +4,25 @@ button.backbtn.btn.btn-primary {
     border-radius: 19px;
     margin: 4px;
     border: 0px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+video#background-video2 {
+    /* width: 100%; */
+
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+}
+button.shr_btn {
+    float: right;
+    margin: 20px;
+    background: black;
+    color: white;
+    font-size: 45px;
+    border-radius: 39px;
+    margin-top: 175%;
 }

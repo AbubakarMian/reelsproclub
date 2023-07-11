@@ -1,0 +1,80 @@
+.hire_pic_area img {
+    width: 100%;
+    border-radius: 100px;
+    height: 100%;
+}
+.hire_pic_area {
+    width: 150px;
+    height: 150px;
+}
+.col.hire_column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_cover_profile {
+    padding: 15px 15px;
+    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+    background-color: rgb(255 255 255 / 70%);
+    margin: 33px 5px;
+}
+section.bg_color {
+    background-color: rgb(100 113 133 / 70%);
+    /* background-color: cadetblue; */
+    padding: 10px;
+    height: 100vh;
+}
+button.submit_btn.btn.btn-primary {
+    width: 100%;
+    height: 48px;
+  
+    background-color: gray;
+    border: 1px solid gray;
+}
+.pic_area {
+    margin: 10px;
+}
+h3.hire_head {
+    /* text-align: left; */
+    margin: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 26px;
+    margin-left: 20px;
+}
+label.tbtn.btn.btn-outline-primary {
+    color: white;
+}
+
+button.profile-backbtnsignup.btn.btn-primary {
+    float: left;
+    background-color: transparent;
+    border-radius: 19px;
+    margin: 4px;
+    border: 0px;
+    color: black;
+}
+button.hire_btn.btn.btn-primary {
+    width: 100%;
+    height: 50px;
+}
+section.bg_color_hire {
+    background-color: rgb(100 113 133 / 70%);
+    /* background-color: cadetblue; */
+    padding: 10px;
+    height: 100vh;
+}
+
+.hire_info_area p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+@media only screen and (max-width : 480px) {
+  
+    section.bg_color {
+        height: auto;    
+    }
+}

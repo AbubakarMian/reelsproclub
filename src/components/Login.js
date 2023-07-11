@@ -251,7 +251,7 @@ const LanguageToggle =  () => {
         setLanguageValue(lang_id);
         console.log('lang_id',lang_id);
         console.log('context',context);
-        context.updateContext(lang_id,'language');
+        // context.updateContext(lang_id,'language');
         console.log('eeeeeee');
         
         // let t =  googleTranslate('How are you','ru');

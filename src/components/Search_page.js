@@ -51,6 +51,21 @@ export default function Search_Page() {
       }
     // yaha tk utthalo 
     //-------
+      
+// yaha sa 
+
+const max_length = 13;
+
+
+const get_string_lable =(str_n)=>{
+    const str = Language_arr[str_n+lang];
+    return str.length < max_length?str :
+                      str.substring(0,max_length)+'....'
+  }
+
+// yaha tk utthalo 
+
+
     return (
         <section className="bg_body_color">
             <Nav_bar_area />
@@ -82,6 +97,7 @@ export default function Search_Page() {
                                 {/* {Language_arr["GO"+lang]} */}
                             {get_string_lable("GO")}
                                 </Button>
+
                             </InputGroup>
                         </div>
                     </Col>
@@ -95,6 +111,7 @@ export default function Search_Page() {
                                 {/* See more */}
                                 {/* {Language_arr["See more"+lang]} */}
                             {get_string_lable("See more")}
+
                                  <FontAwesomeIcon icon={faArrowRight} /></a>
                         </div>
                     </Col>

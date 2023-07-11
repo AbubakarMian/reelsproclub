@@ -39,6 +39,7 @@ import Map from './components/Map';
 import ContexApifun from './context/ContextApi';
 import Profile from './components/Profile';
 import ViewReels from './components/ViewReels';
+import Hire from './components/Hire';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+        <Route Component={Hire} path='hire'></Route>
         <Route Component={ViewReels} path='viewreels'></Route>
         <Route Component={Profile} path='profile'></Route>
         <Route Component={Map} path='map'></Route>
