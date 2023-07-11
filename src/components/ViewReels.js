@@ -30,8 +30,8 @@ import video2 from "../videos/vid2.mp4";
 import video3 from "../videos/vid3.mp4";
 import video4 from "../videos/vid4.mp4";
 import video5 from "../videos/vid5.mp4";
-import vide06 from "../videos/vid6.mp4";
-import vide07 from "../videos/vid7.mp4";
+import video6 from "../videos/vid6.mp4";
+import video7 from "../videos/vid7.mp4";
 import video8 from "../videos/vid8.mp4";
 import video9 from "../videos/vid9.mp4";
 
@@ -75,7 +75,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo", { video_src: video1 });
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   resizeMode="cover" // height="720" width="1280"  ratio="16:9"
                   //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -92,12 +92,12 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay // height="720" width="1280"
                   source
-                  src={video1}
+                  src={video7}
                 ></video>
               </div>
             </Col>
@@ -108,7 +108,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -130,7 +130,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -148,7 +148,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -166,7 +166,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -186,7 +186,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -204,14 +204,14 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={vide06}
+                  src={video6}
                 ></video>
               </div>
             </Col>
@@ -222,14 +222,14 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={vide07}
+                  src={video7}
                 ></video>
               </div>
             </Col>
@@ -242,7 +242,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -260,7 +260,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -278,7 +278,7 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video
+                <video muted
                   id="background-video1"
                   loop
                   autoPlay
