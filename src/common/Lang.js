@@ -9,10 +9,10 @@ lang['Password (required*)_ru'] = 'Требуется пароль*)';
 lang['Email (required*)_en'] = 'Email (required*)';
 lang['Email (required*)_ru'] = 'Электронная почта (обязательно*)';
 
-lang['What are you looking for ?_en'] = ' What are you looking for ?';
+lang['What are you looking for ?_en'] = 'What are you looking for ?';
 lang['What are you looking for ?_ru'] = 'Что Вы ищете ?';
 
-lang['What do you need help with ?_en'] = ' What do you need help with ?';
+lang['What do you need help with ?_en'] = 'What do you need help with ?';
 lang['What do you need help with ?_ru'] = 'Как я могу вам помочь ?';
 
 
@@ -23,8 +23,7 @@ lang['Handyman_en'] = 'Handyman';
 lang['Handyman_ru'] = 'Разнорабочий';
 
 lang['Event Planner_en'] = 'Event Planner';
-// lang['Event Planner_ru'] = ' Планировщик мероприятий ';
-lang['Event Planner_ru'] = 'Планировщик';
+lang['Event Planner_ru'] = 'Планировщик мероприятий';
 
 lang['Fitness Trainer_en'] = 'Fitness Trainer';
 lang['Fitness Trainer_ru'] = ' Тренер по фитнесу ';
@@ -113,8 +112,168 @@ lang['Create New Account_ru'] = ' Создать новый аккаунт ';
 lang['SIGN UP_en'] = 'SIGN UP';
 lang['SIGN UP_ru'] = ' ЗАРЕГИСТРИРОВАТЬСЯ ';
 
+lang['Skip Now_en'] = 'Skip Now';
+lang['Skip Now_ru'] = ' Пропустить сейчас ';
+
 lang['GO_en'] = 'GO';
-lang['GO_ru'] = 'идти';
+lang['GO_ru'] = ' ИДТИ ';
+
+lang['See more_en'] = 'See more';
+lang['See more_ru'] = ' Узнать больше ';
+
+lang['Professionals_en'] = 'Professionals';
+lang['Professionals_ru'] = ' Профессионалы ';
+
+lang['Sign Up_en'] = 'Sign Up';
+lang['Sign Up_ru'] = ' Зарегистрироваться ';
+
+lang['First Name*_en'] = 'First Name*';
+lang['First Name*_ru'] = ' Имя* ';
+
+lang['Last Name*_en'] = 'Last Name*';
+lang['Last Name*_ru'] = ' Фамилия* ';
+
+lang['Email*_en'] = 'Email*';
+lang['Email*_ru'] = ' Электронная почта* ';
+
+lang['Password*_en'] = 'Password*';
+lang['Password*_ru'] = ' Пароль* ';
+
+lang['Confirm Password*_en'] = 'Confirm Password*';
+lang['Confirm Password*_ru'] = ' Подтвердите пароль* ';
+
+lang['Categories*_en'] = 'Categories*';
+lang['Categories*_ru'] = ' Категории* ';
+
+lang['Select_en'] = 'Select';
+lang['Select_ru'] = ' Выбирать ';
+
+lang['Category One_en'] = 'Category One';
+lang['Category One_ru'] = ' Категория 1 ';
+
+lang['Category Two_en'] = 'Category Two';
+lang['Category Two_ru'] = ' Вторая категория ';
+
+lang['Category Three_en'] = 'Category Three';
+lang['Category Three_ru'] = ' Категория 3 ';
+
+lang['Skills*_en'] = 'Skills*';
+lang['Skills*_ru'] = ' Навыки* ';
+
+lang['Select_en'] = 'Select';
+lang['Select_ru'] = ' Выбирать ';
+
+lang['Skill One_en'] = 'Skill One';
+lang['Skill One_ru'] = ' Навык Один ';
+
+lang['Skill Two_en'] = 'Skill Two';
+lang['Skill Two_ru'] = ' Второй навык ';
+
+lang['Skill Three_en'] = 'Skill Three';
+lang['Skill Three_ru'] = ' Третий навык ';
+
+lang['Mobile Number*_en'] = 'Mobile Number*';
+lang['Mobile Number*_ru'] = ' Номер мобильного телефона* ';
+
+lang['Email address*_en'] = 'Email address*';
+lang['Email address*_ru'] = ' Адрес электронной почты* ';
+
+lang['My Location_en'] = 'My Location';
+lang['My Location_ru'] = ' Мое местонахождение ';
+
+lang['Submit_en'] = 'Submit';
+lang['Submit_ru'] = ' Представлять на рассмотрение ';
+// ------------------------------------------
+lang['Profile_en'] = 'Profile';
+lang['Profile_ru'] = ' Профиль ';
+
+lang['First Name*_en'] = 'First Name*';
+lang['First Name*_ru'] = ' Имя* ';
+
+lang['Enter First Name_en'] = 'Enter First Name';
+lang['Enter First Name_ru'] = ' Введите имя ';
+
+lang['Last Name*_en'] = 'Last Name*';
+lang['Last Name*_ru'] = ' Фамилия* ';
+
+lang['Enter Last Name_en'] = 'Enter Last Name';
+lang['Enter Last Name_ru'] = ' Введите фамилию ';
+
+lang['Category*_en'] = 'Category*';
+lang['Category*_ru'] = ' Категория* ';
+
+lang['Skill*_en'] = 'Skill*';
+lang['Skill*_ru'] = ' Навык* ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
+lang['_en'] = '';
+lang['_ru'] = '  ';
+
 
 lang['See more_en'] = 'See more';
 lang['See more_ru'] = 'Узнать больше';

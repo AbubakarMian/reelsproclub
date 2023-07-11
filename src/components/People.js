@@ -24,6 +24,14 @@ import Nav_bar_area from './NavBar';
 {/* <Nav_bar_area /> */}
 
 
+// //------ yaha sa 
+// import Common,{googleTranslate} from '../common/Common';
+// import Language_arr from "../common/Lang";
+// import {ContextApiContext} from '../context/ContextApi';
+// import {useContext} from "react";
+// //------yaha tk utthalo 
+
+
 export default function People_page_export() {
   const navigate = useNavigate();
 

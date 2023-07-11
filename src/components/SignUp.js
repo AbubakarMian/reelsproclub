@@ -21,6 +21,7 @@ import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
+
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -28,6 +29,7 @@ import Nav_bar_area from "./NavBar";
 {
   /* <Nav_bar_area /> */
 }
+
 
 export default function Signup(props) {
   const navigate = useNavigate();
@@ -40,9 +42,27 @@ export default function Signup(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  return (
-    <div>
-      <Container>
+    const navigateToPath = (path) => {
+        navigate(path);
+    };
+
+
+    // yaha sa 
+    const context = useContext(ContextApiContext);
+    const lang = context.language.prefix;
+    const max_length = 13;
+    const get_string_lable =(str_n)=>{
+        const str = Language_arr[str_n+lang];
+        return str.length < max_length?str :
+                          str.substring(0,max_length)+'....'
+      }
+// yaha tk utthalo 
+
+
+    return (
+        <div>
+        <Container>
+
         <Row>
           <Col>
             <Button className="backbtnsignup" onClick={() => navigate(-1)}>

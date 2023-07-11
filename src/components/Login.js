@@ -51,17 +51,13 @@ export default  function LogIn() {
     
 // yaha sa 
     const context = useContext(ContextApiContext);
-
     const lang = context.language.prefix;
     const max_length = 13;
-
-
     const get_string_lable =(str_n)=>{
         const str = Language_arr[str_n+lang];
         return str.length < max_length?str :
                           str.substring(0,max_length)+'....'
       }
-
 // yaha tk utthalo 
 
 
@@ -129,7 +125,13 @@ export default  function LogIn() {
                     <Col md={1}></Col>
                     <Col md={10}>
                         <div className="skip_area">
-                            <Button onClick={() => navigateToPath('/search')} className="skip_btn" variant="primary">Skip Now <FontAwesomeIcon icon={faArrowRight} /></Button>
+                            <Button onClick={() => navigateToPath('/search')} className="skip_btn" variant="primary">
+                                {/* Skip Now */}
+                                {/* {Language_arr["Forgot Password"+lang]} */}
+                            {get_string_lable("Skip Now")}
+
+
+                                 <FontAwesomeIcon icon={faArrowRight} /></Button>
                         </div>
                     </Col>
                     <Col md={1}></Col>
