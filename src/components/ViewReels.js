@@ -23,8 +23,7 @@ import { useNavigate } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
 // import Video from "../../public/videos/pizza2.mp4";
-import Pizza from "../videos/pizza2.mp4";
-import Road from "../videos/reel_road.mp4";
+import Pizza1 from "../videos/pizza2.mp4";
 import video1 from "../videos/vid1.mp4";
 import video2 from "../videos/vid2.mp4";
 import video3 from "../videos/vid3.mp4";
@@ -115,10 +114,11 @@ export default function MyReels_page_export() {
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={Pizza}
+                  src={Pizza1}
                 >
                   {/* <source src={require(Video)} type="video/mp4"/>         */}
                 </video>
+                
               </div>
             </Col>
           </Row>
@@ -295,3 +295,4 @@ export default function MyReels_page_export() {
     </div>
   );
 }
+//push chk
