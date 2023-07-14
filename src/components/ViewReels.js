@@ -79,7 +79,7 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"  ratio="16:9"
                   //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
                   source
-                  src={video1}
+                  src={video2}
                 ></video>
               </div>
             </Col>
@@ -96,7 +96,7 @@ export default function MyReels_page_export() {
                   loop
                   autoPlay // height="720" width="1280"
                   source
-                  src={video7}
+                  src={video3}
                 ></video>
               </div>
             </Col>
@@ -137,7 +137,7 @@ export default function MyReels_page_export() {
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={video2}
+                  src={video4}
                 ></video>
               </div>
             </Col>
@@ -173,30 +173,12 @@ export default function MyReels_page_export() {
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={video4}
+                  src={video5}
                 ></video>
               </div>
             </Col>
           </Row>
           <Row className="nomargin ">
-            <Col className="columnn">
-              <div
-                className="clickable"
-                onClick={() => {
-                  navigate("/reelvideo");
-                }}
-              >
-                <video muted
-                  id="background-video1"
-                  loop
-                  autoPlay
-                  ratio="16:9"
-                  resizeMode="cover" // height="720" width="1280"
-                  source
-                  src={video5}
-                ></video>
-              </div>
-            </Col>
             <Col className="columnn">
               <div
                 className="clickable"
@@ -230,6 +212,24 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video7}
+                ></video>
+              </div>
+            </Col>
+            <Col className="columnn">
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
+              >
+                <video muted
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video8}
                 ></video>
               </div>
             </Col>
