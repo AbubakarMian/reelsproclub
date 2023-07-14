@@ -48,7 +48,7 @@ export default function MyReels_page_export() {
         <Row className="reel_box">
           <Col>
             <div className="img_area" >
-            <Player
+           <Player muted
           controls={{position:'center'}}
           position={'center'}
           playsInline={true}
@@ -76,7 +76,7 @@ export default function MyReels_page_export() {
         <Row className="reel_box">
           <Col>
              <div className="img_area">
-             <Player
+            <Player muted
           controls={{position:'center'}}
           position={'center'}
           playsInline={true}
@@ -103,7 +103,7 @@ export default function MyReels_page_export() {
         <Row className="reel_box">
           <Col>
              <div className="img_area">
-             <Player
+            <Player muted
           controls={{position:'center'}}
           position={'center'}
           playsInline={true}
@@ -131,7 +131,7 @@ export default function MyReels_page_export() {
         <Row className="reel_box">
           <Col>
              <div className="img_area">
-             <Player
+            <Player muted
           controls={{position:'center'}}
           position={'center'}
           playsInline={true}
