@@ -36,7 +36,7 @@ import LoginState from './context/login/LoginState';
 import SignUp from './components/SignUp';
 import Map from './components/Map';
 // import ContexApifun from './context/ContextApi';
-import ContexApifun from './context/ContextApi';
+import ContexApiProvider from './context/ContextApi';
 import Profile from './components/Profile';
 import ViewReels from './components/ViewReels';
 import Hire from './components/Hire';
@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       {/* <Router basename='/reelsproclub/build'> */}
-      <ContexApifun>
+      <ContexApiProvider>
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
@@ -71,7 +71,7 @@ function App() {
 
         </Routes>
       </Router>
-      </ContexApifun>
+      </ContexApiProvider>
     </div>
   );
 }

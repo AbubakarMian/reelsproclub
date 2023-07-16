@@ -23,42 +23,44 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 // import ContextApiContext from '../context/ContextApiContext';
-import Common,{googleTranslate} from '../common/Common';
+import Common, { googleTranslate } from '../common/Common';
 import Language_arr from "../common/Lang";
 
-import {ContextApiContext} from '../context/ContextApi';
-import {useContext} from "react";   
+import { ContextApiContext } from '../context/ContextApi';
+import { useContext } from "react";
 // import Common,{googleTranslate} from '../common/Common';
 
 
 
 
 
-async function  Translate (text){
+async function Translate(text) {
     const context = useContext(ContextApiContext);
 
-    let translation = await googleTranslate(text,'ru');
+    let translation = await googleTranslate(text, 'ru');
     return translation;
     // console.log('asdsa gg',gg);
 }
-export default  function LogIn() {
+export default function LogIn() {
     const navigate = useNavigate();
 
     const navigateToPath = (path) => {
         navigate(path);
     };
 
-    
-// yaha sa 
-    const context = useContext(ContextApiContext);
-    const lang = context.language.prefix;
+
+    // yaha sa 
+    const { contextState, updateContextState } = useContext(ContextApiContext);
+
+    // const context = useContext(ContextApiContext);
+    const lang = contextState.language.prefix;
     const max_length = 13;
-    const get_string_lable =(str_n)=>{
-        const str = Language_arr[str_n+lang];
-        return str.length < max_length?str :
-                          str.substring(0,max_length)+'....'
-      }
-// yaha tk utthalo 
+    const get_string_lable = (str_n) => {
+        const str = Language_arr[str_n + lang];
+        return str.length < max_length ? str :
+            str.substring(0, max_length) + '....'
+    }
+    // yaha tk utthalo 
 
 
 
@@ -72,8 +74,8 @@ export default  function LogIn() {
                     <div>
                         <div className="login_logo1">
                             <img
-                            src="../images/new1.png"
-                        />
+                                src="../images/new1.png"
+                            />
                         </div>
                     </div>
                 </Row>
@@ -94,8 +96,8 @@ export default  function LogIn() {
                             {/* Forgot Password */}
                             {/* {Language_arr["Forgot Password"+lang]} */}
                             {get_string_lable("Forgot Password")}
-                            
-                            </div>
+
+                        </div>
                     </Col>
                     <Col xsm={1} md={3}></Col>
 
@@ -104,8 +106,8 @@ export default  function LogIn() {
                 <Row>
                     <div className="new_Acc">
                         {/* Create New Account */}
-                        {Language_arr["Create New Account"+lang]}
-                        </div>
+                        {Language_arr["Create New Account" + lang]}
+                    </div>
 
                     <Col xsm={1} md={3}></Col>
                     <Col xsm={10} md={6}>
@@ -114,7 +116,7 @@ export default  function LogIn() {
                                 {/* SIGN UP */}
                                 {/* {Language_arr["SIGN UP"+lang]} */}
                                 {get_string_lable("SIGN UP")}
-                                </Button>
+                            </Button>
                         </div>
 
                     </Col>
@@ -128,10 +130,10 @@ export default  function LogIn() {
                             <Button onClick={() => navigateToPath('/search')} className="skip_btn" variant="primary">
                                 {/* Skip Now */}
                                 {/* {Language_arr["Forgot Password"+lang]} */}
-                            {get_string_lable("Skip Now")}
+                                {get_string_lable("Skip Now")}
 
 
-                                 <FontAwesomeIcon icon={faArrowRight} /></Button>
+                                <FontAwesomeIcon icon={faArrowRight} /></Button>
                         </div>
                     </Col>
                     <Col md={1}></Col>
@@ -152,25 +154,27 @@ const Login_form = () => {
     const navigateToPath = (path) => {
         navigate(path);
     };
-    
-   
-    
-// yaha sa 
-const context = useContext(ContextApiContext);
-
-const lang = context.language.prefix;
-const max_length = 13;
 
 
-const get_string_lable =(str_n)=>{
-    const str = Language_arr[str_n+lang];
-    return str.length < max_length?str :
-                      str.substring(0,max_length)+'....'
-  }
 
-// yaha tk utthalo 
+    // yaha sa 
+    // const context = useContext(ContextApiContext);
+    const { contextState, updateContextState } = useContext(ContextApiContext);
 
-    
+
+    const lang = contextState.language.prefix;
+    const max_length = 13;
+
+
+    const get_string_lable = (str_n) => {
+        const str = Language_arr[str_n + lang];
+        return str.length < max_length ? str :
+            str.substring(0, max_length) + '....'
+    }
+
+    // yaha tk utthalo 
+
+
     return (
 
         <>
@@ -179,16 +183,16 @@ const get_string_lable =(str_n)=>{
                 {/* Email (required*) */}
                 {/* {Language_arr["Email (required*)"+lang]} */}
                 {get_string_lable("SIGN UP")}
-                </Form.Label>
+            </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 <Form.Control placeholder=
-                // Enter your Email Address
-                // {Language_arr["Enter your Email Address"+lang]}
-                {get_string_lable("Enter your Email Address")}
-                
-                
-                    
+                    // Enter your Email Address
+                    // {Language_arr["Enter your Email Address"+lang]}
+                    {get_string_lable("Enter your Email Address")}
+
+
+
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                 />
@@ -197,15 +201,15 @@ const get_string_lable =(str_n)=>{
                 {/* Password (required*) */}
                 {/* {Language_arr["Password (required*)"+lang]} */}
                 {get_string_lable("Password (required*)")}
-                </Form.Label>
+            </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
-                    placeholder=    
-                // "Enter Password"
-                // {Language_arr["Enter Password"+lang]}
-                {get_string_lable("Enter Password")}
-                
+                    placeholder=
+                    // "Enter Password"
+                    // {Language_arr["Enter Password"+lang]}
+                    {get_string_lable("Enter Password")}
+
                     aria-label="Password"
                     aria-describedby="basic-addon1"
                 />
@@ -222,10 +226,10 @@ const get_string_lable =(str_n)=>{
                     {get_string_lable("Remember Me")}
 
 
-                         className="remember"/>
+                    className="remember" />
 
 
-            
+
 
             </div>
             <Button onClick={() => navigateToPath('/search')} className="login_btn" variant="primary">
@@ -239,31 +243,28 @@ const get_string_lable =(str_n)=>{
 }
 
 
-const LanguageToggle =  () => {
+const LanguageToggle = () => {
 
-    // const [checked, setChecked] = useState(false);
-    const [radioValue, setLanguageValue] = useState('2');
+    // const [radioValue, setLanguageValue] = useState('2');
+    // {contextState,updateContextState}
+    // const context = useContext(ContextApiContext);
+    const { contextState, updateContextState } = useContext(ContextApiContext);
+    const languageRadios = contextState.avalible_languages;
+    console.log('context 11', contextState);
 
-    const context = useContext(ContextApiContext);
-    const languageRadios = context.avalible_languages;
-
-    const change_language = (lang_id)=>{
-        setLanguageValue(lang_id);
-        console.log('lang_id',lang_id);
-        console.log('context',context);
+    const change_language = (lang_id) => {
+        // setLanguageValue(lang_id);
+        updateContextState(lang_id, 'language');
+        console.log('lang_id', lang_id);
+        console.log('context', contextState);
         // context.updateContext(lang_id,'language');
         console.log('eeeeeee');
-        
+
         // let t =  googleTranslate('How are you','ru');
         // console.log('translation ',t);
     }
 
 
-    
-    // [
-    //     { name: 'English', value: '1' },
-    //     { name: 'Russian', value: '2' },
-    // ];
 
     return (
         <>
@@ -276,8 +277,9 @@ const LanguageToggle =  () => {
                         variant={idx % 2 ? 'outline-success' : 'outline-danger'}
                         name="radio"
                         value={language.id}
-                        checked={radioValue === language.id}
+                        checked={contextState.language.id === language.id}
                         onChange={(e) => change_language(e.currentTarget.value)}
+                        // onChange={(e) => updateContextState(e.currentTarget.value, 'language')}
                     >
                         {language.name}
                     </ToggleButton>
