@@ -38,8 +38,10 @@ export default function Search_Page() {
     };
     //-------
     // yaha sa 
+    const { contextState, updateContextState } = useContext(ContextApiContext);
+
     const context = useContext(ContextApiContext);
-    const lang = context.language.prefix; 
+    const lang = contextState.language.prefix;
     const max_length = 13;
     const get_string_lable =(str_n)=>{
         const str = Language_arr[str_n+lang];

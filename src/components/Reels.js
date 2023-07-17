@@ -68,8 +68,8 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>            
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>            
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
             <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
@@ -100,8 +100,8 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
             <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
@@ -132,8 +132,8 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
             <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 
@@ -164,8 +164,8 @@ export default function Reels_page_export() {
               </p>
             </div>
             <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /></Button>
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /></Button>
+            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>
+            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
             <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
             </div>
 

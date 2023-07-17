@@ -9,8 +9,6 @@ button.backbtn.btn.btn-primary {
     font-weight: bold;
 }
 video#background-video2 {
-    /* width: 100%; */
-
         position: fixed;
         right: 0;
         bottom: 0;

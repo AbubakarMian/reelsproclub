@@ -41,9 +41,12 @@ function Categories() {
     const navigateToPath = (path) => {
       navigate(path);
     };
+    const { contextState, updateContextState } = useContext(ContextApiContext);
+
+    // const context = useContext(ContextApiContext);
      //-------
-     const context = useContext(ContextApiContext);
-     const lang = context.language.prefix;
+    //  const contextState = useContext(ContextApiContext);
+     const lang = contextState.language.prefix;
      console.log('aaaa',"LOG IN"+lang);
      console.log('aaaa a ',Language_arr["LOG IN"+lang]);
      //-------
