@@ -39,7 +39,7 @@ export default function Profile() {
   };
   return (
     <div>
-      <Container>
+      <Container fluid>
         <Row>
           <Col>
             <Button
