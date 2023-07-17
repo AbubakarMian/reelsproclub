@@ -44,7 +44,7 @@ export default function Reels_page_export() {
           </Col>
         </Row> */}
         <Row className="reel_box">
-          <Col>
+          <Col className="img_adj">
             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof1.jpg" />
              
@@ -76,7 +76,7 @@ export default function Reels_page_export() {
           </Col>
         </Row>
         <Row className="reel_box">
-          <Col>
+          <Col className="img_adj">
              <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof3.jpg" />
             </div>
@@ -108,7 +108,7 @@ export default function Reels_page_export() {
           </Col>
         </Row>
         <Row className="reel_box">
-          <Col>
+          <Col className="img_adj">
              <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof4.jpg" />
             </div>
@@ -141,7 +141,7 @@ export default function Reels_page_export() {
         </Row>
 
         <Row className="reel_box">
-          <Col>
+          <Col className="img_adj">
              <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
               <img src="./images/prof10.jpg" />
             </div>

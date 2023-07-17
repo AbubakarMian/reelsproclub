@@ -40,6 +40,7 @@ import ContexApiProvider from './context/ContextApi';
 import Profile from './components/Profile';
 import ViewReels from './components/ViewReels';
 import Hire from './components/Hire';
+import OrderReels from './components/OrderReels';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+        <Route Component={OrderReels} path='order'></Route>
         <Route Component={Hire} path='hire'></Route>
         <Route Component={ViewReels} path='viewreels'></Route>
         <Route Component={Profile} path='profile'></Route>

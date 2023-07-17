@@ -141,6 +141,10 @@ button.reel_btn.btn.btn-primary {
 .btn_span_share{
     display: contents;
 }
+.col.img_adj {
+    display: flex;
+    align-items: center;
+}
 
 @media only screen and (max-width : 480px) {
     .reel_box {

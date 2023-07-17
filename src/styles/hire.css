@@ -27,7 +27,7 @@ section.bg_color_hire {
     background-color: rgb(100 113 133 / 70%);
     /* background-color: cadetblue; */
     padding: 10px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 button.submit_btn.btn.btn-primary {
     width: 100%;
@@ -74,6 +74,7 @@ section.bg_color_hire {
 .hire_info_area p {
     margin-top: 0;
     margin-bottom: 0rem;
+    font-weight: bold;
 }
 input#basic-url {
     text-align: center;

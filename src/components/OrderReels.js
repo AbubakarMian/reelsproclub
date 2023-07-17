@@ -6,8 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import "./../styles/myreels.css";
-import "./../styles/reels.css";
+import "./../styles/orderreels.css";
 import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,6 +43,9 @@ export default function MyReels_page_export() {
             <Button onClick={()=>navigateToPath('/camera')} className="add_reelbtn"><FontAwesomeIcon icon={faCameraRetro} /> +   Add Reel</Button>
           </Col>
         </Row> */}
+        <Row>
+           <h2>ORDERS</h2> 
+        </Row>
         <Row className="reel_box">
           <Col>
             <div className="img_area">
@@ -59,24 +61,20 @@ export default function MyReels_page_export() {
               />
             </div>
           </Col>
-          <Col>
-            <div className="info_area_myreels">
-              <div className="likes_area">
-                <p> 
-                  <FontAwesomeIcon icon={faEye} className="like-eye" /> 
-                  (129) 
-                  <FontAwesomeIcon className="like-thum" icon={faThumbsUp} /> 
-                  (112 ){" "} 
-                 </p>
+          <Col className="center_align">
+          <div className="all_btn">
+            <div className="shar_viewbtn">
+              <Button className="two_btn">Share</Button>
+              <Button className="two_btn">View</Button>
               </div>
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
                     navigate("/reelvideo");
                   }}
-                  className="viewbtn"
+                  className="viewbtn btn-success"
                 >
-                  View
+                  Download
                 </Button>
                 <Button className="viewbtn btn-danger">Delete</Button>
               </div>
@@ -98,15 +96,11 @@ export default function MyReels_page_export() {
               />
             </div>
           </Col>
-          <Col>
-            <div className="info_area_myreels">
-            <div className="likes_area">
-                <p> 
-                  <FontAwesomeIcon icon={faEye} className="like-eye" /> 
-                  (129) 
-                  <FontAwesomeIcon className="like-thum" icon={faThumbsUp} /> 
-                  (112 ){" "} 
-                 </p>
+          <Col className="center_align">
+          <div className="all_btn">
+            <div className="shar_viewbtn">
+              <Button className="two_btn">Share</Button>
+              <Button className="two_btn">View</Button>
               </div>
               <div>
                 <div className="btn_area_myrees">
@@ -114,9 +108,9 @@ export default function MyReels_page_export() {
                     onClick={() => {
                       navigate("/reelvideo");
                     }}
-                    className="viewbtn"
-                  >
-                    View
+                    className="viewbtn btn-success"
+                    >
+                    Download
                   </Button>
                   <Button className="viewbtn btn-danger">Delete</Button>
                 </div>
@@ -139,24 +133,20 @@ export default function MyReels_page_export() {
               />
             </div>
           </Col>
-          <Col>
-            <div className="info_area_myreels">
-            <div className="likes_area">
-                <p> 
-                  <FontAwesomeIcon icon={faEye} className="like-eye" /> 
-                  (129) 
-                  <FontAwesomeIcon className="like-thum" icon={faThumbsUp} /> 
-                  (112 ){" "} 
-                 </p>
+          <Col className="center_align">
+          <div className="all_btn">
+            <div className="shar_viewbtn">
+              <Button className="two_btn">Share</Button>
+              <Button className="two_btn">View</Button>
               </div>
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
                     navigate("/reelvideo");
                   }}
-                  className="viewbtn"
+                  className="viewbtn btn-success"
                 >
-                  View
+                  Download
                 </Button>
                 <Button className="viewbtn btn-danger">Delete</Button>
               </div>
@@ -179,22 +169,20 @@ export default function MyReels_page_export() {
               />
             </div>
           </Col>
-          <Col>
-            <div className="info_area_myreels">
-            <div className="likes_area">
-                <p> 
-                  <FontAwesomeIcon className="like-eye" icon={faEye} />   (129)   
-                  <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />  (112 ){" "} 
-                 </p>
+          <Col className="center_align">
+          <div className="all_btn">
+            <div className="shar_viewbtn">
+              <Button className="two_btn">Share</Button>
+              <Button className="two_btn">View</Button>
               </div>
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
                     navigate("/reelvideo");
                   }}
-                  className="viewbtn"
+                  className="viewbtn btn-success"
                 >
-                  View
+                  Download
                 </Button>
                 <Button className="viewbtn btn-danger">Delete</Button>
               </div>
