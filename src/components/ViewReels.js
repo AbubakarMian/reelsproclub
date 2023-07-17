@@ -155,30 +155,10 @@ export default function MyReels_page_export() {
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={video3}
-                ></video>
-              </div>
-            </Col>
-            <Col className="columnn">
-              <div
-                className="clickable"
-                onClick={() => {
-                  navigate("/reelvideo");
-                }}
-              >
-                <video muted
-                  id="background-video1"
-                  loop
-                  autoPlay
-                  ratio="16:9"
-                  resizeMode="cover" // height="720" width="1280"
-                  source
                   src={video5}
                 ></video>
               </div>
             </Col>
-          </Row>
-          <Row className="nomargin ">
             <Col className="columnn">
               <div
                 className="clickable"
@@ -197,6 +177,8 @@ export default function MyReels_page_export() {
                 ></video>
               </div>
             </Col>
+          </Row>
+          <Row className="nomargin ">
             <Col className="columnn">
               <div
                 className="clickable"
@@ -233,6 +215,24 @@ export default function MyReels_page_export() {
                 ></video>
               </div>
             </Col>
+            <Col className="columnn">
+              <div
+                className="clickable"
+                onClick={() => {
+                  navigate("/reelvideo");
+                }}
+              >
+                <video muted
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={video9}
+                ></video>
+              </div>
+            </Col>
           </Row>
           <Row className="nomargin ">
             <Col className="columnn">
@@ -249,7 +249,7 @@ export default function MyReels_page_export() {
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={video8}
+                  src={video1}
                 ></video>
               </div>
             </Col>
@@ -285,7 +285,7 @@ export default function MyReels_page_export() {
                   ratio="16:9"
                   resizeMode="cover" // height="720" width="1280"
                   source
-                  src={video1}
+                  src={video2}
                 ></video>
               </div>
             </Col>

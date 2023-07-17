@@ -44,11 +44,12 @@ export default function Profile() {
     const navigateToPath = (path) => {
         navigate(path);
     };
+    const { contextState, updateContextState } = useContext(ContextApiContext);
 
     
     // yaha sa 
-    const context = useContext(ContextApiContext);
-    const lang = context.language.prefix;
+    // const context = useContext(ContextApiContext);
+    const lang = contextState.language.prefix;
     const max_length = 13;
     const get_string_lable =(str_n)=>{
         const str = Language_arr[str_n+lang];

@@ -3,11 +3,12 @@
     border-radius: 10px;
 } */
 
+
 .img_area img {
     width: 100%;
     border-radius: 10px;
     object-fit: cover;
-    height: 90px;
+    height: 100%;
 }
 .reelArea .img_area {
     /* padding: 10px; */
@@ -53,8 +54,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', end
 .info_area p {
     margin: 1px;
 }
+
 .reel_box .info_area p:last-child {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 700;
 }
 .info_area {
@@ -80,15 +82,6 @@ svg.svg-inline--fa.fa-thumbs-up.like {
 }
 .reel_box .img_area {
     margin-top: 0px;
-}
-@media only screen and (max-width : 480px) {
-    .reel_box {
-        /* height: 126px; */
-    }
-    .info_area {
-        /* margin-top: 21px; */
-        font-size: 17px;
-    }
 }
 
 .camerBtns {
@@ -125,15 +118,62 @@ svg.svg-inline--fa.fa-thumbs-up.like {
       bottom: 0;
       width: 100%;
   }
-  .btn_areaa {
-    display: flex;
+ 
+.btn_areaa {
+    display: grid;
+    justify-items: center;
 }
+
 button.reel_btn.btn.btn-primary {
-    width: 100%;
-    margin: 1px 2px;
+    width: 71%;
+    margin: 8px 2px;
     font-weight: 500;
     padding: 3px 0px;
     background: #087bbc;
     border: #087bbc;
     text-transform: capitalize;
+    height: 54px;
+    font-size: 20px;
+}
+.btn_span{
+    display: contents;
+}
+.btn_span_share{
+    display: contents;
+}
+
+@media only screen and (max-width : 480px) {
+    .reel_box {
+        /* height: 126px; */
+    }
+    .info_area {
+        /* margin-top: 21px; */
+        font-size: 17px;
+    }
+   
+    button.reel_btn.btn.btn-primary {
+        width: 100%;
+        margin: 1px 2px;
+        height: 35px;
+
+    }
+    .img_area img {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+        height: 90px;
+    }
+    .btn_areaa {
+        display: flex;
+    }
+    .reel_box .info_area p:last-child {
+        font-size: 11px;
+    }
+    .btn_span{
+        display: none;
+    }
+    .btn_span_share{
+        display: none;
+    }
+
 }

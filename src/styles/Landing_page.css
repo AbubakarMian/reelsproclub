@@ -6,16 +6,23 @@
     background: rgb(146,22,67);
     background: linear-gradient(270deg, rgba(145,22,67,1) 0%, rgba(48,10,55,1) 60%, rgba(11,3,16,1) 100%);
 } */
+
 .bodybg {
-    height: 100vh;
+    height: auto;
     background: rgb(3,1,4);
     background: linear-gradient(57deg, rgba(3,1,4,1) 0%, rgba(43,10,54,1) 50%, rgba(174,26,70,1) 100%);
 }
 .hgt {
-    height: 190px;
+    height: 0px;
 }
 @media only screen and (max-width : 480px) {
     .landing_logo img {
         width: 85%;
+    }
+    .hgt {
+        height: 190px;
+    }
+    .bodybg {
+        height: 100vh;
     }
 }

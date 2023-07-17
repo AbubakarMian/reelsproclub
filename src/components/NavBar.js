@@ -29,20 +29,24 @@ import { faUsers,faHouse,
 
 
 export default function Nav_bar_area() {
-        const context = useContext(ContextApiContext);
+  const { contextState, updateContextState } = useContext(ContextApiContext);
+
+  // const context = useContext(ContextApiContext);
+  const lang = contextState.language.prefix;
+        // const context = useContext(ContextApiContext);
         const authUser = {name:'use1'};
         const langUser = {name:'use1'};
         // const authUser = useContext(ContexApifun);
         // const langUser = useContext(lanuageContext);
-        console.log('context',context);
-        console.log('context 2',context.language);
+        console.log('context',contextState);
+        console.log('context 2',contextState.language);
         return (
             <>
             {/* {[false, 'sm', 'lg', 'lg', 'xl', 'xxl'].map((expand) => ( */}
             <Navbar key='xl' expand='lg' className="bg-body-tertiary" variant="light">
               <Container fluid className="nav_back">
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
-                <Navbar.Brand href="#">Reels Pro Club</Navbar.Brand>
+                <Navbar.Brand href="#"> <img className="logo_brand" src="./../images/new1.png"></img></Navbar.Brand>
                 <Navbar.Offcanvas
                   id={`offcanvasNavbar-expand-lg`}
                   aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
@@ -51,7 +55,7 @@ export default function Nav_bar_area() {
                   <Offcanvas.Header>
                     <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
                       <div onClick={()=>{
-                      }}>{context.user.name} {context.language.name}</div>
+                      }}>{contextState.user.name} {contextState.language.name}</div>
                       <div>
                         <img className="collapse_logo" src="./../images/new1.png"></img>
       
@@ -67,16 +71,11 @@ export default function Nav_bar_area() {
                       {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
                       <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> Login</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="landing"><FontAwesomeIcon icon={faUsers} /> Landing</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faBoxesStacked} />Categories</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="people"><FontAwesomeIcon icon={faUsers} /> People</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="reels"><FontAwesomeIcon icon={faCamera} /> Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="signup"><FontAwesomeIcon icon={faUserPlus} /> Sign Up</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faUsers} /> Profile</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faUsers} /> View Reels</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="hire"><FontAwesomeIcon icon={faUsers} /> Hire</Nav.Link></div>
                     
                       {/* <NavDropdown
       

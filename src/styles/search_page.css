@@ -30,6 +30,9 @@ section.bg_body_color {
     background-repeat: no-repeat;
 
 }
+.login_logo {
+    display: none;
+}
 
 @media only screen and (max-width : 480px) {
       
@@ -42,5 +45,8 @@ section.bg_body_color {
     .login_logo img {
         width: 200px;
         margin-top: 42px;
+    }
+    .login_logo {
+        display: block;
     }
 }
