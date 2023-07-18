@@ -24,7 +24,7 @@ import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
 import video9 from "../videos/vid9.mp4";
 
-export default function MyReels_page_export() {
+export default function OrderDetails() {
   const navigate = useNavigate();
 
   const navigateToPath = (path) => {
