@@ -79,6 +79,7 @@ export default function Nav_bar_area() {
                       <div className='nav_bottom'><Nav.Link href="orderdetails"><FontAwesomeIcon icon={faCalendarDay} /> Order Details</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} />Login</Nav.Link></div>
 
+
                       {/* <NavDropdown
       
       

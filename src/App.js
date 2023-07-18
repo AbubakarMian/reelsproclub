@@ -41,7 +41,9 @@ import Profile from './components/Profile';
 import ViewReels from './components/ViewReels';
 import Hire from './components/Hire';
 import OrderReels from './components/OrderReels';
+
 import OrderDetails from './components/OrderDetails';
+
 
 function App() {
   return (
@@ -51,6 +53,7 @@ function App() {
       <Router>
         {/* <Nav_bar_area /> */}
         <Routes>
+
         <Route Component={OrderDetails} path='orderdetails'></Route>
         <Route Component={OrderReels} path='order'></Route>
         <Route Component={Hire} path='hire'></Route>

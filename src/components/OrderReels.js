@@ -25,6 +25,7 @@ import Nav_bar_area from "./NavBar";
 import video9 from "../videos/vid9.mp4";
 
 
+
 export default function MyReels_page_export() {
   const navigate = useNavigate();
 
@@ -66,8 +67,10 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
+
               <Button className="two_btn share">Share</Button>
               <Button className="two_btn view">View</Button>
+
               </div>
               <div className="btn_area_myrees">
                 <Button
@@ -101,8 +104,10 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
+
               <Button className="two_btn share">Share</Button>
               <Button className="two_btn view">View</Button>
+
               </div>
               <div>
                 <div className="btn_area_myrees">
@@ -138,8 +143,10 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
+
               <Button className="two_btn share">Share</Button>
               <Button className="two_btn view">View</Button>
+
               </div>
               <div className="btn_area_myrees">
                 <Button
@@ -174,8 +181,10 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
+
               <Button className="two_btn share">Share</Button>
               <Button className="two_btn view">View</Button>
+
               </div>
               <div className="btn_area_myrees">
                 <Button
@@ -191,6 +200,7 @@ export default function MyReels_page_export() {
             </div>
           </Col>
         </Row>
+
         <Row>
         <Col>
 
@@ -198,6 +208,7 @@ export default function MyReels_page_export() {
         </Col>
 
         </Row>
+
       </Container>
     </section>
   );
