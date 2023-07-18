@@ -22,6 +22,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
+import video9 from "../videos/vid9.mp4";
+
 
 export default function MyReels_page_export() {
   const navigate = useNavigate();
@@ -64,8 +66,8 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
-              <Button className="two_btn">Share</Button>
-              <Button className="two_btn">View</Button>
+              <Button className="two_btn share">Share</Button>
+              <Button className="two_btn view">View</Button>
               </div>
               <div className="btn_area_myrees">
                 <Button
@@ -99,8 +101,8 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
-              <Button className="two_btn">Share</Button>
-              <Button className="two_btn">View</Button>
+              <Button className="two_btn share">Share</Button>
+              <Button className="two_btn view">View</Button>
               </div>
               <div>
                 <div className="btn_area_myrees">
@@ -136,8 +138,8 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
-              <Button className="two_btn">Share</Button>
-              <Button className="two_btn">View</Button>
+              <Button className="two_btn share">Share</Button>
+              <Button className="two_btn view">View</Button>
               </div>
               <div className="btn_area_myrees">
                 <Button
@@ -172,8 +174,8 @@ export default function MyReels_page_export() {
           <Col className="center_align">
           <div className="all_btn">
             <div className="shar_viewbtn">
-              <Button className="two_btn">Share</Button>
-              <Button className="two_btn">View</Button>
+              <Button className="two_btn share">Share</Button>
+              <Button className="two_btn view">View</Button>
               </div>
               <div className="btn_area_myrees">
                 <Button
@@ -188,6 +190,13 @@ export default function MyReels_page_export() {
               </div>
             </div>
           </Col>
+        </Row>
+        <Row>
+        <Col>
+
+        <Button className="deliver_btn">DELIVER</Button>
+        </Col>
+
         </Row>
       </Container>
     </section>

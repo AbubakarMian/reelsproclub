@@ -19,7 +19,7 @@
     border-radius: 10px;
     background-color: rgb(255 255 255 / 70%);
     margin: 33px 5px;
-    min-height: 264px;
+    height: 264px;
     max-width: 50%;
     min-width: 50%;
 }
@@ -93,6 +93,27 @@ input#basic-url {
     display: flex;
     align-items: center;
 }
+button.commentsbtn.btn.btn-primary {
+    background: transparent;
+    border: 0px;
+    color: #86b7fe;
+    /* float: left; */
+    margin-left: 3px;
+    font-weight: 500;
+    font-size: 18px;
+    border: solid 1px;
+}
+textarea.txt_area.form-control {
+    margin: 12px 0px;
+    height: 85px;
+
+}
+.txt_bx {
+    overflow: scroll;
+}
+.txt_bx{
+    padding: 10px 10px;
+ }
 @media only screen and (max-width : 480px) {
   
     section.bg_color {

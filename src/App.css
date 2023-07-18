@@ -28,12 +28,13 @@ div#offcanvasNavbar-expand-lg {
   padding-right: 15px;
 }
 .nav-link {
-  
+  color: white !important;
   border-bottom: 1px solid #410737 !important;
 }
 img.logo_brand {
   width: 50px;
 }
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
