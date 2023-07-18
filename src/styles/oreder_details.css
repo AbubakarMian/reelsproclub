@@ -1,0 +1,38 @@
+
+.prof_img img {
+    width: 32%;
+}
+.gre_card {
+    border: solid 1px #dbdada;
+    padding: 10px;
+    background-color: #ebebeb;
+}
+.gre_card_head {
+    border: solid 1px #dbdada;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.order_btn_area {
+    margin-top: 7px;
+}
+
+.gre_card_head h5 {
+    color: #6e6e6e;
+}
+h2.order_hed {
+    font-weight: bold;
+}
+button.order_btn_area {
+    font-size: 15px;
+}
+
+@media only screen and (max-width : 480px) {
+
+    .prof_img img {
+        width: 100%;
+    }
+    button.order_btn_area {
+        font-size: 12px;
+    }
+}

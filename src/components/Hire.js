@@ -32,6 +32,7 @@ import { ContextApiContext } from "../context/ContextApi";
 }
 
 export default function Profile() {
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const navigateToPath = (path) => {
@@ -81,40 +82,40 @@ export default function Profile() {
           </Row>
           <Row>
             <Col>
-            <div className="flexing">
-              <div className="form_cover_profile_hire dual">
-                <p>
-                  I am flexible, reliable and possess excellent time keeping
-                  skills. I am an enthusiastic, self-motivated, reliable,
-                  responsible and hard working person. I am a mature team worker
-                  and adaptable to all challenging situations. I am able to work
-                  well both in a team environment as well as using own
-                  initiative.
-                </p>
-              </div>
-           
-              <div className="form_cover_profile_hire">
-                <InputGroup className="mb-3">
-                  <InputGroup.Text id="basic-addon3">
-                    Rate Per Reel
-                  </InputGroup.Text>
-                  <Form.Control
-                    id="basic-url"
-                    aria-describedby="basic-addon3"
-                    value={"$20"}
-                  />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                  <InputGroup.Text id="basic-addon3">
-                    Number Of Reels
-                  </InputGroup.Text>
-                  <Form.Control
-                    id="basic-url"
-                    aria-describedby="basic-addon3"
-                    value={10}
-                  />
-                </InputGroup>
-                <Form>
+              <div className="flexing">
+                <div className="form_cover_profile_hire dual txt_bx">
+                  <p>
+                    I am flexible, reliable and possess excellent time keeping
+                    skills. I am an enthusiastic, self-motivated, reliable,
+                    responsible and hard working person. I am a mature team
+                    worker and adaptable to all challenging situations. I am
+                    able to work well both in a team environment as well as
+                    using own initiative.
+                  </p>
+                </div>
+
+                <div className="form_cover_profile_hire">
+                  <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon3">
+                      Rate Per Reel
+                    </InputGroup.Text>
+                    <Form.Control
+                      id="basic-url"
+                      aria-describedby="basic-addon3"
+                      value={"$20"}
+                    />
+                  </InputGroup>
+                  <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon3">
+                      Number Of Reels
+                    </InputGroup.Text>
+                    <Form.Control
+                      id="basic-url"
+                      aria-describedby="basic-addon3"
+                      value={10}
+                    />
+                  </InputGroup>
+                  {/* <Form>
                   <Form.Group
                     className="mb-3 text_cent"
                     controlId="exampleForm.ControlTextarea1"
@@ -122,56 +123,33 @@ export default function Profile() {
                     <Form.Label>Comments</Form.Label>
                     <Form.Control as="textarea" rows={3} />
                   </Form.Group>
-                </Form>
-              </div>
+                </Form> */}
+                  <Button
+                    onClick={() => setOpen(!open)}
+                    aria-controls="example-collapse-text"
+                    aria-expanded={open}
+                    className="commentsbtn"
+                  >
+                    Comment
+                  </Button>
+                  <Collapse in={open}>
+                    <div id="example-collapse-text">
+                      <InputGroup>
+                        <Form.Control
+                          as="textarea"
+                          aria-label="With textarea"
+                          className="txt_area"
+                        />
+                      </InputGroup>
+                    </div>
+                  </Collapse>
+                </div>
               </div>
             </Col>
           </Row>
-          <Button className="hire_btn">Hire</Button>
+          <Button  onClick={() => navigate("/orderdetails")} className="hire_btn">Hire</Button>
         </Container>
       </section>
     </div>
   );
 }
-
-const LanguageToggle = () => {
-  const [checked, setChecked] = useState(false);
-  const [radioValue, setLanguageValue] = useState("1");
-
-  const context = useContext(ContextApiContext);
-  console.log("ccc", context);
-  const languageRadios = context.avalible_languages;
-
-  const change_language = (lang_id) => {
-    setLanguageValue(lang_id);
-    console.log("lang_id", lang_id);
-    console.log("context", context);
-    context.updateContext(lang_id, "language");
-    console.log("eeeeeee");
-
-    // let t =  googleTranslate('How are you','ru');
-    // console.log('translation ',t);
-  };
-
-  return (
-    <>
-      <ButtonGroup>
-        {languageRadios.map((language, idx) => (
-          <ToggleButton
-            className="tbtn"
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant={idx % 2 ? "outline-primary" : "outline-primary"}
-            name="radio"
-            value={language.id}
-            checked={radioValue === language.id}
-            onChange={(e) => change_language(e.currentTarget.value)}
-          >
-            {language.name}
-          </ToggleButton>
-        ))}
-      </ButtonGroup>
-    </>
-  );
-};

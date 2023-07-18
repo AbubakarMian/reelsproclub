@@ -16,12 +16,13 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers,faHouse,
   faCamera,
-  faPhoneVolume,
+  faCircleUser,
   faMagnifyingGlass,
   faRightToBracket,
   faBoxesStacked,
-  faUserPlus,
+  faPhotoFilm,
   faFilm,
+  faCalendarDay,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
 
@@ -70,14 +71,15 @@ export default function Nav_bar_area() {
                        <div className='nav_bottom'><Nav.Link href="camera"><FontAwesomeIcon icon={faCamera} /> New Reel</Nav.Link></div>
                       {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
-                      <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} /> Login</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faBoxesStacked} />Categories</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faUsers} /> Profile</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faUsers} /> View Reels</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="order"><FontAwesomeIcon icon={faUsers} /> Order Reels</Nav.Link></div>
-                    
+                      <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faCircleUser} /> Profile</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faPhotoFilm} /> View Reels</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="orderdetails"><FontAwesomeIcon icon={faCalendarDay} /> Order Details</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} />Login</Nav.Link></div>
+
+
                       {/* <NavDropdown
       
       
