@@ -26,7 +26,7 @@ import video9 from "../videos/vid9.mp4";
 
 
 
-export default function MyReels_page_export() {
+export default function OrderReels() {
   const navigate = useNavigate();
 
   const navigateToPath = (path) => {
