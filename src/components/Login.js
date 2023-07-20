@@ -173,26 +173,52 @@ const Login_form = () => {
             str.substring(0, max_length) + '....'
     }
 
-    const attempt_login=()=>{
-        var formData = new FormData();
+    // const attempt_login=()=>{
+    //     var formData = new FormData();
 
-        // console.log('email',email);
-        // console.log('password',password);
-        // formData.append("email",email);
-        // formData.append("password",password);
+    //     // console.log('email',email);
+    //     // console.log('password',password);
+    //     // formData.append("email",email);
+    //     // formData.append("password",password);
         
-        formData.append("email","u1@mail.com");
-        formData.append("password","abc123");
-                //    (contextState, request_type, url, formData)
-        SendRequest(contextState,"POST",Constant.login,formData).then(res=>{
-                console.log('send req resss',res);
-            })
+    //     formData.append("email","u1@mail.com");
+    //     formData.append("password","abc123");
+    //             //    (contextState, request_type, url, formData)
+    //     SendRequest(contextState,"POST",Constant.login,formData).then(res=>{
+    //             console.log('send req resss',res);
+    //         })
 
-        // .then(res=>{
-        //     console.log('resss',res);
-        // })
-        // navigateToPath('/search')
-    }
+    //     // .then(res=>{
+    //     //     console.log('resss',res);
+    //     // })
+    //     // navigateToPath('/search')
+    // }
+
+    const attempt_login = () => {
+        var formData = new FormData();
+        
+        formData.append("email", "u1@mail.com");
+        formData.append("password", "abc123");
+      
+        SendRequest(contextState, "POST", Constant.login, formData)
+          .then((res) => {
+            if (res.ok) {
+              return res.json(); // Assuming the response contains JSON data
+            } else {
+              throw new Error('Network response was not ok.');
+            }
+          })
+          .then((data) => {
+            console.log('Login response:', data);
+            // Handle the login response data as needed
+            // For example, redirect to another page if login was successful
+            // navigateToPath('/search');
+          })
+          .catch((error) => {
+            console.error('Error during login:', error);
+            // Handle errors here, such as displaying an error message to the user
+          });
+      };
 
     return (
 
