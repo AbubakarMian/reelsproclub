@@ -30,7 +30,7 @@ export const ContexApiProvider = (props) => {
         "user": {
             id: "0",
             name: "Guest",
-            token: "basictoken"
+            access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ=="
         },
     }
 
