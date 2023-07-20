@@ -1,5 +1,6 @@
 .landing_logo img {
-    width: 70%;
+    width: auto;
+    height: 100vh;
 }
 /* .bodybg {
     height: 100vh;

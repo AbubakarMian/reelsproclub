@@ -52,6 +52,7 @@ export default function Profile() {
     const lang = contextState.language.prefix;
     const max_length = 13;
     const get_string_lable =(str_n)=>{
+        console.log('str',str_n);
         const str = Language_arr[str_n+lang];
         return str.length < max_length?str :
                           str.substring(0,max_length)+'....'
@@ -99,7 +100,7 @@ export default function Profile() {
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Label>
                                             {/* First Name* */}
-                                            {get_string_lable(" First Name*")}
+                                            {get_string_lable("First Name*")}
 
                                         </Form.Label>
                                         <Form.Control type="text" placeholder=
@@ -139,7 +140,7 @@ export default function Profile() {
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Label>
                                             {/* Email* */}
-                                            {get_string_lable("Email")}
+                                            {get_string_lable("Email*")}
 
                                         </Form.Label>
                                         <Form.Control type="email" placeholder=
@@ -271,15 +272,17 @@ const LanguageToggle = () => {
     const [checked, setChecked] = useState(false);
     const [radioValue, setLanguageValue] = useState('1');
 
-    const context = useContext(ContextApiContext);
-    console.log('ccc',context);
-    const languageRadios = context.avalible_languages;
+    const { contextState, updateContextState } = useContext(ContextApiContext);
+
+    // const context = useContext(ContextApiContext);
+    console.log('ccc',contextState);
+    const languageRadios = contextState.avalible_languages;
 
     const change_language = (lang_id)=>{
-        setLanguageValue(lang_id);
+        // setLanguageValue(lang_id);
         console.log('lang_id',lang_id);
-        console.log('context',context);
-        context.updateContext(lang_id,'language');
+        console.log('contextState',contextState);
+        updateContextState(lang_id,'language');
         console.log('eeeeeee');
         
         // let t =  googleTranslate('How are you','ru');
@@ -298,7 +301,7 @@ const LanguageToggle = () => {
                         variant={idx % 2 ? 'outline-primary' : 'outline-primary'}
                         name="radio"
                         value={language.id}
-                        checked={radioValue === language.id}
+                        checked={contextState.language.id === language.id}
                         onChange={(e) => change_language(e.currentTarget.value)}
                     >
                         {language.name}
