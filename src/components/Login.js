@@ -23,11 +23,13 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 // import ContextApiContext from '../context/ContextApiContext';
-import Common, { googleTranslate } from '../common/Common';
+import Common, { googleTranslate,SendRequest } from '../common/Common';
 import Language_arr from "../common/Lang";
 
 import { ContextApiContext } from '../context/ContextApi';
 import { useContext } from "react";
+
+import { Constant } from '../common/Constants';
 // import Common,{googleTranslate} from '../common/Common';
 
 
@@ -42,6 +44,7 @@ async function Translate(text) {
     // console.log('asdsa gg',gg);
 }
 export default function LogIn() {
+
     const navigate = useNavigate();
 
     const navigateToPath = (path) => {
@@ -155,11 +158,9 @@ const Login_form = () => {
         navigate(path);
     };
 
-
-
-    // yaha sa 
-    // const context = useContext(ContextApiContext);
     const { contextState, updateContextState } = useContext(ContextApiContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
 
     const lang = contextState.language.prefix;
@@ -172,8 +173,26 @@ const Login_form = () => {
             str.substring(0, max_length) + '....'
     }
 
-    // yaha tk utthalo 
+    const attempt_login=()=>{
+        var formData = new FormData();
 
+        // console.log('email',email);
+        // console.log('password',password);
+        // formData.append("email",email);
+        // formData.append("password",password);
+        
+        formData.append("email","u1@mail.com");
+        formData.append("password","abc123");
+                //    (contextState, request_type, url, formData)
+        SendRequest(contextState,"POST",Constant.login,formData).then(res=>{
+                console.log('send req resss',res);
+            })
+
+        // .then(res=>{
+        //     console.log('resss',res);
+        // })
+        // navigateToPath('/search')
+    }
 
     return (
 
@@ -190,8 +209,8 @@ const Login_form = () => {
                     // Enter your Email Address
                     // {Language_arr["Enter your Email Address"+lang]}
                     {get_string_lable("Enter your Email Address")}
-
-
+                    // setEmail(e)
+                    onChange={(e)=>{setEmail(e.target.value)}}
 
                     aria-label="Username"
                     aria-describedby="basic-addon1"
@@ -205,6 +224,7 @@ const Login_form = () => {
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
+                onChange={(e)=>{setPassword(e.target.value)}}
                     placeholder=
                     // "Enter Password"
                     // {Language_arr["Enter Password"+lang]}
@@ -232,7 +252,7 @@ const Login_form = () => {
 
 
             </div>
-            <Button onClick={() => navigateToPath('/search')} className="login_btn" variant="primary">
+            <Button onClick={() => attempt_login()} className="login_btn" variant="primary">
                 {/* LOG IN */}
                 {/* {Language_arr["LOG IN"+lang]} */}
                 {get_string_lable("LOG IN")}

@@ -187,8 +187,8 @@ lang['Submit_ru'] = ' Представлять на рассмотрение ';
 lang['Profile_en'] = 'Profile';
 lang['Profile_ru'] = ' Профиль ';
 
-lang['First Name*_en'] = 'First Name*';
-lang['First Name*_ru'] = ' Имя* ';
+// lang['First Name*_en'] = 'First Name*';
+// lang['First Name*_ru'] = ' Имя* ';
 
 lang['Enter First Name_en'] = 'Enter First Name';
 lang['Enter First Name_ru'] = ' Введите имя ';
