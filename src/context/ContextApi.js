@@ -2,37 +2,39 @@ import React, { createContext, useState } from "react";
 
 export const ContextApiContext = React.createContext()
 
+
+let initState = {
+    "avalible_languages": [
+        {
+            "id": '1',
+            "name": "English",
+            "prefix": "_en"
+        },
+        {
+            "id": '2',
+            "name": "Russian",
+            "prefix": "_ru"
+        }
+    ],
+    // "language": {
+    //     "id": 1,
+    //     "name": "English",
+    //     "prefix": "_en"
+    // },
+    "language":{
+        "id":'2',
+        "name":"Russian",
+        "prefix":"_ru"
+    },
+    "user": {
+        id: "0",
+        name: "Guest",
+        access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ=="
+    },
+}
+
 export const ContexApiProvider = (props) => {
 
-    let initState = {
-        "avalible_languages": [
-            {
-                "id": '1',
-                "name": "English",
-                "prefix": "_en"
-            },
-            {
-                "id": '2',
-                "name": "Russian",
-                "prefix": "_ru"
-            }
-        ],
-        // "language": {
-        //     "id": 1,
-        //     "name": "English",
-        //     "prefix": "_en"
-        // },
-        "language":{
-            "id":'2',
-            "name":"Russian",
-            "prefix":"_ru"
-        },
-        "user": {
-            id: "0",
-            name: "Guest",
-            access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ=="
-        },
-    }
 
     const [contextState, setContextState] = useState(initState)
 
@@ -61,7 +63,7 @@ export const ContexApiProvider = (props) => {
 
             default:
                 objContextState[obj_name] = update_obj;
-                setContextState(...contextState,objContextState)
+                setContextState({...contextState,objContextState})
                 break;
 
         }

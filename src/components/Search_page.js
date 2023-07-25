@@ -62,7 +62,7 @@ export default function Search_Page() {
 
     return (
         <section className="bg_body_color">
-            <Nav_bar_area />
+            <Nav_bar_area  contextApi={{contextState}}/>
 
             <Container fluid>
 

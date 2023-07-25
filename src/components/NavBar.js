@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 import loginContext from '../context/login/loginContext';
-// import ContexApifun from '../context/ContextApi';
-// import ContextApiContext from '../context/ContextApiContext';
-import {ContextApiContext} from '../context/ContextApi';
+// import {ContextApiContext} from '../context/ContextApi';
+
 
 import '../App.css';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -26,13 +25,15 @@ import { faUsers,faHouse,
       faArrowRightFromBracket 
     } from '@fortawesome/free-solid-svg-icons'
 
+    import { useNavigate } from "react-router-dom";
 
 
 
-export default function Nav_bar_area() {
-  const { contextState, updateContextState } = useContext(ContextApiContext);
+export default function Nav_bar_area(props) {
+  // const { contextState, updateContextState } = useContext(ContextApiContext);
 
   // const context = useContext(ContextApiContext);
+  const contextState = props.contextApi.contextState;
   const lang = contextState.language.prefix;
         // const context = useContext(ContextApiContext);
         const authUser = {name:'use1'};
@@ -41,6 +42,11 @@ export default function Nav_bar_area() {
         // const langUser = useContext(lanuageContext);
         console.log('context',contextState);
         console.log('context 2',contextState.language);
+        const navigate = useNavigate();
+
+    const navigateToPath = (path) => {
+      navigate(path);
+    };
         return (
             <>
             {/* {[false, 'sm', 'lg', 'lg', 'xl', 'xxl'].map((expand) => ( */}
@@ -68,6 +74,13 @@ export default function Nav_bar_area() {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
+                    <Button  onClick={()=>navigateToPath('/camera')}  className="" variant="primary">
+                                {/* GO */}
+                                {/* {Language_arr["GO"+lang]} */}
+                            New Reel
+                    </Button>
+
+
                        <div className='nav_bottom'><Nav.Link href="camera"><FontAwesomeIcon icon={faCamera} /> New Reel</Nav.Link></div>
                       {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
