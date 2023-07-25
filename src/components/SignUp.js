@@ -27,14 +27,12 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Nav_bar_area from "./NavBar";
 // import ContextApiContext from '../context/ContextApiContext';
-import Common,{googleTranslate} from '../common/Common';
+import Common, { googleTranslate } from "../common/Common";
 import Language_arr from "../common/Lang";
 
-import {ContextApiContext} from '../context/ContextApi';
-import {useContext} from "react";
+import { ContextApiContext } from "../context/ContextApi";
+import { useContext } from "react";
 // import Common,{googleTranslate} from '../common/Common';
-
-
 
 export default function Signup(props) {
   const navigate = useNavigate();
@@ -47,24 +45,23 @@ export default function Signup(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const { contextState, updateContextState } = useContext(ContextApiContext);
 
+  // yaha sa
+  // const context = useContext(ContextApiContext);
+  const lang = contextState.language.prefix;
+  const max_length = 13;
+  const get_string_lable = (str_n) => {
+    const str = Language_arr[str_n + lang];
+    return str.length < max_length
+      ? str
+      : str.substring(0, max_length) + "....";
+  };
+  // yaha tk utthalo
 
-    // yaha sa 
-    const context = useContext(ContextApiContext);
-    const lang = context.language.prefix;
-    const max_length = 13;
-    const get_string_lable =(str_n)=>{
-        const str = Language_arr[str_n+lang];
-        return str.length < max_length?str :
-                          str.substring(0,max_length)+'....'
-      }
-// yaha tk utthalo 
-
-
-    return (
-        <div>
-        <Container>
-
+  return (
+    <div>
+      <Container>
         <Row>
           <Col>
             <Button className="backbtnsignup" onClick={() => navigate(-1)}>
@@ -73,11 +70,14 @@ export default function Signup(props) {
           </Col>
         </Row>
       </Container>
+
       <section className="bg_clr">
-        <h3 className="signup_head">Sign Up</h3>
-        <Container fluid>
+        <Container className="cont_pad">
           <Row>
-            <div>
+            <Col>
+              <h3 className="signup_head">SignUp</h3>
+            </Col>
+            <Col>
               <div className="pic_area">
                 <Button
                   onClick={() => navigateToPath("/camera")}
@@ -86,10 +86,10 @@ export default function Signup(props) {
                   <FontAwesomeIcon icon={faUserPlus} />
                 </Button>
               </div>
-            </div>
+            </Col>
           </Row>
         </Container>
-        <Container>
+        <Container  className="cont_pad">
           <div className="form_cover_signup">
             <Row>
               <Col>
@@ -100,10 +100,7 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>First Name*</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="First Name"
-                      />
+                      <Form.Control type="text" name="" placeholder="First Name" />
                     </Form.Group>
                   </Form>
                 </div>
@@ -238,7 +235,8 @@ export default function Signup(props) {
               <Col>
                 <div className="form_area">
                   <Form>
-                    <Button onClick={handleShow} className="sub_btn">
+                    {/* <Button onClick={handleShow} className="sub_btn"> */}
+                    <Button    className="sub_btn">
                       Submit
                     </Button>
                   </Form>
@@ -291,7 +289,8 @@ const CreateHireModal = () => {
   const navigate = useNavigate();
 
   const navigateToPath = (path) => {
-    navigate(path);}
+    navigate(path);
+  };
   return (
     <>
       <Button className="modal_btn" onClick={() => setShow(true)}>

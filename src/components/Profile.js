@@ -23,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Nav_bar_area from './NavBar';
+// import Nav_bar_area from './NavBar';
 
 
 //------ yaha sa 
