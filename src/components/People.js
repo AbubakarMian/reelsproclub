@@ -19,8 +19,12 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation  } from "react-router-dom";
 import Nav_bar_area from './NavBar';
+import {useContext} from "react";
+import {ContextApiContext} from '../context/ContextApi';
+
+
 {/* <Nav_bar_area /> */}
 
 
@@ -32,15 +36,23 @@ import Nav_bar_area from './NavBar';
 // //------yaha tk utthalo 
 
 
-export default function People_page_export() {
+export default function People_page_export(props) {
   const navigate = useNavigate();
+  const { contextState, updateContextState } = useContext(ContextApiContext);
+
+
+  const location = useLocation();
+  const params = location.state;
+
+  console.log('params aaa', params);
 
     const navigateToPath = (path) => {
       navigate(path);
     };
   return (
     <section className="">
-      <Nav_bar_area />
+       <Nav_bar_area contextApi={{ contextState }} />
+
       <Container fluid>
         <Row>
           <Col>
@@ -213,42 +225,3 @@ export default function People_page_export() {
   );
 }
 
-const Login_form = () => {
-  return (
-    <>
-      <Form.Label className="labl" htmlFor="basic-url">
-        Email (required*)
-      </Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-        <Form.Control
-          placeholder="Enter your Email Address"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-      <Form.Label className="labl" htmlFor="basic-url">
-        Password (required*)
-      </Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
-        <Form.Control
-          placeholder="Enter Password"
-          aria-label="Password"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-      <div key={`default-checkbox`} className="mb-3">
-        <Form.Check // prettier-ignore
-          type="checkbox"
-          id={`default-checkbox`}
-          label={`Remember Me`}
-          className="remember"
-        />
-      </div>
-      <Button className="login_btn" variant="primary">
-        LOG IN
-      </Button>
-    </>
-  );
-};

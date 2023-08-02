@@ -79,13 +79,18 @@ export default function Nav_bar_area(props) {
                                 {/* {Language_arr["GO"+lang]} */}
                             New Reel
                     </Button>
+                    <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">
+                                {/* GO */}
+                                {/* {Language_arr["GO"+lang]} */}
+                            Categories
+                    </Button>
 
 
                        <div className='nav_bottom'><Nav.Link href="camera"><FontAwesomeIcon icon={faCamera} /> New Reel</Nav.Link></div>
                       {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
                       <div className='nav_bottom'><Nav.Link href="search"><FontAwesomeIcon icon={faMagnifyingGlass} /> Search</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faBoxesStacked} />Categories</Nav.Link></div>
+                      {/* <div className='nav_bottom'><Nav.Link href="categories"><FontAwesomeIcon icon={faBoxesStacked} />Categories</Nav.Link></div> */}
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faCircleUser} /> Profile</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faPhotoFilm} /> View Reels</Nav.Link></div>
