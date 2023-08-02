@@ -6,4 +6,5 @@ export const Constant = {
   login: `${base_url}/login`,
   video_upload: `${base_url}/video_upload`,
   get_category: `${base_url}/get_cat`,
+  get_people: `${base_url}/get_people`,
 };      

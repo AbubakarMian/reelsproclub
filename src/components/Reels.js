@@ -19,7 +19,7 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation} from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from './NavBar';
 
@@ -29,9 +29,14 @@ export default function Reels_page_export() {
   const navigateToPath = (path) => {
     navigate(path);
   };
+  const location = useLocation();
+  const params = location.state;
+  // const people_id = location.state;
+
+  console.log('params aaabbb_profile', params);
   return (
     <section className="">
-      <Nav_bar_area />
+      {/* <Nav_bar_area /> */}
       <Container fluid className="reelArea">
         {/* <Row>
           <Col>

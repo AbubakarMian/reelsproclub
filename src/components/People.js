@@ -16,13 +16,15 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate,useLocation  } from "react-router-dom";
 import Nav_bar_area from './NavBar';
 import {useContext} from "react";
 import {ContextApiContext} from '../context/ContextApi';
+import { Constant } from '../common/Constants';
+
 
 
 {/* <Nav_bar_area /> */}
@@ -43,185 +45,71 @@ export default function People_page_export(props) {
 
   const location = useLocation();
   const params = location.state;
+  const people_id = location.state.category_id;
 
   console.log('params aaa', params);
 
-    const navigateToPath = (path) => {
-      navigate(path);
-    };
-  return (
-    <section className="">
-       <Nav_bar_area contextApi={{ contextState }} />
+  const navigateToPath = (path,params) => {
+    navigate(path,params);
+  };
+    const [data, setData] = useState([]);
 
-      <Container fluid>
-        <Row>
-          <Col>
-            <div className="top_head_mec">Professionals</div>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {/* <a className="link_dec"href=""> */}
-              <div className="img_box"  onClick={()=>navigateToPath('/reels')} >
-                <img src="./images/prof1.jpg" />
-
-                <div className="img_box_txt">
-                  <p>Alex</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  </p>
+    useEffect(() => {
+      // Fetch data using the params variable here
+      // For example, you can use the fetch() function
+      // and pass the params to the API endpoint
+      const fetchData = async () => {
+        try {
+          let access_token = contextState.user.access_token;
+          console.log('acces_token',access_token);
+          const headers = {
+            Accept: 'application/json',
+            Authorization: access_token,
+            'Authorization-secure': access_token,
+            'client-id': 'reelspro-app-mobile',
+          };
+          console.log('headers_people',headers);
+          const response = await fetch(`${Constant.get_people}/${people_id}`, {
+            method: 'GET',
+            headers: headers,
+          });
+    
+          const data = await response.json();
+          console.log('datadata_people', data);
+          setData(data.response);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+  
+      fetchData();
+    }, [params]);
+    return (
+      <section className="">
+        {/* Your JSX code to display the data goes here */}
+        <Container fluid>
+          <Row>
+            <Col>
+              <div className="top_head_mec">Professionals</div>
+            </Col>
+          </Row>
+          <Row>
+            {/* Display the fetched data here */}
+            {data.map((item) => (
+              <Col key={item.id}>
+                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{profile:item.id}})}>
+                <div className="img_box">
+                  <img src={item.avatar} alt={item.name} />
+                  <div className="img_box_txt">
+                    <p>{item.name}</p>
+                  </div>
                 </div>
-              </div>
-            {/* </a> */}
-          </Col>
-          <Col>
-            {/* <a className="link_dec" onClick={()=>navigateToPath('/reels')}href=""> */}
-              <div className="img_box"  onClick={()=>navigateToPath('/reels')} >
-                <img src="./images/prof2.jpg" />
-                <div className="img_box_txt">
-                  <p>Albert</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            {/* </a> */}
-          </Col>
-           <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof3.jpg" />
-                <div className="img_box_txt">
-                  <p>Jacob</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a> 
-          </Col>
-        </Row>
-         <Row>
-          <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof4.jpg" />
-                <div className="img_box_txt">
-                  <p>Brad</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Col>
-          <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof5.jpg" />
-                <div className="img_box_txt">
-                  <p>Smith</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Col>
-          <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof6.jpg" />
-                <div className="img_box_txt">
-                  <p>Jhon</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Col>
-        </Row> 
-         <Row>
-          <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof7.jpg" />
-                <div className="img_box_txt">
-                  <p>Michel</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Col>
-          <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof8.jpg" />
-                <div className="img_box_txt">
-                  <p>David</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Col>
-          <Col>
-            <a className="link_dec" onClick={()=>navigateToPath('/reels')}href="">
-              <div className="img_box">
-                <img src="./images/prof9.jpg" />
-                <div className="img_box_txt">
-                  <p>Clark</p>
-                  <p>
-                  <FontAwesomeIcon icon={faStar} style={{color: "rgb(251, 157, 35)",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  <FontAwesomeIcon icon={faStar} style={{color: "#bbaeae",}} />
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Col>
-        </Row>
-        
-      </Container>
-    </section>
-  );
+                </a>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+    );
 }
 
