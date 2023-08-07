@@ -16,166 +16,101 @@ import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate,useLocation} from "react-router-dom";
 import { Player } from "video-react";
+import {useContext} from "react";
+import {ContextApiContext} from '../context/ContextApi';
+import { Constant } from '../common/Constants';
 import Nav_bar_area from './NavBar';
+
 
 export default function Reels_page_export() {
   const navigate = useNavigate();
-
-  const navigateToPath = (path) => {
-    navigate(path);
-  };
+  const { contextState, updateContextState } = useContext(ContextApiContext);
+  const [data, setData] = useState([]);
   const location = useLocation();
   const params = location.state;
-  // const people_id = location.state;
+  const category_id = location.state.category;
 
-  console.log('params aaabbb_profile', params);
+  const navigateToPath = (path,params) => {
+    navigate(path,params);
+  };
+  
+  console.log('params category_id', category_id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let access_token = contextState.user.access_token;
+        console.log('acces_token',access_token);
+        const headers = {
+          Accept: 'application/json',
+          Authorization: access_token,
+          'Authorization-secure': access_token,
+          'client-id': 'reelspro-app-mobile',
+        };
+        console.log('headers_people',headers);
+        const response = await fetch(`${Constant.get_category_people}/${category_id}`, {
+          method: 'GET',
+          headers: headers,
+        });
+  
+        const data = await response.json();
+        console.log('datadata_people', data);
+        setData(data.response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [params]);
   return (
     <section className="">
       {/* <Nav_bar_area /> */}
       <Container fluid className="reelArea">
-        {/* <Row>
-          <Col>
-            <div className="top_head_mec">REELS</div>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button onClick={()=>navigateToPath('/camera')} className="add_reelbtn"><FontAwesomeIcon icon={faCameraRetro} /> +   Add Reel</Button>
-          </Col>
-        </Row> */}
-        <Row className="reel_box">
-          <Col className="img_adj">
-            <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
-              <img src="./images/prof1.jpg" />
-             
-            </div>
-          </Col>
-          <Col>
-            <div className="info_area">
-              <p>
-                <b>Robert</b>
-              </p>
-              <p>
+        {/* Uncomment the following lines to display multiple reels */}
+        {data.map((reel) => (
+          <Row key={reel.id} className="reel_box">
+            <Col className="img_adj">
+              <div className="img_area" onClick={() => navigate('/reelvideo')}>
+                <img src={reel.user.imageUrl} alt="Reel Thumbnail" />
+              </div>
+            </Col>
+            <Col>
+              <div className="info_area">
+                <p>
+                  <b>{reel.user.name}</b>
+                </p>
+                <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
                 <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
               </p>
-              <p>
-                <FontAwesomeIcon className="like" icon={faThumbsUp} />
-                (112 likes)
-              </p>
-            </div>
-            <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>            
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
-            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
-            </div>
-
-          </Col>
-        </Row>
-        <Row className="reel_box">
-          <Col className="img_adj">
-             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
-              <img src="./images/prof3.jpg" />
-            </div>
-          </Col>
-          <Col>
-            <div className="info_area">
-              <p>
-                <b>Albert</b>
-              </p>
-
-              <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
-              </p>
-              <p>
-                <FontAwesomeIcon className="like" icon={faThumbsUp} />
-                (112 likes)
-              </p>
-            </div>
-            <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
-            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
-            </div>
-
-          </Col>
-        </Row>
-        <Row className="reel_box">
-          <Col className="img_adj">
-             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
-              <img src="./images/prof4.jpg" />
-            </div>
-          </Col>
-          <Col>
-            <div className="info_area">
-              <p>
-                <b>Smith</b>
-              </p>
-
-              <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
-              </p>
-              <p>
-                <FontAwesomeIcon className="like" icon={faThumbsUp} />
-                (112 likes)
-              </p>
-            </div>
-            <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
-            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
-            </div>
-
-          </Col>
-        </Row>
-
-        <Row className="reel_box">
-          <Col className="img_adj">
-             <div className="img_area" onClick={()=>{navigate('/reelvideo')}}>
-              <img src="./images/prof10.jpg" />
-            </div>
-          </Col>
-          <Col>
-            <div className="info_area">
-              <p>
-                <b>Jacob</b>
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
-                <FontAwesomeIcon icon={faStar} style={{ color: "#bbaeae" }} />
-              </p>
-              <p>
-                <FontAwesomeIcon className="like" icon={faThumbsUp} />
-                (112 likes)
-              </p>
-            </div>
-            <div className="btn_areaa">
-            <Button className="reel_btn" onClick={()=>{navigate('/viewreels')}}><FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span></Button>
-            <Button className="reel_btn"><FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span></Button>
-            <Button className="reel_btn" onClick={()=>{navigate('/hire')}}>Hire</Button>
-            </div>
-
-          </Col>
-        </Row>
+                <p>
+                  <FontAwesomeIcon className="like" icon={faThumbsUp} />
+                  {/* ({reel.likes} likes) */}
+                  128 likes
+                </p>
+              </div>
+              <div className="btn_areaa">
+                <Button className="reel_btn" onClick={() => navigate('/viewreels')}>
+                  <FontAwesomeIcon icon={faEye} /><span className="btn_span"> View</span>
+                </Button>
+                <Button className="reel_btn">
+                  <FontAwesomeIcon icon={faShare} /><span className="btn_span_share"> Share</span>
+                </Button>
+                <Button className="reel_btn" onClick={() => navigateToPath(`/hire`,{state:{user:reel.user.id}})}>
+                  Hire
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        ))}
       </Container>
     </section>
   );

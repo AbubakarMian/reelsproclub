@@ -97,7 +97,7 @@ export default function People_page_export(props) {
             {/* Display the fetched data here */}
             {data.map((item) => (
               <Col key={item.id}>
-                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{profile:item.id}})}>
+                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{category:item.id}})}>
                 <div className="img_box">
                   <img src={item.avatar} alt={item.name} />
                   <div className="img_box_txt">

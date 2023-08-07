@@ -32,7 +32,7 @@ export default function OrderDetails() {
   };
   return (
     <section className="">
-      <Nav_bar_area />
+      {/* <Nav_bar_area /> */}
       <Container fluid className="myreelarea">
         {/* <Row>
           <Col>

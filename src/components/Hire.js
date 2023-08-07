@@ -17,15 +17,16 @@ import {
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Nav_bar_area from "./NavBar";
 import { ContextApiContext } from "../context/ContextApi";
+import { Constant } from '../common/Constants';
 
 {
   /* <Nav_bar_area /> */
@@ -34,10 +35,45 @@ import { ContextApiContext } from "../context/ContextApi";
 export default function Profile() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { contextState, updateContextState } = useContext(ContextApiContext);
+  const [mydata, setData] = useState([]);
+  const location = useLocation();
+  const params = location.state;
+  const user_id = location.state.user;
 
-  const navigateToPath = (path) => {
-    navigate(path);
+  const navigateToPath = (path,params) => {
+    navigate(path,params);
   };
+  
+  console.log('params user_id', user_id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let access_token = contextState.user.access_token;
+        console.log('acces_token',access_token);
+        const headers = {
+          Accept: 'application/json',
+          Authorization: access_token,
+          'Authorization-secure': access_token,
+          'client-id': 'reelspro-app-mobile',
+        };
+        console.log('headers_people',headers);
+        const response = await fetch(`${Constant.get_reel_rate}/${user_id}`, {
+          method: 'GET',
+          headers: headers,
+        });
+  
+        const data = await response.json();
+        console.log('datadata_user_influencer', data);
+        console.log('namessssss', data.response.user.name);
+        setData(data.response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [params]);
   return (
     <div>
       <Container fluid>
@@ -65,7 +101,7 @@ export default function Profile() {
           <Row>
             <div className="hire_info_area">
               <p>
-                <h3 className="hire_head">Robert</h3>
+                <h3 className="hire_head">{mydata?.user?.name}</h3>
               </p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
@@ -102,7 +138,7 @@ export default function Profile() {
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                      value={"$20"}
+                      value={`$${mydata?.rate_per_reel}`}
                     />
                   </InputGroup>
                   <InputGroup className="mb-3">
@@ -112,7 +148,7 @@ export default function Profile() {
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                      value={10}
+                      value={1}
                     />
                   </InputGroup>
                   {/* <Form>
