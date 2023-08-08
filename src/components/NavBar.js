@@ -96,6 +96,7 @@ export default function Nav_bar_area(props) {
                       <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faPhotoFilm} /> View Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="orderdetails"><FontAwesomeIcon icon={faCalendarDay} /> Order Details</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} />Login</Nav.Link></div>
+                      {/* <div className='nav_bottom'><Nav.Link href="payment"><FontAwesomeIcon icon={faRightToBracket} />Login</Nav.Link></div> */}
 
 
                       {/* <NavDropdown

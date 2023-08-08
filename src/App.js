@@ -41,6 +41,7 @@ import Profile from './components/Profile';
 import ViewReels from './components/ViewReels';
 import Hire from './components/Hire';
 import OrderReels from './components/OrderReels';
+import PaymentScreen from './components/PaymentScreen';
 
 import OrderDetails from './components/OrderDetails';
 
@@ -75,6 +76,7 @@ function App() {
         <Route Component={Users} path='users'></Route>
         <Route Component={ReelVideo} path='reelvideo'></Route>
         <Route Component={Landing_page} path='/'></Route>
+        <Route Component={PaymentScreen} path='paymentscreen'></Route>
 
         </Routes>
       </Router>

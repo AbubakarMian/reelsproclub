@@ -183,7 +183,10 @@ export default function Profile() {
               </div>
             </Col>
           </Row>
-          <Button  onClick={() => navigate("/orderdetails")} className="hire_btn">Hire</Button>
+          {/* <Button  oonClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})} className="hire_btn">Hire</Button> */}
+           <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})}>
+                  Hire
+                </Button>
         </Container>
       </section>
     </div>

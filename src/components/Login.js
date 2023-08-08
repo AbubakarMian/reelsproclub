@@ -130,7 +130,7 @@ export default function LogIn() {
                     <Col md={1}></Col>
                     <Col md={10}>
                         <div className="skip_area">
-                            <Button onClick={() => navigateToPath('/search')} className="skip_btn" variant="primary">
+                            <Button onClick={() => navigateToPath('/categories')} className="skip_btn" variant="primary">
                                 {/* Skip Now */}
                                 {/* {Language_arr["Forgot Password"+lang]} */}
                                 {get_string_lable("Skip Now")}
@@ -187,7 +187,7 @@ const Login_form = () => {
 
 
             // this.props.navigation.navigate('myreels');
-            navigateToPath('/search')
+            navigateToPath('/categories')
             // Handle the login response data here
           })
 
