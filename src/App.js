@@ -55,8 +55,8 @@ function App() {
         {/* <Nav_bar_area /> */}
         <Routes>
 
-        <Route Component={OrderDetails} path='orderdetails'></Route>
-        <Route Component={OrderReels} path='order'></Route>
+        <Route Component={OrderDetails} path='orderlist'></Route>
+        <Route Component={OrderReels} path='orderdetails'></Route>
         <Route Component={Hire} path='hire'></Route>
         <Route Component={ViewReels} path='viewreels'></Route>
         <Route Component={Profile} path='profile'></Route>

@@ -44,8 +44,8 @@ export default function PaymentScreen() {
   const [data, setData] = useState([]);
   const location = useLocation();
   const params = location.state;
-  const user_id = location.state.user;
-  console.log('user',user_id)
+  const influencer_user_id = location.state.user;
+  console.log('user',influencer_user_id)
 
   const navigateToPath = (path,params) => {
     navigate(path,params);
@@ -69,6 +69,10 @@ export default function PaymentScreen() {
 
       try {
         let access_token = contextState.user.access_token;
+        let user_id = contextState.user.id;
+        var formData = new FormData();
+        formData.append("user_id", user_id); 
+        formData.append("influencer_user_id", influencer_user_id);
         const headers = {
           Accept: 'application/json',
           Authorization: access_token,
@@ -78,10 +82,11 @@ export default function PaymentScreen() {
         // const response = await axios.post(`${Constant.submit_payment}/${user_id}`, formData);
         //   console.log(response.data);
 
-          const response = await fetch(`${Constant.submit_payment}/${user_id}`, {
-            method: 'Post',
-            headers: headers,
-          });
+        const response = await fetch(Constant.submit_payment, {
+          method: 'Post',
+          headers: headers,
+          body: formData,
+        });
 
           const data = await response.json();
           console.log('payment response', data);

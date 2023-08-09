@@ -29,7 +29,8 @@ let initState = {
     "user": {
         id: "0",
         name: "Guest",
-        access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ=="
+        access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
+        role_id: 2,
     },
 }
 

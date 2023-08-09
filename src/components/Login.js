@@ -176,8 +176,8 @@ const Login_form = () => {
     const attempt_login = () => {
         // Create the formData and append the email and password
         var formData = new FormData();
-        formData.append("email", "u1@mail.com");
-        formData.append("password", "abc123");
+        formData.append("email", email); // Use the dynamically set email value
+        formData.append("password", password); // Use the dynamically set password value
       
         // Call SendRequest with the necessary parameters
         SendRequest(contextState, "POST", Constant.login, formData)
@@ -187,7 +187,14 @@ const Login_form = () => {
 
 
             // this.props.navigation.navigate('myreels');
+            let role_id = res.response.role_id;
+            if(role_id  == 2){
             navigateToPath('/categories')
+            }
+            else if(role_id  == 3) {
+                navigateToPath('/orderlist')
+
+            }
             // Handle the login response data here
           })
 
@@ -210,13 +217,10 @@ const Login_form = () => {
             </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-                <Form.Control placeholder=
-                    // Enter your Email Address
-                    // {Language_arr["Enter your Email Address"+lang]}
-                    {get_string_lable("Enter your Email Address")}
-                    // setEmail(e)
-                    onChange={(e)=>{setEmail(e.target.value)}}
-
+                <Form.Control
+                    placeholder={get_string_lable("Enter your Email Address")}
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email} // Bind the email state to the input value
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                 />
@@ -229,12 +233,9 @@ const Login_form = () => {
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
-                onChange={(e)=>{setPassword(e.target.value)}}
-                    placeholder=
-                    // "Enter Password"
-                    // {Language_arr["Enter Password"+lang]}
-                    {get_string_lable("Enter Password")}
-
+                    placeholder={get_string_lable("Enter Password")}
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password} // Bind the password state to the input value
                     aria-label="Password"
                     aria-describedby="basic-addon1"
                 />

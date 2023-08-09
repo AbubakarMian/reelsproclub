@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -16,13 +16,15 @@ import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
 import video9 from "../videos/vid9.mp4";
+import { ContextApiContext } from "../context/ContextApi";
+import { Constant } from '../common/Constants';
 
 
 
@@ -34,7 +36,7 @@ export default function OrderReels() {
   };
   return (
     <section className="">
-      <Nav_bar_area />
+      {/* <Nav_bar_area /> */}
       <Container fluid className="myreelarea">
         {/* <Row>
           <Col>

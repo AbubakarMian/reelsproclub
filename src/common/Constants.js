@@ -10,4 +10,6 @@ export const Constant = {
   get_category_people: `${base_url}/get_category_people`,
   get_reel_rate: `${base_url}/get_reel_rate`,
   submit_payment: `${base_url}/submit_payment`,
+  // get_orders_list of influencer 
+  get_orders_list: `${base_url}/get_orders_list`,
 };      
