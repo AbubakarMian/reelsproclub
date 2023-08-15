@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState, useContext } from "react";
 import Webcam from "react-webcam";
-import { useNavigate } from "react-router-dom";
-// import { ContextApiContext } from '../context/ContextApi';
+import { useNavigate,useLocation } from "react-router-dom";
+import { ContextApiContext } from '../context/ContextApi';
 import { Constant } from '../common/Constants';
 
 export default function WebcamVideo(props) {
@@ -11,6 +11,13 @@ export default function WebcamVideo(props) {
   const mediaRecorderRef = useRef(null);
   const [capturing, setCapturing] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState([]);
+  const { contextState, updateContextState } = useContext(ContextApiContext);
+  const location = useLocation();
+  const params = location.state;
+  const order_id = location.state.order_id;
+  const user_name = location.state.name;
+  console.log('order_id',order_id);
+  console.log('user_name',user_name);
 
   const handleDataAvailable = useCallback(({ data }) => {
     if (data.size > 0) {
@@ -133,8 +140,10 @@ const handleStopCaptureClick = async () => {
 
       const formData = new FormData();
       formData.append("video", blob); // Change this line to use the blob, not the base64data
+      formData.append("order_id", order_id); 
 
-      let access_token = props.contextApi.contextState.user.access_token;
+      // let access_token = props.contextApi.contextState.user.access_token;
+      let access_token = contextState.user.access_token;
       console.log('urlss',Constant.video_upload);
       const headers = {
         Accept: 'application/json',
@@ -154,6 +163,11 @@ const handleStopCaptureClick = async () => {
           // Video upload was successful, handle the response if needed
           const data = await response.json();
           console.log("Server response:", data);
+          navigateToPath('/orderdetails',  { state: 
+            {
+            order_id: order_id, 
+            }
+           })
         } else {
           // Handle the case where the server responded with an error
           console.error("Video upload failed:", response.statusText);
@@ -197,8 +211,8 @@ const handleStopCaptureClick = async () => {
 
   const navigate = useNavigate();
 
-  const navigateToPath = (path) => {
-    navigate(path);
+  const navigateToPath = (path, params) => {
+    navigate(path, params);
   };
 
   return (
@@ -233,7 +247,15 @@ const handleStopCaptureClick = async () => {
         {recordedChunks.length > 0 && (
           <button onClick={handleDownload}>Download</button>
         )}
-        <button onClick={() => navigateToPath('/myreels')}>
+        <button onClick={() => navigateToPath('/Influencer_order_details',
+         { state: 
+          {
+          order_id: order_id, 
+          name: user_name,
+          }
+         }
+                    
+                    )}>
           Back
         </button>
       </div>

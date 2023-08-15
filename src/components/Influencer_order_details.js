@@ -105,7 +105,14 @@ export default function Influencer_order_details() {
                 <Col>
                   <div>
                     
-                    <Button  onClick={() => navigateToPath('/camera')}  className="order_btn_area btn-success status">
+                    <Button  onClick={() => navigateToPath('/camera',  
+                    { state: 
+                    {
+                    order_id: order_id, 
+                    name: user_name,
+                    }
+                   }
+                   )}  className="order_btn_area btn-success status">
                      Create Reel
                     </Button>
                   </div>

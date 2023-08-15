@@ -67,7 +67,7 @@ button.two_btn.view.btn.btn-primary {
 
 button.deliver_btn.btn.btn-primary {
     width: 25%;
-    float: right;
+    /* float: right; */
     margin-bottom: 10px;
 }
 

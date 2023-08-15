@@ -12,4 +12,7 @@ export const Constant = {
   submit_payment: `${base_url}/submit_payment`,
   // get_orders_list of influencer 
   get_orders_list: `${base_url}/get_orders_list`,
+  get_orders_reels: `${base_url}/get_orders_reels`,
+  delete_reel: `${base_url}/delete_reel`,
+  deliver_reels: `${base_url}/deliver_reels`,
 };      

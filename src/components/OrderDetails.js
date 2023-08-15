@@ -19,7 +19,7 @@ import Modal from "react-bootstrap/Modal";
 import { useState,useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
 import video9 from "../videos/vid9.mp4";
@@ -31,6 +31,25 @@ export default function OrderDetails() {
   const [orderslist, setOrderslist] = useState([]);
   const { contextState, updateContextState } = useContext(ContextApiContext);
   const lang = contextState.language.prefix;
+  const location = useLocation();
+  const params = location.state;
+  const order_id = location.state && location.state.order_id != null ? location.state.order_id : 0;
+
+ 
+  // if (location.state.order_id === null || location.state.order_id === undefined) {
+  //   const order_id = 0;
+  //   console.log('const order_idsss',order_id);
+  // }
+  // else{
+  //   const order_id =location.state.order_id;
+  //   console.log('const order_idsss',order_id);
+
+
+
+
+  // }
+
+  
 
   const navigateToPath = (path, params) => {
     navigate(path, params);
@@ -86,16 +105,19 @@ export default function OrderDetails() {
                   <div>
                     <h5 className="order_btn_area">{order.quantity} Reels</h5>
                     <Button
-  onClick={() => navigateToPath('/Influencer_order_details', { state: 
+  onClick={() => navigateToPath('/Influencer_order_details', 
+  { state: 
     {
     order_id: order.id, 
     name: order.user.name 
   }
-   })}
+   }
+   )}
   className="order_btn_area"
+  disabled={order_id === order.id}
 >
 
-                      DETAILS
+{order_id === order.id ? 'DISABLED' : 'DETAILS'}
                     </Button>
                   </div>
                 </Col>
@@ -103,7 +125,8 @@ export default function OrderDetails() {
                   <div>
                     <h5 className="order_btn_area">$ {order.total}</h5>
                     <Button className="order_btn_area btn-success status">
-                     Pending
+                    {order_id === order.id ? 'Review' : 'Pending'}
+
                     </Button>
                   </div>
                 </Col>
