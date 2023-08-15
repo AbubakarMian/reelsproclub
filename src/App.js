@@ -44,6 +44,7 @@ import OrderReels from './components/OrderReels';
 import PaymentScreen from './components/PaymentScreen';
 
 import OrderDetails from './components/OrderDetails';
+import Influencer_order_details from './components/Influencer_order_details';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
 
         <Route Component={OrderDetails} path='orderlist'></Route>
         <Route Component={OrderReels} path='orderdetails'></Route>
+        <Route Component={Influencer_order_details} path='Influencer_order_details'></Route>
         <Route Component={Hire} path='hire'></Route>
         <Route Component={ViewReels} path='viewreels'></Route>
         <Route Component={Profile} path='profile'></Route>
