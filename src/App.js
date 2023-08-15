@@ -45,6 +45,7 @@ import PaymentScreen from './components/PaymentScreen';
 
 import OrderDetails from './components/OrderDetails';
 import Influencer_order_details from './components/Influencer_order_details';
+import User_Order from './components/User_Order';
 
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
         <Route Component={Users} path='users'></Route>
         <Route Component={ReelVideo} path='reelvideo'></Route>
         <Route Component={Landing_page} path='/'></Route>
-        <Route Component={PaymentScreen} path='paymentscreen'></Route>
+        <Route Component={User_Order} path='user_order'></Route>
 
         </Routes>
       </Router>

@@ -111,7 +111,7 @@ export default function OrderReels() {
   
   const deliver_reels = async (order_id) => {
     try {
-      // setDeleting(true);
+     
       const access_token = contextState.user.access_token;
       const headers = {
         Accept: 'application/json',
