@@ -113,17 +113,6 @@ export default function WebcamVideo(props) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 const handleStopCaptureClick = async () => {
   if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
     mediaRecorderRef.current.stop();

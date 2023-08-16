@@ -218,7 +218,7 @@ const Login_form = () => {
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                 <Form.Control
-                    placeholder={get_string_lable("Enter your Email Address")}
+                    placeholder={get_string_lable("Email")}
                     onChange={(e) => setEmail(e.target.value)}
                     value={email} // Bind the email state to the input value
                     aria-label="Username"
@@ -228,12 +228,12 @@ const Login_form = () => {
             <Form.Label className="labl" htmlFor="basic-url">
                 {/* Password (required*) */}
                 {/* {Language_arr["Password (required*)"+lang]} */}
-                {get_string_lable("Password (required*)")}
+                {get_string_lable("Password")}
             </Form.Label>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
                 <Form.Control
-                    placeholder={get_string_lable("Enter Password")}
+                    placeholder={get_string_lable("Password")}
                     onChange={(e) => setPassword(e.target.value)}
                     value={password} // Bind the password state to the input value
                     aria-label="Password"

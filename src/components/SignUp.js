@@ -32,9 +32,20 @@ import Language_arr from "../common/Lang";
 
 import { ContextApiContext } from "../context/ContextApi";
 import { useContext } from "react";
+import { Constant } from '../common/Constants';
+
 // import Common,{googleTranslate} from '../common/Common';
 
 export default function Signup(props) {
+
+  const [name, setName] = useState('');
+  const [lastname, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [mobile, setMobile] = useState('');
+
+
+
   const navigate = useNavigate();
 
   const navigateToPath = (path) => {
@@ -42,8 +53,8 @@ export default function Signup(props) {
   };
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleCloseUserSelectType = () => setShow(false);
+  const handleShowUserSelectType = () => setShow(true);
 
   const { contextState, updateContextState } = useContext(ContextApiContext);
 
@@ -58,6 +69,45 @@ export default function Signup(props) {
       : str.substring(0, max_length) + "....";
   };
   // yaha tk utthalo
+
+  const signupApi= async (role,category)=>{
+    try {
+      let access_token = contextState.user.access_token;
+      console.log('acces_token',access_token);
+      const headers = {
+        Accept: 'application/json',
+        Authorization: access_token,
+        'Authorization-secure': access_token,
+        'client-id': 'reelspro-app-mobile',
+      };
+      console.log('headers',headers);
+      let formData = new FormData();
+      formData.append('name',name);
+      formData.append('fullname',name +' '+lastname );
+      formData.append('email',email);
+      formData.append('password',password);
+      formData.append('mobile',mobile);
+      formData.append('category',category);
+      formData.append('role',role);
+      formData.append('lat','127.99');
+      formData.append('long','127.99');
+      formData.append('location','mylocation');
+      const response = await fetch(Constant.signup, {
+        method: 'POST',
+        headers: headers,
+        body:formData
+      });
+
+      const data = await response.json();
+      console.log('res datadata', data);
+      if(data.status){
+
+      }
+      // setCategories(data.response);
+    } catch (error) {
+      console.error('Error fetching :', error);
+    }
+  }
 
   return (
     <div>
@@ -100,7 +150,7 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>First Name*</Form.Label>
-                      <Form.Control type="text" name="" placeholder="First Name" />
+                      <Form.Control type="text" name="" placeholder="First Name" onChange={(e)=>{setName(e.target.value)}} />
                     </Form.Group>
                   </Form>
                 </div>
@@ -168,7 +218,7 @@ export default function Signup(props) {
               </Col> */}
             </Row>
             <Row>
-              <Col>
+              {/* <Col>
                 <div className="form_area">
                   <Form.Label>Categories*</Form.Label>
                   <Form.Select aria-label="Default select example">
@@ -177,8 +227,8 @@ export default function Signup(props) {
                     <option value="2">Mechanics</option>
                   </Form.Select>
                 </div>
-              </Col>
-              <Col>
+              </Col> */}
+              {/* <Col>
                 <div className="form_area">
                   <Form.Label>Skills*</Form.Label>
                   <Form.Select aria-label="Default select example">
@@ -187,7 +237,7 @@ export default function Signup(props) {
                     <option value="2">Waiter</option>
                   </Form.Select>
                 </div>
-              </Col>
+              </Col> */}
             </Row>
             <Row>
               <Col>
@@ -215,9 +265,9 @@ export default function Signup(props) {
                       className="mb-3"
                       controlId="exampleForm.ControlInput1"
                     >
-                      <Form.Label>Email address*</Form.Label>
+                      <Form.Label>Location*</Form.Label>
                       <Button
-                        onClick={() => navigateToPath("/map")}
+                        // onClick={() => navigateToPath("/map")}
                         className="loc_btn"
                       >
                         My Location{" "}
@@ -235,15 +285,15 @@ export default function Signup(props) {
               <Col>
                 <div className="form_area">
                   <Form>
-                    {/* <Button onClick={handleShow} className="sub_btn"> */}
-                    <Button    className="sub_btn">
+                    <Button onClick={handleShowUserSelectType} className="sub_btn">
+                    {/* <Button    className="sub_btn"> */}
                       Submit
                     </Button>
                   </Form>
                   <div className="modal_plac">
                     <Modal
                       show={show}
-                      onHide={handleClose}
+                      onHide={handleCloseUserSelectType}
                       {...props}
                       size="lg"
                       aria-labelledby="contained-modal-title-vcenter"
@@ -256,19 +306,20 @@ export default function Signup(props) {
                         <p> What kind of user are you ?</p>
                         <div className="buttons_area">
                           {/* <Button className="modal_btn"> Hire</Button> */}
-                          <CreateHireModal />
+                          <CreateHireModal signupApi={signupApi} />
                           {/* <Button className="modal_btn"> collaboration</Button> */}
                           <Button
                             className="modal_btn"
-                            onClick={() => navigateToPath("/search")}
+                            onClick={() => signupApi('user','')}
+                            // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
-                            User
+                            User a
                           </Button>{" "}
                         </div>
                       </Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button variant="secondary" onClick={handleCloseUserSelectType}>
                           Close
                         </Button>
                       </Modal.Footer>
@@ -284,9 +335,13 @@ export default function Signup(props) {
   );
 }
 
-const CreateHireModal = () => {
+const CreateHireModal = (props) => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
+  const [category,setCategory] = useState('');
+  // const [mobile, setMobile] = useState('');
+
 
   const navigateToPath = (path) => {
     navigate(path);
@@ -314,7 +369,7 @@ const CreateHireModal = () => {
             <Col>
               <div className="form_area">
                 <Form.Label>Categories*</Form.Label>
-                <Form.Select aria-label="Default select example">
+                <Form.Select aria-label="Default select example" onChange={(e)=>{setCategory(e.target.value)}}>
                   <option>Select</option>
                   <option value="1">Category One</option>
                   <option value="2">Category Two</option>
@@ -323,7 +378,7 @@ const CreateHireModal = () => {
               </div>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col>
               <div className="form_area">
                 <Form.Label>Skills*</Form.Label>
@@ -335,15 +390,16 @@ const CreateHireModal = () => {
                 </Form.Select>
               </div>
             </Col>
-          </Row>
+          </Row> */}
           <Row>
             <Col>
               <Button
                 className="modl_submit"
-                onClick={() => navigateToPath("/search")}
+                // onClick={() => navigateToPath("/search")} props.functions.signupApi('influencer')
+                onClick={() => props.signupApi('influencer',category)}
               >
                 {" "}
-                submit
+                Submit
               </Button>
             </Col>
           </Row>

@@ -16,16 +16,16 @@ let initState = {
             "prefix": "_ru"
         }
     ],
-    // "language": {
-    //     "id": 1,
-    //     "name": "English",
-    //     "prefix": "_en"
-    // },
-    "language":{
-        "id":'2',
-        "name":"Russian",
-        "prefix":"_ru"
+    "language": {
+        "id": 1,
+        "name": "English",
+        "prefix": "_en"
     },
+    // "language":{
+    //     "id":'2',
+    //     "name":"Russian",
+    //     "prefix":"_ru"
+    // },
     "user": {
         id: "0",
         name: "Guest",

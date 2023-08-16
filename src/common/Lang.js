@@ -3,6 +3,13 @@ const lang = [];
 lang['LOG IN_en'] = 'LOG IN';
 lang['LOG IN_ru'] = 'Авторизоваться';
 
+
+lang['Email_en'] = 'Email';
+lang['Email_ru'] = 'Электронная почта';
+
+lang['Password_en'] = 'Password';
+lang['Password_ru'] = 'Пароль';
+
 lang['Password (required*)_en'] = 'Password (required*)';
 lang['Password (required*)_ru'] = 'Требуется пароль*)';
 
