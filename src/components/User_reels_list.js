@@ -1,129 +1,108 @@
-import React, { useContext } from "react";
-import Button from "react-bootstrap/Button";
+import React, { useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import ReactPlayer from "react-player";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import "./../styles/orderreels.css";
-import "./../styles/video-react.css";
-import Carousel from "react-bootstrap/Carousel";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faEye } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import { useState,useEffect } from "react";
-import Collapse from "react-bootstrap/Collapse";
-import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate , useLocation} from "react-router-dom";
-import { Player } from "video-react";
-import Nav_bar_area from "./NavBar";
-import video9 from "../videos/vid9.mp4";
+import Button from "react-bootstrap/Button";
 import { ContextApiContext } from "../context/ContextApi";
-import { Constant } from '../common/Constants';
-
-
+import { Constant } from "../common/Constants";
+// import "./styles/orderreels.css"; // Import your custom styles
+import "./../styles/orderreels.css";
 
 
 export default function User_reels_list() {
-  const { contextState, updateContextState } = useContext(ContextApiContext);
-  const navigate = useNavigate();
+  const { contextState } = useContext(ContextApiContext);
+  const [orderreelsuser, setOrderReelsUser] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
 
   const location = useLocation();
-  const params = location.state;
   const order_id = location.state.order_id;
-  const user_influencer_id = location.state.user_influencer_id;
-  const [orderreelsuser, setOrderReelsUser] = useState([]);
-  const [deleting, setDeleting] = useState(false);
-  const [deleted_btn, setdeleted_btn] = useState(false);
-  console.log('ordeer_reels',order_id);
 
-  const navigateToPath = (path, params) => {
-    navigate(path, params);
+  const convertToLocalUrl = (filePath) => {
+    return `http://localhost/${filePath.replace(/\\/g, "/").split("/").slice(3).join("/")}`;
   };
 
+  const openModal = (videoUrl) => {
+    setSelectedVideoUrl(videoUrl);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setSelectedVideoUrl("");
+    setShowModal(false);
+  };
 
   useEffect(() => {
-    // Function to fetch categories from the API
-    const orderreviews = async () => {
+    const fetchOrderReels = async () => {
       try {
-        let access_token = contextState.user.access_token;
-        let user_id = contextState.user.id;
-        console.log('user_id',user_id);
-        console.log('acces_token',access_token);
+        const access_token = contextState.user.access_token;
         const headers = {
-          Accept: 'application/json',
+          Accept: "application/json",
           Authorization: access_token,
-          'Authorization-secure': access_token,
-          'client-id': 'reelspro-app-mobile',
+          "Authorization-secure": access_token,
+          "client-id": "reelspro-app-mobile",
         };
-        console.log('headers',headers);
-        const response = await fetch(`${Constant.get_order_reels_user}/${order_id}`, {
-          method: 'GET',
-          headers: headers,
-        });
+        const response = await fetch(
+          `${Constant.get_order_reels_user}/${order_id}`,
+          {
+            method: "GET",
+            headers: headers,
+          }
+        );
         const data = await response.json();
-        console.log('orderreelsuser', data);
-        setOrderReelsUser(data.response);
+
+        const reelsWithUrls = data.response.map((reel) => ({
+          ...reel,
+          reels_url: convertToLocalUrl(reel.reels_url),
+        }));
+
+        setOrderReelsUser(reelsWithUrls);
       } catch (error) {
-        console.error('Error fetching orderreelsuser:', error);
+        console.error("Error fetching orderreelsuser:", error);
       }
     };
 
-    orderreviews();
-  }, []);
+    fetchOrderReels();
+  }, [order_id, contextState.user.access_token]);
 
   return (
-    <section className="">
+    <section className="user-reels-list">
       <Container fluid className="myreelarea">
         <Row>
-          <h2>USER ORDER  VIEW REELS</h2>
+          <h2>USER ORDER VIEW REELS</h2>
         </Row>
         {orderreelsuser.map((reel, index) => (
-          <Row className="reel_box" key={index}>
+          <Row className="reel-box" key={index}>
             <Col>
-              <div className="img_area">
-                <Player
-                  muted
-                  controls={{ position: "center" }}
-                  position={"center"}
-                  playsInline={true}
-                  src={reel.video_url} // Assuming reel object has a 'video_url' property
-                  isFullscreen="Expand"
-                />
-              </div>
-            </Col>
-            <Col className="center_align">
-              <div className="all_btn">
-                <div className="shar_viewbtn">
-                  {/* <Button className="two_btn share">Share</Button> */}
-                  <Button className="two_btn view">View</Button>
-                </div>
-                <div className="btn_area_myrees">
-                  {/* <Button
-                    onClick={() => {
-                      navigate("/reelvideo");
-                    }}
-                    className="viewbtn btn-success"
-                  >
-                    Download
-                  </Button>
-                  <Button className="viewbtn btn-danger">Delete</Button> */}
-                </div>
-              </div>
-              <div className="accept-reject-buttons">
-                <Button className="accept-btn">Accept</Button>
-                <Button className="reject-btn">Reject</Button>
+              <div className="img-area">
+                <Button
+                  variant="link"
+                  onClick={() => openModal(reel.reels_url)}
+                  className="view-btn"
+                >
+                  View
+                </Button>
               </div>
             </Col>
           </Row>
         ))}
+
+        <Modal show={showModal} onHide={closeModal} centered>
+          <Modal.Body>
+            <ReactPlayer
+              className="react-player-modal"
+              url={selectedVideoUrl}
+              controls
+              playing={false}
+              width="100%"
+              height="100%"
+            />
+          </Modal.Body>
+        </Modal>
       </Container>
     </section>
   );
-  
 }
