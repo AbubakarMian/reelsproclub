@@ -30,16 +30,15 @@ let initState = {
         id: "0",
         name: "Guest",
         access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
-        role_id: 2,
+        role_id: 2, // role_id = 2 is user 3 is influencer
+        phone_no:""
     },
 }
 
 export const ContexApiProvider = (props) => {
 
-
     const [contextState, setContextState] = useState(initState)
 
-    
     const updateContextState = (update_obj, obj_name) => {
 
         let objContextState = contextState;
@@ -53,14 +52,10 @@ export const ContexApiProvider = (props) => {
                 objContextState[obj_name] = lang;
                 setContextState({...contextState,objContextState})
                 console.log('updated context', contextState);
-
-                //   console.log('update_obj ',update_obj);
-                //   console.log('found  contextState[avalible_languages ',contextState['avalible_languages']);
                 console.log('found  lang ', lang);
-                //   console.log('contextState obj_name ',obj_name);
-                //   console.log('contextState ',contextState);
-                //   console.log('contextState lang',contextState[obj_name]);
                 break;
+            // case 'user':
+            //     break;
 
             default:
                 objContextState[obj_name] = update_obj;

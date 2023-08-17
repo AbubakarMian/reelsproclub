@@ -33,6 +33,7 @@ import Language_arr from "../common/Lang";
 import { ContextApiContext } from "../context/ContextApi";
 import { useContext } from "react";
 import { Constant } from '../common/Constants';
+import Alert from 'react-bootstrap/Alert';
 
 // import Common,{googleTranslate} from '../common/Common';
 
@@ -43,6 +44,7 @@ export default function Signup(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mobile, setMobile] = useState('');
+  const [error_message, setErrorMessage] = useState('');
 
 
 
@@ -86,7 +88,7 @@ export default function Signup(props) {
       formData.append('fullname',name +' '+lastname );
       formData.append('email',email);
       formData.append('password',password);
-      formData.append('mobile',mobile);
+      formData.append('phone_no',mobile);
       formData.append('category',category);
       formData.append('role',role);
       formData.append('lat','127.99');
@@ -101,7 +103,15 @@ export default function Signup(props) {
       const data = await response.json();
       console.log('res datadata', data);
       if(data.status){
+        updateContextState(data.response,'user');
+        navigateToPath("/search");
 
+      }
+      else{
+        if (typeof data.error.message[0] !== 'undefined') {
+          setErrorMessage(data.error.message[0]);
+
+        }
       }
       // setCategories(data.response);
     } catch (error) {
@@ -122,6 +132,11 @@ export default function Signup(props) {
       </Container>
 
       <section className="bg_clr">
+      {error_message == '' ? '' :
+      <Alert key='danger' variant='danger'>
+          {error_message}
+        </Alert>
+      }
         <Container className="cont_pad">
           <Row>
             <Col>
@@ -165,7 +180,7 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Last Name*</Form.Label>
-                      <Form.Control type="text" placeholder="Last Name" />
+                      <Form.Control type="text" placeholder="Last Name" onChange={(e)=>{setLastName(e.target.value)}}/>
                     </Form.Group>
                   </Form>
                 </div>
@@ -183,6 +198,7 @@ export default function Signup(props) {
                       <Form.Control
                         type="email"
                         placeholder="name@example.com"
+                        onChange={(e)=>{setEmail(e.target.value)}}
                       />
                     </Form.Group>
                   </Form>
@@ -198,7 +214,8 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Password*</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control type="password" placeholder="Password" 
+                      onChange={(e)=>{setPassword(e.target.value)}}/>
                     </Form.Group>
                   </Form>
                 </div>
@@ -251,6 +268,7 @@ export default function Signup(props) {
                       <Form.Control
                         type="number"
                         placeholder="Enter Mobile No"
+                        onChange={(e)=>{setMobile(e.target.value)}}
                       />
                     </Form.Group>
                   </Form>
@@ -314,7 +332,7 @@ export default function Signup(props) {
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
-                            User a
+                            User 
                           </Button>{" "}
                         </div>
                       </Modal.Body>
