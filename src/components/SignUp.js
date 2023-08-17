@@ -74,7 +74,6 @@ export default function Signup(props) {
     try {
       let access_token = contextState.user.access_token;
       console.log('acces_token',access_token);
-      // let url = data.response.url;
       const headers = {
         Accept: 'application/json',
         Authorization: access_token,
@@ -89,7 +88,6 @@ export default function Signup(props) {
       formData.append('password',password);
       formData.append('mobile',mobile);
       formData.append('category',category);
-      // formData.append('image',url);
       formData.append('role',role);
       formData.append('lat','127.99');
       formData.append('long','127.99');
@@ -103,11 +101,8 @@ export default function Signup(props) {
       const data = await response.json();
       console.log('res datadata', data);
       if(data.status){
-//second api
+
       }
-
-
-      
       // setCategories(data.response);
     } catch (error) {
       console.error('Error fetching :', error);
