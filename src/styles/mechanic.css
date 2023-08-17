@@ -8,7 +8,16 @@
     border-radius: 50px;
     object-fit: contain;
 }
-
+.row-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px; /* Adjust margin if needed */
+  }
+  
+  .flex-item {
+    flex: 0 0 calc(33.33% - 30px); /* Adjust the width and margin as needed */
+    margin: 15px; /* Adjust margin to match the container margin */
+  }
 
 
 .img_box {

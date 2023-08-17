@@ -1,26 +1,43 @@
 button.backbtn.btn.btn-primary {
-    float: left;
+    position: fixed;
+    top: 20px;
+    left: 20px;
     background-color: transparent;
     border-radius: 19px;
-    margin: 4px;
     border: 0px;
     color: black;
     font-size: 30px;
     font-weight: bold;
+    z-index: 1000; /* Ensure the button stays above other elements */
 }
+
 video#background-video2 {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%; 
-        min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
+
 button.shr_btn {
-    float: right;
-    margin: 20px;
-    background: black;
-    color: white;
-    font-size: 45px;
-    border-radius: 39px;
-    margin-top: 175%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* White text color */
+    font-size: 16px;
+    padding: 12px; /* Add padding for a larger clickable area */
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transitions */
+    cursor: pointer;
+    z-index: 1000; /* Ensure the button stays above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+button.shr_btn:hover {
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker background on hover */
+    transform: translateY(-3px); /* Move button up slightly on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Darker box shadow on hover */
 }
