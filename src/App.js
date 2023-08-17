@@ -46,6 +46,7 @@ import PaymentScreen from './components/PaymentScreen';
 import OrderDetails from './components/OrderDetails';
 import Influencer_order_details from './components/Influencer_order_details';
 import User_Order from './components/User_Order';
+import User_reels_list from './components/User_reels_list';
 
 
 function App() {
@@ -79,8 +80,9 @@ function App() {
         <Route Component={Users} path='users'></Route>
         <Route Component={ReelVideo} path='reelvideo'></Route>
         <Route Component={Landing_page} path='/'></Route>
-        <Route Component={User_Order} path='user_order'></Route>
 
+        <Route Component={User_Order} path='user_order'></Route>
+        <Route Component={User_reels_list} path='user_reels_list'></Route>
         </Routes>
       </Router>
       </ContexApiProvider>

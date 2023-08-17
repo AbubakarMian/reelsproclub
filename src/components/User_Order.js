@@ -28,7 +28,7 @@ import { Constant } from '../common/Constants';
 
 export default function OrderDetails() {
   const navigate = useNavigate();
-  const [orderslist, setOrderslist] = useState([]);
+  const [orderreviews, setgetOrderReviews] = useState([]);
   const { contextState, updateContextState } = useContext(ContextApiContext);
   const lang = contextState.language.prefix;
 //   const location = useLocation();
@@ -55,35 +55,35 @@ export default function OrderDetails() {
     navigate(path, params);
   };
 
-//   useEffect(() => {
-//     // Function to fetch categories from the API
-//     const fetchOrders = async () => {
-//       try {
-//         let access_token = contextState.user.access_token;
-//         let influencer_id = contextState.user.id;
-//         console.log('influencer_id',influencer_id);
-//         console.log('acces_token',access_token);
-//         const headers = {
-//           Accept: 'application/json',
-//           Authorization: access_token,
-//           'Authorization-secure': access_token,
-//           'client-id': 'reelspro-app-mobile',
-//         };
-//         console.log('headers',headers);
-//         const response = await fetch(`${Constant.get_orders_list}/${influencer_id}`, {
-//           method: 'GET',
-//           headers: headers,
-//         });
-//         const data = await response.json();
-//         console.log('datainfluencer_id', data);
-//         setOrderslist(data.response);
-//       } catch (error) {
-//         console.error('Error fetching categories:', error);
-//       }
-//     };
+  useEffect(() => {
+    // Function to fetch categories from the API
+    const orderreviews = async () => {
+      try {
+        let access_token = contextState.user.access_token;
+        let user_id = contextState.user.id;
+        console.log('user_id',user_id);
+        console.log('acces_token',access_token);
+        const headers = {
+          Accept: 'application/json',
+          Authorization: access_token,
+          'Authorization-secure': access_token,
+          'client-id': 'reelspro-app-mobile',
+        };
+        console.log('headers',headers);
+        const response = await fetch(`${Constant.get_order_reviews}/${user_id}`, {
+          method: 'GET',
+          headers: headers,
+        });
+        const data = await response.json();
+        console.log('get_order_reviews', data);
+        setgetOrderReviews(data.response);
+      } catch (error) {
+        console.error('Error fetching orderreviews:', error);
+      }
+    };
 
-//     fetchOrders();
-//   }, []);
+    orderreviews();
+  }, []);
 
   return (
     <section className="">
@@ -92,8 +92,8 @@ export default function OrderDetails() {
           <h2 className="order_hed">USER ORDER</h2>
         </Row>
         {/* Mapping through orders and generating order cards */}
-       
-          <div className="gre_card_head" >
+        {orderreviews.map((order, index) => (
+          <div className="gre_card_head" key={index}>
             <div className="gre_card">
               <Row className="">
                 <Col>
@@ -103,38 +103,35 @@ export default function OrderDetails() {
                 </Col>
                 <Col>
                   <div>
-                    <h5 className="order_btn_area">Reels</h5>
-                    <Button
-//   onClick={() => navigateToPath('/Influencer_order_details', 
-//   { state: 
-//     {
-//     order_id: order.id, 
-//     name: order.user.name 
-//   }
-//    }
-//    )}
-  className="order_btn_area"
-//   disabled={order_id === order.id}
->
-
-DETAILS
-                    </Button>
+                  <h5 className="order_btn_area">{order.quantity} Reels</h5>
                   </div>
                 </Col>
                 <Col>
                   <div>
-                    <h5 className="order_btn_area">$ 10</h5>
-                    <Button className="order_btn_area btn-success status">
-                     Review
-
+                   
+                    
+                     <Button
+                      onClick={() => navigateToPath('/user_reels_list', 
+                        { state: 
+                          {
+                          order_id: order.id, 
+                          user_influencer_id: order.user_influencer_id 
+                        }
+                         }
+                      )}
+                      className="order_btn_area"
+                      // disabled={order_id === order.id}
+                    >
+                    {order.status}
                     </Button>
                   </div>
                 </Col>
               </Row>
             </div>
           </div>
-      
+        ))}
       </Container>
     </section>
   );
+  
 }

@@ -189,7 +189,7 @@ const Login_form = () => {
             // this.props.navigation.navigate('myreels');
             let role_id = res.response.role_id;
             if(role_id  == 2){
-            navigateToPath('/categories')
+            navigateToPath('/user_order')
             }
             else if(role_id  == 3) {
                 navigateToPath('/orderlist')
