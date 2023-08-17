@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "./static/css/main.08ea98ba.css",
+    "main.js": "./static/js/main.a90b6feb.js",
+    "static/media/vid6.mp4": "./static/media/vid6.35dd1ef559863f8a1052.mp4",
+    "static/media/map.png": "./static/media/map.305cdf005ee76a816c00.png",
+    "static/media/vid5.mp4": "./static/media/vid5.799a097c0c216bc012d0.mp4",
+    "static/media/vid9.mp4": "./static/media/vid9.5b4d2c007c9f84e73838.mp4",
+    "static/media/vid8.mp4": "./static/media/vid8.676c80547aa1816635d2.mp4",
+    "static/media/vid2.mp4": "./static/media/vid2.69a4000c9ed999626fd3.mp4",
+    "static/media/vid7.mp4": "./static/media/vid7.61fd895e0507cfb6f2b0.mp4",
+    "static/media/vid3.mp4": "./static/media/vid3.c94c94afb6bb1730cb52.mp4",
+    "static/media/Reelsclub-34.jpg": "./static/media/Reelsclub-34.f5a887050542bd284e9d.jpg",
+    "static/media/vid4.mp4": "./static/media/vid4.1d5d99839487b02b7a36.mp4",
+    "static/media/pizza2.mp4": "./static/media/pizza2.257a23db4269ea490bc0.mp4",
+    "static/media/vid1.mp4": "./static/media/vid1.bc0ceaea5cd3e4085f27.mp4",
+    "static/media/logo.svg": "./static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "./index.html",
+    "main.08ea98ba.css.map": "./static/css/main.08ea98ba.css.map",
+    "main.a90b6feb.js.map": "./static/js/main.a90b6feb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08ea98ba.css",
+    "static/js/main.a90b6feb.js"
+  ]
+}
