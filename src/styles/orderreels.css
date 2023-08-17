@@ -93,4 +93,23 @@ button.deliver_btn.btn.btn-primary {
         float: none;
     }
 
+    /* user_reels_list.css */
+
+/* ... (your existing styles) ... */
+
+.accept-reject-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .accept-btn,
+  .reject-btn {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  /* ... (your existing media queries) ... */
+  
+
 }
