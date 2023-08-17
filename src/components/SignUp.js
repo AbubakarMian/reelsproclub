@@ -43,6 +43,8 @@ export default function Signup(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mobile, setMobile] = useState('');
+  // const [rate_per_reel, setRatePerReel] = useState(0);
+  // const [category,setCategory] = useState(0);
 
 
 
@@ -70,8 +72,10 @@ export default function Signup(props) {
   };
   // yaha tk utthalo
 
-  const signupApi= async (role,category)=>{
+  const signupApi= async (role,influencer_obj)=>{
     try {
+
+      const {category,rate_per_reel} = influencer_obj;
       let access_token = contextState.user.access_token;
       console.log('acces_token',access_token);
       const headers = {
@@ -87,8 +91,9 @@ export default function Signup(props) {
       formData.append('email',email);
       formData.append('password',password);
       formData.append('mobile',mobile);
-      formData.append('category',category);
+      formData.append('category_id',category);
       formData.append('role',role);
+      formData.append('rate_per_reel',rate_per_reel);
       formData.append('lat','127.99');
       formData.append('long','127.99');
       formData.append('location','mylocation');
@@ -306,11 +311,14 @@ export default function Signup(props) {
                         <p> What kind of user are you ?</p>
                         <div className="buttons_area">
                           {/* <Button className="modal_btn"> Hire</Button> */}
-                          <CreateHireModal signupApi={signupApi} />
+                          <CreateHireModal signupApi={signupApi} 
+                                          //  setCategory={setCategory} 
+                                          //  setRatePerReel={setRatePerReel}
+                                            />
                           {/* <Button className="modal_btn"> collaboration</Button> */}
                           <Button
                             className="modal_btn"
-                            onClick={() => signupApi('user','')}
+                            onClick={() => signupApi('user',{})}
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
@@ -340,6 +348,7 @@ const CreateHireModal = (props) => {
   const navigate = useNavigate();
 
   const [category,setCategory] = useState('');
+  const [rate_per_reel, setRatePerReel] = useState(0);
   // const [mobile, setMobile] = useState('');
 
 
@@ -378,25 +387,34 @@ const CreateHireModal = (props) => {
               </div>
             </Col>
           </Row>
-          {/* <Row>
-            <Col>
-              <div className="form_area">
-                <Form.Label>Skills*</Form.Label>
-                <Form.Select aria-label="Default select example">
-                  <option>Select</option>
-                  <option value="1">Skill One</option>
-                  <option value="2">Skill Two</option>
-                  <option value="3">Skill Three</option>
-                </Form.Select>
-              </div>
-            </Col>
-          </Row> */}
+          <Row>
+              <Col>
+                <div className="form_area">
+                  <Form>
+                    <Form.Group
+                      className="mb-3 mob_num"
+                      controlId="exampleForm.ControlInput1"
+                    >
+                      <Form.Label>Rate Per Reel</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Rate Per Reel"
+                        onChange={(e)=>setRatePerReel(e.target.value)}
+                      />
+                    </Form.Group>
+                  </Form>
+                </div>
+              </Col>
+            </Row>
           <Row>
             <Col>
               <Button
                 className="modl_submit"
                 // onClick={() => navigateToPath("/search")} props.functions.signupApi('influencer')
-                onClick={() => props.signupApi('influencer',category)}
+                onClick={() => props.signupApi('influencer',{
+                  category,
+                  rate_per_reel
+                })}
               >
                 {" "}
                 Submit
