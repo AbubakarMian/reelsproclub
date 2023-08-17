@@ -93,7 +93,34 @@ export default function People_page_export(props) {
               <div className="top_head_mec">Professionals</div>
             </Col>
           </Row>
+          
           <Row>
+            {/* Display the fetched data here */}
+            {data.map((item) => (
+              <Col key={item.id}>
+                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{category:item.id}})}>
+                <div className="img_box">
+                  <img src={item.avatar} alt={item.name} />
+                  <div className="img_box_txt">
+                    <p>{item.name}</p>
+                  </div>
+                </div>
+                </a>
+              </Col>
+            ))}
+            {/* Display the fetched data here */}
+            {data.map((item) => (
+              <Col key={item.id}>
+                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{category:item.id}})}>
+                <div className="img_box">
+                  <img src={item.avatar} alt={item.name} />
+                  <div className="img_box_txt">
+                    <p>{item.name}</p>
+                  </div>
+                </div>
+                </a>
+              </Col>
+            ))}
             {/* Display the fetched data here */}
             {data.map((item) => (
               <Col key={item.id}>
