@@ -74,16 +74,16 @@ export default function Nav_bar_area(props) {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Button  onClick={()=>navigateToPath('/camera')}  className="" variant="primary">
+                    {/* <Button  onClick={()=>navigateToPath('/camera')}  className="" variant="primary"> */}
                                 {/* GO */}
                                 {/* {Language_arr["GO"+lang]} */}
-                            New Reel
-                    </Button>
-                    <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary">
+                            {/* New Reel */}
+                    {/* </Button> */}
+                    {/* <Button  onClick={()=>navigateToPath('/categories')}  className="" variant="primary"> */}
                                 {/* GO */}
                                 {/* {Language_arr["GO"+lang]} */}
-                            Categories
-                    </Button>
+                            {/* Categories */}
+                    {/* </Button> */}
 
 
                        <div className='nav_bottom'><Nav.Link href="camera"><FontAwesomeIcon icon={faCamera} /> New Reel</Nav.Link></div>

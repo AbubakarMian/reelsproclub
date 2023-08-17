@@ -12,7 +12,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
@@ -86,57 +86,42 @@ export default function People_page_export(props) {
     }, [params]);
     return (
       <section className="">
-        {/* Your JSX code to display the data goes here */}
+         <Container fluid>
+        <Row>
+          <Col>
+            <Button
+              className="profile-backbtnsignup"
+              onClick={() => navigate(-1)}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />{" "}
+            </Button>
+          </Col>
+        </Row>
+      </Container>
         <Container fluid>
           <Row>
             <Col>
               <div className="top_head_mec">Professionals</div>
             </Col>
           </Row>
-          
-          <Row>
-            {/* Display the fetched data here */}
+  
+          <div className="row-flex-container">
             {data.map((item) => (
-              <Col key={item.id}>
-                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{category:item.id}})}>
-                <div className="img_box">
-                  <img src={item.avatar} alt={item.name} />
-                  <div className="img_box_txt">
-                    <p>{item.name}</p>
+              <div key={item.id} className="col-md-4 flex-item">
+                <a className="link_dec" onClick={() => navigateToPath(`/reels`, { state: { category: item.id } })}>
+                  <div className="img_box">
+                    <img src={item.avatar} alt={item.name} />
+                    <div className="img_box_txt">
+                      <p>{item.name}</p>
+                    </div>
                   </div>
-                </div>
                 </a>
-              </Col>
+              </div>
             ))}
-            {/* Display the fetched data here */}
-            {data.map((item) => (
-              <Col key={item.id}>
-                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{category:item.id}})}>
-                <div className="img_box">
-                  <img src={item.avatar} alt={item.name} />
-                  <div className="img_box_txt">
-                    <p>{item.name}</p>
-                  </div>
-                </div>
-                </a>
-              </Col>
-            ))}
-            {/* Display the fetched data here */}
-            {data.map((item) => (
-              <Col key={item.id}>
-                <a className="link_dec" onClick={() => navigateToPath(`/reels`,{state:{category:item.id}})}>
-                <div className="img_box">
-                  <img src={item.avatar} alt={item.name} />
-                  <div className="img_box_txt">
-                    <p>{item.name}</p>
-                  </div>
-                </div>
-                </a>
-              </Col>
-            ))}
-          </Row>
+          </div>
         </Container>
       </section>
     );
+  
 }
 

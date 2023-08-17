@@ -58,6 +58,7 @@ function App() {
         {/* <Nav_bar_area /> */}
         <Routes>
 
+        <Route Component={PaymentScreen} path='paymentscreen'></Route>
         <Route Component={OrderDetails} path='orderlist'></Route>
         <Route Component={OrderReels} path='orderdetails'></Route>
         <Route Component={Influencer_order_details} path='Influencer_order_details'></Route>

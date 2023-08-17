@@ -1,7 +1,14 @@
 .bg_img{
     background-image: url("../../public/images/Reelsclub-34.jpg");
-    height: auto;
-    background-repeat: round;
+    height: 100vh;
+    /* background-repeat: round; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 
 label.labl.form-label {
@@ -52,6 +59,7 @@ hr.line {
         color: black;
         border-radius: 31px;
         border: solid 1px white;
+        margin-bottom: 24px;
     }
     .login_area {
         padding: 0px 30px;
@@ -83,7 +91,8 @@ hr.line {
         .login_logo1 img {
             margin-top: 20px;        }
             .bg_img{
-                height: 100vh;
+                height: 100%;
+                
             }
             
     }

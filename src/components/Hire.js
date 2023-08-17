@@ -76,6 +76,7 @@ export default function Profile() {
   }, [params]);
   return (
     <div>
+      
       <Container fluid>
         <Row>
           <Col>
