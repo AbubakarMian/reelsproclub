@@ -110,6 +110,7 @@ export default function Signup(props) {
       const data = await response.json();
       console.log('res datadata', data);
       if(data.status){
+        updateContextState(data.response,'update_user');
         navigate('/categories');
       }
       else{
