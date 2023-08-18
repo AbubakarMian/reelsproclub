@@ -2,6 +2,7 @@
 const base_url = 'https://stagging.hatinco.com/reels_proclub_backend/public/api';
 
 export const Constant = {
+  basic_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
   signup: `${base_url}/register`,
   login: `${base_url}/login`,
   video_upload: `${base_url}/video_upload`,

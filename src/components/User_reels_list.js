@@ -75,7 +75,7 @@ export default function User_reels_list() {
           <h2>USER ORDER VIEW REELS</h2>
         </Row>
         {orderreelsuser.map((reel, index) => (
-          <Row className="reel-box" key={index}>
+          <Row className="reel-box" key={index+1}>
             <Col>
               <div className="img-area">
                 <Button

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -73,10 +73,13 @@ export default function Signup(props) {
   // yaha tk utthalo
 
   const signupApi= async (role,influencer_obj)=>{
+
+    const {category,rate_per_reel} = influencer_obj;
     try {
 
-      const {category,rate_per_reel} = influencer_obj;
-      let access_token = contextState.user.access_token;
+      
+      // let access_token = contextState.user.access_token;
+      let access_token = Constant.basic_token;
       console.log('acces_token',access_token);
       const headers = {
         Accept: 'application/json',
@@ -106,6 +109,9 @@ export default function Signup(props) {
       const data = await response.json();
       console.log('res datadata', data);
       if(data.status){
+        navigate('categories');
+      }
+      else{
 
       }
       // setCategories(data.response);
@@ -208,43 +214,8 @@ export default function Signup(props) {
                     </Form.Group>
                   </Form>
                 </div>
-              </Col>
-              {/* <Col>
-                <div className="form_area">
-                  <Form>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <Form.Label>Confirm Password*</Form.Label>
-                      <Form.Control type="password" placeholder="ReEnter" />
-                    </Form.Group>
-                  </Form>
-                </div>
-              </Col> */}
-            </Row>
-            <Row>
-              {/* <Col>
-                <div className="form_area">
-                  <Form.Label>Categories*</Form.Label>
-                  <Form.Select aria-label="Default select example">
-                    <option>Select</option>
-                    <option value="1">Food</option>
-                    <option value="2">Mechanics</option>
-                  </Form.Select>
-                </div>
-              </Col> */}
-              {/* <Col>
-                <div className="form_area">
-                  <Form.Label>Skills*</Form.Label>
-                  <Form.Select aria-label="Default select example">
-                    <option>Select</option>
-                    <option value="1">Chef </option>
-                    <option value="2">Waiter</option>
-                  </Form.Select>
-                </div>
-              </Col> */}
-            </Row>
+              </Col>             
+            </Row>       
             <Row>
               <Col>
                 <div className="form_area">
@@ -324,7 +295,7 @@ export default function Signup(props) {
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
-                            User a
+                            User
                           </Button>{" "}
                         </div>
                       </Modal.Body>
@@ -345,14 +316,62 @@ export default function Signup(props) {
   );
 }
 
+  
+
 const CreateHireModal = (props) => {
+
+  useEffect(()=>{
+    get_categories();
+  },[])
+
+
+
+  const [category_list, setCategoryList] = useState([]);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
-  const [category,setCategory] = useState('');
-  const [rate_per_reel, setRatePerReel] = useState(0);
-  // const [mobile, setMobile] = useState('');
+  const get_categories = async ()=>{
 
+
+  
+    // const [category,setCategory] = useState('');
+    // const [rate_per_reel, setRatePerReel] = useState(0);
+    try {
+
+      
+      // let access_token = contextState.user.access_token;
+      let access_token = Constant.basic_token;
+      console.log('acces_token',access_token);
+      const headers = {
+        Accept: 'application/json',
+        Authorization: access_token,
+        'Authorization-secure': access_token,
+        'client-id': 'reelspro-app-mobile',
+      };
+      
+      const response = await fetch(Constant.get_category, {
+        method: 'GET',
+        headers: headers
+      });
+
+      const data = await response.json();
+      console.log('res datadata', data);
+      if(data.status){
+        console.log('category data',data.response);
+        setCategoryList(data.response);
+      }
+      else{
+
+      }
+      // setCategories(data.response);
+    } catch (error) {
+      console.error('Error fetching :', error);
+    }
+
+  }
+
+    const [category,setCategory] = useState('');
+    const [rate_per_reel, setRatePerReel] = useState(0);
 
   const navigateToPath = (path) => {
     navigate(path);
@@ -381,10 +400,12 @@ const CreateHireModal = (props) => {
               <div className="form_area">
                 <Form.Label>Categories*</Form.Label>
                 <Form.Select aria-label="Default select example" onChange={(e)=>{setCategory(e.target.value)}}>
-                  <option>Select</option>
-                  <option value="1">Category One</option>
-                  <option value="2">Category Two</option>
-                  <option value="3">Category Three</option>
+                  {
+                    category_list.map((category,index)=>{
+                      return (<option key={category.id} value={category.id}>{category.name}</option>)
+
+                    })
+                  }
                 </Form.Select>
               </div>
             </Col>
