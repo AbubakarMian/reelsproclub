@@ -76,7 +76,8 @@ export default function Signup(props) {
     try {
 
       const {category,rate_per_reel} = influencer_obj;
-      let access_token = contextState.user.access_token;
+      // let access_token = contextState.user.access_token;
+      let access_token = Constant.basic_token;
       console.log('acces_token',access_token);
       const headers = {
         Accept: 'application/json',
@@ -208,43 +209,8 @@ export default function Signup(props) {
                     </Form.Group>
                   </Form>
                 </div>
-              </Col>
-              {/* <Col>
-                <div className="form_area">
-                  <Form>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <Form.Label>Confirm Password*</Form.Label>
-                      <Form.Control type="password" placeholder="ReEnter" />
-                    </Form.Group>
-                  </Form>
-                </div>
-              </Col> */}
-            </Row>
-            <Row>
-              {/* <Col>
-                <div className="form_area">
-                  <Form.Label>Categories*</Form.Label>
-                  <Form.Select aria-label="Default select example">
-                    <option>Select</option>
-                    <option value="1">Food</option>
-                    <option value="2">Mechanics</option>
-                  </Form.Select>
-                </div>
-              </Col> */}
-              {/* <Col>
-                <div className="form_area">
-                  <Form.Label>Skills*</Form.Label>
-                  <Form.Select aria-label="Default select example">
-                    <option>Select</option>
-                    <option value="1">Chef </option>
-                    <option value="2">Waiter</option>
-                  </Form.Select>
-                </div>
-              </Col> */}
-            </Row>
+              </Col>             
+            </Row>       
             <Row>
               <Col>
                 <div className="form_area">
@@ -324,7 +290,7 @@ export default function Signup(props) {
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
-                            User a
+                            User
                           </Button>{" "}
                         </div>
                       </Modal.Body>
@@ -346,12 +312,19 @@ export default function Signup(props) {
 }
 
 const CreateHireModal = (props) => {
+
+  useEffect(()=>{
+    get_categories();
+  },[])
+
+  const get_categories = ()=>{
+
+  }
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   const [category,setCategory] = useState('');
   const [rate_per_reel, setRatePerReel] = useState(0);
-  // const [mobile, setMobile] = useState('');
 
 
   const navigateToPath = (path) => {
