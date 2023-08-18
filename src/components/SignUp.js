@@ -32,6 +32,7 @@ import Language_arr from "../common/Lang";
 
 import { ContextApiContext } from "../context/ContextApi";
 import { useContext } from "react";
+import Alert from "react-bootstrap/Alert";
 import { Constant } from '../common/Constants';
 
 // import Common,{googleTranslate} from '../common/Common';
@@ -42,10 +43,10 @@ export default function Signup(props) {
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [mobile, setMobile] = useState('');
+  const [phone_no, setPhone_no] = useState('');
   // const [rate_per_reel, setRatePerReel] = useState(0);
   // const [category,setCategory] = useState(0);
-
+  const [signupError, setSignupError] = useState(null);
 
 
   const navigate = useNavigate();
@@ -93,7 +94,7 @@ export default function Signup(props) {
       formData.append('fullname',name +' '+lastname );
       formData.append('email',email);
       formData.append('password',password);
-      formData.append('mobile',mobile);
+      formData.append('phone_no',phone_no);
       formData.append('category_id',category);
       formData.append('role',role);
       formData.append('rate_per_reel',rate_per_reel);
@@ -109,14 +110,20 @@ export default function Signup(props) {
       const data = await response.json();
       console.log('res datadata', data);
       if(data.status){
-        navigate('categories');
+        navigate('/categories');
       }
       else{
+        if(typeof data.error.message[0] !== 'undefined' && data.error.message[0] !== null ){
+          setSignupError(data.error.message[0]); // Set the error message
+        }
 
       }
       // setCategories(data.response);
     } catch (error) {
       console.error('Error fetching :', error);
+      setSignupError("Error signing up. Please try again."); // Set the error message
+      console.error("Error signing up:", error);
+    
     }
   }
 
@@ -133,6 +140,11 @@ export default function Signup(props) {
       </Container>
 
       <section className="bg_clr">
+      {signupError && ( // Conditionally render the Alert component if there's an error
+          <Alert variant="danger" onClose={() => setSignupError(null)} dismissible>
+            {signupError}
+          </Alert>
+        )}
         <Container className="cont_pad">
           <Row>
             <Col>
@@ -226,7 +238,7 @@ export default function Signup(props) {
                     >
                       <Form.Label>Mobile Number*</Form.Label>
                       <Form.Control
-                      onChange={(e)=>setMobile(e.target.value)}
+                      onChange={(e)=>setPhone_no(e.target.value)}
                         type="number"
                         placeholder="Enter Mobile No"
                       />
