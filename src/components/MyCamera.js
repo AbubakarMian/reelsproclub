@@ -37,8 +37,8 @@ export default function Reels_page_export() {
   console.log('contextState cammera',contextState);
   return (
     <section className="">
-      <Nav_bar_area contextApi={{contextState}}/>
-      <Container fluid className="">
+      {/* <Nav_bar_area contextApi={{contextState}}/> */}
+    
       <Camera contextApi={{contextState}}/>
 
         {/* <Row className="reel_box">
@@ -48,7 +48,6 @@ export default function Reels_page_export() {
         </Row>
          */}
         
-      </Container>
     </section>
   );
 }

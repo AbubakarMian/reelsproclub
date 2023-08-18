@@ -1,8 +1,17 @@
 import React, { useCallback, useRef, useState, useContext } from "react";
 import Webcam from "react-webcam";
-import { useNavigate,useLocation } from "react-router-dom";
-import { ContextApiContext } from '../context/ContextApi';
-import { Constant } from '../common/Constants';
+import { useNavigate, useLocation } from "react-router-dom";
+import { ContextApiContext } from "../context/ContextApi";
+import { Constant } from "../common/Constants";
+import Container from "react-bootstrap/Container";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faEye } from "@fortawesome/free-solid-svg-icons";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+
+
+
 
 export default function WebcamVideo(props) {
   // const { contextState } = useContext(ContextApiContext);
@@ -16,164 +25,166 @@ export default function WebcamVideo(props) {
   // const params = location.state;
   const order_id = location.state.order_id;
   const user_name = location.state.name;
-  console.log('order_id',order_id);
-  console.log('user_name',user_name);
+  console.log("order_id", order_id);
+  console.log("user_name", user_name);
 
-  const handleDataAvailable = useCallback(({ data }) => {
-    if (data.size > 0) {
-      setRecordedChunks((prev) => prev.concat(data));
-    }
-  }, [setRecordedChunks]);
+  const handleDataAvailable = useCallback(
+    ({ data }) => {
+      if (data.size > 0) {
+        setRecordedChunks((prev) => prev.concat(data));
+      }
+    },
+    [setRecordedChunks]
+  );
 
   const handleStartCaptureClick = useCallback(() => {
     if (webcamRef.current && webcamRef.current.video.srcObject) {
       setCapturing(true);
-      mediaRecorderRef.current = new MediaRecorder(webcamRef.current.video.srcObject, {
-        mimeType: "video/webm",
-      });
-      mediaRecorderRef.current.addEventListener("dataavailable", handleDataAvailable);
+      mediaRecorderRef.current = new MediaRecorder(
+        webcamRef.current.video.srcObject,
+        {
+          mimeType: "video/webm",
+        }
+      );
+      mediaRecorderRef.current.addEventListener(
+        "dataavailable",
+        handleDataAvailable
+      );
       mediaRecorderRef.current.start();
     }
   }, [webcamRef, setCapturing, mediaRecorderRef, handleDataAvailable]);
 
-//   const handleStopCaptureClick = async () => {
-//     if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
-//       mediaRecorderRef.current.stop();
-//     }
+  //   const handleStopCaptureClick = async () => {
+  //     if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+  //       mediaRecorderRef.current.stop();
+  //     }
 
-//     if (recordedChunks.length) {
-      
-//       const blob = new Blob(recordedChunks, { type: "video/webm" });
+  //     if (recordedChunks.length) {
 
-// //
+  //       const blob = new Blob(recordedChunks, { type: "video/webm" });
 
-// // const url = URL.createObjectURL(blob);
-// // const a = document.createElement("a");
-// // document.body.appendChild(a);
-// // a.style = "display: none";
-// // a.href = url;
-// // a.download = "react-webcam-stream-capture.webm";
-// // a.click();
-// // window.URL.revokeObjectURL(url);
-// // setRecordedChunks([]);
+  // //
 
+  // // const url = URL.createObjectURL(blob);
+  // // const a = document.createElement("a");
+  // // document.body.appendChild(a);
+  // // a.style = "display: none";
+  // // a.href = url;
+  // // a.download = "react-webcam-stream-capture.webm";
+  // // a.click();
+  // // window.URL.revokeObjectURL(url);
+  // // setRecordedChunks([]);
 
-// //
+  // //
 
-// let reader = new FileReader();
-// reader.readAsDataURL(blob); 
-// reader.onloadend = async function() {
-//       const formData = new FormData();
-//       console.log('my blob',blob);
+  // let reader = new FileReader();
+  // reader.readAsDataURL(blob);
+  // reader.onloadend = async function() {
+  //       const formData = new FormData();
+  //       console.log('my blob',blob);
 
-//         var base64data = reader.result;                
-//         console.log(base64data);
+  //         var base64data = reader.result;
+  //         console.log(base64data);
 
+  //       // formData.append("video", blob);
+  //       formData.append("video", base64data);
 
+  //       let access_token = props.contextApi.contextState.user.access_token;
+  //       console.log('access_token',access_token)
 
-//       // formData.append("video", blob);
-//       formData.append("video", base64data);
+  //       const headers = {
+  //         Accept: 'application/json',
+  //         Authorization: access_token,
+  //         'Authorization-secure': access_token,
+  //         'client-id': 'reelspro-app-mobile',
+  //       };
 
+  //       try {
+  //         const response = await fetch(Constant.video_upload, {
+  //           method: "POST",
+  //           headers: headers,
+  //           body: formData,
+  //         });
 
-//       let access_token = props.contextApi.contextState.user.access_token;
-//       console.log('access_token',access_token)
+  //         if (response.ok) {
+  //           // Video upload was successful, handle the response if needed
+  //           const data = await response.json();
+  //           console.log("Server response:", data);
+  //         } else {
+  //           // Handle the case where the server responded with an error
+  //           console.error("Video upload failed:", response.statusText);
+  //         }
+  //       } catch (error) {
+  //         // Handle any other errors that occurred during the upload process
+  //         console.error("Error uploading video:", error);
+  //       }
+  //     }
+  //   }
+  //     // Reset the recordedChunks state after uploading
+  //     setRecordedChunks([]);
+  //   };
 
-//       const headers = {
-//         Accept: 'application/json',
-//         Authorization: access_token,
-//         'Authorization-secure': access_token,
-//         'client-id': 'reelspro-app-mobile',
-//       };
+  const handleStopCaptureClick = async () => {
+    if (
+      mediaRecorderRef.current &&
+      mediaRecorderRef.current.state === "recording"
+    ) {
+      mediaRecorderRef.current.stop();
+    }
 
-//       try {
-//         const response = await fetch(Constant.video_upload, {
-//           method: "POST",
-//           headers: headers,
-//           body: formData,
-//         });
+    if (recordedChunks.length) {
+      const blob = new Blob(recordedChunks, { type: "video/webm" });
 
-//         if (response.ok) {
-//           // Video upload was successful, handle the response if needed
-//           const data = await response.json();
-//           console.log("Server response:", data);
-//         } else {
-//           // Handle the case where the server responded with an error
-//           console.error("Video upload failed:", response.statusText);
-//         }
-//       } catch (error) {
-//         // Handle any other errors that occurred during the upload process
-//         console.error("Error uploading video:", error);
-//       }
-//     }
-//   }
-//     // Reset the recordedChunks state after uploading
-//     setRecordedChunks([]);
-//   };
+      // Convert the video blob to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = async function () {
+        const base64data = reader.result;
 
+        const formData = new FormData();
+        formData.append("video", blob); // Change this line to use the blob, not the base64data
+        formData.append("order_id", order_id);
 
+        // let access_token = props.contextApi.contextState.user.access_token;
+        let access_token = contextState.user.access_token;
+        console.log("urlss", Constant.video_upload);
+        const headers = {
+          Accept: "application/json",
+          Authorization: access_token,
+          "Authorization-secure": access_token,
+          "client-id": "reelspro-app-mobile",
+        };
 
+        try {
+          const response = await fetch(Constant.video_upload, {
+            method: "POST",
+            headers: headers,
+            body: formData,
+          });
 
-const handleStopCaptureClick = async () => {
-  if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
-    mediaRecorderRef.current.stop();
-  }
-
-  if (recordedChunks.length) {
-    const blob = new Blob(recordedChunks, { type: "video/webm" });
-
-    // Convert the video blob to base64
-    const reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onloadend = async function() {
-      const base64data = reader.result;
-
-      const formData = new FormData();
-      formData.append("video", blob); // Change this line to use the blob, not the base64data
-      formData.append("order_id", order_id); 
-
-      // let access_token = props.contextApi.contextState.user.access_token;
-      let access_token = contextState.user.access_token;
-      console.log('urlss',Constant.video_upload);
-      const headers = {
-        Accept: 'application/json',
-        Authorization: access_token,
-        'Authorization-secure': access_token,
-        'client-id': 'reelspro-app-mobile',
-      };
-
-      try {
-        const response = await fetch(Constant.video_upload, {
-          method: "POST",
-          headers: headers,
-          body: formData,
-        });
-
-        if (response.ok) {
-          // Video upload was successful, handle the response if needed
-          const data = await response.json();
-          console.log("Server response:", data);
-          navigateToPath('/orderdetails',  { state: 
-            {
-            order_id: order_id, 
-            }
-           })
-        } else {
-          // Handle the case where the server responded with an error
-          console.error("Video upload failed:", response.statusText);
+          if (response.ok) {
+            // Video upload was successful, handle the response if needed
+            const data = await response.json();
+            console.log("Server response:", data);
+            navigateToPath("/orderdetails", {
+              state: {
+                order_id: order_id,
+              },
+            });
+          } else {
+            // Handle the case where the server responded with an error
+            console.error("Video upload failed:", response.statusText);
+          }
+        } catch (error) {
+          // Handle any other errors that occurred during the upload process
+          console.error("Error uploading video:", error);
         }
-      } catch (error) {
-        // Handle any other errors that occurred during the upload process
-        console.error("Error uploading video:", error);
-      }
-    };
-  }
+      };
+    }
 
-  // Reset the recordedChunks state after uploading
-  setRecordedChunks([]);
-};
-
-
-
+    // Reset the recordedChunks state after uploading
+    setRecordedChunks([]);
+  };
 
   const handleDownload = () => {
     if (recordedChunks.length) {
@@ -206,6 +217,26 @@ const handleStopCaptureClick = async () => {
 
   return (
     <div className="Container">
+      <Container>
+        <Row>
+          <Col>
+            <Button className="backbtnsignup"
+            
+            onClick={() =>
+              navigateToPath("/Influencer_order_details", {
+                state: {
+                  order_id: order_id,
+                  name: user_name,
+                },
+              })
+            }
+           >
+              <FontAwesomeIcon icon={faArrowLeft} />{" "}
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+     
       <Webcam
         height={720}
         width={1280}
@@ -226,27 +257,15 @@ const handleStopCaptureClick = async () => {
       <div className="camerBtns">
         {capturing ? (
           <button className="stopCapture" onClick={handleStopCaptureClick}>
-            Stop Capture
-          </button>
+            </button>
         ) : (
           <button className="startCapture" onClick={handleStartCaptureClick}>
-            Start Capture
+            
           </button>
         )}
         {recordedChunks.length > 0 && (
           <button onClick={handleDownload}>Download</button>
         )}
-        <button onClick={() => navigateToPath('/Influencer_order_details',
-         { state: 
-          {
-          order_id: order_id, 
-          name: user_name,
-          }
-         }
-                    
-                    )}>
-          Back
-        </button>
       </div>
     </div>
   );

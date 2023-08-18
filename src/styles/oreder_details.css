@@ -26,11 +26,15 @@ h2.order_hed {
 button.order_btn_area {
     font-size: 15px;
 }
+.oreder_btnt_area_inf.col {
+    display: grid;
+    align-content: center;
+}
 
 @media only screen and (max-width : 480px) {
 
     .prof_img img {
-        width: 100%;
+        width: 70%;
     }
     button.order_btn_area {
         font-size: 12px;
