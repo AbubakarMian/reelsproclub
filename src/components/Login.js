@@ -171,11 +171,11 @@ const Login_form = () => {
     console.log("context state in attempt login ",contextState);
     // Create the formData and append the email and password
     var formData = new FormData();
-    // formData.append("email", email); // Use the dynamically set email value
-    // formData.append("password", password); // Use the dynamically set password value
+    formData.append("email", email); // Use the dynamically set email value
+    formData.append("password", password); // Use the dynamically set password value
 
-    formData.append("email", 'waleed@mail.com'); // Use the dynamically set email value
-    formData.append("password", 'abc123'); // Use the dynamically set password value
+    // formData.append("email", 'waleed@mail.com'); // Use the dynamically set email value
+    // formData.append("password", 'abc123'); // Use the dynamically set password value
 
     // Call SendRequest with the necessary parameters
     let cs = contextState;
