@@ -172,14 +172,21 @@ iframe {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  padding: 2px;
+  padding: 0;
   background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
 }
+
 
 .accc button:focus {
-  outline: 0;
+  outline: none;
 }
-
 button.action-gallery {
   border-radius: 0;
   display: flex;
@@ -187,6 +194,8 @@ button.action-gallery {
   justify-content: space-around;
   width: 34px;
   height: 34px;
+  background-color: black;
+  cursor: pointer;
 }
 
 button.action-gallery > div {
@@ -239,3 +248,12 @@ button.action-clear {
   align-items: center;
 }
 
+.accc .gallery-items {
+  width: calc(100% - 80px);
+  /* max-height: 150px; */ /* Remove max-height to remove scroll */
+  overflow: hidden; /* Hide the scrollbars */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 20px 0;
+}

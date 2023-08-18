@@ -73,10 +73,12 @@ export default function Influencer_order_details() {
 
   return (
     <section className="">
+            <Nav_bar_area contextApi={{ contextState }} />
+
       <Container fluid className="myreelarea">
         <Row>
         {/* <h2 className="order_hed">ORDERS DETAILS LIST</h2> */}
-        <h2 className="order_hed">{user_name}  order details list </h2>
+        <h2 className="order_hed">Order List </h2>
        
         </Row>
         {/* Mapping through orders and generating order cards */}
@@ -91,7 +93,7 @@ export default function Influencer_order_details() {
                     
                   </div>
                 </Col>
-                <Col>
+                <Col className="oreder_btnt_area_inf">
                   <div>
                     {/* <h5 className="order_btn_area"> Reels</h5> */}
                     <Button
@@ -101,8 +103,7 @@ export default function Influencer_order_details() {
                       Comments
                     </Button>
                   </div>
-                </Col>
-                <Col>
+                
                   <div>
                     
                     <Button  onClick={() => navigateToPath('/camera',  

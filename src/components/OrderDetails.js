@@ -87,6 +87,7 @@ export default function OrderDetails() {
 
   return (
     <section className="">
+      
       <Container fluid className="myreelarea">
         <Row>
           <h2 className="order_hed">ORDERS LIST</h2>
