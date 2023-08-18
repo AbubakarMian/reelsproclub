@@ -170,7 +170,7 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Last Name*</Form.Label>
-                      <Form.Control type="text" placeholder="Last Name" />
+                      <Form.Control onChange={e=>setLastName(e.target.value)} type="text" placeholder="Last Name" />
                     </Form.Group>
                   </Form>
                 </div>
@@ -186,6 +186,7 @@ export default function Signup(props) {
                     >
                       <Form.Label>Email*</Form.Label>
                       <Form.Control
+                      onChange={e=>setEmail(e.target.value)}
                         type="email"
                         placeholder="name@example.com"
                       />
@@ -203,7 +204,7 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Password*</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control onChange={e=>setPassword(e.target.value)} type="password" placeholder="Password" />
                     </Form.Group>
                   </Form>
                 </div>
@@ -254,6 +255,7 @@ export default function Signup(props) {
                     >
                       <Form.Label>Mobile Number*</Form.Label>
                       <Form.Control
+                      onChange={(e)=>setMobile(e.target.value)}
                         type="number"
                         placeholder="Enter Mobile No"
                       />
