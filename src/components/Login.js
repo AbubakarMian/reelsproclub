@@ -168,10 +168,14 @@ const Login_form = () => {
   };
 
   const attempt_login = () => {
+    console.log("context state in attempt login ",contextState);
     // Create the formData and append the email and password
     var formData = new FormData();
-    formData.append("email", email); // Use the dynamically set email value
-    formData.append("password", password); // Use the dynamically set password value
+    // formData.append("email", email); // Use the dynamically set email value
+    // formData.append("password", password); // Use the dynamically set password value
+
+    formData.append("email", 'waleed@mail.com'); // Use the dynamically set email value
+    formData.append("password", 'abc123'); // Use the dynamically set password value
 
     // Call SendRequest with the necessary parameters
     let cs = contextState;
@@ -180,7 +184,7 @@ const Login_form = () => {
       .then((res) => {
         if (res.status) {
           console.log("send req resss truee", res);
-          updateContextState(res.response, "user");
+          updateContextState(res.response, "update_user");
 
           // this.props.navigation.navigate('myreels');
           let role_id = res.response.role_id;

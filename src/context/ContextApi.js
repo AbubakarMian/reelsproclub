@@ -26,12 +26,25 @@ let initState = {
     //     "name":"Russian",
     //     "prefix":"_ru"
     // },
-    "user": {
+                    
+    // "user":JSON.parse (localStorage.getItem('user', {
+    //     id: "0",
+    //     name: "Guest",
+    //     access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
+    //     role_id: 2,
+    // })),
+    "user": localStorage.getItem('user')===null? {
         id: "0",
         name: "Guest",
         access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
         role_id: 2,
-    },
+    }:JSON.parse(localStorage.getItem('user')),
+    // "user": {
+    //     id: "0",
+    //     name: "Guest",
+    //     access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
+    //     role_id: 2,
+    // },
 }
 
 export const ContexApiProvider = (props) => {
@@ -60,6 +73,11 @@ export const ContexApiProvider = (props) => {
                 //   console.log('contextState obj_name ',obj_name);
                 //   console.log('contextState ',contextState);
                 //   console.log('contextState lang',contextState[obj_name]);
+                break;
+                case 'update_user':
+                    objContextState['user'] = update_obj;
+                    localStorage.setItem('user', JSON.stringify(update_obj));
+                    setContextState({...contextState,objContextState})
                 break;
 
             default:
