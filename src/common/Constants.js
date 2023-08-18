@@ -1,5 +1,5 @@
-const base_url = 'http://localhost/reels_proclub_backend/public/api';   
-// const base_url = 'https://stagging.hatinco.com/reels_proclub_backend/public/api';
+// const base_url = 'http://localhost/reels_proclub_backend/public/api';   
+const base_url = 'https://stagging.hatinco.com/reels_proclub_backend/public/api';
 
 export const Constant = {
   basic_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
