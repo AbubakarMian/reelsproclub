@@ -108,7 +108,12 @@ export default function People_page_export(props) {
           <div className="row-flex-container">
             {data.map((item) => (
               <div key={item.id} className="col-md-4 flex-item">
-                <a className="link_dec" onClick={() => navigateToPath(`/reels`, { state: { category: item.id } })}>
+                <a className="link_dec" onClick={() => 
+                  // navigateToPath(`/reels`, { state: { category: item.id } })
+                  navigateToPath(`/hire`, { state: { user: item.id } })
+                  // navigateToPath(`/hire`, { state: { user: reel.user.id } })
+                  
+                  }>
                   <div className="img_box">
                     <img src={item.avatar} alt={item.name} />
                     <div className="img_box_txt">
