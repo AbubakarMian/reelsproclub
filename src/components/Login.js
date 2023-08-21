@@ -166,70 +166,45 @@ const Login_form = () => {
       ? str
       : str.substring(0, max_length) + "....";
   };
-// 
-const attempt_login = async () => {
-  try {
+
+  const attempt_login = () => {
+    console.log("context state in attempt login ",contextState);
     // Create the formData and append the email and password
     var formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
+    formData.append("email", email); // Use the dynamically set email value
+    formData.append("password", password); // Use the dynamically set password value
+
+    // formData.append("email", 'waleed@mail.com'); // Use the dynamically set email value
+    // formData.append("password", 'abc123'); // Use the dynamically set password value
 
     // Call SendRequest with the necessary parameters
     let cs = contextState;
     cs.user.access_token = Constant.basic_token;
-    const res = await SendRequest(cs, "POST", Constant.login, formData);
+    SendRequest(cs, "POST", Constant.login, formData)
+      .then((res) => {
+        if (res.status) {
+          console.log("send req resss truee", res);
+          updateContextState(res.response, "update_user");
 
-    if (res.status) {
-      updateContextState(res.response, "update_user");
-
-      let role_id = res.response.role_id;
-      if (role_id === 2) {
-        try {
-          const access_token = contextState.user.access_token;
-          const user = contextState.user.id;
-          const headers = {
-            Accept: "application/json",
-            Authorization: access_token,
-            "Authorization-secure": access_token,
-            "client-id": "reelspro-app-mobile",
-          };
-
-          const response = await fetch(`${Constant.orders_available}/${user}`, {
-            method: "GET",
-            headers: headers,
-          });
-
-          const data = await response.json();
-          console.log('datadd',data);
-
-          if (response.ok) {
-            if (data.response  ==  'available') {
-              navigateToPath("/user_order");
-            } else {
-              navigateToPath("/categories");
-            }
-          } else {
-            console.error("NO AVAILABLE ORDERS.");
+          // this.props.navigation.navigate('myreels');
+          let role_id = res.response.role_id;
+          if (role_id == 2) {
+            navigateToPath("/user_order");
+          } else if (role_id == 3) {
+            navigateToPath("/orderlist");
           }
-        } catch (error) {
-          console.error("Error checking available orders:", error);
+        } else {
+          setError("Login failed. Please check your credentials.");
         }
-      } else if (role_id === 3) {
-        navigateToPath("/orderlist");
-      }
-    } else {
-      setError("Login failed. Please check your credentials.");
-    }
-  } catch (error) {
-    console.error("Error during login:", error);
-    setError("An error occurred while logging in. Please try again.");
-  }
-};
 
+        // Handle the login response data here
+      })
 
-
-
-// 
+      .catch((error) => {
+        console.error("Error during login:", error);
+        setError("An error occurred while logging in. Please try again."); // Set the error message
+      });
+  };
 
   return (
     <>
