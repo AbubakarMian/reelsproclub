@@ -157,7 +157,7 @@ button.deliver_btn.btn.btn-primary {
   }
   
   .view-button {
-    background-color: #007bff;
+    /* background-color: #007bff; */
     color: #fff;
   }
   
@@ -175,7 +175,53 @@ button.deliver_btn.btn.btn-primary {
   .button-gap {
     width: 10px;
   }
+  /* Order Reels List Styles */
+.user-reels-list {
+  padding: 20px;
+}
+
+.myreelarea {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.reel-box {
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.thumbnail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.view-button {
+  /* text-align: right; */
+}
+
+.react-player-modal {
+  border-radius: 5px;
+}
+.col-12.hh {
+  text-align: center;
+  margin: 4px;
+}
+
+/* Additional Styling */
+h2 {
+  margin-bottom: 20px;
+}
+
   
   
 
 }
+
+
