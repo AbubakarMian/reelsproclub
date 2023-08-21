@@ -126,12 +126,7 @@ export default function OrderDetails() {
                   <div>
                     <h5 className="order_btn_area">$ {order.total}</h5>
                     <Button className="order_btn_area btn-success status">
-                    {order_id === order.id
-                  ? 'Review'
-                  : order.status === 'accepted'
-                    ? 'Accepted'
-                    : 'Pending'}
-                  
+                    {order_id === order.id ? 'Review' : 'Pending'}
 
                     </Button>
                   </div>

@@ -90,8 +90,6 @@ export default function PaymentScreen() {
 
           const data = await response.json();
           console.log('payment response', data);
-
-          navigateToPath('/user_order');
          
       
       } catch (error) {
