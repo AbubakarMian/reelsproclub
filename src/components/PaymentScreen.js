@@ -64,6 +64,7 @@ export default function PaymentScreen() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+
     try {
       let access_token = contextState.user.access_token;
       let user_id = contextState.user.id;
@@ -85,7 +86,15 @@ export default function PaymentScreen() {
         body: formData,
       });
 
+      // const data = await response.json();
+
       const data = await response.json();
+      console.log('payment response', data);
+
+      if(data.status){
+        navigateToPath('/user_order');
+      }
+
       console.log("payment response", data);
     } catch (error) {
       console.error("Error submitting payment:", error);
