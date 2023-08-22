@@ -34,23 +34,6 @@ export default function OrderDetails() {
   const location = useLocation();
   const params = location.state;
   const order_id = location.state && location.state.order_id != null ? location.state.order_id : 0;
-
- 
-  // if (location.state.order_id === null || location.state.order_id === undefined) {
-  //   const order_id = 0;
-  //   console.log('const order_idsss',order_id);
-  // }
-  // else{
-  //   const order_id =location.state.order_id;
-  //   console.log('const order_idsss',order_id);
-
-
-
-
-  // }
-
-  
-
   const navigateToPath = (path, params) => {
     navigate(path, params);
   };

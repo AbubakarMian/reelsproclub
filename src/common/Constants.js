@@ -21,6 +21,7 @@ export const Constant = {
   get_order_reels_user: `${base_url}/get_order_reels_user`,
   reels_accepetd: `${base_url}/reels_accepetd`,
   orders_available: `${base_url}/orders_available`,
+  get_profile: `${base_url}/get_profile`,
 
   
 };      

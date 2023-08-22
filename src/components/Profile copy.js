@@ -181,7 +181,58 @@ export default function Profile() {
                         </Col>
                     </Row>
                     
-                    
+                    <Row>
+                        <Col>
+                            <div className="form_area">
+                                {/* <Form.Label>Categories*</Form.Label>
+                                <Form.Select aria-label="Default select example">
+                                    <option>Select Category</option>
+                                    <option value="1">Category One</option>
+                                    <option value="2">Category Two</option>
+                                    <option value="3">Category Three</option>
+                                </Form.Select> */}
+                                <Form>
+                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                        <Form.Label>
+                                            {/* Category* */}
+                                            {get_string_lable("Category*")}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        "name@example.com"
+                                        // {get_string_lable("name@example.com")}
+                                         value={'Category One'} readOnly />
+                                    </Form.Group>
+
+                                </Form>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="form_area">
+                                {/* <Form.Label>Skills*</Form.Label>
+                                <Form.Select aria-label="Default select example">
+                                    <option>Select Skill</option>
+                                    <option value="1">Skill One</option>
+                                    <option value="2">Skill Two</option>
+                                    <option value="3">Skill Three</option>
+                                </Form.Select> */}
+                                 <Form>
+                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                        <Form.Label>
+                                            {/* Skill* */}
+                                            {get_string_lable("Skill*")}
+
+                                        </Form.Label>
+                                        <Form.Control type="text" placeholder=
+                                        "name@example.com"
+                                        // {get_string_lable("name@example.com")}
+                                         value={'Skill One'} readOnly />
+                                    </Form.Group>
+
+                                </Form>
+                            </div>
+                        </Col>
+                    </Row>
                     <Row>
                         <Col>
                             <div className="form_area">
@@ -189,9 +240,12 @@ export default function Profile() {
                                     <Form.Group className="mb-3 mob_num" controlId="exampleForm.ControlInput1">
                                         <Form.Label>
                                             Mobile Number*
+                                            {/* {get_string_lable("Mobile Number")} */}
+
                                         </Form.Label>
                                         <Form.Control type="text" placeholder=
                                         "Enter Mobile No"
+                                        // {get_string_lable("Enter Mobile No")}
                                         value={getProfile.phone_no} readOnly />
                                     </Form.Group>
 
@@ -205,10 +259,12 @@ export default function Profile() {
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Label>
                                             Location*
+                                            {/* {get_string_lable("Location")} */}
 
                                         </Form.Label>
                                         <Button onClick={()=>navigateToPath('/map')} className="loc_btn">
                                             My Location
+                                            {/* {get_string_lable("My Location")} */}
                                          <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
                                     </Form.Group>
 
@@ -221,7 +277,8 @@ export default function Profile() {
                             <div className="form_area">
                                 <Form>
                                     <Button onClick={()=>navigateToPath('/search')}className="submit_btn">
-                                        Update
+                                        Delete
+                                    {/* {get_string_lable("Delete")}</Button> */}
                                     </Button>
 
                                 </Form>
