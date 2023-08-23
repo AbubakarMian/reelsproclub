@@ -33,6 +33,7 @@ import {ContextApiContext} from '../context/ContextApi';
 
 
 
+
 export default function Profile() {
 
 
@@ -42,16 +43,27 @@ export default function Profile() {
     };
     const { contextState, updateContextState } = useContext(ContextApiContext);
     const lang = contextState.language.prefix;
+    const [getProfile,SetProfile] = useState([]);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
     const max_length = 13;
+    const [isProfileUpdated, setIsProfileUpdated] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imagePreview, setImagePreview] = useState(null);
+    const [showImageUploadSuccessModal, setShowImageUploadSuccessModal] = useState(false);
+     const [imageUploadSuccessMessage, setImageUploadSuccessMessage] = useState('');
+
+
+    const [showModal, setShowModal] = useState(false);
+
     const get_string_lable =(str_n)=>{
         console.log('str',str_n);
         const str = Language_arr[str_n+lang];
         return str.length < max_length?str :
                           str.substring(0,max_length)+'....'
     }
-    const [getProfile,SetProfile] = useState([]);
-    // const [orderslist, setOrderslist] = useState([]);
-
     //   
     useEffect(() => {
         // Function to fetch categories from the API
@@ -75,6 +87,12 @@ export default function Profile() {
             const data = await response.json();
             console.log('get_proflie', data);
             SetProfile(data.response);
+            setFirstName(data.response.name);
+            setLastName(data.response.last_name);
+            setEmail(data.response.email);
+            setPhoneNo(data.response.phone_no);
+            setImagePreview(data.response.image);
+         
           } catch (error) {
             console.error('Error fetching get_proflie:', error);
           }
@@ -82,12 +100,106 @@ export default function Profile() {
     
         get_proflie();
       }, []);
+    useEffect(() => {
+        if (isProfileUpdated) {
+            setShowModal(true); // Show the modal again
+            setIsProfileUpdated(false); // Reset profile update status
+        }
+    }, [isProfileUpdated]);
+    
+    const handleProfileUpdate = async () => {
+        try {
+            const access_token = contextState.user.access_token;
+            const user_id = contextState.user.id;
+            const headers = {
+                Accept: 'application/json',
+                Authorization: access_token,
+                'Authorization-secure': access_token,
+                'client-id': 'reelspro-app-mobile',
+                'Content-Type': 'application/json', // Set the content type
+            };
+    
+            const body = JSON.stringify({
+                name: firstName,
+                last_name: lastName,
+                email: email,
+                phone_no: phoneNo,
+                // ... other fields
+            });
+    
+            const response = await fetch(`${Constant.user_update_profile}/${user_id}`, {
+                method: 'POST', // Use the appropriate HTTP method (PUT for update)
+                headers: headers,
+                body: body,
+            });
+    
+            const data = await response.json();
+            console.log('updating_profile', data);
+            if (data.status == true) {
+                setIsProfileUpdated(true); // Set profile updated status
+                setShowModal(true); // Open the modal
+            } else {
+                // Handle unsuccessful response
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        }
+    };
 
-
-
-
-
-
+    const handleImageUploadClick = () => {
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.onchange = handleImageSelect;
+        fileInput.click();
+    };
+    const handleImageSelect = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setSelectedImage(file);
+            const previewURL = URL.createObjectURL(file);
+            setImagePreview(previewURL);
+        }
+    };
+    const uploadImage = async () => {
+        try {
+            const formData = new FormData();
+            formData.append('image', selectedImage);
+    
+            const access_token = contextState.user.access_token;
+            const user_id = contextState.user.id;
+            const headers = {
+                Accept: 'application/json',
+                Authorization: access_token,
+                'Authorization-secure': access_token,
+                'client-id': 'reelspro-app-mobile',
+            };
+    
+            const response = await fetch(`${Constant.upload_image}/${user_id}`, {
+                method: 'POST', // Use the appropriate HTTP method
+                headers: headers,
+                body: formData,
+            });
+    
+            if (response.ok) {
+                const responseData = await response.json();
+                setImagePreview(responseData.response.image);
+    
+                if (responseData.status === true) {
+                    setImageUploadSuccessMessage('Image uploaded successfully.'); // Set the success message
+                    setShowImageUploadSuccessModal(true); // Open the success modal
+                }
+            } else {
+                // Handle error
+            }
+        } catch (error) {
+            console.error('Error uploading image:', error);
+        }
+    };
+    
+    
+    
+    
     return (
         <div>
        
@@ -106,18 +218,20 @@ export default function Profile() {
                 {/* Profile */}
                 {get_string_lable("Profile")}
                 </h3>
-            <Container fluid>
-                <Row>
-                    <div>
-                        <div className="pic_area">
-                        <img
-                            src="../images/profile.png"
-                        />
-                        </div>
-                    </div>
-                </Row>
+                <Container fluid>
+    <Row>
+        <div>
+            <div className="pic_area">
+                {imagePreview && <img src={imagePreview} alt="Selected" />}
+            </div>
+        </div>
+    </Row>
+    <Row>
+        <Button onClick={handleImageUploadClick}>Upload Image</Button>
+        <Button  className="oki_upload" onClick={uploadImage}>OK</Button>
+    </Row>
+</Container>
 
-            </Container>
             <Container>
                 <div className="form_cover_profile">
                     <Row>
@@ -133,7 +247,8 @@ export default function Profile() {
                                         <Form.Control type="text" placeholder=
                                         // "Enter First Name"
                                         {get_string_lable("Enter First Name")}
-                                         value={getProfile.name} readOnly/>
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}/>
                                     </Form.Group>
 
                                 </Form>
@@ -153,7 +268,9 @@ export default function Profile() {
                                         <Form.Control type="text" placeholder=
                                         // "Enter Last Name"
                                         {get_string_lable("Enter Last Name")}
-                                        value={getProfile.last_name ?? 'khan'} readOnly />
+                                        // value={getProfile.last_name ?? 'khan'} readOnly />
+                                         value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}/>
                                     </Form.Group>
 
                                 </Form>
@@ -173,7 +290,8 @@ export default function Profile() {
                                         <Form.Control type="email" placeholder=
                                         "name@example.com"
                                         // {get_string_lable("name@example.com")}
-                                        value={getProfile.email} readOnly />
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}/>
                                     </Form.Group>
 
                                 </Form>
@@ -192,7 +310,8 @@ export default function Profile() {
                                         </Form.Label>
                                         <Form.Control type="text" placeholder=
                                         "Enter Mobile No"
-                                        value={getProfile.phone_no} readOnly />
+                                        value={phoneNo}
+                                        onChange={(e) => setPhoneNo(e.target.value)}/>
                                     </Form.Group>
 
                                 </Form>
@@ -220,15 +339,29 @@ export default function Profile() {
                         <Col>
                             <div className="form_area">
                                 <Form>
-                                    <Button onClick={()=>navigateToPath('/search')}className="submit_btn">
-                                        Update
-                                    </Button>
+                                <Button onClick={handleProfileUpdate} className="submit_btn">
+                                Update
+                            </Button>
 
                                 </Form>
                             </div>
                         </Col>
                     </Row>
                 </div>
+                <Modal show={showModal} onHide={() => setShowModal(false)}>
+    <Modal.Header closeButton>
+        <Modal.Title>Profile Updated</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>Your profile has been successfully updated.</Modal.Body>
+</Modal>
+<Modal show={showImageUploadSuccessModal} onHide={() => setShowImageUploadSuccessModal(false)}>
+    <Modal.Header closeButton>
+        <Modal.Title>Image Uploaded</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>Your Image has been successfully Uploaded.</Modal.Body>
+</Modal>
+
+
             </Container>
         </section>
         </div>
