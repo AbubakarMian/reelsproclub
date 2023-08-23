@@ -46,6 +46,24 @@ body {
 }
 
 
+.pay_header img, .pay_footer img {
+  width: 100%;
+  flex-shrink: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  height: 143px;}
+.css-88lo1y-MuiContainer-root {
+  
+  height: auto !important;
 
-
-
+}
+.center {
+  margin: 100px 0px;
+}
+@media only screen and (max-width : 480px) {
+  .pay_header img, .pay_footer img {
+    width: 100%;
+    flex-shrink: 0;
+   height: auto;
+  }
+}
