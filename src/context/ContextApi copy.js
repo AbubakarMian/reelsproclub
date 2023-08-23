@@ -48,12 +48,12 @@ export const ContexApiProvider = (props) => {
 
     let objContextState_init = contextState;
 
-    console.log('test',{
-        id: "0",
-        name: "Guest",
-        access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
-        role_id: 2,
-    });
+    // console.log('test',{
+    //     id: "0",
+    //     name: "Guest",
+    //     access_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
+    //     role_id: 2,
+    // });
     // const user_localstorage = JSON.parse(localStorage.getItem('user'));
 
     // objContextState_init['user'] = user_localstorage;
