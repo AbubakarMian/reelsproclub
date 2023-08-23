@@ -22,6 +22,8 @@ export const Constant = {
   reels_accepetd: `${base_url}/reels_accepetd`,
   orders_available: `${base_url}/orders_available`,
   get_profile: `${base_url}/get_profile`,
+  user_update_profile: `${base_url}/user_update_profile`,
+  upload_image: `${base_url}/upload_image`,
 
   
 };      

@@ -22,6 +22,10 @@ button.submit_btn.btn.btn-primary {
     background-color: gray;
     border: 1px solid gray;
 }
+
+button.oki_upload.btn.btn-primary {
+    margin-top: 12px;
+}
 .pic_area {
     margin: 10px;
 }
