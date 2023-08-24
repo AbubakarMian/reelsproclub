@@ -121,7 +121,7 @@ export default function Influencer_order_details() {
         <div className="gre_card_head">
           <div className="gre_card">
             <Row className="">
-              <Col>
+              <Col className="sasd">
               <div className="prof_img prof_img_inf" onClick={() => {
                   navigate("/reelvideo");
                 }}>
@@ -169,7 +169,7 @@ export default function Influencer_order_details() {
         <div className="gre_card_head">
           <div className="gre_card">
             <Row className="">
-              <Col>
+            <Col className="sasd">
                 <div className="prof_img prof_img_inf" onClick={() => {
                   navigate("/reelvideo");
                 }}>
@@ -217,7 +217,7 @@ export default function Influencer_order_details() {
         <div className="gre_card_head">
           <div className="gre_card">
             <Row className="">
-              <Col>
+            <Col className="sasd">
                 <div className="prof_img prof_img_inf" onClick={() => {
                   navigate("/reelvideo");
                 }}>

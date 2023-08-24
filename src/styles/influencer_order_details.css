@@ -23,9 +23,12 @@
 }
 .prof_img_inf img {
     width: 100%;
-    border: solid 1px #ab7979;
-    border-radius: 10px;
+    /* border: solid 1px #ab7979; */
+    /* border-radius: 10px; */
     max-height: 100px;
+}
+.col.sasd {
+    background-color: black;
 }
   
   

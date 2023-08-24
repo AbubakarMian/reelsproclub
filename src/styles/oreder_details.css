@@ -11,8 +11,7 @@
     border: solid 1px #dbdada;
     border-radius: 10px;
     margin-top: 10px;
-    font-weight: bold;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 .order_btn_area {
     margin-top: 7px;

@@ -25,3 +25,23 @@
     .row.nomargin {
         margin-top: -7px;
     }
+    .vid_thumb_img img {
+        width: 100%;
+    }
+    .vid_thumb {
+        position: relative; /* Make the parent container relative */
+        overflow: hidden; /* Hide overflowing content (to hide play icon) */
+      }
+      
+      .play_bt_reel {
+        position: absolute; /* Position the play icon absolutely */
+        top: 50%; /* Position it at the vertical center */
+        left: 50%; /* Position it at the horizontal center */
+        transform: translate(-50%, -50%); /* Center the icon precisely */
+        color: #fff; /* Change the color to match your design */
+        background-color: rgba(0, 0, 0, 0.7); /* Add a background for visibility */
+        padding: 5px; /* Add padding for spacing */
+        border-radius: 50%; /* Make it a circle */
+        font-size: 24px; /* Adjust the size of the play icon as needed */
+      }
+      
