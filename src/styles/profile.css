@@ -30,13 +30,13 @@ button.oki_upload.btn.btn-primary {
     margin: 10px;
 }
 h3.profile_head {
-    /* text-align: left; */
+    text-align: left;
     margin: 10px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 40px;
     color: #ffffff;
     float: left;
-    margin-top: 26px;
+    margin-top: 53px;
     margin-left: 20px;
 }
 label.tbtn.btn.btn-outline-primary {
@@ -51,9 +51,22 @@ button.profile-backbtnsignup.btn.btn-primary {
     border: 0px;
     color: black;
 }
+button.pic_upload_btn.btn.btn-primary {
+    font-size: 38px;
+    border-radius: 53px;
+    font-size: 50px;
+    margin: 10px;
+    border: 1px solid #b56302;
+    border-radius: 97px;
+    width: 100px;
+    background-color: #dfdfdf;
+    color: #087bbc;
+    box-shadow: 6px 7px 17px 1px #776f6f;
+    height: 100px;
+    float: right;
+}
 @media only screen and (max-width : 480px) {
   
     section.bg_color {
-        height: auto;    
-    }
+        height: 100vh !important;    }
 }

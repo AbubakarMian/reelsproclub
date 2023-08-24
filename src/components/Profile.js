@@ -210,6 +210,7 @@ export default function Profile() {
           </Col>
         </Row>
       </Container>
+      
         <section className="bg_color">
         <div className="language_area"><LanguageToggle /></div>
 
@@ -227,10 +228,27 @@ export default function Profile() {
         </div>
     </Row>
     <Row>
-        <Button onClick={handleImageUploadClick}>Upload Image</Button>
-        <Button  className="oki_upload" onClick={uploadImage}>OK</Button>
+        {/* <Button </Button> */}
+        {/* <Button  className="oki_upload" onClick={uploadImage}>OK</Button> */}
     </Row>
 </Container>
+<Container className="cont_pad">
+          <Row>
+            <Col>
+              {/* <h3 className="signup_head">SignUp</h3> */}
+            </Col>
+            <Col>
+              <div className="pic_area">
+                <Button
+                className="pic_upload_btn"
+                 onClick={handleImageUploadClick}>
+                  <FontAwesomeIcon icon={faUserPlus}/>
+                  
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
 
             <Container>
                 <div className="form_cover_profile">
@@ -317,7 +335,8 @@ export default function Profile() {
                                 </Form>
                             </div>
                         </Col>
-                    </Row><Row>
+                    </Row>
+                    {/* <Row>
                         <Col>
                             <div className="form_area">
                                 <Form>
@@ -334,7 +353,7 @@ export default function Profile() {
                                 </Form>
                             </div>
                         </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                         <Col>
                             <div className="form_area">
