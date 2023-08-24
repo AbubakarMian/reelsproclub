@@ -11,8 +11,9 @@
     border: solid 1px #dbdada;
     border-radius: 10px;
     margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
 }
-
 .order_btn_area {
     margin-top: 7px;
 }
@@ -29,6 +30,11 @@ button.order_btn_area {
 .oreder_btnt_area_inf.col {
     display: grid;
     align-content: center;
+}
+.rellback {
+    padding: 0px 24px;
+    padding-top: 15px;
+    background-color: white;
 }
 
 @media only screen and (max-width : 480px) {

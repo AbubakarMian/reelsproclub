@@ -149,7 +149,18 @@ export default function Profile() {
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                      value={1}
+                      // value={1}
+                    />
+                  </InputGroup>
+
+                  <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon3">
+                      Total Cost
+                    </InputGroup.Text>
+                    <Form.Control
+                      id="basic-url"
+                      aria-describedby="basic-addon3"
+                      // value={1}
                     />
                   </InputGroup>
                   {/* <Form>

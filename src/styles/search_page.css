@@ -1,5 +1,6 @@
 section.bg_body_color {
     background-color: #cdccd6;
+    height: 100vh;
 }
 .serch_big_img{
     background-image: url("../../public/images/2.png");
