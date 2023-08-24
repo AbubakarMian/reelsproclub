@@ -10,7 +10,9 @@ import "./../styles/viewreels.css";
 import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft,
+  faPlay,
+   faEye } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
@@ -74,13 +76,19 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo", { video_src: video1 });
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   resizeMode="cover" // height="720" width="1280"  ratio="16:9"
                   //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
                   source
                   src={video2}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                    <img src="../images/thumbnails/thumb1.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
 
@@ -91,13 +99,18 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video muted
                   id="background-video1"
                   loop
                   autoPlay // height="720" width="1280"
                   source
                   src={video3}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                    <img src="../images/thumbnails/thumb2.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -107,7 +120,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -116,9 +130,12 @@ export default function MyReels_page_export() {
                   source
                   src={Pizza1}
                 >
-                  {/* <source src={require(Video)} type="video/mp4"/>         */}
-                </video>
-                
+                </video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                    <img src="../images/thumbnails/thumb17.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
           </Row>
@@ -130,7 +147,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -138,7 +156,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video4}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb4.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -148,7 +171,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -156,7 +180,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video5}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb5.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -166,7 +195,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -174,7 +204,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video6}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb6.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
           </Row>
@@ -186,7 +221,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -194,7 +230,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video7}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb7.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -204,7 +245,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -212,7 +254,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video8}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb8.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -222,7 +269,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -230,7 +278,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video9}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb9.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
           </Row>
@@ -242,7 +295,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -250,7 +304,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video1}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb13.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -260,7 +319,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -268,7 +328,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video9}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb11.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
             <Col className="columnn">
@@ -278,7 +343,8 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                <video muted
+                {/* <video
+                  muted
                   id="background-video1"
                   loop
                   autoPlay
@@ -286,7 +352,12 @@ export default function MyReels_page_export() {
                   resizeMode="cover" // height="720" width="1280"
                   source
                   src={video2}
-                ></video>
+                ></video> */}
+                <div className="vid_thumb">
+                  <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
+                  <img src="../images/thumbnails/thumb12.jpg" alt="Profile" />
+                  </div>
+                </div>
               </div>
             </Col>
           </Row>

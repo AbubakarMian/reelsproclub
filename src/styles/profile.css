@@ -65,6 +65,36 @@ button.pic_upload_btn.btn.btn-primary {
     height: 100px;
     float: right;
 }
+
+.inite_Succ_hed {
+    font-size: 34px;
+    text-align: center;
+    margin: 14px 0px;
+}
+.inite_Succ_txt {
+    text-align: center;
+    font-size: 17px;
+}
+.icon_tick i {
+    border: solid 1px;
+    border-radius: 60px;
+}
+.icon_tick {
+    text-align: center;
+    font-size: 82px;
+    color: #38da38;
+    border: solid 1px;
+    border-radius: 86px;
+    width: auto;
+    margin: 0px 90px;
+}
+.mdl_btn {
+    text-align: center;
+    margin: 10px;
+}
+.mdl_btn button {
+    width: 150px;
+}
 @media only screen and (max-width : 480px) {
   
     section.bg_color {
