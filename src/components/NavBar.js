@@ -62,7 +62,7 @@ export default function Nav_bar_area(props) {
                   <Offcanvas.Header>
                     <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
                       <div onClick={()=>{
-                      }}>{contextState.user.name} {contextState.language.name}</div>
+                      }}>{contextState.user.name} </div>
                       <div>
                         <img className="collapse_logo" src="./../images/new1.png"></img>
       
@@ -94,7 +94,8 @@ export default function Nav_bar_area(props) {
                       <div className='nav_bottom'><Nav.Link href="myreels"><FontAwesomeIcon icon={faFilm} /> My Reels</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="profile"><FontAwesomeIcon icon={faCircleUser} /> Profile</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="viewreels"><FontAwesomeIcon icon={faPhotoFilm} /> View Reels</Nav.Link></div>
-                      <div className='nav_bottom'><Nav.Link href="orderdetails"><FontAwesomeIcon icon={faCalendarDay} /> Order Details</Nav.Link></div>
+                      <div className='nav_bottom'><Nav.Link href="user_order"><FontAwesomeIcon icon={faCalendarDay} /> Orders</Nav.Link></div>
+                      {/* <div className='nav_bottom'><Nav.Link href="orderdetails"><FontAwesomeIcon icon={faCalendarDay} /> Order Details</Nav.Link></div> */}
                       <div className='nav_bottom'><Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} />LogOut</Nav.Link></div>
                       {/* <div className='nav_bottom'><Nav.Link href="payment"><FontAwesomeIcon icon={faRightToBracket} />Login</Nav.Link></div> */}
 

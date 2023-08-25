@@ -117,9 +117,11 @@ button.modal_btn.btn.btn-primary {
     background: rgb(42,144,174);
     /* background: radial-gradient(circle, rgba(42,144,174,1) 0%, rgba(255,255,255,1) 100%); */
 }
-.free_body{
-    padding: 37px 0px 25px 0px;
-
+.pay_body.free_body p {
+    margin: 0px;
+}
+.free_body {
+    padding: 28px 0px 25px 0px;
 }
 .bronz_head{
     background: rgb(193,100,48);
@@ -142,6 +144,9 @@ button.modal_btn.btn.btn-primary {
 }
 a.box_click {
     text-decoration: none;
+}
+.pay_body.bronz_body p {
+    margin: 0px;
 }
 @media only screen and (max-width : 480px) {
     section.bg_clr {

@@ -23,8 +23,8 @@ export default function WebcamVideo(props) {
   const { contextState, updateContextState } = useContext(ContextApiContext);
   const location = useLocation();
   // const params = location.state;
-  const order_id = location.state.order_id;
-  const user_name = location.state.name;
+  const order_id = location.state?location.state.order_id:0;
+  const user_name = location.state?location.state.name:'';
   console.log("order_id", order_id);
   console.log("user_name", user_name);
 
