@@ -75,6 +75,7 @@ export default function Signup(props) {
     const { category, rate_per_reel } = influencer_obj;
     try {
       // let access_token = contextState.user.access_token;
+      handleCloseUserSelectType(false);
       let access_token = Constant.basic_token;
       console.log("acces_token", access_token);
       const headers = {
@@ -316,13 +317,14 @@ export default function Signup(props) {
                           {/* <Button className="modal_btn"> Hire</Button> */}
                           <CreateHireModal
                             signupApi={signupApi}
+                            handleCloseUserSelectType={handleCloseUserSelectType}
                             //  setCategory={setCategory}
                             //  setRatePerReel={setRatePerReel}
                           />
                           {/* <Button className="modal_btn"> collaboration</Button> */}
                           <Button
                             className="modal_btn"
-                            onClick={() => signupApi("user", {})}
+                            onClick={() => {handleCloseUserSelectType(); signupApi("user", {})}}
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
@@ -352,6 +354,7 @@ export default function Signup(props) {
 
 const CreateHireModal = (props) => {
   useEffect(() => {
+    
     get_categories();
   }, []);
 
@@ -400,7 +403,7 @@ const CreateHireModal = (props) => {
   };
   return (
     <>
-      <Button className="modal_btn" onClick={() => setShow(true)}>
+      <Button className="modal_btn" onClick={() => {setShow(true)}}>
         {" "}
         Influencer
       </Button>
@@ -459,62 +462,33 @@ const CreateHireModal = (props) => {
           </Row>
           <Row>
             <Col>
-              {/* <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Using Grid in Modal
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="grid-example">
-        <Container>
-          <Row>
-            <Col xs={12} md={8}>
-              .col-xs-12 .col-md-8
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-          </Row>
-
-          <Row>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
-          </Row>
-        </Container>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal> */}
+             
               <>
-                <Button variant="primary" onClick={() => setModalShow(true)}>
+                {/* <Button variant="primary" onClick={() => setModalShow(true)}>
                   Launch modal with grid
-                </Button>
+                </Button> */}
 
                 <MydModalWithGrid
+                category={category}
+                rate_per_reel={rate_per_reel}
+                signupApi={props.signupApi}
                   show={modalShow}
                   onHide={() => setModalShow(false)}
+                  handleCloseUserSelectType={props.handleCloseUserSelectType}
                 />
               </>
               <Button
                 className="modl_submit"
-                // onClick={() => navigateToPath("/search")} props.functions.signupApi('influencer')
-                onClick={() =>
-                  props.signupApi("influencer", {
-                    category,
-                    rate_per_reel,
-                  })
-                }
+                onClick={() => {setModalShow(true)}}
+                // onClick={() =>
+                //   props.signupApi("influencer", {
+                //     category,
+                //     rate_per_reel,
+                //   })
+                // }
               >
                 {" "}
-                Submit
+                Select Package
               </Button>
             </Col>
           </Row>
@@ -524,6 +498,8 @@ const CreateHireModal = (props) => {
   );
 };
 function MydModalWithGrid(props) {
+  let category = props.category;
+  let rate_per_reel = props.rate_per_reel;
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton className="asdas">
@@ -535,7 +511,12 @@ function MydModalWithGrid(props) {
         <Container>
           <Row>
             <Col>
-            <a className="box_click">
+            <a className="box_click" onClick={() =>
+                  props.signupApi("influencer", {
+                    category,
+                    rate_per_reel,
+                  })
+                }>
               <div className="pay_packages">
                 <div className="pay_head free_head">FREE</div>
                 <div className="pay_body free_body">
@@ -548,7 +529,12 @@ function MydModalWithGrid(props) {
          
           <Row>
             <Col>
-            <a className="box_click">
+            <a className="box_click"onClick={() =>
+                  props.signupApi("influencer", {
+                    category,
+                    rate_per_reel,
+                  })
+                }>
               <div className="pay_packages">
                 <div className="pay_head bronz_head">BRONZE PACKAGE</div>
                 <div className="pay_body bronz_body">
@@ -561,7 +547,12 @@ function MydModalWithGrid(props) {
           </Row>
           <Row>
             <Col>
-            <a className="box_click">
+            <a className="box_click"onClick={() =>
+                  props.signupApi("influencer", {
+                    category,
+                    rate_per_reel,
+                  })
+                }>
               <div className="pay_packages">
                 <div className="pay_head silver_head">SILVER PACKAGE</div>
                 <div className="pay_body bronz_body">
@@ -574,7 +565,12 @@ function MydModalWithGrid(props) {
           </Row>
           <Row>
             <Col>
-            <a className="box_click">
+            <a className="box_click"onClick={() =>
+                  props.signupApi("influencer", {
+                    category,
+                    rate_per_reel,
+                  })
+                }>
               <div className="pay_packages">
                 <div className="pay_head gold_head">GOLD PACKAGE</div>
                 <div className="pay_body bronz_body">
@@ -587,7 +583,12 @@ function MydModalWithGrid(props) {
           </Row>
           <Row>
             <Col>
-            <a className="box_click">
+            <a className="box_click"onClick={() =>
+                  props.signupApi("influencer", {
+                    category,
+                    rate_per_reel,
+                  })
+                }>
               <div className="pay_packages">
                 <div className="pay_head plati_head">PLATINUM PACKAGE</div>
                 <div className="pay_body bronz_body">
@@ -602,9 +603,9 @@ function MydModalWithGrid(props) {
          
         </Container>
       </Modal.Body>
-      <Modal.Footer>
+      {/* <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
   );
 }

@@ -11,7 +11,7 @@ import { Constant } from "../common/Constants";
 import { useNavigate } from "react-router-dom";
 // import "./styles/orderreels.css"; // Import your custom styles
 import "./../styles/orderreels.css";
-
+import Nav_bar_area from "./NavBar";
 
 export default function User_reels_list() {
   const { contextState } = useContext(ContextApiContext);
@@ -20,13 +20,15 @@ export default function User_reels_list() {
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
   const [showAcceptModal, setShowAcceptModal] = useState(false);
 
-  
-
   const location = useLocation();
   const order_id = location.state.order_id;
 
   const convertToLocalUrl = (filePath) => {
-    return `http://localhost/${filePath.replace(/\\/g, "/").split("/").slice(3).join("/")}`;
+    return `http://localhost/${filePath
+      .replace(/\\/g, "/")
+      .split("/")
+      .slice(3)
+      .join("/")}`;
   };
 
   const openModal = (videoUrl) => {
@@ -76,7 +78,7 @@ export default function User_reels_list() {
     fetchOrderReels();
   }, [order_id, contextState.user.access_token]);
 
-  // 
+  //
   const handleAcceptClick = () => {
     setShowAcceptModal(true);
   };
@@ -93,13 +95,10 @@ export default function User_reels_list() {
         "Authorization-secure": access_token,
         "client-id": "reelspro-app-mobile",
       };
-      const response = await fetch(
-        `${Constant.reels_accepetd}/${order_id}`,
-        {
-          method: "POST",
-          headers: headers,
-        }
-      );
+      const response = await fetch(`${Constant.reels_accepetd}/${order_id}`, {
+        method: "POST",
+        headers: headers,
+      });
       const data = await response.json();
 
       if (response.ok) {
@@ -113,89 +112,94 @@ export default function User_reels_list() {
     }
   };
 
-
-
-  // 
+  //
   return (
-    <section className="user-reels-list">
-      <Container fluid className="myreelarea">
-        <Row>
-          <h2>USER ORDER VIEW REELS</h2>
-        </Row>
-        {orderreelsuser.map((reel, index) => (
-          <Row className="reel-box" key={index + 1}>
-            <Col xs={12} md={4} className="reel-thumbnail">
-              <div className="img-area">
-                <img
-                  src="./../logo192.png"
-                  alt="Reel Thumbnail"
-                  className="thumbnail-image"
-                />
-              </div>
-            </Col>
-            <Col xs={12} md={8}>
-              <div className="view-button">
-                <Button
-                  variant="primary"
-                  onClick={() => openModal(reel.reels_url)}
-                  className="view-btn"
-                >
-                  View
-                </Button>
-              </div>
+    <>
+      <Nav_bar_area contextApi={{ contextState }} />
+
+      <section className="user-reels-list">
+        <Container fluid className="myreelarea">
+          <Row>
+            <h2>USER ORDER VIEW REELS</h2>
+          </Row>
+          {orderreelsuser.map((reel, index) => (
+            <Row className="reel-box" key={index + 1}>
+              <Col xs={12} md={4} className="reel-thumbnail">
+                <div className="img-area">
+                  <img
+                    src="./../logo192.png"
+                    alt="Reel Thumbnail"
+                    className="thumbnail-image"
+                  />
+                </div>
+              </Col>
+              <Col xs={12} md={8}>
+                <div className="view-button">
+                  <Button
+                    variant="primary"
+                    onClick={() => openModal(reel.reels_url)}
+                    className="view-btn"
+                  >
+                    View
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          ))}
+          <Row className="accept-button-row">
+            <Col xs={12} className="hh">
+              <Button
+                variant="success"
+                onClick={handleAcceptClick}
+                className="accept-btn"
+              >
+                Accept
+              </Button>
             </Col>
           </Row>
-        ))}
-          <Row className="accept-button-row">
-          <Col xs={12} className="hh">
-            <Button
-              variant="success"
-              onClick={handleAcceptClick}
-              className="accept-btn"
-            >
-              Accept
-            </Button>
-          </Col>
-        </Row>
 
-<Modal show={showModal} onHide={closeModal} centered>
-          <Modal.Body>
-            <ReactPlayer
-              className="react-player-modal"
-              url={selectedVideoUrl}
-              controls
-              playing={false}
-              width="100%"
-              height="100%"
-            />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={closeModal}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-        {/*  */}
+          <Modal show={showModal} onHide={closeModal} centered>
+            <Modal.Body>
+              <ReactPlayer
+                className="react-player-modal"
+                url={selectedVideoUrl}
+                controls
+                playing={false}
+                width="100%"
+                height="100%"
+              />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={closeModal}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          {/*  */}
 
-        {/* Accept Modal */}
-        <Modal show={showAcceptModal} onHide={handleAcceptModalClose} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>Confirm Acceptance</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Are you sure you want to accept these reels?</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleAcceptModalClose}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={handleAcceptModalClose}>
-              OK
-            </Button>
-          </Modal.Footer>
-        </Modal>
-
-      </Container>
-    </section>
+          {/* Accept Modal */}
+          <Modal
+            show={showAcceptModal}
+            onHide={handleAcceptModalClose}
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Confirm Acceptance</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Are you sure you want to accept these reels?</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleAcceptModalClose}>
+                Cancel
+              </Button>
+              <Button variant="primary" onClick={handleAcceptModalClose}>
+                OK
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </Container>
+      </section>
+    </>
   );
 }

@@ -37,6 +37,8 @@ export default function Profile() {
   const navigate = useNavigate();
   const { contextState, updateContextState } = useContext(ContextApiContext);
   const [mydata, setData] = useState([]);
+  const [totalCost, setTotalCost] = useState('0');
+  const [numberReels, setNumberReels] = useState('');
   const location = useLocation();
   const params = location.state;
   const user_id = location.state.user;
@@ -133,7 +135,7 @@ export default function Profile() {
 
                 <div className="form_cover_profile_hire">
                   <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon3">
+                    <InputGroup.Text id="basic-addon3" style={{width:'50%'}}>
                       Rate Per Reel
                     </InputGroup.Text>
                     <Form.Control
@@ -143,24 +145,32 @@ export default function Profile() {
                     />
                   </InputGroup>
                   <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon3">
+                    <InputGroup.Text id="basic-addon3"  style={{width:'50%'}}
+                    >
                       Number Of Reels
                     </InputGroup.Text>
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                      // value={1}
+                    onChange={(e)=>{
+                      // setData(...data,{number_of_reels:e.target.value});
+                      setNumberReels(e.target.value);
+                      setTotalCost(e.target.value* mydata.rate_per_reel)}}
+
+                      value={numberReels}
                     />
                   </InputGroup>
 
                   <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon3">
+                    <InputGroup.Text id="basic-addon3"  style={{width:'50%'}}
+                      
+                      >
                       Total Cost
                     </InputGroup.Text>
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                      // value={1}
+                      value={'$'+totalCost}
                     />
                   </InputGroup>
                   {/* <Form>
