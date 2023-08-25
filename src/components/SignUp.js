@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -33,21 +33,19 @@ import Language_arr from "../common/Lang";
 import { ContextApiContext } from "../context/ContextApi";
 import { useContext } from "react";
 import Alert from "react-bootstrap/Alert";
-import { Constant } from '../common/Constants';
+import { Constant } from "../common/Constants";
 
 // import Common,{googleTranslate} from '../common/Common';
 
 export default function Signup(props) {
-
-  const [name, setName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [phone_no, setPhone_no] = useState('');
+  const [name, setName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone_no, setPhone_no] = useState("");
   // const [rate_per_reel, setRatePerReel] = useState(0);
   // const [category,setCategory] = useState(0);
   const [signupError, setSignupError] = useState(null);
-
 
   const navigate = useNavigate();
 
@@ -73,60 +71,57 @@ export default function Signup(props) {
   };
   // yaha tk utthalo
 
-  const signupApi= async (role,influencer_obj)=>{
-
-    const {category,rate_per_reel} = influencer_obj;
+  const signupApi = async (role, influencer_obj) => {
+    const { category, rate_per_reel } = influencer_obj;
     try {
-
-      
       // let access_token = contextState.user.access_token;
       let access_token = Constant.basic_token;
-      console.log('acces_token',access_token);
+      console.log("acces_token", access_token);
       const headers = {
-        Accept: 'application/json',
+        Accept: "application/json",
         Authorization: access_token,
-        'Authorization-secure': access_token,
-        'client-id': 'reelspro-app-mobile',
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
       };
-      console.log('headers',headers);
+      console.log("headers", headers);
       let formData = new FormData();
-      formData.append('name',name);
-      formData.append('fullname',name +' '+lastname );
-      formData.append('email',email);
-      formData.append('password',password);
-      formData.append('phone_no',phone_no);
-      formData.append('category_id',category);
-      formData.append('role',role);
-      formData.append('rate_per_reel',rate_per_reel);
-      formData.append('lat','127.99');
-      formData.append('long','127.99');
-      formData.append('location','mylocation');
+      formData.append("name", name);
+      formData.append("fullname", name + " " + lastname);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("phone_no", phone_no);
+      formData.append("category_id", category);
+      formData.append("role", role);
+      formData.append("rate_per_reel", rate_per_reel);
+      formData.append("lat", "127.99");
+      formData.append("long", "127.99");
+      formData.append("location", "mylocation");
       const response = await fetch(Constant.signup, {
-        method: 'POST',
+        method: "POST",
         headers: headers,
-        body:formData
+        body: formData,
       });
 
       const data = await response.json();
-      console.log('res datadata', data);
-      if(data.status){
-        updateContextState(data.response,'update_user');
-        navigate('/categories');
-      }
-      else{
-        if(typeof data.error.message[0] !== 'undefined' && data.error.message[0] !== null ){
+      console.log("res datadata", data);
+      if (data.status) {
+        updateContextState(data.response, "update_user");
+        navigate("/categories");
+      } else {
+        if (
+          typeof data.error.message[0] !== "undefined" &&
+          data.error.message[0] !== null
+        ) {
           setSignupError(data.error.message[0]); // Set the error message
         }
-
       }
       // setCategories(data.response);
     } catch (error) {
-      console.error('Error fetching :', error);
+      console.error("Error fetching :", error);
       setSignupError("Error signing up. Please try again."); // Set the error message
       console.error("Error signing up:", error);
-    
     }
-  }
+  };
 
   return (
     <div>
@@ -141,8 +136,12 @@ export default function Signup(props) {
       </Container>
 
       <section className="bg_clr">
-      {signupError && ( // Conditionally render the Alert component if there's an error
-          <Alert variant="danger" onClose={() => setSignupError(null)} dismissible>
+        {signupError && ( // Conditionally render the Alert component if there's an error
+          <Alert
+            variant="danger"
+            onClose={() => setSignupError(null)}
+            dismissible
+          >
             {signupError}
           </Alert>
         )}
@@ -163,7 +162,7 @@ export default function Signup(props) {
             </Col>
           </Row>
         </Container>
-        <Container  className="cont_pad">
+        <Container className="cont_pad">
           <div className="form_cover_signup">
             <Row>
               <Col>
@@ -174,7 +173,14 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>First Name*</Form.Label>
-                      <Form.Control type="text" name="" placeholder="First Name" onChange={(e)=>{setName(e.target.value)}} />
+                      <Form.Control
+                        type="text"
+                        name=""
+                        placeholder="First Name"
+                        onChange={(e) => {
+                          setName(e.target.value);
+                        }}
+                      />
                     </Form.Group>
                   </Form>
                 </div>
@@ -189,7 +195,11 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Last Name*</Form.Label>
-                      <Form.Control onChange={e=>setLastName(e.target.value)} type="text" placeholder="Last Name" />
+                      <Form.Control
+                        onChange={(e) => setLastName(e.target.value)}
+                        type="text"
+                        placeholder="Last Name"
+                      />
                     </Form.Group>
                   </Form>
                 </div>
@@ -205,7 +215,7 @@ export default function Signup(props) {
                     >
                       <Form.Label>Email*</Form.Label>
                       <Form.Control
-                      onChange={e=>setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder="name@example.com"
                       />
@@ -223,12 +233,16 @@ export default function Signup(props) {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label>Password*</Form.Label>
-                      <Form.Control onChange={e=>setPassword(e.target.value)} type="password" placeholder="Password" />
+                      <Form.Control
+                        onChange={(e) => setPassword(e.target.value)}
+                        type="password"
+                        placeholder="Password"
+                      />
                     </Form.Group>
                   </Form>
                 </div>
-              </Col>             
-            </Row>       
+              </Col>
+            </Row>
             <Row>
               <Col>
                 <div className="form_area">
@@ -239,7 +253,7 @@ export default function Signup(props) {
                     >
                       <Form.Label>Mobile Number*</Form.Label>
                       <Form.Control
-                      onChange={(e)=>setPhone_no(e.target.value)}
+                        onChange={(e) => setPhone_no(e.target.value)}
                         type="number"
                         placeholder="Enter Mobile No"
                       />
@@ -276,8 +290,11 @@ export default function Signup(props) {
               <Col>
                 <div className="form_area">
                   <Form>
-                    <Button onClick={handleShowUserSelectType} className="sub_btn">
-                    {/* <Button    className="sub_btn"> */}
+                    <Button
+                      onClick={handleShowUserSelectType}
+                      className="sub_btn"
+                    >
+                      {/* <Button    className="sub_btn"> */}
                       Submit
                     </Button>
                   </Form>
@@ -297,14 +314,15 @@ export default function Signup(props) {
                         <p> What kind of user are you ?</p>
                         <div className="buttons_area">
                           {/* <Button className="modal_btn"> Hire</Button> */}
-                          <CreateHireModal signupApi={signupApi} 
-                                          //  setCategory={setCategory} 
-                                          //  setRatePerReel={setRatePerReel}
-                                            />
+                          <CreateHireModal
+                            signupApi={signupApi}
+                            //  setCategory={setCategory}
+                            //  setRatePerReel={setRatePerReel}
+                          />
                           {/* <Button className="modal_btn"> collaboration</Button> */}
                           <Button
                             className="modal_btn"
-                            onClick={() => signupApi('user',{})}
+                            onClick={() => signupApi("user", {})}
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
@@ -313,7 +331,10 @@ export default function Signup(props) {
                         </div>
                       </Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleCloseUserSelectType}>
+                        <Button
+                          variant="secondary"
+                          onClick={handleCloseUserSelectType}
+                        >
                           Close
                         </Button>
                       </Modal.Footer>
@@ -329,62 +350,50 @@ export default function Signup(props) {
   );
 }
 
-  
-
 const CreateHireModal = (props) => {
-
-  useEffect(()=>{
+  useEffect(() => {
     get_categories();
-  },[])
-
-
+  }, []);
 
   const [category_list, setCategoryList] = useState([]);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
-  const get_categories = async ()=>{
-
-
-  
+  const get_categories = async () => {
     // const [category,setCategory] = useState('');
     // const [rate_per_reel, setRatePerReel] = useState(0);
     try {
-
-      
       // let access_token = contextState.user.access_token;
       let access_token = Constant.basic_token;
-      console.log('acces_token',access_token);
+      console.log("acces_token", access_token);
       const headers = {
-        Accept: 'application/json',
+        Accept: "application/json",
         Authorization: access_token,
-        'Authorization-secure': access_token,
-        'client-id': 'reelspro-app-mobile',
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
       };
-      
+
       const response = await fetch(Constant.get_category, {
-        method: 'GET',
-        headers: headers
+        method: "GET",
+        headers: headers,
       });
 
       const data = await response.json();
-      console.log('res datadata', data);
-      if(data.status){
-        console.log('category data',data.response);
+      console.log("res datadata", data);
+      if (data.status) {
+        console.log("category data", data.response);
         setCategoryList(data.response);
-      }
-      else{
-
+      } else {
       }
       // setCategories(data.response);
     } catch (error) {
-      console.error('Error fetching :', error);
+      console.error("Error fetching :", error);
     }
+  };
 
-  }
-
-    const [category,setCategory] = useState('');
-    const [rate_per_reel, setRatePerReel] = useState(0);
+  const [category, setCategory] = useState("");
+  const [rate_per_reel, setRatePerReel] = useState(0);
+  const [modalShow, setModalShow] = useState(false);
 
   const navigateToPath = (path) => {
     navigate(path);
@@ -412,45 +421,97 @@ const CreateHireModal = (props) => {
             <Col>
               <div className="form_area">
                 <Form.Label>Categories*</Form.Label>
-                <Form.Select aria-label="Default select example" onChange={(e)=>{setCategory(e.target.value)}}>
-                  {
-                    category_list.map((category,index)=>{
-                      return (<option key={category.id} value={category.id}>{category.name}</option>)
-
-                    })
-                  }
+                <Form.Select
+                  aria-label="Default select example"
+                  onChange={(e) => {
+                    setCategory(e.target.value);
+                  }}
+                >
+                  {category_list.map((category, index) => {
+                    return (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    );
+                  })}
                 </Form.Select>
               </div>
             </Col>
           </Row>
           <Row>
-              <Col>
-                <div className="form_area">
-                  <Form>
-                    <Form.Group
-                      className="mb-3 mob_num"
-                      controlId="exampleForm.ControlInput1"
-                    >
-                      <Form.Label>Rate Per Reel</Form.Label>
-                      <Form.Control
-                        type="number"
-                        placeholder="Rate Per Reel"
-                        onChange={(e)=>setRatePerReel(e.target.value)}
-                      />
-                    </Form.Group>
-                  </Form>
-                </div>
-              </Col>
-            </Row>
+            <Col>
+              <div className="form_area">
+                <Form>
+                  <Form.Group
+                    className="mb-3 mob_num"
+                    controlId="exampleForm.ControlInput1"
+                  >
+                    <Form.Label>Rate Per Reel</Form.Label>
+                    <Form.Control
+                      type="number"
+                      placeholder="Rate Per Reel"
+                      onChange={(e) => setRatePerReel(e.target.value)}
+                    />
+                  </Form.Group>
+                </Form>
+              </div>
+            </Col>
+          </Row>
           <Row>
             <Col>
+              {/* <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Using Grid in Modal
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="grid-example">
+        <Container>
+          <Row>
+            <Col xs={12} md={8}>
+              .col-xs-12 .col-md-8
+            </Col>
+            <Col xs={6} md={4}>
+              .col-xs-6 .col-md-4
+            </Col>
+          </Row>
+
+          <Row>
+            <Col xs={6} md={4}>
+              .col-xs-6 .col-md-4
+            </Col>
+            <Col xs={6} md={4}>
+              .col-xs-6 .col-md-4
+            </Col>
+            <Col xs={6} md={4}>
+              .col-xs-6 .col-md-4
+            </Col>
+          </Row>
+        </Container>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal> */}
+              <>
+                <Button variant="primary" onClick={() => setModalShow(true)}>
+                  Launch modal with grid
+                </Button>
+
+                <MydModalWithGrid
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
+              </>
               <Button
                 className="modl_submit"
                 // onClick={() => navigateToPath("/search")} props.functions.signupApi('influencer')
-                onClick={() => props.signupApi('influencer',{
-                  category,
-                  rate_per_reel
-                })}
+                onClick={() =>
+                  props.signupApi("influencer", {
+                    category,
+                    rate_per_reel,
+                  })
+                }
               >
                 {" "}
                 Submit
@@ -462,3 +523,88 @@ const CreateHireModal = (props) => {
     </>
   );
 };
+function MydModalWithGrid(props) {
+  return (
+    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+      <Modal.Header closeButton className="asdas">
+        <Modal.Title id="contained-modal-title-vcenter">
+          PACKAGES
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="grid-example">
+        <Container>
+          <Row>
+            <Col>
+            <a className="box_click">
+              <div className="pay_packages">
+                <div className="pay_head free_head">FREE</div>
+                <div className="pay_body free_body">
+                  <p>Can get reels order for $500</p>
+                </div>
+              </div>
+              </a>
+            </Col>
+          </Row>
+         
+          <Row>
+            <Col>
+            <a className="box_click">
+              <div className="pay_packages">
+                <div className="pay_head bronz_head">BRONZE PACKAGE</div>
+                <div className="pay_body bronz_body">
+                  <p>$200</p>
+                  <p>Can get reels order for $2000</p>
+                </div>
+              </div>
+              </a>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <a className="box_click">
+              <div className="pay_packages">
+                <div className="pay_head silver_head">SILVER PACKAGE</div>
+                <div className="pay_body bronz_body">
+                  <p>$300</p>
+                  <p>Can get reels order for $2000</p>
+                </div>
+              </div>
+              </a>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <a className="box_click">
+              <div className="pay_packages">
+                <div className="pay_head gold_head">GOLD PACKAGE</div>
+                <div className="pay_body bronz_body">
+                  <p>$500</p>
+                  <p>Can get reels order for $2000</p>
+                </div>
+              </div>
+              </a>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <a className="box_click">
+              <div className="pay_packages">
+                <div className="pay_head plati_head">PLATINUM PACKAGE</div>
+                <div className="pay_body bronz_body">
+                  <p>$600</p>
+                  <p>Can get reels order for $2000</p>
+                </div>
+              </div>
+              </a>
+            </Col>
+          </Row>
+
+         
+        </Container>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
