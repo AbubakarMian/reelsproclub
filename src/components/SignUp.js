@@ -34,31 +34,27 @@ import { ContextApiContext } from "../context/ContextApi";
 import { useContext } from "react";
 import Alert from "react-bootstrap/Alert";
 import { Constant } from "../common/Constants";
+import { useGeolocated } from "react-geolocated";
 
 // import Common,{googleTranslate} from '../common/Common';
 
-export default function Signup(props) {
+export default function  Signup(props) {
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone_no, setPhone_no] = useState("");
-  // const [rate_per_reel, setRatePerReel] = useState(0);
-  // const [category,setCategory] = useState(0);
   const [signupError, setSignupError] = useState(null);
-
+  const [latitude, setLangitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
   const navigate = useNavigate();
-
   const navigateToPath = (path) => {
     navigate(path);
   };
   const [show, setShow] = useState(false);
-
   const handleCloseUserSelectType = () => setShow(false);
   const handleShowUserSelectType = () => setShow(true);
-
   const { contextState, updateContextState } = useContext(ContextApiContext);
-
   // yaha sa
   // const context = useContext(ContextApiContext);
   const lang = contextState.language.prefix;
@@ -70,9 +66,62 @@ export default function Signup(props) {
       : str.substring(0, max_length) + "....";
   };
   // yaha tk utthalo
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position)=>{
+        // let latitude = position.coords.latitude;
+        // let longitude = position.coords.longitude;
+        setLangitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+        console.log('position.coords.latitude',position);
+        console.log('position.coords.latitude',position.coords);
+        console.log('position.coords.latitude',position.coords);
+        console.log('position.coords.latitude',latitude);
+        console.log('position.coords.latitude',longitude);
+        let apikey = Constant.google_api_key;
+        // fetch('http://maps.googleapis.com/maps/api/geocode/json?key='+apikey+'latlng='+latitude+','+longitude+'&sensor=true')
+        // .then(response => response.json())
+        // .then(data => {
+        //   console.log('location details',data);
+        // })
+        // .catch(error => console.error(error));
+      }
+      , (error)=>{
+        console.log('get location error',error);
+      });
+  }
+     
+  const { coords, isGeolocationAvailable, isGeolocationEnabled ,positionError,getPosition,timestamp} =
+  useGeolocated({
+      positionOptions: {
+          enableHighAccuracy: false,
+      },
+      userDecisionTimeout: 5000,
+  });
+  setTimeout(()=>{
+    if(isGeolocationAvailable ){
+      console.log('coords',coords);
+      console.log('latitude',coords?.latitude);
+      console.log('longitude',coords?.longitude);
+      console.log('altitude',coords?.altitude);
+      console.log('heading',coords?.heading);
+      console.log('speed',coords?.speed);
+      console.log('timestamp last location updated',timestamp);
+      console.log('isGeolocationEnabled',isGeolocationEnabled);
+      console.log('positionError',positionError);
+      console.log('getPosition',getPosition);
+      // getPosition, // a callback you can use to trigger the location query manually
+    }
+    else{
+      console.log('Your browser does not support Geolocation');
+    }
+  },5000)
+  
 
-  const signupApi = async (role, influencer_obj) => {
+  const SignupApi = async (role, influencer_obj) => {
     const { category, rate_per_reel } = influencer_obj;
+ 
+
     try {
       // let access_token = contextState.user.access_token;
       handleCloseUserSelectType(false);
@@ -94,8 +143,10 @@ export default function Signup(props) {
       formData.append("category_id", category);
       formData.append("role", role);
       formData.append("rate_per_reel", rate_per_reel);
-      formData.append("lat", "127.99");
-      formData.append("long", "127.99");
+      // formData.append("lat", "127.99");
+      formData.append("lat", latitude);
+      formData.append("long", longitude);
+      // formData.append("long", "127.99");
       formData.append("location", "mylocation");
       const response = await fetch(Constant.signup, {
         method: "POST",
@@ -271,12 +322,12 @@ export default function Signup(props) {
                       className="mb-3"
                       controlId="exampleForm.ControlInput1"
                     >
-                      <Form.Label>Location*</Form.Label>
+                      <Form.Label>Location</Form.Label>
                       <Button
                         // onClick={() => navigateToPath("/map")}
                         className="loc_btn"
                       >
-                        My Location{" "}
+                        {latitude+" , "+longitude}
                         <FontAwesomeIcon
                           className="loc_icon"
                           icon={faLocationDot}
@@ -316,7 +367,7 @@ export default function Signup(props) {
                         <div className="buttons_area">
                           {/* <Button className="modal_btn"> Hire</Button> */}
                           <CreateHireModal
-                            signupApi={signupApi}
+                            SignupApi={SignupApi}
                             handleCloseUserSelectType={handleCloseUserSelectType}
                             //  setCategory={setCategory}
                             //  setRatePerReel={setRatePerReel}
@@ -324,7 +375,7 @@ export default function Signup(props) {
                           {/* <Button className="modal_btn"> collaboration</Button> */}
                           <Button
                             className="modal_btn"
-                            onClick={() => {handleCloseUserSelectType(); signupApi("user", {})}}
+                            onClick={() => {handleCloseUserSelectType(); SignupApi("user", {})}}
                             // onClick={() => navigateToPath("/search")}
                           >
                             {" "}
@@ -471,7 +522,7 @@ const CreateHireModal = (props) => {
                 <MydModalWithGrid
                 category={category}
                 rate_per_reel={rate_per_reel}
-                signupApi={props.signupApi}
+                SignupApi={props.SignupApi}
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   handleCloseUserSelectType={props.handleCloseUserSelectType}
@@ -481,7 +532,7 @@ const CreateHireModal = (props) => {
                 className="modl_submit"
                 onClick={() => {setModalShow(true)}}
                 // onClick={() =>
-                //   props.signupApi("influencer", {
+                //   props.SignupApi("influencer", {
                 //     category,
                 //     rate_per_reel,
                 //   })
@@ -512,7 +563,7 @@ function MydModalWithGrid(props) {
           <Row>
             <Col>
             <a className="box_click" onClick={() =>
-                  props.signupApi("influencer", {
+                  props.SignupApi("influencer", {
                     category,
                     rate_per_reel,
                   })
@@ -530,7 +581,7 @@ function MydModalWithGrid(props) {
           <Row>
             <Col>
             <a className="box_click"onClick={() =>
-                  props.signupApi("influencer", {
+                  props.SignupApi("influencer", {
                     category,
                     rate_per_reel,
                   })
@@ -548,7 +599,7 @@ function MydModalWithGrid(props) {
           <Row>
             <Col>
             <a className="box_click"onClick={() =>
-                  props.signupApi("influencer", {
+                  props.SignupApi("influencer", {
                     category,
                     rate_per_reel,
                   })
@@ -566,7 +617,7 @@ function MydModalWithGrid(props) {
           <Row>
             <Col>
             <a className="box_click"onClick={() =>
-                  props.signupApi("influencer", {
+                  props.SignupApi("influencer", {
                     category,
                     rate_per_reel,
                   })
@@ -584,7 +635,7 @@ function MydModalWithGrid(props) {
           <Row>
             <Col>
             <a className="box_click"onClick={() =>
-                  props.signupApi("influencer", {
+                  props.SignupApi("influencer", {
                     category,
                     rate_per_reel,
                   })

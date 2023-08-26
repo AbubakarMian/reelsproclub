@@ -3,6 +3,8 @@ const base_url = 'https://stagging.hatinco.com/reels_proclub_backend/public/api'
 
 export const Constant = {
   basic_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
+  google_api_key:"AIzaSyAo9XGd-Ss75Cnfqqu41SdDvlwRu1WYKB0",
+  // google_api_key:"https://maps.googleapis.com/maps/api/geocode/json?latlng=24.9551014,67.0583857&sensor=true&key=AIzaSyAo9XGd-Ss75Cnfqqu41SdDvlwRu1WYKB0",
   signup: `${base_url}/register`,
   login: `${base_url}/login`,
   video_upload: `${base_url}/video_upload`,
