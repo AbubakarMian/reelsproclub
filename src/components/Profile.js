@@ -14,6 +14,7 @@ import {
   faCheck,
   faArrowLeft,
   faLocationDot,
+  faCross,
 } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -46,6 +47,7 @@ export default function Profile() {
   const max_length = 13;
   const [isProfileUpdated, setIsProfileUpdated] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIcon, setSelectedIcon] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [showImageUploadSuccessModal, setShowImageUploadSuccessModal] =
     useState(false);
@@ -158,6 +160,11 @@ export default function Profile() {
       setSelectedImage(file);
       const previewURL = URL.createObjectURL(file);
       setImagePreview(previewURL);
+      console.log('helooo');
+    
+        uploadImage();
+      
+   
     }
   };
   const uploadImage = async () => {
@@ -180,18 +187,27 @@ export default function Profile() {
         body: formData,
       });
 
-      if (response.ok) {
+     
+        
         const responseData = await response.json();
-        setImagePreview(responseData.response.image);
+        console.log('abcc',responseData)
+
+      
 
         if (responseData.status === true) {
           setImageUploadSuccessMessage("Image uploaded successfully."); // Set the success message
           setShowImageUploadSuccessModal(true); // Open the success modal
+          setSelectedIcon(faCheck); // Open the success modal
+          // setImagePreview(responseData.response.image);
         }
-      } else {
-        // Handle error
+      else {
+        setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+        setShowImageUploadSuccessModal(true); // Open the success modal
+        setSelectedIcon(faCross); // Open the success modal
       }
     } catch (error) {
+      setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+      setShowImageUploadSuccessModal(true); // Open the success modal
       console.error("Error uploading image:", error);
     }
   };
@@ -404,21 +420,22 @@ export default function Profile() {
             onHide={() => setShowImageUploadSuccessModal(false)}
           >
             <Modal.Header closeButton>
-              <Modal.Title>Image Uploaded</Modal.Title>
+              <Modal.Title>Image</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <div class="modal-body">
                 <div class="icon_tick">
-                  <FontAwesomeIcon icon={faCheck} />
+                  <FontAwesomeIcon icon={selectedIcon} />
                 </div>
-                <div class="inite_Succ_hed">Success</div>
+                <div class="inite_Succ_hed"></div>
                 <div class="inite_Succ_txt">
-                Your Image has been successfully Uploaded.
+                {imageUploadSuccessMessage}
+              
                 </div>
                 <div class="mdl_btn">
-                  <button class="btn btn-primary" data-dismiss="modal">
+                  {/* <button class="btn btn-primary" data-dismiss="modal">
                     OK
-                  </button>
+                  </button> */}
                 </div>
               </div></Modal.Body>
           </Modal>
