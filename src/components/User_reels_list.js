@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 // import "./styles/orderreels.css"; // Import your custom styles
 import "./../styles/orderreels.css";
 import Nav_bar_area from "./NavBar";
+import VideoThumbnail from 'react-video-thumbnail'; 
 
 export default function User_reels_list() {
   const { contextState } = useContext(ContextApiContext);
@@ -63,10 +64,14 @@ export default function User_reels_list() {
           }
         );
         const data = await response.json();
+        console.log('fetching order reelssss:', data);
+        
+
 
         const reelsWithUrls = data.response.map((reel) => ({
           ...reel,
-          reels_url: convertToLocalUrl(reel.reels_url),
+          reels_url: reel.reels_url,
+          // reels_url: convertToLocalUrl(reel.reels_url),
         }));
 
         setOrderReelsUser(reelsWithUrls);
@@ -122,17 +127,29 @@ export default function User_reels_list() {
           <Row>
             <h2>USER ORDER VIEW REELS</h2>
           </Row>
-          {orderreelsuser.map((reel, index) => (
+          {
+          orderreelsuser.length === 0 ? (
+            <Row className="empty-message-row">
+              <Col xs={12}>
+                <p>No reels available for this order.</p>
+              </Col>
+            </Row>
+          ) : (
+          orderreelsuser.map((reel, index) => (
             <Row className="reel-box" key={index + 1}>
               <Col xs={12} md={4} className="reel-thumbnail">
                 <div className="img-area">
-                  <img
-                    src="./../logo192.png"
-                    alt="Reel Thumbnail"
-                    className="thumbnail-image"
+                <VideoThumbnail
+                  // videoUrl={'http://localhost/reels_proclub_backend/public/videos/1692120254.webm'}
+                  videoUrl={reel.reels_url}
+                  // videoUrl="https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4?dl=1"
+                  thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+                  width={120}
+                  height={80}
                   />
                 </div>
               </Col>
+               
               <Col xs={12} md={8}>
                 <div className="view-button">
                   <Button
@@ -145,7 +162,8 @@ export default function User_reels_list() {
                 </div>
               </Col>
             </Row>
-          ))}
+          ))
+          )}
           <Row className="accept-button-row">
             <Col xs={12} className="hh">
               <Button
@@ -167,6 +185,7 @@ export default function User_reels_list() {
                 playing={false}
                 width="100%"
                 height="100%"
+                light={true}
               />
             </Modal.Body>
             <Modal.Footer>

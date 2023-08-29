@@ -100,7 +100,7 @@ export default function OrderDetails() {
                     <h5 className="order_btn_area">{order.quantity} Reels</h5>
                     <Button
                       onClick={() =>
-                        navigateToPath("/Influencer_order_details", {
+                        navigateToPath("/orderdetails", {
                           state: {
                             order_id: order.id,
                             name: order.user.name,

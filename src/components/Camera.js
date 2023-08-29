@@ -140,9 +140,10 @@ export default function WebcamVideo(props) {
       reader.readAsDataURL(blob);
       reader.onloadend = async function () {
         const base64data = reader.result;
-
+        const user_id = contextState.user.id;
         const formData = new FormData();
         formData.append("video", blob); // Change this line to use the blob, not the base64data
+        formData.append("user_id", user_id);
         formData.append("order_id", order_id);
 
         // let access_token = props.contextApi.contextState.user.access_token;

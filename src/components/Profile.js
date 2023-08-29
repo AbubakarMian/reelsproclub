@@ -154,23 +154,24 @@ export default function Profile() {
     fileInput.onchange = handleImageSelect;
     fileInput.click();
   };
-  const handleImageSelect = (event) => {
-    const file = event.target.files[0];
+  const handleImageSelect = async (event) => {
+    const file = await event.target.files[0];
     if (file) {
       setSelectedImage(file);
-      const previewURL = URL.createObjectURL(file);
-      setImagePreview(previewURL);
+      const previewURL = await URL.createObjectURL(file);
+      await setImagePreview(previewURL);
       console.log('helooo');
     
-        uploadImage();
+        uploadImage(file);
       
    
     }
   };
-  const uploadImage = async () => {
+  const uploadImage = async (file) => {
     try {
       const formData = new FormData();
-      formData.append("image", selectedImage);
+      // formData.append("image", selectedImage);
+      formData.append("image", file);
 
       const access_token = contextState.user.access_token;
       const user_id = contextState.user.id;
@@ -408,9 +409,9 @@ export default function Profile() {
                   Your profile has been successfully updated.
                 </div>
                 <div class="mdl_btn">
-                  <button class="btn btn-primary" data-dismiss="modal">
+                  {/* <button class="btn btn-primary" data-dismiss="modal">
                     OK
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </Modal.Body>
