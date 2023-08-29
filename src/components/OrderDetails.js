@@ -105,7 +105,8 @@ export default function OrderDetails() {
                             order_id: order.id,
                             name: order.user.name,
                           },
-                        })
+                        }
+                        )
                       }
                       className="order_btn_area"
                       disabled={order_id === order.id}

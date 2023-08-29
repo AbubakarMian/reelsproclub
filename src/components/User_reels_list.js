@@ -42,8 +42,8 @@ export default function User_reels_list() {
     setShowModal(false);
   };
   const navigate = useNavigate();
-  const navigateToPath = (path) => {
-    navigate(path);
+  const navigateToPath = (path,params) => {
+    navigate(path,{params});
   };
 
   useEffect(() => {
@@ -138,15 +138,23 @@ export default function User_reels_list() {
           orderreelsuser.map((reel, index) => (
             <Row className="reel-box" key={index + 1}>
               <Col xs={12} md={4} className="reel-thumbnail">
-                <div className="img-area">
-                <VideoThumbnail
+                <div className="img-areas">
+                {/* <VideoThumbnail
                   // videoUrl={'http://localhost/reels_proclub_backend/public/videos/1692120254.webm'}
                   videoUrl={reel.reels_url}
                   // videoUrl="https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4?dl=1"
                   thumbnailHandler={(thumbnail) => console.log(thumbnail)}
                   width={120}
                   height={80}
-                  />
+                  /> */}
+                    <video
+                loop
+                autoPlay={false}
+                height="100%" width="100%"
+                controls={false}
+                src={reel.reels_url}
+                ></video>
+
                 </div>
               </Col>
                
@@ -154,7 +162,18 @@ export default function User_reels_list() {
                 <div className="view-button">
                   <Button
                     variant="primary"
-                    onClick={() => openModal(reel.reels_url)}
+                    // onClick={() => openModal(reel.reels_url)}
+                    onClick={() => {
+                      navigate("/reelvideo",
+                      {
+                        state: {
+                          reels_url: reel.reels_url
+                       
+                        },
+                      }
+                      
+                      );
+                    }}
                     className="view-btn"
                   >
                     View
@@ -178,15 +197,27 @@ export default function User_reels_list() {
 
           <Modal show={showModal} onHide={closeModal} centered>
             <Modal.Body>
-              <ReactPlayer
+              {/* <ReactPlayer
                 className="react-player-modal"
                 url={selectedVideoUrl}
                 controls
                 playing={false}
                 width="100%"
                 height="100%"
-                light={true}
-              />
+                // light={true}
+              /> */}
+
+
+                 <video
+                  id="background-video2"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  
+                  src={selectedVideoUrl}
+                ></video>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={closeModal}>
