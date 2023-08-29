@@ -14,6 +14,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, 
   faCamera,
   faUpload,
+  faUserPlus,
+  faCheck,
+  faArrowLeft,
+  faLocationDot,
+  faCross,
   faEye } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
@@ -27,28 +32,81 @@ import { useNavigate } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
 import { ContextApiContext } from "../context/ContextApi";
+import { Constant } from "../common/Constants";
+
 
 
 export default function MyReels_page_export() {
-  const navigate = useNavigate();
-  const { contextState } = useContext(ContextApiContext);
-  const handleImageUploadClick = () => {
+const navigate = useNavigate();
+const [showImageUploadSuccessModal, setShowImageUploadSuccessModal] =useState(false);
+const [imageUploadSuccessMessage, setImageUploadSuccessMessage] =useState("");
+const [showModal, setShowModal] = useState(false);
+const [selectedImage, setSelectedImage] = useState(null);
+const [selectedIcon, setSelectedIcon] = useState(null);
+const [imagePreview, setImagePreview] = useState(null);
+ const { contextState } = useContext(ContextApiContext);
+
+const handleImageUploadClick = () => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
     fileInput.accept = "image/*";
     fileInput.onchange = handleImageSelect;
     fileInput.click();
   };
-  const handleImageSelect = (event) => {
-    const file = event.target.files[0];
+  const handleImageSelect = async (event) => {
+    const file = await event.target.files[0];
     if (file) {
       setSelectedImage(file);
-      const previewURL = URL.createObjectURL(file);
-      setImagePreview(previewURL);
+      const previewURL = await URL.createObjectURL(file);
+      await setImagePreview(previewURL);
+      console.log('helooo');
+    
+        uploadImage(file);
     }
   };
-  const [imagePreview, setImagePreview] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+
+  const uploadImage = async (file) => {
+    try {
+      const formData = new FormData();
+      // formData.append("image", selectedImage);
+      formData.append("video", file);
+
+      const access_token = contextState.user.access_token;
+      const user_id = contextState.user.id;
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+
+      const response = await fetch(`${Constant.my_save_reels}/${user_id}`, {
+        method: "POST", // Use the appropriate HTTP method
+        headers: headers,
+        body: formData,
+      });
+        
+        const responseData = await response.json();
+        console.log('my_save_reels',responseData)
+
+        if (responseData.status === true) {
+          setImageUploadSuccessMessage("Image uploaded successfully."); // Set the success message
+          setShowImageUploadSuccessModal(true); // Open the success modal
+          setSelectedIcon(faCheck); // Open the success modal
+          // setImagePreview(responseData.response.image);
+        }
+      else {
+        setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+        setShowImageUploadSuccessModal(true); // Open the success modal
+        setSelectedIcon(faCross); // Open the success modal
+      }
+    } catch (error) {
+      setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+      setShowImageUploadSuccessModal(true); // Open the success modal
+      console.error("Error uploading image:", error);
+    }
+  };
+
 
 
   const navigateToPath = (path) => {
@@ -242,6 +300,30 @@ export default function MyReels_page_export() {
             </div>
           </Col>
         </Row>
+        <Modal
+            show={showImageUploadSuccessModal}
+            onHide={() => setShowImageUploadSuccessModal(false)}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Image</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <div class="modal-body">
+                <div class="icon_tick">
+                  <FontAwesomeIcon icon={selectedIcon} />
+                </div>
+                <div class="inite_Succ_hed"></div>
+                <div class="inite_Succ_txt">
+                {imageUploadSuccessMessage}
+              
+                </div>
+                <div class="mdl_btn">
+                  {/* <button class="btn btn-primary" data-dismiss="modal">
+                    OK
+                  </button> */}
+                </div>
+              </div></Modal.Body>
+          </Modal>
       </Container>
     </section>
   );

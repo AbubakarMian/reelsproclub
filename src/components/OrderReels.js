@@ -10,9 +10,17 @@ import "./../styles/orderreels.css";
 import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faEye } from "@fortawesome/free-solid-svg-icons";
+import {   faEye } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { faCameraRetro } from "@fortawesome/free-solid-svg-icons";
+import { faCameraRetro,
+  faStar,
+  faCamera,
+  faCheck,
+  faCross,
+  faUpload,
+  faPlay,
+  faVideoPlus,
+ } from "@fortawesome/free-solid-svg-icons";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
@@ -20,11 +28,13 @@ import { useState,useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate , useLocation} from "react-router-dom";
-import { Player } from "video-react";
+import { Player,ControlBar  } from "video-react";
 import Nav_bar_area from "./NavBar";
 import video9 from "../videos/vid9.mp4";
 import { ContextApiContext } from "../context/ContextApi";
 import { Constant } from '../common/Constants';
+import ReactPlayer from "react-player";
+
 
 
 
@@ -37,14 +47,94 @@ export default function OrderReels() {
   const params = location.state;
   const order_id = location.state.order_id;
   const [ordersReelslist, setOrdersReelslist] = useState([]);
+  const [ordersquantity, setOrdersQuantity] = useState("");
   const [deleting, setDeleting] = useState(false);
   const [deleted_btn, setdeleted_btn] = useState(false);
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
+  
+
+  const [showImageUploadSuccessModal, setShowImageUploadSuccessModal] =
+    useState(false);
+  const [imageUploadSuccessMessage, setImageUploadSuccessMessage] =
+    useState("");
+
+  const [showModal, setShowModal] = useState(false);
   console.log('ordeer_reels',order_id);
 
   const navigateToPath = (path, params) => {
     navigate(path, params);
   };
+  const handleImageUploadClick = () => {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "image/*";
+    fileInput.onchange = handleImageSelect;
+    fileInput.click();
+  };
+  const handleImageSelect = async (event) => {
+    const file = await event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+      const previewURL = await URL.createObjectURL(file);
+      await setImagePreview(previewURL);
+      console.log('helooo');
+    
+        uploadImage(file);
+      
+   
+    }
+  };
+  const uploadImage = async (file) => {
+    try {
+      const formData = new FormData();
+      // formData.append("image", selectedImage);
+      const user_id = contextState.user.id;
+      formData.append("video", file);
+      // formData.append("user_id", user_id);
+      formData.append("order_id", order_id);
 
+      const access_token = contextState.user.access_token;
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+
+      const response = await fetch(`${Constant.upload_order_reels}`, {
+        method: "POST", // Use the appropriate HTTP method
+        headers: headers,
+        body: formData,
+      });
+
+     
+        
+        const responseData = await response.json();
+        console.log('abcc',responseData)
+
+      
+
+        if (responseData.status === true) {
+          setImageUploadSuccessMessage("Image uploaded successfully."); // Set the success message
+          setShowImageUploadSuccessModal(true); // Open the success modal
+          setSelectedIcon(faCheck); // Open the success modal
+          // setImagePreview(responseData.response.image);
+        }
+      else {
+        setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+        setShowImageUploadSuccessModal(true); // Open the success modal
+        setSelectedIcon(faCross); // Open the success modal
+      }
+    } catch (error) {
+      setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+      setShowImageUploadSuccessModal(true); // Open the success modal
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  const [imagePreview, setImagePreview] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     // Function to fetch categories from the API
@@ -67,8 +157,9 @@ export default function OrderReels() {
         });
         const data = await response.json();
         console.log('order_reels_list', data);
-        console.log('reels_url', data.response[0].reels_url);
+        console.log('reels_url_count', data.response.length);
         setOrdersReelslist(data.response);
+        setOrdersQuantity(data.response[0].order_quantity);
       } catch (error) {
         console.error('Error fetching reels order:', error);
       }
@@ -111,42 +202,71 @@ export default function OrderReels() {
   
   const deliver_reels = async (order_id) => {
     try {
-     
-      const access_token = contextState.user.access_token;
-      const headers = {
-        Accept: 'application/json',
-        Authorization: access_token,
-        'Authorization-secure': access_token,
-        'client-id': 'reelspro-app-mobile',
-      };
-      console.log('const 11111',order_id);
-      
-      const response = await fetch(`${Constant.deliver_reels}/${order_id}`, {
-        method: 'POST',
-        headers: headers,
-      });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('deliver_reels', data);
-        navigateToPath('/orderlist', 
-        {state: 
-        {
-        order_id: order_id, 
+
+    
+        const access_token = contextState.user.access_token;
+        const headers = {
+          Accept: 'application/json',
+          Authorization: access_token,
+          'Authorization-secure': access_token,
+          'client-id': 'reelspro-app-mobile',
+        };
+        console.log('const 11111',order_id);
+        
+        const response = await fetch(`${Constant.deliver_reels}/${order_id}`, {
+          method: 'POST',
+          headers: headers,
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          console.log('deliver_reels', data);
+          navigateToPath('/orderlist', 
+          {state: 
+          {
+          order_id: order_id, 
+          }
+          }
+          )
+         
+        } else {
+          console.error('Error deleting reel:', response.statusText);
+        
         }
-        }
-        )
-       
-      } else {
-        console.error('Error deleting reel:', response.statusText);
-      
-      }
+
+
+    
+     
+
     } catch (error) {
       console.error('Error deleting reel:', error);
     } 
   
   };
 
+//   return(
+
+
+// <video
+// id="background-video2"
+// loop
+// autoPlay={false}
+// ratio="16:9"
+// resizeMode="" // height="720" width="1280"
+// source
+// // controls={true}
+// src="https://www.w3schools.com/html/mov_bbb.mp4" 
+// ></video>
+//   )
+const openModal = (videoUrl) => {
+  setSelectedVideoUrl(videoUrl);
+  setShowModal(true);
+};
+const closeModal = () => {
+  setSelectedVideoUrl("");
+  setShowModal(false);
+};
 
 
   return (
@@ -155,20 +275,64 @@ export default function OrderReels() {
         <Row>
           <h2>ORDER REELS</h2>
         </Row>
+        <Row className="butoon_reel_list"> 
+         
+      <Col>
+      {  ordersReelslist.length  > ordersquantity? (
+        <Button disabled>
+          <FontAwesomeIcon icon={faCamera} /> Create Reel
+        </Button>
+      ) : (
+        <Button onClick={() => navigateToPath("/camera", { order_id: order_id })}>
+          <FontAwesomeIcon icon={faCamera} /> Create Reel
+        </Button>
+      )}
+        </Col>
+
+        <Col>
+        {  ordersReelslist.length  > ordersquantity? (
+        <Button disabled>
+          <FontAwesomeIcon icon={faUpload} /> Upload Reel
+        </Button>
+      ) : (
+        <Button onClick={handleImageUploadClick}>
+          <FontAwesomeIcon icon={faUpload} /> Upload Reel
+        </Button>
+      )}
+      </Col>
+        </Row>
   
         {ordersReelslist.map((reel, index) => (
           <Row key={index} className="reel_box">
             <Col>
-              <div className="img_area">
-                <Player
-                  muted
-                  controls={{ position: "center" }}
-                  position={"center"}
-                  playsInline={true}
-                  src={reel.reels_url} // Use the actual URL from your API response
-                  autoPlay={true}
-                  isFullscreen="Expand"
-                />
+              <div className="img_area"    onClick={() => openModal(reel.reels_url)}>
+              <video
+                // id="background-video2"
+                loop
+                autoPlay={false}
+                // ratio="16:9"
+                height="100%" width="100%"
+                // resizeMode="" // height="720" width="1280"
+                // source
+                controls={false}
+                src={reel.reels_url}
+                // src="https://www.w3schools.com/html/mov_bbb.mp4" 
+                // src="https://www.w3schools.com/html/mov_bbb.mp4" 
+                ></video>
+
+              {/* <Player
+              muted
+              // startTime={3}
+              // playsInline={true}
+              // src={reel.reels_url} // Use the actual URL from your API response
+              src="https://www.w3schools.com/html/mov_bbb.mp4" // Use the actual URL from your API response
+              autoPlay={false}
+              // isFullscreen="Expand"
+              controls={false} // Set controls to false to turn off the controls
+            >
+               <ControlBar  disableCompletely={true} />
+              </Player> */}
+
               </div>
             </Col>
             <Col className="center_align">
@@ -193,18 +357,56 @@ export default function OrderReels() {
   
         <Row>
           <Col>
-            <Button className="deliver_btn"   
-            onClick={() => deliver_reels(order_id)}
-  // onClick={() => navigateToPath('/orderlist', 
-  // {state: 
-  // {
-  // order_id: order_id, 
-  // }
-  //  }
-  //  )}
-   >DELIVER</Button>
+           {/* Check if the condition is true, and render the button if not */}
+      {  ordersReelslist.length  >= ordersquantity? (
+         <Button className="deliver_btn"      onClick={() => deliver_reels(order_id)} >Deliver</Button>
+      ) : (
+        <Button className="deliver_btn"    disabled >Deliver</Button>
+      )}
           </Col>
         </Row>
+        <Modal
+            show={showImageUploadSuccessModal}
+            onHide={() => setShowImageUploadSuccessModal(false)}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Image</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <div class="modal-body">
+                <div class="icon_tick">
+                  <FontAwesomeIcon icon={selectedIcon} />
+                </div>
+                <div class="inite_Succ_hed"></div>
+                <div class="inite_Succ_txt">
+                {imageUploadSuccessMessage}
+              
+                </div>
+                <div class="mdl_btn">
+                  {/* <button class="btn btn-primary" data-dismiss="modal">
+                    OK
+                  </button> */}
+                </div>
+              </div></Modal.Body>
+          </Modal>
+          <Modal show={showModal} onHide={closeModal} centered>
+            <Modal.Body>
+              <ReactPlayer
+                className="react-player-modal"
+                url={selectedVideoUrl}
+                controls
+                playing={false}
+                width="100%"
+                height="100%"
+                // light={true}
+              />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={closeModal}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
       </Container>
     </section>
   );
