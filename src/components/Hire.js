@@ -36,9 +36,10 @@ export default function Profile() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { contextState, updateContextState } = useContext(ContextApiContext);
-  const [mydata, setData] = useState([]);
+  const [mydata, setData] = useState({});
   const [totalCost, setTotalCost] = useState('0');
   const [numberReels, setNumberReels] = useState('');
+  const [comments, setCommments] = useState('');
   const location = useLocation();
   const params = location.state;
   const user_id = location.state.user;
@@ -124,12 +125,13 @@ export default function Profile() {
               <div className="flexing">
                 <div className="form_cover_profile_hire dual txt_bx">
                   <p>
-                    I am flexible, reliable and possess excellent time keeping
+                    {mydata.details}
+                    {/* I am flexible, reliable and possess excellent time keeping
                     skills. I am an enthusiastic, self-motivated, reliable,
                     responsible and hard working person. I am a mature team
                     worker and adaptable to all challenging situations. I am
                     able to work well both in a team environment as well as
-                    using own initiative.
+                    using own initiative. */}
                   </p>
                 </div>
 
@@ -197,6 +199,7 @@ export default function Profile() {
                           as="textarea"
                           aria-label="With textarea"
                           className="txt_area"
+                          onChange={(e)=>setCommments(e.target.value)}
                         />
                       </InputGroup>
                     </div>
@@ -206,7 +209,8 @@ export default function Profile() {
             </Col>
           </Row>
           {/* <Button  oonClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})} className="hire_btn">Hire</Button> */}
-           <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})}>
+           {/* <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})}> */}
+           <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata,numberReels:numberReels,comments:comments}})}>
                   Hire
                 </Button>
         </Container>
