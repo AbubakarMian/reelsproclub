@@ -7,6 +7,8 @@ import Form from "react-bootstrap/Form";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 // import Offcanvas from "react-bootstrap/Offcanvas";
 import "./../styles/login.css";
+import "./../styles/forgot.css";
+
 // import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -46,11 +48,14 @@ export default function LogIn() {
 
   // yaha sa
   const { contextState, updateContextState } = useContext(ContextApiContext);
- 
+  const [forget_modal_show, setForgetShow] = useState(false);
+
+  const forgetClose = () => setForgetShow(false);
+  const forgetShow = () => setForgetShow(true);
 
   // const context = useContext(ContextApiContext);
   const lang = contextState.language.prefix;
-  const max_length = 15;
+  const max_length = 13;
   const get_string_lable = (str_n) => {
     const str = Language_arr[str_n + lang];
     return str.length < max_length
@@ -60,12 +65,8 @@ export default function LogIn() {
   // yaha tk utthalo
 
   return (
-    <section className="bg_img">
+    <section className="bg_img_forget">
       <Container fluid>
-        <div className="language_area">
-          <LanguageToggle />
-        </div>
-
         <Row>
           <div>
             <div className="login_logo1">
@@ -83,19 +84,7 @@ export default function LogIn() {
           <Col xsm={1} md={3}></Col>
         </Row>
         <Row>
-          <Col xsm={1} md={3}></Col>
-          <Col xsm={10} md={6}>
-            <div className="forget"><Button   onClick={() => navigateToPath("/forgot")} className="forgot_btn">
-              {/* Forgot Password */}
-              {/* {Language_arr["Forgot Password"+lang]} */}
-              {get_string_lable("Forgot Password")}</Button>
-          
-
-      
-            </div>
-          </Col>
-          <Col xsm={1} md={3}></Col>
-
+       
           <hr className="line" />
         </Row>
         <Row>
@@ -122,25 +111,28 @@ export default function LogIn() {
           <div className="asdsa"></div>
         </Row>
         <Row>
-          <Col md={1}></Col>
-          <Col md={10}>
-            <div className="skip_area">
+          <div className="new_Acc">
+           
+          </div>
+
+          <Col xsm={1} md={3}></Col>
+          <Col xsm={10} md={6}>
+            <div className="signup_area">
               <Button
-                onClick={() => navigateToPath("/categories")}
-                className="skip_btn"
+                onClick={() => navigateToPath("/login")}
+                className="login_btn"
                 variant="primary"
               >
-                {/* Skip Now */}
-                {/* {Language_arr["Forgot Password"+lang]} */}
-                {get_string_lable("Skip Now")}
-
-                <FontAwesomeIcon icon={faArrowRight} />
+                {/* SIGN UP */}
+                {/* {Language_arr["SIGN UP"+lang]} */}
+                {get_string_lable("LOG IN")}
               </Button>
             </div>
           </Col>
-          <Col md={1}></Col>
+          <Col xsm={1} md={3}></Col>
           <div className="asdsa"></div>
         </Row>
+        
       </Container>
     </section>
   );
@@ -149,10 +141,9 @@ export default function LogIn() {
 const Login_form = () => {
   const navigate = useNavigate();
   const { contextState, updateContextState } = useContext(ContextApiContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setforgetEmail] = useState("");
   const [error, setError] = useState(null);
-  const [rememberme, setRememberme] = useState(false);
+  const [successmsg, setSuccessmsg] = useState(null);
   const lang = contextState.language.prefix;
   const max_length = 13;
   
@@ -160,11 +151,7 @@ const Login_form = () => {
     let user = contextState.user;
     const role_id = contextState.user.role_id;
 
-    if (user.is_loggedin && user.rememberme) {
-      get_userlogin(role_id);
-    }
-    console.log("effect called", user);
-
+   
     // cs.user.access_token = Constant.basic_token;
   }, []);
 
@@ -198,21 +185,12 @@ const Login_form = () => {
         const data = await response.json();
         console.log("datadd response", data);
 
-        if (response.ok) {
-          if (data.response == "available") {
-            navigateToPath("/user_order");
-          } else {
-            navigateToPath("/categories");
-          }
-        } else {
-          console.error("NO AVAILABLE ORDERS.");
-        }
+       
       } catch (error) {
         console.error("Error checking available orders:", error);
       }
     } else if (role_id === 3) {
       console.log('rrrr',role_id);
-      navigateToPath("/orderlist");
     }
 
   };
@@ -221,35 +199,35 @@ const Login_form = () => {
 
 
   const get_string_lable = (str_n) => {
+    
     const str = Language_arr[str_n + lang];
     return str.length < max_length
       ? str
       : str.substring(0, max_length) + "....";
   };
   //
-  const attempt_login = async () => {
+ 
+
+  const forget_email_attempt = async () => {
     try {
+        
       // Create the formData and append the email and password
       var formData = new FormData();
       formData.append("email", email);
-      formData.append("password", password);
 
       // Call SendRequest with the necessary parameters
       let cs = contextState;
       cs.user.access_token = Constant.basic_token;
-      const res = await SendRequest(cs, "POST", Constant.login, formData);
-
+      const res = await SendRequest(cs, "POST", Constant.forget_email, formData);
       if (res.status) {
-        let user_obj = res.response;
-        user_obj.rememberme = rememberme;
-        user_obj.is_loggedin = true;
-        updateContextState(user_obj, "update_user");
+        // forgetShow();
+        setError(null);
+        setSuccessmsg('Password reset check email');
+      }
+      else{
+        setError(res.error?.message[0] ?? 'Invalid email');
+        // setError("Invalid Email");
 
-        let user_role_id = res.response.role_id;
-        get_userlogin(user_role_id);
-
-      } else {
-        setError("Login failed. Please check your credentials.");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -266,60 +244,36 @@ const Login_form = () => {
           <Alert variant="danger">{error}</Alert>
         </div>
       )}
+      {successmsg && (
+        <div className="success-message">
+          <Alert variant="success">{successmsg}</Alert>
+        </div>
+      )}
       <Form.Label className="labl" htmlFor="basic-url">
         {/* Email (required*) */}
         {/* {Language_arr["Email (required*)"+lang]} */}
-        {get_string_lable("Email")}
+        {get_string_lable("Forget Password")}
       </Form.Label>
       <InputGroup className="mb-3">
         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
         <Form.Control
           placeholder={get_string_lable("Email")}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setforgetEmail(e.target.value)}
           value={email} // Bind the email state to the input value
           aria-label="Username"
           aria-describedby="basic-addon1"
         />
       </InputGroup>
-      <Form.Label className="labl" htmlFor="basic-url">
-        {/* Password (required*) */}
-        {/* {Language_arr["Password (required*)"+lang]} */}
-        {get_string_lable("Password")}
-      </Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">#</InputGroup.Text>
-        <Form.Control
-          type="password"
-          placeholder={get_string_lable("Password")}
-          onChange={(e) => setPassword(e.target.value)}
-          value={password} // Bind the password state to the input value
-          aria-label="Password"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-      <div key={`default-checkbox`} className="mb-3">
-        <Form.Check // prettier-ignore
-          type="checkbox"
-          id={`default-checkbox`}
-          onChange={(e) => {
-            setRememberme(!rememberme);
-            console.log("remember", !rememberme);
-          }}
-          label=//     // `Remember Me` // {
-          //     // {Language_arr["Remember Me"+lang]}
-          //     Language_arr["Remember Me"+lang]}
-          {get_string_lable("Remember Me")}
-          className="remember"
-        />
-      </div>
+      
+      
       <Button
-        onClick={() => attempt_login()}
+        onClick={() => forget_email_attempt()}
         className="login_btn"
         variant="primary"
       >
         {/* LOG IN */}
         {/* {Language_arr["LOG IN"+lang]} */}
-        {get_string_lable("LOG IN")}
+        {get_string_lable("Forgot Password")}
       </Button>
     </>
   );
@@ -345,25 +299,5 @@ const LanguageToggle = () => {
     // console.log('translation ',t);
   };
 
-  return (
-    <>
-      <ButtonGroup>
-        {languageRadios.map((language, idx) => (
-          <ToggleButton
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant={idx % 2 ? "outline-success" : "outline-danger"}
-            name="radio"
-            value={language.id}
-            checked={contextState.language.id === language.id}
-            onChange={(e) => change_language(e.currentTarget.value)}
-            // onChange={(e) => updateContextState(e.currentTarget.value, 'language')}
-          >
-            {language.name}
-          </ToggleButton>
-        ))}
-      </ButtonGroup>
-    </>
-  );
+ 
 };

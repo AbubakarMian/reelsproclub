@@ -1,0 +1,18 @@
+.bg_img_forget{
+    background-image: url("../../public/images/Reelsclub-34.jpg");
+    height: 100vh;
+    /* background-repeat: round; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+@media only screen and (max-width : 480px) {
+        
+   
+       
+        
+}

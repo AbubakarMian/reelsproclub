@@ -1,5 +1,5 @@
-// const base_url = 'http://localhost/reels_proclub_backend/public/api';   
-const base_url = 'https://stagging.hatinco.com/reels_proclub_backend/public/api';
+const base_url = 'http://localhost/reels_proclub_backend/public/api';   
+// const base_url = 'https://stagging.hatinco.com/reels_proclub_backend/public/api';
 
 export const Constant = {
   basic_token: "Basic cmVlbHNwcm8tYXBwLW1vYmlsZTogY21WbGJITndjbTh0WVhCd0xXMXZZbWxzWlE9PQ==",
@@ -7,6 +7,7 @@ export const Constant = {
   // google_api_key:"https://maps.googleapis.com/maps/api/geocode/json?latlng=24.9551014,67.0583857&sensor=true&key=AIzaSyAo9XGd-Ss75Cnfqqu41SdDvlwRu1WYKB0",
   signup: `${base_url}/register`,
   login: `${base_url}/login`,
+  forget_email: `${base_url}/forget_email`,
   video_upload: `${base_url}/video_upload`,
   get_category: `${base_url}/get_cat`,
   get_people: `${base_url}/get_people`,

@@ -47,6 +47,7 @@ import OrderDetails from './components/OrderDetails';
 import Influencer_order_details from './components/Influencer_order_details';
 import User_Order from './components/User_Order';
 import User_reels_list from './components/User_reels_list';
+import Forgot from './components/Forgot';
 
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
 
         <Route Component={User_Order} path='user_order'></Route>
         <Route Component={User_reels_list} path='user_reels_list'></Route>
+        <Route Component={Forgot} path='forgot'></Route>
         </Routes>
       </Router>
       </ContexApiProvider>

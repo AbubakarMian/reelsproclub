@@ -126,6 +126,11 @@ export default function Nav_bar_area(props) {
                     <FontAwesomeIcon icon={faCalendarDay} /> Orders
                   </Nav.Link>
                 </div>
+                <div className="nav_bottom">
+                  <Nav.Link href="forgot">
+                    <FontAwesomeIcon icon={faCalendarDay} /> Forgot
+                  </Nav.Link>
+                </div>
                 {/* <div className='nav_bottom'><Nav.Link href="orderdetails"><FontAwesomeIcon icon={faCalendarDay} /> Order Details</Nav.Link></div> */}
                 <div
                   className="nav_bottom"

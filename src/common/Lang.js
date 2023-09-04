@@ -212,8 +212,8 @@ lang['Category*_ru'] = ' Категория* ';
 lang['Skill*_en'] = 'Skill*';
 lang['Skill*_ru'] = ' Навык* ';
 
-lang['_en'] = '';
-lang['_ru'] = '  ';
+lang['Forget Password_en'] = 'Forget Password_en';
+lang['Forget Password_ru'] = 'Забыть пароль';
 
 lang['_en'] = '';
 lang['_ru'] = '  ';
