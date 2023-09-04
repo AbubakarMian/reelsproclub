@@ -10,7 +10,7 @@ import Language_arr from "../common/Lang";
 
 export default function Categories(props) {
   const navigate = useNavigate();
-  const { contextState } = useContext(ContextApiContext);
+  const { contextState ,updateContextState} = useContext(ContextApiContext);
   const [categories, setCategories] = useState([]);
   const lang = contextState.language.prefix;
 
@@ -66,7 +66,7 @@ export default function Categories(props) {
 
   return (
     <section className="">
-      <Nav_bar_area contextApi={{ contextState }} />
+      <Nav_bar_area contextApi={{ contextState,updateContextState }} />
 
       <Container fluid>
         <Row>
