@@ -46,66 +46,73 @@ const [selectedIcon, setSelectedIcon] = useState(null);
 const [imagePreview, setImagePreview] = useState(null);
  const { contextState } = useContext(ContextApiContext);
 
-const handleImageUploadClick = () => {
-    const fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = "image/*";
-    fileInput.onchange = handleImageSelect;
-    fileInput.click();
-  };
-  const handleImageSelect = async (event) => {
-    const file = await event.target.files[0];
-    if (file) {
-      setSelectedImage(file);
-      const previewURL = await URL.createObjectURL(file);
-      await setImagePreview(previewURL);
-      console.log('helooo');
+ const handleVideoUploadClick = () => {
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.accept = "video/*"; // Allow only video files
+  fileInput.onchange = handleVideoSelect;
+  fileInput.click();
+};
+
+const handleVideoSelect = async (event) => {
+  const file = await event.target.files[0];
+  if (file) {
+    setSelectedImage(file);
+    const previewURL = await URL.createObjectURL(file);
+    await setImagePreview(previewURL);
+    console.log('helooo');
+  
+    uploadVideo(file);
     
-        uploadImage(file);
-    }
-  };
+ 
+  }
+};
+const uploadVideo = async (file) => {
+  try {
+    const formData = new FormData();
+    // formData.append("image", selectedImage);
+    const user_id = contextState.user.id;
+    formData.append("video", file);
+   
 
-  const uploadImage = async (file) => {
-    try {
-      const formData = new FormData();
-      // formData.append("image", selectedImage);
-      formData.append("video", file);
+    const access_token = contextState.user.access_token;
+    const headers = {
+      Accept: "application/json",
+      Authorization: access_token,
+      "Authorization-secure": access_token,
+      "client-id": "reelspro-app-mobile",
+    };
 
-      const access_token = contextState.user.access_token;
-      const user_id = contextState.user.id;
-      const headers = {
-        Accept: "application/json",
-        Authorization: access_token,
-        "Authorization-secure": access_token,
-        "client-id": "reelspro-app-mobile",
-      };
+    const response = await fetch(`${Constant.my_save_reels}/${user_id}`, {
+      method: "POST", // Use the appropriate HTTP method
+      headers: headers,
+      body: formData,
+    });
 
-      const response = await fetch(`${Constant.my_save_reels}/${user_id}`, {
-        method: "POST", // Use the appropriate HTTP method
-        headers: headers,
-        body: formData,
-      });
-        
-        const responseData = await response.json();
-        console.log('my_save_reels',responseData)
+   
+      
+      const responseData = await response.json();
+      console.log('abcc',responseData)
 
-        if (responseData.status === true) {
-          setImageUploadSuccessMessage("Image uploaded successfully."); // Set the success message
-          setShowImageUploadSuccessModal(true); // Open the success modal
-          setSelectedIcon(faCheck); // Open the success modal
-          // setImagePreview(responseData.response.image);
-        }
-      else {
-        setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+    
+
+      if (responseData.status === true) {
+        setImageUploadSuccessMessage("Video uploaded successfully."); // Set the success message
         setShowImageUploadSuccessModal(true); // Open the success modal
-        setSelectedIcon(faCross); // Open the success modal
+        setSelectedIcon(faCheck); // Open the success modal
+        // setImagePreview(responseData.response.image);
       }
-    } catch (error) {
-      setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+    else {
+      setImageUploadSuccessMessage("Sorry ..Video not uploaded ."); // Set the success message
       setShowImageUploadSuccessModal(true); // Open the success modal
-      console.error("Error uploading image:", error);
+      setSelectedIcon(faCross); // Open the success modal
     }
-  };
+  } catch (error) {
+    setImageUploadSuccessMessage("Sorry ..Video not uploaded ."); // Set the success message
+    setShowImageUploadSuccessModal(true); // Open the success modal
+    console.error("Error uploading Video:", error);
+  }
+};
 
 
 
@@ -134,7 +141,7 @@ const handleImageUploadClick = () => {
             </Button>
           </Col>
           <Col>
-            <Button onClick={handleImageUploadClick}>
+            <Button onClick={handleVideoUploadClick}>
               <FontAwesomeIcon icon={faUpload} /> Upload Reel
             </Button>
           </Col>
