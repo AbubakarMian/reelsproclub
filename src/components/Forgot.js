@@ -39,7 +39,7 @@ async function Translate(text) {
   return translation;
   // console.log('asdsa gg',gg);
 }
-export default function LogIn() {
+export default function Forgot() {
   const navigate = useNavigate();
 
   const navigateToPath = (path) => {
