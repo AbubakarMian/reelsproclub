@@ -97,7 +97,7 @@ export default function OrderDetails() {
                 </Col>
                 <Col>
                   <div>
-                    <h5 className="order_btn_area">{order.quantity} Reels</h5>
+                    <h5 className="order_btn_area">{order.number_reels ?order.number_reels :10} Reels</h5>
                     <Button
                       onClick={() =>
                         navigateToPath("/orderdetails", {
@@ -117,7 +117,7 @@ export default function OrderDetails() {
                 </Col>
                 <Col>
                   <div>
-                    <h5 className="order_btn_area">$ {order.total}</h5>
+                    <h5 className="order_btn_area">$ {order.influencer.rate_per_reel*order.number_reels}</h5>
                     <Button className="order_btn_area btn-success status">
                       {order_id === order.id
                         ? "Review"

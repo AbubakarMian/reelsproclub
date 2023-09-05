@@ -210,7 +210,7 @@ export default function Profile() {
           </Row>
           {/* <Button  oonClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})} className="hire_btn">Hire</Button> */}
            {/* <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})}> */}
-           <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata,numberReels:numberReels,comments:comments}})}>
+           <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user_object:mydata,numberReels:numberReels,comments:comments,user_influencer:mydata.user_id}})}>
                   Hire
                 </Button>
         </Container>

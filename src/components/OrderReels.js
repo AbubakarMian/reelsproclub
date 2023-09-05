@@ -65,14 +65,15 @@ export default function OrderReels() {
   const navigateToPath = (path, params) => {
     navigate(path, params);
   };
-  const handleImageUploadClick = () => {
+  const handleVideoUploadClick = () => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
-    fileInput.accept = "image/*";
-    fileInput.onchange = handleImageSelect;
+    fileInput.accept = "video/*"; // Allow only video files
+    fileInput.onchange = handleVideoSelect;
     fileInput.click();
   };
-  const handleImageSelect = async (event) => {
+  
+  const handleVideoSelect = async (event) => {
     const file = await event.target.files[0];
     if (file) {
       setSelectedImage(file);
@@ -80,12 +81,12 @@ export default function OrderReels() {
       await setImagePreview(previewURL);
       console.log('helooo');
     
-        uploadImage(file);
+      uploadVideo(file);
       
    
     }
   };
-  const uploadImage = async (file) => {
+  const uploadVideo = async (file) => {
     try {
       const formData = new FormData();
       // formData.append("image", selectedImage);
@@ -116,20 +117,20 @@ export default function OrderReels() {
       
 
         if (responseData.status === true) {
-          setImageUploadSuccessMessage("Image uploaded successfully."); // Set the success message
+          setImageUploadSuccessMessage("Video uploaded successfully."); // Set the success message
           setShowImageUploadSuccessModal(true); // Open the success modal
           setSelectedIcon(faCheck); // Open the success modal
           // setImagePreview(responseData.response.image);
         }
       else {
-        setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+        setImageUploadSuccessMessage("Sorry ..Video not uploaded ."); // Set the success message
         setShowImageUploadSuccessModal(true); // Open the success modal
         setSelectedIcon(faCross); // Open the success modal
       }
     } catch (error) {
-      setImageUploadSuccessMessage("Sorry ..Image not uploaded ."); // Set the success message
+      setImageUploadSuccessMessage("Sorry ..Video not uploaded ."); // Set the success message
       setShowImageUploadSuccessModal(true); // Open the success modal
-      console.error("Error uploading image:", error);
+      console.error("Error uploading Video:", error);
     }
   };
 
@@ -295,7 +296,7 @@ const closeModal = () => {
           <FontAwesomeIcon icon={faUpload} /> Upload Reel
         </Button>
       ) : (
-        <Button onClick={handleImageUploadClick}>
+        <Button onClick={handleVideoUploadClick  }>
           <FontAwesomeIcon icon={faUpload} /> Upload Reel
         </Button>
       )}

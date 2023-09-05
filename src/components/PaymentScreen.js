@@ -41,9 +41,10 @@ export default function PaymentScreen() {
   const [data, setData] = useState([]);
   const location = useLocation();
   const params = location.state;
-  const influencer_user_id = location.state.user;
+  const influencer_user_id = location.state.user_object;
   const numberReels = location.state.numberReels;
   const comments = location.state.comments;
+  const id_user_influencer = location.state.user_influencer;
   console.log("user", influencer_user_id);
 
   const navigateToPath = (path, params) => {
@@ -75,6 +76,12 @@ export default function PaymentScreen() {
       formData.append("influencer_user_id", influencer_user_id);
       formData.append("reels_count", numberReels);
       formData.append("comments", comments);
+      formData.append("id_user_influencer", id_user_influencer);
+      console.log('user_id', user_id);
+      console.log('influencer_user_id', influencer_user_id);
+      console.log('comments', comments);
+      console.log('id_user_influencer', id_user_influencer);
+
       const headers = {
         Accept: "application/json",
         Authorization: access_token,
