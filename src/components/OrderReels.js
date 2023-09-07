@@ -305,7 +305,7 @@ const closeModal = () => {
       </Col> */}
             <Col>
       
-        <Button onClick={() => navigateToPath("/camera", { order_id: order_id })}>
+        <Button onClick={() => navigateToPath("/camera", { state:{ order_id: order_id }})}>
           <FontAwesomeIcon icon={faCamera} /> Create Reel
         </Button>
    
