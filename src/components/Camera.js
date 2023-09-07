@@ -150,6 +150,7 @@ export default function WebcamVideo(props) {
         // let access_token = props.contextApi.contextState.user.access_token;
         let access_token = contextState.user.access_token;
         console.log("urlss", Constant.video_upload);
+        console.log("blob", blob);
         const headers = {
           Accept: "application/json",
           Authorization: access_token,
@@ -164,10 +165,15 @@ export default function WebcamVideo(props) {
             body: formData,
           });
 
-          if (response.ok) {
+          const responseData = await response.json();
+          console.log('cameraa',responseData)
+  
+        
+  
+          if (responseData.video_path) {
             // Video upload was successful, handle the response if needed
-            const data = await response.json();
-            console.log("Server response:", data);
+            // const data = await response.json();
+            // console.log("Server response:", data);
             navigateToPath("/orderdetails", {
               state: {
                 order_id: order_id,
@@ -176,6 +182,7 @@ export default function WebcamVideo(props) {
           } else {
             // Handle the case where the server responded with an error
             console.error("Video upload failed:", response.statusText);
+            // console.error("Video upload failed:", response.statusText);
           }
         } catch (error) {
           // Handle any other errors that occurred during the upload process
