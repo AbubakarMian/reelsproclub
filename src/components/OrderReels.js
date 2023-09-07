@@ -88,12 +88,14 @@ export default function OrderReels() {
   };
   const uploadVideo = async (file) => {
     try {
+      console.log('file_upload',file);
       const formData = new FormData();
       // formData.append("image", selectedImage);
       const user_id = contextState.user.id;
       formData.append("video", file);
       // formData.append("user_id", user_id);
       formData.append("order_id", order_id);
+      formData.append("user_id", user_id);
 
       const access_token = contextState.user.access_token;
       const headers = {
@@ -116,7 +118,7 @@ export default function OrderReels() {
 
       
 
-        if (responseData.status === true) {
+        if (responseData.video_path) {
           setImageUploadSuccessMessage("Video uploaded successfully."); // Set the success message
           setShowImageUploadSuccessModal(true); // Open the success modal
           setSelectedIcon(faCheck); // Open the success modal
@@ -278,7 +280,7 @@ const closeModal = () => {
         </Row>
         <Row className="butoon_reel_list"> 
          
-      <Col>
+      {/* <Col>
       {  ordersReelslist.length  > ordersquantity? (
         <Button disabled>
           <FontAwesomeIcon icon={faCamera} /> Create Reel
@@ -288,9 +290,9 @@ const closeModal = () => {
           <FontAwesomeIcon icon={faCamera} /> Create Reel
         </Button>
       )}
-        </Col>
+        </Col> */}
 
-        <Col>
+        {/* <Col>
         {  ordersReelslist.length  > ordersquantity? (
         <Button disabled>
           <FontAwesomeIcon icon={faUpload} /> Upload Reel
@@ -300,6 +302,21 @@ const closeModal = () => {
           <FontAwesomeIcon icon={faUpload} /> Upload Reel
         </Button>
       )}
+      </Col> */}
+            <Col>
+      
+        <Button onClick={() => navigateToPath("/camera", { order_id: order_id })}>
+          <FontAwesomeIcon icon={faCamera} /> Create Reel
+        </Button>
+   
+        </Col>
+
+<Col>
+      
+        <Button onClick={handleVideoUploadClick  }>
+          <FontAwesomeIcon icon={faUpload} /> Upload Reel
+        </Button>
+     
       </Col>
         </Row>
   
