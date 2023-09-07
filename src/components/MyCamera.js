@@ -19,15 +19,18 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { Player } from "video-react";
 import Nav_bar_area from './NavBar';
 import Camera from './Camera';
 import { ContextApiContext } from '../context/ContextApi';
 
 
+
 export default function Reels_page_export() {
   const { contextState } = useContext(ContextApiContext);
+  const location = useLocation();
+
 
   const navigate = useNavigate();
 
@@ -39,7 +42,7 @@ export default function Reels_page_export() {
     <section className="">
       {/* <Nav_bar_area contextApi={{contextState}}/> */}
     
-      <Camera contextApi={{contextState}}/>
+      <Camera contextApi={{contextState}} order_id ={location.state.order_id}  />
 
         {/* <Row className="reel_box">
           <Col>
