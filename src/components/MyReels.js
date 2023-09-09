@@ -163,14 +163,14 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+              {/*  {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon icon={faEye} className="like-eye" />
                   (129)
                   <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */} 
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
@@ -202,14 +202,14 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+               {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon icon={faEye} className="like-eye" />
                   (129)
                   <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */}
               <div>
                 <div className="btn_area_myrees">
                   <Button
@@ -243,14 +243,14 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+               {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon icon={faEye} className="like-eye" />
                   (129)
                   <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */}
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
@@ -283,7 +283,7 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+              {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon className="like-eye" icon={faEye} /> (129)
                   <FontAwesomeIcon
@@ -292,7 +292,7 @@ const uploadVideo = async (file) => {
                   />{" "}
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */}
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
