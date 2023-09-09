@@ -10,8 +10,10 @@ import "./../styles/orderreels.css";
 import "./../styles/video-react.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {   faEye } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+// import {   faEye } from "@fortawesome/free-solid-svg-icons";
+// import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faEye ,faThumbsUp} from "@fortawesome/free-solid-svg-icons";
+
 import { faCameraRetro,
   faStar,
   faCamera,
@@ -111,14 +113,12 @@ export default function OrderReels() {
         body: formData,
       });
 
-     
-        
         const responseData = await response.json();
         console.log('abcc',responseData)
 
       
 
-        if (responseData.video_path) {
+        if (responseData.status) { //video_path
           setImageUploadSuccessMessage("Video uploaded successfully."); // Set the success message
           setShowImageUploadSuccessModal(true); // Open the success modal
           setSelectedIcon(faCheck); // Open the success modal
@@ -141,39 +141,46 @@ export default function OrderReels() {
 
   useEffect(() => {
     // Function to fetch categories from the API
-    const fetchOrders = async () => {
-      try {
-        let access_token = contextState.user.access_token;
-        let influencer_id = contextState.user.id;
-        console.log('influencer_id',influencer_id);
-        console.log('acces_token',access_token);
-        const headers = {
-          Accept: 'application/json',
-          Authorization: access_token,
-          'Authorization-secure': access_token,
-          'client-id': 'reelspro-app-mobile',
-        };
-        console.log('headers',headers);
-        const response = await fetch(`${Constant.get_orders_reels}/${order_id}`, {
-          method: 'GET',
-          headers: headers,
-        });
-        const data = await response.json();
-        console.log('order_reels_list', data);
-        console.log('reels_url_count', data.response.length);
-        setOrdersReelslist(data.response);
-        setOrdersQuantity(data.response[0].order_quantity);
-      } catch (error) {
-        console.error('Error fetching reels order:', error);
-      }
-    };
+
 
     fetchOrders();
   }, []);
 
+  const fetchOrders = async () => {
+    try {
+      let access_token = contextState.user.access_token;
+      let influencer_id = contextState.user.id;
+      console.log('influencer_id',influencer_id);
+      console.log('acces_token',access_token);
+      const headers = {
+        Accept: 'application/json',
+        Authorization: access_token,
+        'Authorization-secure': access_token,
+        'client-id': 'reelspro-app-mobile',
+      };
+      console.log('headers',headers);
+      const response = await fetch(`${Constant.get_orders_reels}/${order_id}`, {
+        method: 'GET',
+        headers: headers,
+      });
+      const data = await response.json();
+      console.log('order_reels_list', data);
+      console.log('reels_url_count', data.response.length);
+      setOrdersReelslist(data.response);
+      setOrdersQuantity(data.response[0].order_quantity);
+    } catch (error) {
+      console.error('Error fetching reels order:', error);
+    }
+  };
+
   const handleDelete = async (reelId) => {
     try {
       setDeleting(true);
+      // console.log('before',ordersReelslist);
+      // console.log('reelId',reelId);
+      // setDeleting(false);
+
+      // return;
       const access_token = contextState.user.access_token;
       const headers = {
         Accept: 'application/json',
@@ -191,6 +198,22 @@ export default function OrderReels() {
         const data = await response.json();
         console.log('order_reels_delete__list', data);
         setdeleted_btn(true);
+
+
+        const reel_list = ordersReelslist.filter((reel,index)=>{
+          console.log('incoming reel',reel.reels_id);
+    
+            if(reel.reels_id != reelId){
+              console.log('condition false');
+              return reel;
+            }
+            else{
+              console.log('condition found',reelId);
+    
+            }
+          })
+    
+          setOrdersReelslist(reel_list);
       } else {
         console.error('Error deleting reel:', response.statusText);
         setdeleted_btn(false);
@@ -275,34 +298,37 @@ const closeModal = () => {
   return (
     <section className="">
       <Container fluid className="myreelarea">
+
+      {/* <Container> */}
         <Row>
+          <Col>
+            <Button className="backbtnsignup"
+            
+            onClick={() =>
+              navigateToPath(-1)
+              // navigateToPath("/Influencer_order_details", {
+              //   state: {
+              //     order_id: order_id,
+              //     name: user_name,
+              //   },
+              // })
+            }
+           >
+              <FontAwesomeIcon icon={faArrowLeft} />{" "}
+              
+            </Button>
+            <Row>
           <h2>ORDER REELS</h2>
         </Row>
-        <Row className="butoon_reel_list"> 
-         
-      {/* <Col>
-      {  ordersReelslist.length  > ordersquantity? (
-        <Button disabled>
-          <FontAwesomeIcon icon={faCamera} /> Create Reel
-        </Button>
-      ) : (
-        <Button onClick={() => navigateToPath("/camera", { order_id: order_id })}>
-          <FontAwesomeIcon icon={faCamera} /> Create Reel
-        </Button>
-      )}
-        </Col> */}
+          </Col>
+        </Row>
+      {/* </Container> */}
 
-        {/* <Col>
-        {  ordersReelslist.length  > ordersquantity? (
-        <Button disabled>
-          <FontAwesomeIcon icon={faUpload} /> Upload Reel
-        </Button>
-      ) : (
-        <Button onClick={handleVideoUploadClick  }>
-          <FontAwesomeIcon icon={faUpload} /> Upload Reel
-        </Button>
-      )}
-      </Col> */}
+        <Row>
+          {/* <h2>ORDER REELS</h2> */}
+        </Row>
+        <Row className="butoon_reel_list"> 
+        
             <Col>
       
         <Button onClick={() => navigateToPath("/camera", { state:{ order_id: order_id }})}>
@@ -321,7 +347,7 @@ const closeModal = () => {
         </Row>
   
         {ordersReelslist.map((reel, index) => (
-          <Row key={index} className="reel_box">
+          <Row key={reel.reels_id} className="reel_box">
             <Col>
               <div className="img_area"    onClick={() => openModal(reel.reels_url)}>
               <video
