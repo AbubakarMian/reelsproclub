@@ -115,7 +115,7 @@ export default function  Signup(props) {
     else{
       console.log('Your browser does not support Geolocation');
     }
-  },5000)
+  },3000)
   
 
   const SignupApi = async (role, influencer_obj) => {
