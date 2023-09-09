@@ -44,7 +44,9 @@ export default function People_page_export(props) {
 
   const location = useLocation();
   const params = location.state;
-  const people_id = location.state.category_id;
+  // const category_id = location.state?location.state.category_id?location.state.category_id:0:0;
+  const [category_id, setCategoryId] = useState(location.state?location.state.category_id?location.state.category_id:0:0);
+  const [category_list, setCategoryList] = useState([]);
 
   console.log("params aaa", params);
 
@@ -52,37 +54,79 @@ export default function People_page_export(props) {
     navigate(path, params);
   };
   const [data, setData] = useState([]);
+  const [is_all, setAll] = useState(0);
+  const [is_featured, setFeatured] = useState(0);
+  const [is_nearby, setNearby] = useState(0);
+  const [search, setSearch] = useState('');
 
     useEffect(() => {
       // Fetch data using the params variable here
       // For example, you can use the fetch() function
       // and pass the params to the API endpoint
-      const fetchData = async () => {
-        try {
-          let access_token = contextState.user.access_token;
-          console.log('acces_token',access_token);
-          const headers = {
-            Accept: 'application/json',
-            Authorization: access_token,
-            'Authorization-secure': access_token,
-            'client-id': 'reelspro-app-mobile',
-          };
-          console.log('headers_people',headers);
-          const response = await fetch(`${Constant.get_people}/${people_id}`, {
-            method: 'GET',
-            headers: headers,
-          });
-    
-          const data = await response.json();
-          console.log('datadata_people', data);
-          setData(data.response);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-  
+      get_categories();
       fetchData();
     }, [params]);
+
+    const fetchData = async () => {
+      try {
+        let access_token = contextState.user.access_token;
+        console.log('acces_token',access_token);
+        const headers = {
+          Accept: 'application/json',
+          Authorization: access_token,
+          'Authorization-secure': access_token,
+          'client-id': 'reelspro-app-mobile',
+        };
+        console.log('headers_people',headers);
+        // const response = await fetch(`${Constant.get_people}/${category_id}`, {
+        const response = await fetch(`${Constant.get_people}?category_id=${category_id}&is_all=${is_all}
+            &is_featured=${is_featured}&is_nearby=${is_nearby}&search=${search}`, {
+          method: 'GET',
+          headers: headers,
+        });
+  
+        const data = await response.json();
+        console.log('datadata_people', data);
+        setData(data.response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    
+  const get_categories = async () => {
+    // const [category,setCategory] = useState('');
+    // const [rate_per_reel, setRatePerReel] = useState(0);
+    try {
+      // let access_token = contextState.user.access_token;
+      let access_token = Constant.basic_token;
+      console.log("acces_token", access_token);
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+
+      const response = await fetch(Constant.get_category, {
+        method: "GET",
+        headers: headers,
+      });
+
+      const data = await response.json();
+      console.log("res datadata", data);
+      if (data.status) {
+        console.log("category data", data.response);
+        setCategoryList(data.response);
+      } else {
+      }
+      // setCategories(data.response);
+    } catch (error) {
+      console.error("Error fetching :", error);
+    }
+  };
+
+  
 
     const cal_distance = (distance)=>{
       if(distance < 10){
@@ -143,18 +187,52 @@ export default function People_page_export(props) {
                   aria-label="Search"
                   aria-describedby="basic-addon1"
                   className="search_br"
+                  onChange={(e)=>{setSearch(e.target.value)}}
                 />
                 <InputGroup.Text id="basic-addon1">
-                  <Button className="srch_btn">
+                  <Button className="srch_btn" onClick={()=>fetchData()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </Button>
                 </InputGroup.Text>
               </InputGroup>
 
+              <Row>
+            <Col>
+              <div className="form_area">
+                <Form.Label>Categories*</Form.Label>
+                <Form.Select
+                  aria-label="Default select example"
+                  onChange={(e) => {
+                    setCategoryId(e.target.value);
+                  }}
+                >
+                  <option key={0} value={0}>
+                        All
+                      </option>
+                  {category_list.map((category, index) => {
+                    return (
+                      <option key={category.id} value={category.id} selected={category.id == category_id}>
+                        {category.name}
+                      </option>
+                    );
+                  })}
+                </Form.Select>
+              </div>
+            </Col>
+          </Row>
            
-              <Button className="isactive">All</Button>
-              <Button className="flt_btn">Featured</Button>
-              <Button className="flt_btn">NearBy</Button>
+              <Button className={is_all?"isactive":"flt_btn"} onClick={()=>{setAll(is_all?0:1);
+                setFeatured(0);
+                // setNearby(0);
+              }}>All</Button>
+              <Button className={is_featured?"isactive":"flt_btn"} onClick={()=>{
+                  setAll(0);
+                  setFeatured(is_featured?0:1)
+                }}>Featured</Button>
+              <Button className={is_nearby?"isactive":"flt_btn"} onClick={()=>{
+                  // setAll(0);
+                  setNearby(is_nearby?0:1)
+                  }}>NearBy</Button>
             </div>
           </Collapse>
         </Row>
