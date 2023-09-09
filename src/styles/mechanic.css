@@ -29,6 +29,44 @@
     margin: 30px 0px;
     height: 186px;
 }
+button.filtr_btn.btn.btn-primary {
+    float: right;
+    background-color: #9c0043bd;
+    border: solid 1px #9c0043bd;
+}
+.fliter_bx.row {
+    background: #f8f9fa;
+}
+button.flt_btn.btn.btn-primary:active {
+    
+    background-color: #8c0e49;
+    border: solid 1px #8c0e49;
+    color: white;
+}
+button.isactive.btn.btn-primary {
+    width: 85px;
+    margin: 0px 15px;
+    background-color: #8c0e49;
+    border: solid 1px #8c0e49;
+    color: white;
+}
+button.flt_btn.btn.btn-primary {
+    width: 85px;
+    margin: 0px 15px;
+    background-color: white;
+    border: solid 1px gray;
+    color: gray;
+}
+button.srch_btn.btn.btn-primary {
+    background: transparent;
+    color: gray;
+    border: 0px;
+}
+div#example-collapse-text {
+    padding: 25px 11px;
+}
+
+
 @media only screen and (max-width : 480px) {
     .img_box {
         border: solid 1px white;
