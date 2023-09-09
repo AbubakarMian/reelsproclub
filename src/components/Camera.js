@@ -56,85 +56,25 @@ export default function WebcamVideo(props) {
     }
   }, [webcamRef, setCapturing, mediaRecorderRef, handleDataAvailable]);
 
-  //   const handleStopCaptureClick = async () => {
-  //     if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
-  //       mediaRecorderRef.current.stop();
-  //     }
-
-  //     if (recordedChunks.length) {
-
-  //       const blob = new Blob(recordedChunks, { type: "video/webm" });
-
-  // //
-
-  // // const url = URL.createObjectURL(blob);
-  // // const a = document.createElement("a");
-  // // document.body.appendChild(a);
-  // // a.style = "display: none";
-  // // a.href = url;
-  // // a.download = "react-webcam-stream-capture.webm";
-  // // a.click();
-  // // window.URL.revokeObjectURL(url);
-  // // setRecordedChunks([]);
-
-  // //
-
-  // let reader = new FileReader();
-  // reader.readAsDataURL(blob);
-  // reader.onloadend = async function() {
-  //       const formData = new FormData();
-  //       console.log('my blob',blob);
-
-  //         var base64data = reader.result;
-  //         console.log(base64data);
-
-  //       // formData.append("video", blob);
-  //       formData.append("video", base64data);
-
-  //       let access_token = props.contextApi.contextState.user.access_token;
-  //       console.log('access_token',access_token)
-
-  //       const headers = {
-  //         Accept: 'application/json',
-  //         Authorization: access_token,
-  //         'Authorization-secure': access_token,
-  //         'client-id': 'reelspro-app-mobile',
-  //       };
-
-  //       try {
-  //         const response = await fetch(Constant.video_upload, {
-  //           method: "POST",
-  //           headers: headers,
-  //           body: formData,
-  //         });
-
-  //         if (response.ok) {
-  //           // Video upload was successful, handle the response if needed
-  //           const data = await response.json();
-  //           console.log("Server response:", data);
-  //         } else {
-  //           // Handle the case where the server responded with an error
-  //           console.error("Video upload failed:", response.statusText);
-  //         }
-  //       } catch (error) {
-  //         // Handle any other errors that occurred during the upload process
-  //         console.error("Error uploading video:", error);
-  //       }
-  //     }
-  //   }
-  //     // Reset the recordedChunks state after uploading
-  //     setRecordedChunks([]);
-  //   };
 
   const handleStopCaptureClick = async () => {
+    console.log('stop cammera 1');
     if (
       mediaRecorderRef.current &&
       mediaRecorderRef.current.state === "recording"
     ) {
-      mediaRecorderRef.current.stop();
+    console.log('stop cammera 2');
+
+      await mediaRecorderRef.current.stop();
     }
+    // await setTimeout(() => {
+    //   console.log('time out')
+    
+    console.log('after time out')
 
     if (recordedChunks.length) {
+    console.log('stop cammera 3');
+
       const blob = new Blob(recordedChunks, { type: "video/webm" });
 
       // Convert the video blob to base64
@@ -172,15 +112,15 @@ export default function WebcamVideo(props) {
   
         
   
-          if (responseData.video_path) {
-            // Video upload was successful, handle the response if needed
-            // const data = await response.json();
-            // console.log("Server response:", data);
-            navigateToPath("/orderdetails", {
-              state: {
-                order_id: order_id,
-              },
-            });
+          // if (responseData.video_path) {
+          if (responseData.status) {
+            console.log('go  back');
+            navigateToPath(-1);
+            // navigateToPath("/orderdetails", {
+            //   state: {
+            //     order_id: order_id,
+            //   },
+            // });
           } else {
             // Handle the case where the server responded with an error
             console.error("Video upload failed:", response.statusText);
@@ -192,7 +132,7 @@ export default function WebcamVideo(props) {
         }
       };
     }
-
+  // }, 10000);
     // Reset the recordedChunks state after uploading
     setRecordedChunks([]);
   };
@@ -234,12 +174,13 @@ export default function WebcamVideo(props) {
             <Button className="backbtnsignup"
             
             onClick={() =>
-              navigateToPath("/Influencer_order_details", {
-                state: {
-                  order_id: order_id,
-                  name: user_name,
-                },
-              })
+              navigateToPath(-1)
+              // navigateToPath("/Influencer_order_details", {
+              //   state: {
+              //     order_id: order_id,
+              //     name: user_name,
+              //   },
+              // })
             }
            >
               <FontAwesomeIcon icon={faArrowLeft} />{" "}
@@ -274,7 +215,7 @@ export default function WebcamVideo(props) {
             
           </button>
         )}
-        {recordedChunks.length > 0 && (
+        {recordedChunks.length > 50 && (
           <button onClick={handleDownload}>Download</button>
         )}
       </div>
