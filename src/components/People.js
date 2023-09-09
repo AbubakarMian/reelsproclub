@@ -53,39 +53,60 @@ export default function People_page_export(props) {
   };
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    // Fetch data using the params variable here
-    // For example, you can use the fetch() function
-    // and pass the params to the API endpoint
-    const fetchData = async () => {
-      try {
-        let access_token = contextState.user.access_token;
-        console.log("acces_token", access_token);
-        const headers = {
-          Accept: "application/json",
-          Authorization: access_token,
-          "Authorization-secure": access_token,
-          "client-id": "reelspro-app-mobile",
-        };
-        console.log("headers_people", headers);
-        const response = await fetch(`${Constant.get_people}/${people_id}`, {
-          method: "GET",
-          headers: headers,
-        });
+    useEffect(() => {
+      // Fetch data using the params variable here
+      // For example, you can use the fetch() function
+      // and pass the params to the API endpoint
+      const fetchData = async () => {
+        try {
+          let access_token = contextState.user.access_token;
+          console.log('acces_token',access_token);
+          const headers = {
+            Accept: 'application/json',
+            Authorization: access_token,
+            'Authorization-secure': access_token,
+            'client-id': 'reelspro-app-mobile',
+          };
+          console.log('headers_people',headers);
+          const response = await fetch(`${Constant.get_people}/${people_id}`, {
+            method: 'GET',
+            headers: headers,
+          });
+    
+          const data = await response.json();
+          console.log('datadata_people', data);
+          setData(data.response);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+  
+      fetchData();
+    }, [params]);
 
-        const data = await response.json();
-        console.log("datadata_people", data);
-        setData(data.response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+    const cal_distance = (distance)=>{
+      if(distance < 10){
+        return 'Less than 10KM';
       }
-    };
-
-    fetchData();
-  }, [params]);
-  return (
-    <section className="">
-      <Container fluid>
+      if(distance < 50){
+        return 'Less than 50KM';
+      }
+      if(distance < 100){
+        return 'Less than 100KM';
+      }
+      if(distance < 500){
+        return 'Less than 500KM';
+      }
+      if(distance < 1000){
+        return 'Less than 1000KM';
+      }
+      else{
+        return 'More than 1000KM';
+      }
+    }
+    return (
+      <section className="">
+         <Container fluid>
         <Row>
           <Col>
             <Button
@@ -151,7 +172,8 @@ export default function People_page_export(props) {
                 }
               >
                 <div className="img_box">
-                  <img src={item.avatar} alt={item.name} />
+                  <p>{cal_distance(item.distance)}</p>
+                  <img src={item.image?item.image:item.avatar} alt={item.name} />
                   <div className="img_box_txt">
                     <p>{item.name}</p>
                   </div>

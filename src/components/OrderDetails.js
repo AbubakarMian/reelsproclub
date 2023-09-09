@@ -86,7 +86,7 @@ export default function OrderDetails() {
   <div className="gre_card_head" key={order.id}>
     {/* Generate automatic order number and date */}
     <h3 className="order_heading">
-      Order #{index + 1} - {new Date().toLocaleDateString()}
+       {order.user.name}
     </h3>
 
     <div className="gre_card">
