@@ -106,6 +106,10 @@ export default function Profile() {
             <div className="hire_info_area">
               <p>
                 <h3 className="hire_head">{mydata?.user?.name}</h3>
+                {/* <h5 className="hire_head" onClick={()=>{ */}
+                <Button className="reel_btn" onClick={()=>{
+                  navigate('/viewreels')
+                }}>Reels</Button>
               </p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />

@@ -87,11 +87,11 @@ export default function Nav_bar_area(props) {
                 {/* Categories */}
                 {/* </Button> */}
 
-                <div className="nav_bottom">
+                {/* <div className="nav_bottom">
                   <Nav.Link href="camera">
                     <FontAwesomeIcon icon={faCamera} /> New Reel
                   </Nav.Link>
-                </div>
+                </div> */}
                 {/* <div className='nav_bottom'><Nav.Link href="contactus"><FontAwesomeIcon icon={faPhoneVolume} /> contactus</Nav.Link></div>
                       <div className='nav_bottom'><Nav.Link href="users"><FontAwesomeIcon icon={faUsers} /> users</Nav.Link></div> */}
                 <div className="nav_bottom">
