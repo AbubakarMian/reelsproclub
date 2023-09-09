@@ -84,6 +84,27 @@ export default function People_page_export(props) {
   
       fetchData();
     }, [params]);
+
+    const cal_distance = (distance)=>{
+      if(distance < 10){
+        return 'Less than 10KM';
+      }
+      if(distance < 50){
+        return 'Less than 50KM';
+      }
+      if(distance < 100){
+        return 'Less than 100KM';
+      }
+      if(distance < 500){
+        return 'Less than 500KM';
+      }
+      if(distance < 1000){
+        return 'Less than 1000KM';
+      }
+      else{
+        return 'More than 1000KM';
+      }
+    }
     return (
       <section className="">
          <Container fluid>
@@ -115,6 +136,7 @@ export default function People_page_export(props) {
                   
                   }>
                   <div className="img_box">
+                  <p>{cal_distance(item.distance)}</p>
                     <img src={item.avatar} alt={item.name} />
                     <div className="img_box_txt">
                       <p>{item.name}</p>
