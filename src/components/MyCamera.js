@@ -42,7 +42,7 @@ export default function Reels_page_export() {
     <section className="">
       {/* <Nav_bar_area contextApi={{contextState}}/> */}
     
-      <Camera contextApi={{contextState}} order_id ={location.state.order_id}  />
+      <Camera contextApi={{contextState}} order_id ={location.state?.order_id}  />
 
         {/* <Row className="reel_box">
           <Col>
