@@ -206,9 +206,7 @@ export default function People_page_export(props) {
                     setCategoryId(e.target.value);
                   }}
                 >
-                  {/* <option key={'A0'} value={0}>
-                        All
-                      </option> */}
+                 
                   {category_list.map((category, index) => {
                     return (
                       <option key={category.id} value={category.id} selected={category.id == category_id}>
