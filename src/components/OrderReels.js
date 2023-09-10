@@ -257,7 +257,7 @@ export default function OrderReels() {
           )
          
         } else {
-          console.error('Error deleting reel:', response.statusText);
+          console.error('Error orderlist reel:', response.statusText);
         
         }
 

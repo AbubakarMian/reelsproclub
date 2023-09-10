@@ -76,6 +76,7 @@ export default function OrderDetails() {
 
   return (
     <section className="">
+            <Nav_bar_area  contextApi={{contextState}}/>
       <Container fluid className="myreelarea rellback">
         <Row>
           <h2 className="order_hed">ORDERS LIST</h2>

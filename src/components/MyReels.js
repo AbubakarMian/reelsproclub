@@ -116,6 +116,67 @@ const uploadVideo = async (file) => {
 
 
 
+const handleDelete = async (orderId) => {
+  // try {
+    // setDeleting(true);
+    // console.log('before',ordersReelslist);
+    // console.log('reelId',reelId);
+    // setDeleting(false);
+
+    // return;
+    // if(orderId.id != orderId){
+    //   console.log('condition false');
+    //   return reel;
+    // }
+
+    return ;
+
+
+  //   const access_token = contextState.user.access_token;
+  //   const headers = {
+  //     Accept: 'application/json',
+  //     Authorization: access_token,
+  //     'Authorization-secure': access_token,
+  //     'client-id': 'reelspro-app-mobile',
+  //   };
+    
+  //   const response = await fetch(`${Constant.delete_reel}/${reelId}`, {
+  //     method: 'DELETE',
+  //     headers: headers,
+  //   });
+
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     console.log('order_reels_delete__list', data);
+  //     setdeleted_btn(true);
+
+
+  //     const reel_list = ordersReelslist.filter((reel,index)=>{
+  //       console.log('incoming reel',reel.reels_id);
+  
+  //         if(reel.reels_id != reelId){
+  //           console.log('condition false');
+  //           return reel;
+  //         }
+  //         else{
+  //           console.log('condition found',reelId);
+  
+  //         }
+  //       })
+  
+  //       setOrdersReelslist(reel_list);
+  //   } else {
+  //     console.error('Error deleting reel:', response.statusText);
+  //     setdeleted_btn(false);
+  //   }
+  // } catch (error) {
+  //   console.error('Error deleting reel:', error);
+  // } 
+  // finally {
+  //   // setDeleting(false);
+  // }
+};
+
   const navigateToPath = (path) => {
     navigate(path);
   };
@@ -163,14 +224,14 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+              {/*  {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon icon={faEye} className="like-eye" />
                   (129)
                   <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */} 
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
@@ -202,14 +263,14 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+               {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon icon={faEye} className="like-eye" />
                   (129)
                   <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */}
               <div>
                 <div className="btn_area_myrees">
                   <Button
@@ -243,14 +304,14 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+               {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon icon={faEye} className="like-eye" />
                   (129)
                   <FontAwesomeIcon className="like-thum" icon={faThumbsUp} />
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */}
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
@@ -283,7 +344,7 @@ const uploadVideo = async (file) => {
           </Col>
           <Col>
             <div className="info_area_myreels">
-              <div className="likes_area">
+              {/* <div className="likes_area">
                 <p>
                   <FontAwesomeIcon className="like-eye" icon={faEye} /> (129)
                   <FontAwesomeIcon
@@ -292,7 +353,7 @@ const uploadVideo = async (file) => {
                   />{" "}
                   (112 ){" "}
                 </p>
-              </div>
+              </div> */}
               <div className="btn_area_myrees">
                 <Button
                   onClick={() => {
