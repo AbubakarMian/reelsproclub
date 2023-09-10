@@ -17,6 +17,7 @@
     border-radius: 50%;
     width: 18px;
     height: 21px;
+    display: none;
 }
   .prof_img_inf img {
     width: 100%;

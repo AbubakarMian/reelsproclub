@@ -106,6 +106,14 @@ export default function Nav_bar_area(props) {
                     Categories
                   </Nav.Link>
                 </div>
+                {
+                  contextState.user.role_id == 3 ? 
+                  <div className="nav_bottom">
+                  <Nav.Link href="orderlist">
+                    <FontAwesomeIcon icon={faCalendarDay} /> Orders Recieved
+                  </Nav.Link>
+                </div>:null
+                }
                 <div className="nav_bottom">
                   <Nav.Link href="myreels">
                     <FontAwesomeIcon icon={faFilm} /> My Reels
@@ -121,6 +129,7 @@ export default function Nav_bar_area(props) {
                     <FontAwesomeIcon icon={faPhotoFilm} /> View Reels
                   </Nav.Link>
                 </div>
+                
                 <div className="nav_bottom">
                   <Nav.Link href="user_order">
                     <FontAwesomeIcon icon={faCalendarDay} /> Orders
@@ -135,7 +144,7 @@ export default function Nav_bar_area(props) {
                 <div
                   className="nav_bottom"
                   onClick={() => {
-                    updateContextState({}, "logout_user");
+                    // updateContextState({}, "logout_user");
                   }}
                 >
                   <Nav.Link href="login"><FontAwesomeIcon icon={faRightToBracket} />LogOut</Nav.Link>
