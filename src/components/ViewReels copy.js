@@ -44,9 +44,16 @@ export default function MyReels_page_export() {
   const navigateToPath = (path, _obj) => {
     navigate(path, _obj);
   };
-    const [data, setData] = useState([]);
-
   return (
+    // <Player
+    //            style={{background:"red", height:"100vh"}}
+    //             playsInline
+    //             aspectRatio="16:9" // 16:9
+    //             poster="./images/poster.jpg"
+    //             src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    //             // width={1320}
+    //             // height={"100vh"}
+    //             />
     <div>
       <section className="reeel_back">
         <Container>
@@ -69,6 +76,14 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo", { video_src: video1 });
                 }}
               >
+                {/* <video
+                  muted
+                  id="background-video1"
+                  resizeMode="cover" // height="720" width="1280"  ratio="16:9"
+                  //  source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                  source
+                  src={video2}
+                ></video> */}
                 <div className="vid_thumb">
                   <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
                     <img src="../images/thumbnails/thumb1.jpg" alt="Profile" />
@@ -84,6 +99,13 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
+                {/* <video muted
+                  id="background-video1"
+                  loop
+                  autoPlay // height="720" width="1280"
+                  source
+                  src={video3}
+                ></video> */}
                 <div className="vid_thumb">
                   <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
                     <img src="../images/thumbnails/thumb2.jpg" alt="Profile" />
@@ -98,6 +120,17 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
+                {/* <video
+                  muted
+                  id="background-video1"
+                  loop
+                  autoPlay
+                  ratio="16:9"
+                  resizeMode="cover" // height="720" width="1280"
+                  source
+                  src={Pizza1}
+                >
+                </video> */}
                 <div className="vid_thumb">
                   <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
                     <img src="../images/thumbnails/thumb17.jpg" alt="Profile" />

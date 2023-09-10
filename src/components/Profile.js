@@ -49,6 +49,9 @@ export default function Profile() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [latitude, setLangitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+  const [location_err, setLocationErr] = useState('');
   const [showImageUploadSuccessModal, setShowImageUploadSuccessModal] =
     useState(false);
   const [imageUploadSuccessMessage, setImageUploadSuccessMessage] =
@@ -91,6 +94,8 @@ export default function Profile() {
         setEmail(data.response.email);
         setPhoneNo(data.response.phone_no);
         setImagePreview(data.response.image);
+        setLangitude(data.response.lat);
+        setLongitude(data.response.long);
       } catch (error) {
         console.error("Error fetching get_proflie:", error);
       }
@@ -122,6 +127,8 @@ export default function Profile() {
         last_name: lastName,
         email: email,
         phone_no: phoneNo,
+        lat: latitude,
+        long: longitude,
         // ... other fields
       });
 
@@ -237,34 +244,40 @@ export default function Profile() {
           {/* Profile */}
           {get_string_lable("Profile")}
         </h3>
+
+        {imagePreview ? 
         <Container fluid>
-          <Row>
-            <div>
-              <div className="pic_area">
-                {imagePreview && <img src={imagePreview} alt="Selected" />}
-              </div>
+        <Row>
+          <div>
+            <div className="pic_area" onClick={handleImageUploadClick}>
+              {imagePreview && <img src={imagePreview} alt="Selected" />}
             </div>
-          </Row>
-          <Row>
-            {/* <Button </Button> */}
-            {/* <Button  className="oki_upload" onClick={uploadImage}>OK</Button> */}
-          </Row>
-        </Container>
-        <Container className="cont_pad">
-          <Row>
-            <Col>{/* <h3 className="signup_head">SignUp</h3> */}</Col>
-            <Col>
-              <div className="pic_area">
-                <Button
-                  className="pic_upload_btn"
-                  onClick={handleImageUploadClick}
-                >
-                  <FontAwesomeIcon icon={faUserPlus} />
-                </Button>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+          </div>
+        </Row>
+        <Row>
+          {/* <Button </Button> */}
+          {/* <Button  className="oki_upload" onClick={uploadImage}>OK</Button> */}
+        </Row>
+      </Container>:
+ <Container className="cont_pad">
+ <Row>
+   <Col>{/* <h3 className="signup_head">SignUp</h3> */}</Col>
+   <Col>
+     <div className="pic_area">
+       <Button
+         className="pic_upload_btn"
+         onClick={handleImageUploadClick}
+       >
+         <FontAwesomeIcon icon={faUserPlus} />
+       </Button>
+     </div>
+   </Col>
+ </Row>
+</Container>
+      
+      }
+        
+       
 
         <Container>
           <div className="form_cover_profile">
@@ -362,24 +375,47 @@ export default function Profile() {
                 </div>
               </Col>
             </Row>
-            {/* <Row>
-                        <Col>
-                            <div className="form_area">
-                                <Form>
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>
-                                            Location*
+            <Row>
+                <Col>
+                    <div className="form_area">
+                        <Form>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Label>
+                                    Location
+                                </Form.Label>
+                                <Form.Control
+                                  type="text"
+                                  placeholder="Enter Mobile No"
+                                  value={location_err+' '+latitude+','+longitude}
+                                  disabled={true}
+                                />
+                                <Button onClick={
+                                  ()=>{
+                                    if (navigator.geolocation) {
+                                      navigator.geolocation.getCurrentPosition(
+                                        (position)=>{
+                                          setLangitude(position.coords.latitude);
+                                          setLongitude(position.coords.longitude);
+                                          console.log('position.coords.latitude',position);
+                                          console.log('position.coords.latitude',position.coords);
+                                          console.log('position.coords.latitude',position.coords);
+                                          console.log('position.coords.latitude',latitude);
+                                          console.log('position.coords.latitude',longitude);                                          
+                                        }
+                                        , (error)=>{
+                                          setLocationErr('Location update not avalible')
+                                        });
+                                    }
+                                  }
+                                  } className="location-btn">
+                                    Update 
+                                  <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
+                            </Form.Group>
 
-                                        </Form.Label>
-                                        <Button onClick={()=>navigateToPath('/map')} className="loc_btn">
-                                            My Location
-                                         <FontAwesomeIcon className="loc_icon" icon={faLocationDot} /></Button>
-                                    </Form.Group>
-
-                                </Form>
-                            </div>
-                        </Col>
-                    </Row> */}
+                        </Form>
+                    </div>
+                </Col>
+            </Row>
             <Row>
               <Col>
                 <div className="form_area">

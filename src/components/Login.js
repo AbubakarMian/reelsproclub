@@ -86,12 +86,8 @@ export default function LogIn() {
           <Col xsm={1} md={3}></Col>
           <Col xsm={10} md={6}>
             <div className="forget"><Button   onClick={() => navigateToPath("/forgot")} className="forgot_btn">
-              {/* Forgot Password */}
-              {/* {Language_arr["Forgot Password"+lang]} */}
-              {get_string_lable("Forgot Password")}</Button>
-          
-
-      
+              {get_string_lable("Forgot Password")}
+              </Button>
             </div>
           </Col>
           <Col xsm={1} md={3}></Col>
@@ -298,19 +294,17 @@ const Login_form = () => {
         />
       </InputGroup>
       <div key={`default-checkbox`} className="mb-3">
-        <Form.Check // prettier-ignore
+        {/* <Form.Check // prettier-ignore
           type="checkbox"
           id={`default-checkbox`}
           onChange={(e) => {
             setRememberme(!rememberme);
             console.log("remember", !rememberme);
           }}
-          label=//     // `Remember Me` // {
-          //     // {Language_arr["Remember Me"+lang]}
-          //     Language_arr["Remember Me"+lang]}
+          label=
           {get_string_lable("Remember Me")}
           className="remember"
-        />
+        /> */}
       </div>
       <Button
         onClick={() => attempt_login()}

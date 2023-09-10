@@ -221,15 +221,17 @@ export default function People_page_export(props) {
            
               <Button className={is_all?"isactive":"flt_btn"} onClick={()=>{setAll(is_all?0:1);
                 setFeatured(0);
-                // setNearby(0);
+                // fetchData();
               }}>All</Button>
               <Button className={is_featured?"isactive":"flt_btn"} onClick={()=>{
                   setAll(0);
-                  setFeatured(is_featured?0:1)
+                  setFeatured(is_featured?0:1);
+                  // fetchData();
                 }}>Featured</Button>
               <Button className={is_nearby?"isactive":"flt_btn"} onClick={()=>{
                   // setAll(0);
-                  setNearby(is_nearby?0:1)
+                  setNearby(is_nearby?0:1);
+                  // fetchData();
                   }}>NearBy</Button>
             </div>
           </Collapse>
