@@ -246,7 +246,7 @@ export default function User_reels_list() {
             </Col>
             <Col>
               <Button
-                variant="success"
+                variant="warning"
                 onClick={() => setshowRedoModal(true)}
                 className="accept-btn"
               >
