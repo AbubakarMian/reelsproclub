@@ -5,8 +5,8 @@ const CustomeStarRating = ({ initialRating, onChange }) => {
   const [rating, setRating] = useState(initialRating);
 
   const handleRatingClick = (newRating) => {
-    setRating(newRating);
-    onChange(newRating);
+    // setRating(newRating);
+    // onChange(newRating);
   };
 
   return (
