@@ -17,16 +17,16 @@ import {
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Nav_bar_area from "./NavBar";
 import { ContextApiContext } from "../context/ContextApi";
-import { Constant } from '../common/Constants';
+import { Constant } from "../common/Constants";
 
 {
   /* <Nav_bar_area /> */
@@ -34,45 +34,44 @@ import { Constant } from '../common/Constants';
 
 export default function Profile() {
   const [open, setOpen] = useState(false);
+  const [openReview, setOpenReview] = useState(false);
   const navigate = useNavigate();
   const { contextState, updateContextState } = useContext(ContextApiContext);
   const [mydata, setData] = useState({});
-  const [totalCost, setTotalCost] = useState('0');
-  const [numberReels, setNumberReels] = useState('');
-  const [comments, setCommments] = useState('');
+  const [totalCost, setTotalCost] = useState("0");
+  const [numberReels, setNumberReels] = useState("");
+  const [comments, setCommments] = useState("");
   const location = useLocation();
   const params = location.state;
   const user_id = location.state.user;
 
-  const navigateToPath = (path,params) => {
-    navigate(path,params);
+  const navigateToPath = (path, params) => {
+    navigate(path, params);
   };
-  
-  console.log('params user_id', user_id);
-  useEffect(() => {
-  
 
+  console.log("params user_id", user_id);
+  useEffect(() => {
     fetchData();
   }, [params]);
   const fetchData = async () => {
     try {
       let access_token = contextState.user.access_token;
-      console.log('acces_token',access_token);
+      console.log("acces_token", access_token);
       const headers = {
-        Accept: 'application/json',
+        Accept: "application/json",
         Authorization: access_token,
-        'Authorization-secure': access_token,
-        'client-id': 'reelspro-app-mobile',
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
       };
-      console.log('headers_people',headers);
+      console.log("headers_people", headers);
       const response = await fetch(`${Constant.get_reel_rate}/${user_id}`, {
-        method: 'GET',
+        method: "GET",
         headers: headers,
       });
 
       const data = await response.json();
-      console.log('datadata_user_influencer', data);
-      console.log('namessssss', data.response.user.name);
+      console.log("datadata_user_influencer", data);
+      console.log("namessssss", data.response.user.name);
       setData(data.response);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -80,7 +79,6 @@ export default function Profile() {
   };
   return (
     <div>
-      
       <Container fluid>
         <Row>
           <Col>
@@ -108,9 +106,6 @@ export default function Profile() {
               <p>
                 <h3 className="hire_head">{mydata?.user?.name}</h3>
                 {/* <h5 className="hire_head" onClick={()=>{ */}
-                <Button className="reel_btn" onClick={()=>{
-                  navigate('/viewreels')
-                }}>Reels</Button>
               </p>
               <p>
                 <FontAwesomeIcon icon={faStar} style={{ color: "#fb9d23" }} />
@@ -136,7 +131,7 @@ export default function Profile() {
 
                 <div className="form_cover_profile_hire">
                   <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon3" style={{width:'50%'}}>
+                    <InputGroup.Text id="basic-addon3" style={{ width: "50%" }}>
                       Rate Per Reel
                     </InputGroup.Text>
                     <Form.Control
@@ -146,32 +141,29 @@ export default function Profile() {
                     />
                   </InputGroup>
                   <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon3"  style={{width:'50%'}}
-                    >
+                    <InputGroup.Text id="basic-addon3" style={{ width: "50%" }}>
                       Number Of Reels
                     </InputGroup.Text>
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                    onChange={(e)=>{
-                      // setData(...data,{number_of_reels:e.target.value});
-                      setNumberReels(e.target.value);
-                      setTotalCost(e.target.value* mydata.rate_per_reel)}}
-
+                      onChange={(e) => {
+                        // setData(...data,{number_of_reels:e.target.value});
+                        setNumberReels(e.target.value);
+                        setTotalCost(e.target.value * mydata.rate_per_reel);
+                      }}
                       value={numberReels}
                     />
                   </InputGroup>
 
                   <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon3"  style={{width:'50%'}}
-                      
-                      >
+                    <InputGroup.Text id="basic-addon3" style={{ width: "50%" }}>
                       Total Cost
                     </InputGroup.Text>
                     <Form.Control
                       id="basic-url"
                       aria-describedby="basic-addon3"
-                      value={'$'+totalCost}
+                      value={"$" + totalCost}
                     />
                   </InputGroup>
                   {/* <Form>
@@ -198,7 +190,7 @@ export default function Profile() {
                           as="textarea"
                           aria-label="With textarea"
                           className="txt_area"
-                          onChange={(e)=>setCommments(e.target.value)}
+                          onChange={(e) => setCommments(e.target.value)}
                         />
                       </InputGroup>
                     </div>
@@ -207,11 +199,69 @@ export default function Profile() {
               </div>
             </Col>
           </Row>
+          <Row>
+            <Col>
+              <Button
+                className="reel_btn"
+                onClick={() => setOpenReview(!openReview)}
+                aria-controls="example-collapse-text"
+                aria-expanded={openReview}
+              >
+                Reviews
+              </Button>
+            </Col>
+            <Col>
+              <Button
+                className="reel_btn"
+                onClick={() => {
+                  navigate("/viewreels");
+                }}
+              >
+                Reels
+              </Button>
+            </Col>
+          </Row>
+          <Row>
+            <Collapse in={openReview}>
+              <div className="review_bx">
+                <div className="inner_area">
+                  <div className="review_txt">
+                    <h5 className="review_hed">Smith</h5>
+                    "Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris.",
+                  </div>
+                  <div className="review_txt">
+                    <h5 className="review_hed">Jhon</h5>
+                    "Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolorassad  dsasd sads asda a sde magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris.",
+                  </div>
+                </div>
+              </div>
+            </Collapse>
+          </Row>
           {/* <Button  oonClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})} className="hire_btn">Hire</Button> */}
-           {/* <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})}> */}
-           <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user_object:mydata,numberReels:numberReels,comments:comments,user_influencer:mydata.user_id}})}>
-                  Hire
-                </Button>
+          {/* <Button className="reel_btn" onClick={() => navigateToPath(`/paymentscreen`,{state:{user:mydata?.user?.id}})}> */}
+          <Button
+            className="reel_btn"
+            onClick={() =>
+              navigateToPath(`/paymentscreen`, {
+                state: {
+                  user_object: mydata,
+                  numberReels: numberReels,
+                  comments: comments,
+                  user_influencer: mydata.user_id,
+                },
+              })
+            }
+          >
+            Hire
+          </Button>
         </Container>
       </section>
     </div>

@@ -114,6 +114,17 @@ textarea.txt_area.form-control {
 .txt_bx{
     padding: 10px 10px;
  }
+ .inner_area {
+    background: white;
+    margin: 12px;
+}
+.inner_area {
+    background: white;
+    margin: 12px;
+    height: 336px;
+    padding: 2px;
+    overflow: scroll;
+}
 @media only screen and (max-width : 480px) {
   
     section.bg_color {
