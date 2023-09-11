@@ -99,7 +99,8 @@ export default function OrderDetails() {
               <Row className="">
                 <Col>
                   <div className="prof_img">
-                    <img src="../images/profile.png" alt="Profile" />
+                    {/* <img src="../images/profile.png" alt="Profile" /> */}
+                    <img src={order.influencer.user.image?order.influencer.user.image:order.influencer.user.avatar} alt="Profile" />
                   </div>
                 </Col>
                 <Col>

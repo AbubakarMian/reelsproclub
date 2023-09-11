@@ -291,7 +291,7 @@ export default function People_page_export(props) {
               </a>
               <div className="rating_area">
                       <CustomStarRating
-                        initialRating={rating}
+                        initialRating={item.rating}
                         onChange={(newRating) => setRating(newRating)}
                       />
                     </div>
