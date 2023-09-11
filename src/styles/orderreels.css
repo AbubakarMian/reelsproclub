@@ -87,6 +87,7 @@ button.view-btn.btn.btn-primary {
 }
 .accept-btn {
   width: 100%;
+  color: white;
 }
 .video-container {
   position: relative;
@@ -109,6 +110,9 @@ button.issue_btn.btn.btn-primary {
   color: #db8e01;
   border: 0px;
   margin-bottom: 15px;
+}
+button.accept-btn.btn.btn-warning {
+  color: white;
 }
 
 @media only screen and (max-width : 480px) {
