@@ -121,7 +121,7 @@ export default function OrderReels() {
         if (responseData.status) { //video_path
           let reelList = ordersReelslist;
 
-          reelList.unshift(responseData.response);
+          reelList.unshift(responseData.response.reel);
 
           
           setOrdersReelslist( reelList);
