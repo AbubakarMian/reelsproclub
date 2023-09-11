@@ -299,7 +299,7 @@ export default function OrderReels() {
           onHide={() => setShowImageUploadSuccessModal(false)}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Image</Modal.Title>
+            <Modal.Title>Video Uploaded</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div class="modal-body">

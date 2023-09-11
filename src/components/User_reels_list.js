@@ -273,9 +273,10 @@ export default function User_reels_list() {
             centered
           >
             <Modal.Header closeButton>
-              <Modal.Title>Confirm </Modal.Title>
+              <Modal.Title>Complete Order</Modal.Title>
             </Modal.Header>
             <Modal.Body>
+            "Write a review and help others make informed decisions."
               <div id="example-collapse-text">
                 <InputGroup>
                   <Form.Control
@@ -286,6 +287,7 @@ export default function User_reels_list() {
                     placeholder="Review"
                   />
                 </InputGroup>
+                "Rate your experience with us."
                 <Rating
         onClick={(rate)=>setRating(rate)}
         // onPointerEnter={onPointerEnter}
@@ -320,9 +322,10 @@ export default function User_reels_list() {
             centered
           >
             <Modal.Header closeButton>
-              <Modal.Title>Redo </Modal.Title>
+              <Modal.Title>Report a Problem </Modal.Title>
             </Modal.Header>
             <Modal.Body>
+              
               <div id="example-collapse-text">
                 <InputGroup>
                   <Form.Control
