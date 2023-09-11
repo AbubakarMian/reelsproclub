@@ -21,7 +21,8 @@ import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import { Player } from "video-react";
 import Nav_bar_area from "./NavBar";
 // import Video from "../../public/videos/pizza2.mp4";
@@ -37,14 +38,77 @@ import video8 from "../videos/vid8.mp4";
 import video9 from "../videos/vid9.mp4";
 
 import { RWebShare } from "react-web-share";
+import { useEffect } from "react";
+import VideoThumbnail from 'react-video-thumbnail';
+
+export  function Test(){
+
+  const videos = [
+      {
+        url:"https://stagging.hatinco.com/reels_proclub_backend/public/camera_videos/1694224551.webm",
+        seek:0
+      },
+      {
+        url:"https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4",
+        seek:1
+      },
+      {
+        url:"https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4",
+        seek:9
+      },
+      {
+        url:"https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+        seek:1
+      }
+  ];
+
+  return(
+    <div>
+      {
+        videos.map((video)=>{
+          return (
+            <VideoThumbnail
+    // videoUrl="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    videoUrl={video.url}
+    thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+    // width={120}
+    // height={180}
+    snapshotAtTime={video.seek}
+    />
+          )
+        })
+      }
+    {/* <VideoThumbnail
+    // videoUrl="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    videoUrl="https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4"
+    thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+    // width={120}
+    // height={180}
+    snapshotAtTime={5}
+    /> */}
+    </div>
+  )
+}
+
 
 export default function MyReels_page_export() {
+// export  function MyReels_page_export() {
   const navigate = useNavigate();
 
   const navigateToPath = (path, _obj) => {
     navigate(path, _obj);
   };
+  const location = useLocation();
+
     const [data, setData] = useState([]);
+
+    useEffect(()=>{
+      const incomming_data = location.state && location.state.videos_list != null
+      ? location.state.videos_list
+      : localStorage.getItem("videos_list",[]);
+      localStorage.setItem("videos_list",incomming_data);
+      setData(incomming_data);
+    },[])
 
   return (
     <div>
@@ -71,7 +135,16 @@ export default function MyReels_page_export() {
               >
                 <div className="vid_thumb">
                   <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
-                    <img src="../images/thumbnails/thumb1.jpg" alt="Profile" />
+                    {/* <img src="../images/thumbnails/thumb1.jpg" alt="Profile" /> */}
+                    <VideoThumbnail
+    // videoUrl="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    videoUrl="https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4"
+    thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+    // width={120}
+    // height={180}
+    snapshotAtTime={5}
+    />
+                  
                   </div>
                 </div>
               </div>
@@ -114,16 +187,6 @@ export default function MyReels_page_export() {
                   navigate("/reelvideo");
                 }}
               >
-                {/* <video
-                  muted
-                  id="background-video1"
-                  loop
-                  autoPlay
-                  ratio="16:9"
-                  resizeMode="cover" // height="720" width="1280"
-                  source
-                  src={video4}
-                ></video> */}
                 <div className="vid_thumb">
                   <div className="vid_thumb_img"><FontAwesomeIcon icon={faPlay}  className="play_bt"/>
                   <img src="../images/thumbnails/thumb4.jpg" alt="Profile" />

@@ -50,33 +50,34 @@ export default function Profile() {
   
   console.log('params user_id', user_id);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let access_token = contextState.user.access_token;
-        console.log('acces_token',access_token);
-        const headers = {
-          Accept: 'application/json',
-          Authorization: access_token,
-          'Authorization-secure': access_token,
-          'client-id': 'reelspro-app-mobile',
-        };
-        console.log('headers_people',headers);
-        const response = await fetch(`${Constant.get_reel_rate}/${user_id}`, {
-          method: 'GET',
-          headers: headers,
-        });
   
-        const data = await response.json();
-        console.log('datadata_user_influencer', data);
-        console.log('namessssss', data.response.user.name);
-        setData(data.response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
 
     fetchData();
   }, [params]);
+  const fetchData = async () => {
+    try {
+      let access_token = contextState.user.access_token;
+      console.log('acces_token',access_token);
+      const headers = {
+        Accept: 'application/json',
+        Authorization: access_token,
+        'Authorization-secure': access_token,
+        'client-id': 'reelspro-app-mobile',
+      };
+      console.log('headers_people',headers);
+      const response = await fetch(`${Constant.get_reel_rate}/${user_id}`, {
+        method: 'GET',
+        headers: headers,
+      });
+
+      const data = await response.json();
+      console.log('datadata_user_influencer', data);
+      console.log('namessssss', data.response.user.name);
+      setData(data.response);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   return (
     <div>
       
