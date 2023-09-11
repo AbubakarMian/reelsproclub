@@ -15,10 +15,11 @@ import Nav_bar_area from "./NavBar";
 import VideoThumbnail from "react-video-thumbnail";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
-import { Rating } from 'react-simple-star-rating'
+import { Rating } from "react-simple-star-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
-
+import CustomStarRating from "../common/CustomeStarRating";
+import Collapse from 'react-bootstrap/Collapse';
 
 
 export default function User_reels_list() {
@@ -30,10 +31,11 @@ export default function User_reels_list() {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const [showRedoModal, setshowRedoModal] = useState(0);
+  const [openReview, setOpenReview] = useState(false);
+
 
   const location = useLocation();
   const order_id = location.state.order_id;
-
 
   const openModal = (videoUrl) => {
     setSelectedVideoUrl(videoUrl);
@@ -91,16 +93,15 @@ export default function User_reels_list() {
   const handleRedoModalClose = async () => {
     setshowRedoModal(false);
 
-    try{
-
-    const access_token = contextState.user.access_token;
+    try {
+      const access_token = contextState.user.access_token;
       const headers = {
         Accept: "application/json",
         Authorization: access_token,
         "Authorization-secure": access_token,
         "client-id": "reelspro-app-mobile",
       };
-      
+
       var formData = new FormData();
       formData.append("review", review);
 
@@ -112,7 +113,7 @@ export default function User_reels_list() {
       const data = await response.json();
 
       // if (response.ok) {
-        console.log('order redo response',data);
+      console.log("order redo response", data);
       if (data.status) {
         navigateToPath("/user_order");
         console.log("Reels Redo.");
@@ -122,9 +123,7 @@ export default function User_reels_list() {
     } catch (error) {
       console.error("Error Redo reels:", error);
     }
-
-  }
-
+  };
 
   const handleAcceptModalClose = async () => {
     setShowAcceptModal(false);
@@ -138,7 +137,7 @@ export default function User_reels_list() {
         "Authorization-secure": access_token,
         "client-id": "reelspro-app-mobile",
       };
-      
+
       var formData = new FormData();
       formData.append("review", review);
       formData.append("rating", rating);
@@ -151,7 +150,7 @@ export default function User_reels_list() {
       const data = await response.json();
 
       // if (response.ok) {
-        console.log('order accepted response',data);
+      console.log("order accepted response", data);
       if (data.status) {
         navigateToPath("/user_order");
         console.log("Reels accepted successfully.");
@@ -173,6 +172,7 @@ export default function User_reels_list() {
           <Row>
             <h2>ORDER SUMMARY</h2>
           </Row>
+         
           {orderreelsuser.length === 0 ? (
             <Row className="empty-message-row">
               <Col xs={12}>
@@ -214,6 +214,26 @@ export default function User_reels_list() {
               </Row>
             ))
           )}
+           <Row>
+            <Button
+              onClick={() => setOpenReview(!openReview)}
+              aria-controls="example-collapse-text"
+              aria-expanded={openReview}
+              className="issue_btn"
+            >
+              View Order Issues
+            </Button>
+          </Row>
+          <Row>
+            <Collapse in={openReview}>
+              <div id="example-collapse-text">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. Nihil anim keffiyeh
+                helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                ea proident.
+              </div>
+            </Collapse>
+          </Row>
           <Row className="accept-button-row">
             <Col className="hh">
               <Button
@@ -223,12 +243,11 @@ export default function User_reels_list() {
               >
                 Accept
               </Button>
-              </Col>
-              <Col>
-
+            </Col>
+            <Col>
               <Button
                 variant="success"
-                onClick={()=>setshowRedoModal(true)}
+                onClick={() => setshowRedoModal(true)}
                 className="accept-btn"
               >
                 Redo
@@ -269,15 +288,17 @@ export default function User_reels_list() {
           {/* Accept Modal */}
           <Modal
             show={showAcceptModal}
-            onHide={()=>{setShowAcceptModal(false)}}
+            onHide={() => {
+              setShowAcceptModal(false);
+            }}
             centered
           >
             <Modal.Header closeButton>
               <Modal.Title>Complete Order</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            "Write a review and help others make informed decisions."
               <div id="example-collapse-text">
+                Write a review and help others make informed decisions.
                 <InputGroup>
                   <Form.Control
                     as="textarea"
@@ -287,16 +308,16 @@ export default function User_reels_list() {
                     placeholder="Review"
                   />
                 </InputGroup>
-                "Rate your experience with us."
-                <Rating
-        onClick={(rate)=>setRating(rate)}
-        // onPointerEnter={onPointerEnter}
-        // onPointerLeave={onPointerLeave}
-        // onPointerMove={onPointerMove}
-        /* Available Props */
-        // initialValue={3}
-        // readonly={true}
-      />
+                Rate your experience with us.
+                <div className="rating_area_accp">
+                  <CustomStarRating
+                    initialRating={rating}
+                    onChange={(newRating) => {
+                      setRating(newRating);
+                    }}
+                    editable={true}
+                  />
+                </div>
               </div>
             </Modal.Body>
             <Modal.Footer>
@@ -314,20 +335,25 @@ export default function User_reels_list() {
             </Modal.Footer>
           </Modal>
 
-          
           {/* Redo Modal */}
           <Modal
             show={showRedoModal}
-            onHide={()=>{setshowRedoModal(false)}}
+            onHide={() => {
+              setshowRedoModal(false);
+            }}
             centered
           >
             <Modal.Header closeButton>
               <Modal.Title>Report a Problem </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              
               <div id="example-collapse-text">
                 <InputGroup>
+                  Please share details of the issue you encountered or any
+                  additional comments. Your feedback is valuable in helping us
+                  improve our service. Feel free to describe the problem,
+                  provide context, or suggest any improvements you think would
+                  be helpful. We appreciate your input!
                   <Form.Control
                     as="textarea"
                     aria-label="With textarea"
@@ -339,7 +365,6 @@ export default function User_reels_list() {
               </div>
             </Modal.Body>
             <Modal.Footer>
-
               <Button variant="primary" onClick={handleRedoModalClose}>
                 OK
               </Button>

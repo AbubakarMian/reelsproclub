@@ -278,25 +278,25 @@ export default function People_page_export(props) {
                   // navigateToPath(`/hire`, { state: { user: reel.user.id } })
                 }
               >
-              <div className="img_box people_new">
-                <p className="distace_cal">{cal_distance(item.distance)}</p>
-                <img
-                  src={item.image ? item.image : item.avatar}
-                  alt={item.name}
-                />
-                <div className="img_box_txt">
-                  <p>{item.name}</p>
+                <div className="img_box people_new">
+                  <p className="distace_cal">{cal_distance(item.distance)}</p>
+                  <img
+                    src={item.image ? item.image : item.avatar}
+                    alt={item.name}
+                  />
+                  <div className="img_box_txt">
+                    <p>{item.name}</p>
+                  </div>
                 </div>
-              </div>
               </a>
               <div className="rating_area">
-                      <CustomStarRating
-                        initialRating={item.rating}
-                        onChange={(newRating) => setRating(newRating)}
-                      />
-                    </div>
+                <CustomStarRating
+                  initialRating={item.rating}
+                  onChange={(newRating) => setRating(newRating)}
+                  editable={false}
+                />
+              </div>
             </div>
-            
           ))}
         </div>
       </Container>

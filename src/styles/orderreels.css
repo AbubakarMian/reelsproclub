@@ -104,6 +104,12 @@ button.delete-btn.btn-lg.btn.btn-primary {
   border: 1px solid red;
   padding: 0px 7px;
 }
+button.issue_btn.btn.btn-primary {
+  background: transparent;
+  color: #db8e01;
+  border: 0px;
+  margin-bottom: 15px;
+}
 
 @media only screen and (max-width : 480px) {
     
