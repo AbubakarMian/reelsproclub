@@ -121,7 +121,7 @@ export default function Profile() {
               </p>
               <p>
                 <FontAwesomeIcon className="like" icon={faThumbsUp} />
-                (112 likes)
+                (10 likes)
               </p>
             </div>
           </Row>
@@ -130,13 +130,13 @@ export default function Profile() {
               <div className="flexing">
                 <div className="form_cover_profile_hire dual txt_bx">
                   <p>
-                    {mydata.details}
-                    {/* I am flexible, reliable and possess excellent time keeping
+                    {/* {mydata.details} */}
+                    I am flexible, reliable and possess excellent time keeping
                     skills. I am an enthusiastic, self-motivated, reliable,
                     responsible and hard working person. I am a mature team
                     worker and adaptable to all challenging situations. I am
                     able to work well both in a team environment as well as
-                    using own initiative. */}
+                    using own initiative.
                   </p>
                 </div>
 
