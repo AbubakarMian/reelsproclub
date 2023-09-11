@@ -70,6 +70,40 @@ button.deliver_btn.btn.btn-primary {
     /* float: right; */
     margin-bottom: 10px;
 }
+.video-container {
+  position: relative;
+}
+
+.centered-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+button.view-btn.btn.btn-primary {
+  background-color: #ffffff54;
+  border-radius: 36px;
+  color: black;
+}
+.accept-btn {
+  width: 100%;
+}
+.video-container {
+  position: relative;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 11%;
+  left: 88%;
+  transform: translate(-50%, -50%);
+ 
+}
+button.delete-btn.btn-lg.btn.btn-primary {
+  background: #ff00003d;
+  border: 1px solid red;
+  padding: 0px 7px;
+}
 
 @media only screen and (max-width : 480px) {
     

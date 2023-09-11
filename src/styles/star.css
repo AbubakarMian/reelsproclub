@@ -1,0 +1,12 @@
+.custom-star-rating {
+    display: inline-block;
+    font-size: 24px; /* Adjust the size as needed */
+  }
+  
+  .star {
+    cursor: pointer;
+  }
+  
+  .star.active {
+    color: gold; /* You can change the color of active stars */
+  }

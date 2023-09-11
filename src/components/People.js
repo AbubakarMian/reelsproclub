@@ -24,6 +24,8 @@ import Nav_bar_area from "./NavBar";
 import { useContext } from "react";
 import { ContextApiContext } from "../context/ContextApi";
 import { Constant } from "../common/Constants";
+import { Rating } from "react-simple-star-rating";
+import CustomStarRating from "../common/CustomeStarRating";
 
 {
   /* <Nav_bar_area /> */
@@ -45,10 +47,17 @@ export default function People_page_export(props) {
   const location = useLocation();
   const params = location.state;
   // const category_id = location.state?location.state.category_id?location.state.category_id:0:0;
-  const [category_id, setCategoryId] = useState(location.state?location.state.category_id?location.state.category_id:0:0);
+  const [category_id, setCategoryId] = useState(
+    location.state
+      ? location.state.category_id
+        ? location.state.category_id
+        : 0
+      : 0
+  );
   const [category_list, setCategoryList] = useState([]);
 
   console.log("params aaa", params);
+  const [rating, setRating] = useState(0);
 
   const navigateToPath = (path, params) => {
     navigate(path, params);
@@ -57,43 +66,45 @@ export default function People_page_export(props) {
   const [is_all, setAll] = useState(0);
   const [is_featured, setFeatured] = useState(0);
   const [is_nearby, setNearby] = useState(0);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-    useEffect(() => {
-      // Fetch data using the params variable here
-      // For example, you can use the fetch() function
-      // and pass the params to the API endpoint
-      get_categories();
-      fetchData();
-    }, [params]);
+  useEffect(() => {
+    // Fetch data using the params variable here
+    // For example, you can use the fetch() function
+    // and pass the params to the API endpoint
+    get_categories();
+    fetchData();
+  }, [params]);
 
-    const fetchData = async () => {
-      try {
-        let access_token = contextState.user.access_token;
-        console.log('acces_token',access_token);
-        const headers = {
-          Accept: 'application/json',
-          Authorization: access_token,
-          'Authorization-secure': access_token,
-          'client-id': 'reelspro-app-mobile',
-        };
-        console.log('headers_people',headers);
-        // const response = await fetch(`${Constant.get_people}/${category_id}`, {
-        const response = await fetch(`${Constant.get_people}?category_id=${category_id}&is_all=${is_all}
-            &is_featured=${is_featured}&is_nearby=${is_nearby}&search=${search}`, {
-          method: 'GET',
+  const fetchData = async () => {
+    try {
+      let access_token = contextState.user.access_token;
+      console.log("acces_token", access_token);
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+      console.log("headers_people", headers);
+      // const response = await fetch(`${Constant.get_people}/${category_id}`, {
+      const response = await fetch(
+        `${Constant.get_people}?category_id=${category_id}&is_all=${is_all}
+            &is_featured=${is_featured}&is_nearby=${is_nearby}&search=${search}`,
+        {
+          method: "GET",
           headers: headers,
-        });
-  
-        const data = await response.json();
-        console.log('datadata_people', data);
-        setData(data.response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+        }
+      );
 
-    
+      const data = await response.json();
+      console.log("datadata_people", data);
+      setData(data.response);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   const get_categories = async () => {
     // const [category,setCategory] = useState('');
     // const [rate_per_reel, setRatePerReel] = useState(0);
@@ -126,35 +137,32 @@ export default function People_page_export(props) {
     }
   };
 
-  
-
-    const cal_distance = (distance)=>{
-      if(distance < 10){
-        return 'Less than 10KM';
-      }
-      if(distance < 50){
-        return 'Less than 50KM';
-      }
-      if(distance < 100){
-        return 'Less than 100KM';
-      }
-      if(distance < 500){
-        return 'Less than 500KM';
-      }
-      if(distance < 1000){
-        return 'Less than 1000KM';
-      }
-      else{
-        return 'More than 1000KM';
-      }
+  const cal_distance = (distance) => {
+    if (distance < 10) {
+      return "Less than 10KM";
     }
-    return (
-      <section className="">
-         <Container fluid>
-        <Row>
+    if (distance < 50) {
+      return "Less than 50KM";
+    }
+    if (distance < 100) {
+      return "Less than 100KM";
+    }
+    if (distance < 500) {
+      return "Less than 500KM";
+    }
+    if (distance < 1000) {
+      return "Less than 1000KM";
+    } else {
+      return "More than 1000KM";
+    }
+  };
+  return (
+    <section className="">
+      <Container fluid>
+        <Row className="people_bd_btm">
           <Col>
             <Button
-              className="profile-backbtnsignup"
+              className="profile-backbtnsignup "
               onClick={() => navigate(-1)}
             >
               <FontAwesomeIcon icon={faArrowLeft} />{" "}
@@ -187,52 +195,73 @@ export default function People_page_export(props) {
                   aria-label="Search"
                   aria-describedby="basic-addon1"
                   className="search_br"
-                  onChange={(e)=>{setSearch(e.target.value)}}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
                 />
                 <InputGroup.Text id="basic-addon1">
-                  <Button className="srch_btn" onClick={()=>fetchData()}>
+                  <Button className="srch_btn" onClick={() => fetchData()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </Button>
                 </InputGroup.Text>
               </InputGroup>
 
               <Row>
-            <Col>
-              <div className="form_area">
-                <Form.Label>Categories*</Form.Label>
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => {
-                    setCategoryId(e.target.value);
-                  }}
-                >
-                 
-                  {category_list.map((category, index) => {
-                    return (
-                      <option key={category.id} value={category.id} selected={category.id == category_id}>
-                        {category.name}
-                      </option>
-                    );
-                  })}
-                </Form.Select>
-              </div>
-            </Col>
-          </Row>
-           
-              <Button className={is_all?"isactive":"flt_btn"} onClick={()=>{setAll(is_all?0:1);
-                setFeatured(0);
-                // fetchData();
-              }}>All</Button>
-              <Button className={is_featured?"isactive":"flt_btn"} onClick={()=>{
+                <Col>
+                  <div className="form_area">
+                    <Form.Label>Categories*</Form.Label>
+                    <Form.Select
+                      aria-label="Default select example"
+                      onChange={(e) => {
+                        setCategoryId(e.target.value);
+                      }}
+                    >
+                      {category_list.map((category, index) => {
+                        return (
+                          <option
+                            key={category.id}
+                            value={category.id}
+                            selected={category.id == category_id}
+                          >
+                            {category.name}
+                          </option>
+                        );
+                      })}
+                    </Form.Select>
+                  </div>
+                </Col>
+              </Row>
+
+              <Button
+                className={is_all ? "isactive" : "flt_btn"}
+                onClick={() => {
+                  setAll(is_all ? 0 : 1);
+                  setFeatured(0);
+                  // fetchData();
+                }}
+              >
+                All
+              </Button>
+              <Button
+                className={is_featured ? "isactive" : "flt_btn"}
+                onClick={() => {
                   setAll(0);
-                  setFeatured(is_featured?0:1);
+                  setFeatured(is_featured ? 0 : 1);
                   // fetchData();
-                }}>Featured</Button>
-              <Button className={is_nearby?"isactive":"flt_btn"} onClick={()=>{
+                }}
+              >
+                Featured
+              </Button>
+              <Button
+                className={is_nearby ? "isactive" : "flt_btn"}
+                onClick={() => {
                   // setAll(0);
-                  setNearby(is_nearby?0:1);
+                  setNearby(is_nearby ? 0 : 1);
                   // fetchData();
-                  }}>NearBy</Button>
+                }}
+              >
+                NearBy
+              </Button>
             </div>
           </Collapse>
         </Row>
@@ -249,15 +278,25 @@ export default function People_page_export(props) {
                   // navigateToPath(`/hire`, { state: { user: reel.user.id } })
                 }
               >
-                <div className="img_box">
-                  <p>{cal_distance(item.distance)}</p>
-                  <img src={item.image?item.image:item.avatar} alt={item.name} />
-                  <div className="img_box_txt">
-                    <p>{item.name}</p>
-                  </div>
+              <div className="img_box people_new">
+                <p className="distace_cal">{cal_distance(item.distance)}</p>
+                <img
+                  src={item.image ? item.image : item.avatar}
+                  alt={item.name}
+                />
+                <div className="img_box_txt">
+                  <p>{item.name}</p>
                 </div>
+              </div>
               </a>
+              <div className="rating_area">
+                      <CustomStarRating
+                        initialRating={rating}
+                        onChange={(newRating) => setRating(newRating)}
+                      />
+                    </div>
             </div>
+            
           ))}
         </div>
       </Container>
