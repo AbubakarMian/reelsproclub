@@ -119,6 +119,12 @@ export default function OrderReels() {
       
 
         if (responseData.status) { //video_path
+          let reelList = ordersReelslist;
+
+          reelList.unshift(responseData.response);
+
+          
+          setOrdersReelslist( reelList);
           setImageUploadSuccessMessage("Video uploaded successfully."); // Set the success message
           setShowImageUploadSuccessModal(true); // Open the success modal
           setSelectedIcon(faCheck); // Open the success modal
