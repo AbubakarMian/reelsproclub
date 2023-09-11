@@ -16,6 +16,9 @@ import VideoThumbnail from "react-video-thumbnail";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { Rating } from 'react-simple-star-rating'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+
 
 
 export default function User_reels_list() {
@@ -168,7 +171,7 @@ export default function User_reels_list() {
       <section className="user-reels-list">
         <Container fluid className="myreelarea">
           <Row>
-            <h2>USER ORDER VIEW REELS</h2>
+            <h2>ORDER SUMMARY</h2>
           </Row>
           {orderreelsuser.length === 0 ? (
             <Row className="empty-message-row">
@@ -181,55 +184,48 @@ export default function User_reels_list() {
               <Row className="reel-box" key={index + 1}>
                 <Col xs={12} md={4} className="reel-thumbnail">
                   <div className="img-areas">
-                    {/* <VideoThumbnail
-                  // videoUrl={'http://localhost/reels_proclub_backend/public/videos/1692120254.webm'}
-                  videoUrl={reel.reels_url}
-                  // videoUrl="https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4?dl=1"
-                  thumbnailHandler={(thumbnail) => console.log(thumbnail)}
-                  width={120}
-                  height={80}
-                  /> */}
-                    <video
-                      loop
-                      autoPlay={false}
-                      height="100%"
-                      width="100%"
-                      controls={false}
-                      src={reel.reels_url}
-                    ></video>
-                  </div>
-                </Col>
-
-                <Col xs={12} md={8}>
-                  <div className="view-button">
-                    <Button
-                      variant="primary"
-                      // onClick={() => openModal(reel.reels_url)}
-                      onClick={() => {
-                        navigate("/reelvideo", {
-                          state: {
-                            reels_url: reel.reels_url,
-                          },
-                        });
-                      }}
-                      className="view-btn"
-                    >
-                      View
-                    </Button>
+                    <div className="video-container">
+                      <video
+                        loop
+                        autoPlay={false}
+                        height="100%"
+                        width="100%"
+                        controls={false}
+                        src={reel.reels_url}
+                      ></video>
+                      <div className="centered-button">
+                        <Button
+                          variant="primary"
+                          onClick={() => {
+                            navigate("/reelvideo", {
+                              state: {
+                                reels_url: reel.reels_url,
+                              },
+                            });
+                          }}
+                          className="view-btn"
+                        >
+                          <FontAwesomeIcon icon={faPlay} />
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </Col>
               </Row>
             ))
           )}
           <Row className="accept-button-row">
-            <Col xs={12} className="hh">
+            <Col className="hh">
               <Button
-                variant="success"
+                variant="primary"
                 onClick={handleAcceptClick}
                 className="accept-btn"
               >
                 Accept
               </Button>
+              </Col>
+              <Col>
+
               <Button
                 variant="success"
                 onClick={()=>setshowRedoModal(true)}

@@ -14,21 +14,29 @@
     margin: -15px; /* Adjust margin if needed */
   }
   
+  /* .flex-item {
+    flex: 0 0 calc(33.33% - 30px); 
+    margin: 15px; 
+  } */
   .flex-item {
-    flex: 0 0 calc(33.33% - 30px); /* Adjust the width and margin as needed */
-    margin: 15px; /* Adjust margin to match the container margin */
-  }
-
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(33.33% - 10px);
+    margin: 5px;
+}
 
 .img_box {
-    border: solid 1px white;
+    border: solid 1px #e9e3e3;
     padding: 5px;
     padding-top: 15px;
     border-radius: 10px;
-    box-shadow: -1px -2px 16px 0px rgba(0,0,0,0.75);
-    margin: 30px 0px;
+    box-shadow: -1px -2px 16px 0px rgba(0,0,0,0.10);
+    margin-top: 26px;
     height: 186px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
+
 button.filtr_btn.btn.btn-primary {
     float: right;
     background-color: #9c0043bd;
@@ -49,6 +57,7 @@ button.isactive.btn.btn-primary {
     background-color: #8c0e49;
     border: solid 1px #8c0e49;
     color: white;
+    margin-top: 25px;
 }
 button.flt_btn.btn.btn-primary {
     width: 85px;
@@ -56,6 +65,7 @@ button.flt_btn.btn.btn-primary {
     background-color: white;
     border: solid 1px gray;
     color: gray;
+    margin-top: 25px;
 }
 button.srch_btn.btn.btn-primary {
     background: transparent;
@@ -66,15 +76,32 @@ div#example-collapse-text {
     padding: 25px 11px;
 }
 
+.people_bd_btm.row {
+    border-bottom:solid 1px ;
+    margin-bottom: 26px;
+    box-shadow: -7px 0px 10px 1px gray;
+}
+p.distace_cal {
+    border: solid 1px #8080802e;
+    background-color: #e5e5e552;
+    border-radius: 5px;
+    color: #4d4242;
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: -5px;
+}
+.rating_area {
+    /* border: solid 1px #f7f4f4; */
+    margin: 0px;
+    background: #80808038;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
 @media only screen and (max-width : 480px) {
-    .img_box {
-        border: solid 1px white;
-        padding: 5px;
-        padding-top: 15px;
-        border-radius: 10px;
-        box-shadow: 0px 2px 16px 0px rgba(0,0,0,0.75);
-        margin: 30px 0px;
-        height: 156px;
+ 
+    .people_new{
+        height: 180px;
+
     }
 }
