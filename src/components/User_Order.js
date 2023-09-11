@@ -104,7 +104,8 @@ export default function OrderDetails() {
                 </Col>
                 <Col>
                   <div>
-                  <h5 className="order_btn_area">{order.quantity} Reels</h5>
+                  <h5 className="order_btn_area">{order.number_reels} Reels</h5>
+                  <h5 className="order_btn_area">{order.influencer.user.name}</h5>
                   </div>
                 </Col>
                 <Col>

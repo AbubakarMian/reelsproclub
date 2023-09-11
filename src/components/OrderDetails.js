@@ -43,36 +43,38 @@ export default function OrderDetails() {
 
   useEffect(() => {
     // Function to fetch categories from the API
-    const fetchOrders = async () => {
-      try {
-        let access_token = contextState.user.access_token;
-        let influencer_id = contextState.user.id;
-        console.log("influencer_id", influencer_id);
-        console.log("acces_token", access_token);
-        const headers = {
-          Accept: "application/json",
-          Authorization: access_token,
-          "Authorization-secure": access_token,
-          "client-id": "reelspro-app-mobile",
-        };
-        console.log("headers", headers);
-        const response = await fetch(
-          `${Constant.get_orders_list}/${influencer_id}`,
-          {
-            method: "GET",
-            headers: headers,
-          }
-        );
-        const data = await response.json();
-        console.log("datainfluencer_id", data);
-        setOrderslist(data.response);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
+ 
 
     fetchOrders();
   }, []);
+
+  const fetchOrders = async () => {
+    try {
+      let access_token = contextState.user.access_token;
+      let influencer_id = contextState.user.id;
+      console.log("influencer_id", influencer_id);
+      console.log("acces_token", access_token);
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+      console.log("headers", headers);
+      const response = await fetch(
+        `${Constant.get_orders_list}/${influencer_id}`,
+        {
+          method: "GET",
+          headers: headers,
+        }
+      );
+      const data = await response.json();
+      console.log("datainfluencer_id", data);
+      setOrderslist(data.response);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
 
   return (
     <section className="">
@@ -121,11 +123,12 @@ export default function OrderDetails() {
                     {/* <h5 className="order_btn_area">$ {order.influencer.rate_per_reel*order.number_reels}</h5> */}
                     <h5 className="order_btn_area">$ {order.amount}</h5>
                     <Button className="order_btn_area btn-success status">
-                      {order_id === order.id
+                      {order.status.toUpperCase()}
+                      {/* {order_id === order.id
                         ? "Review"
                         : order.status === "accepted"
                         ? "Accepted"
-                        : "Pending"}
+                        : "Pending"} */}
                     </Button>
                   </div>
                 </Col>

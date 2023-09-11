@@ -26,6 +26,7 @@ export default function User_reels_list() {
   const [showAcceptModal, setShowAcceptModal] = useState(false);
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
+  const [showRedoModal, setshowRedoModal] = useState(0);
 
   const location = useLocation();
   const order_id = location.state.order_id;
@@ -68,7 +69,7 @@ export default function User_reels_list() {
       const data = await response.json();
       console.log("fetching order reelssss:", data);
 
-      const reelsWithUrls = data.response.reels.map((reel) => ({
+      const reelsWithUrls = data.response.map((reel) => ({
         ...reel,
         reels_url: reel.reels_url,
         // reels_url: convertToLocalUrl(reel.reels_url),
@@ -83,6 +84,44 @@ export default function User_reels_list() {
   const handleAcceptClick = () => {
     setShowAcceptModal(true);
   };
+
+  const handleRedoModalClose = async () => {
+    setshowRedoModal(false);
+
+    try{
+
+    const access_token = contextState.user.access_token;
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+      
+      var formData = new FormData();
+      formData.append("review", review);
+
+      const response = await fetch(`${Constant.reels_redo}/${order_id}`, {
+        method: "POST",
+        headers: headers,
+        body: formData,
+      });
+      const data = await response.json();
+
+      // if (response.ok) {
+        console.log('order redo response',data);
+      if (data.status) {
+        navigateToPath("/user_order");
+        console.log("Reels Redo.");
+      } else {
+        console.error("Failed to Redo reels.");
+      }
+    } catch (error) {
+      console.error("Error Redo reels:", error);
+    }
+
+  }
+
 
   const handleAcceptModalClose = async () => {
     setShowAcceptModal(false);
@@ -191,6 +230,13 @@ export default function User_reels_list() {
               >
                 Accept
               </Button>
+              <Button
+                variant="success"
+                onClick={()=>setshowRedoModal(true)}
+                className="accept-btn"
+              >
+                Redo
+              </Button>
             </Col>
           </Row>
 
@@ -227,11 +273,11 @@ export default function User_reels_list() {
           {/* Accept Modal */}
           <Modal
             show={showAcceptModal}
-            onHide={handleAcceptModalClose}
+            onHide={()=>{setShowAcceptModal(false)}}
             centered
           >
             <Modal.Header closeButton>
-              <Modal.Title>Confirm Acceptance</Modal.Title>
+              <Modal.Title>Confirm </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <div id="example-collapse-text">
@@ -265,6 +311,37 @@ export default function User_reels_list() {
                 Cancel
               </Button>
               <Button variant="primary" onClick={handleAcceptModalClose}>
+                OK
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
+          
+          {/* Redo Modal */}
+          <Modal
+            show={showRedoModal}
+            onHide={()=>{setshowRedoModal(false)}}
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Redo </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div id="example-collapse-text">
+                <InputGroup>
+                  <Form.Control
+                    as="textarea"
+                    aria-label="With textarea"
+                    className="txt_area"
+                    onChange={(e) => setReview(e.target.value)}
+                    placeholder="Comments"
+                  />
+                </InputGroup>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+
+              <Button variant="primary" onClick={handleRedoModalClose}>
                 OK
               </Button>
             </Modal.Footer>

@@ -121,8 +121,12 @@ export default function OrderReels() {
         if (responseData.status) { //video_path
           let reelList = ordersReelslist;
 
-          reelList.unshift(responseData.response.reel);
+          reelList.unshift({
+            reels_id:responseData.response.reel.id,
+            reels_url:responseData.response.reel.url,
+          });
 
+          console.log('reellist update',reelList);
           
           setOrdersReelslist( reelList);
           setImageUploadSuccessMessage("Video uploaded successfully."); // Set the success message
@@ -173,7 +177,7 @@ export default function OrderReels() {
       console.log('order_reels_list', data);
       console.log('reels_url_count', data.response.length);
       setOrdersReelslist(data.response);
-      setOrdersQuantity(data.response[0].order_quantity);
+      setOrdersQuantity(data.response.length);
     } catch (error) {
       console.error('Error fetching reels order:', error);
     }
