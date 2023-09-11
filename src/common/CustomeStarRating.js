@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import "./../styles/star.css";
 
-const CustomeStarRating = ({ initialRating, onChange }) => {
+const CustomeStarRating = ({ initialRating, onChange,editable }) => {
   const [rating, setRating] = useState(initialRating);
 
   const handleRatingClick = (newRating) => {
-    // setRating(newRating);
-    // onChange(newRating);
+    if(editable){
+
+      setRating(newRating);
+      onChange(newRating);
+    }
   };
 
   return (
@@ -16,6 +19,7 @@ const CustomeStarRating = ({ initialRating, onChange }) => {
           key={star}
           className={`star ${star <= rating ? 'active' : ''}`}
           onClick={() => handleRatingClick(star)}
+          editable={editable}
         >
           ★
         </span>
