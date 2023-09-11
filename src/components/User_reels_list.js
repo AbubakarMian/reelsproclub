@@ -12,7 +12,11 @@ import { useNavigate } from "react-router-dom";
 // import "./styles/orderreels.css"; // Import your custom styles
 import "./../styles/orderreels.css";
 import Nav_bar_area from "./NavBar";
-import VideoThumbnail from 'react-video-thumbnail'; 
+import VideoThumbnail from "react-video-thumbnail";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
+import { Rating } from 'react-simple-star-rating'
+
 
 export default function User_reels_list() {
   const { contextState } = useContext(ContextApiContext);
@@ -20,17 +24,12 @@ export default function User_reels_list() {
   const [showModal, setShowModal] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState("");
   const [showAcceptModal, setShowAcceptModal] = useState(false);
+  const [review, setReview] = useState("");
+  const [rating, setRating] = useState(0);
 
   const location = useLocation();
   const order_id = location.state.order_id;
 
-  const convertToLocalUrl = (filePath) => {
-    return `http://localhost/${filePath
-      .replace(/\\/g, "/")
-      .split("/")
-      .slice(3)
-      .join("/")}`;
-  };
 
   const openModal = (videoUrl) => {
     setSelectedVideoUrl(videoUrl);
@@ -42,47 +41,44 @@ export default function User_reels_list() {
     setShowModal(false);
   };
   const navigate = useNavigate();
-  const navigateToPath = (path,params) => {
-    navigate(path,{params});
+  const navigateToPath = (path, params) => {
+    navigate(path, { params });
   };
 
   useEffect(() => {
-    const fetchOrderReels = async () => {
-      try {
-        const access_token = contextState.user.access_token;
-        const headers = {
-          Accept: "application/json",
-          Authorization: access_token,
-          "Authorization-secure": access_token,
-          "client-id": "reelspro-app-mobile",
-        };
-        const response = await fetch(
-          `${Constant.get_order_reels_user}/${order_id}`,
-          {
-            method: "GET",
-            headers: headers,
-          }
-        );
-        const data = await response.json();
-        console.log('fetching order reelssss:', data);
-        
-
-
-        const reelsWithUrls = data.response.map((reel) => ({
-          ...reel,
-          reels_url: reel.reels_url,
-          // reels_url: convertToLocalUrl(reel.reels_url),
-        }));
-
-        setOrderReelsUser(reelsWithUrls);
-      } catch (error) {
-        console.error("Error fetching orderreelsuser:", error);
-      }
-    };
-
     fetchOrderReels();
   }, [order_id, contextState.user.access_token]);
 
+  const fetchOrderReels = async () => {
+    try {
+      const access_token = contextState.user.access_token;
+      const headers = {
+        Accept: "application/json",
+        Authorization: access_token,
+        "Authorization-secure": access_token,
+        "client-id": "reelspro-app-mobile",
+      };
+      const response = await fetch(
+        `${Constant.get_order_reels_user}/${order_id}`,
+        {
+          method: "GET",
+          headers: headers,
+        }
+      );
+      const data = await response.json();
+      console.log("fetching order reelssss:", data);
+
+      const reelsWithUrls = data.response.reels.map((reel) => ({
+        ...reel,
+        reels_url: reel.reels_url,
+        // reels_url: convertToLocalUrl(reel.reels_url),
+      }));
+
+      setOrderReelsUser(reelsWithUrls);
+    } catch (error) {
+      console.error("Error fetching orderreelsuser:", error);
+    }
+  };
   //
   const handleAcceptClick = () => {
     setShowAcceptModal(true);
@@ -100,13 +96,21 @@ export default function User_reels_list() {
         "Authorization-secure": access_token,
         "client-id": "reelspro-app-mobile",
       };
+      
+      var formData = new FormData();
+      formData.append("review", review);
+      formData.append("rating", rating);
+
       const response = await fetch(`${Constant.reels_accepetd}/${order_id}`, {
         method: "POST",
         headers: headers,
+        body: formData,
       });
       const data = await response.json();
 
-      if (response.ok) {
+      // if (response.ok) {
+        console.log('order accepted response',data);
+      if (data.status) {
         navigateToPath("/user_order");
         console.log("Reels accepted successfully.");
       } else {
@@ -127,19 +131,18 @@ export default function User_reels_list() {
           <Row>
             <h2>USER ORDER VIEW REELS</h2>
           </Row>
-          {
-          orderreelsuser.length === 0 ? (
+          {orderreelsuser.length === 0 ? (
             <Row className="empty-message-row">
               <Col xs={12}>
                 <p>No reels available for this order.</p>
               </Col>
             </Row>
           ) : (
-          orderreelsuser.map((reel, index) => (
-            <Row className="reel-box" key={index + 1}>
-              <Col xs={12} md={4} className="reel-thumbnail">
-                <div className="img-areas">
-                {/* <VideoThumbnail
+            orderreelsuser.map((reel, index) => (
+              <Row className="reel-box" key={index + 1}>
+                <Col xs={12} md={4} className="reel-thumbnail">
+                  <div className="img-areas">
+                    {/* <VideoThumbnail
                   // videoUrl={'http://localhost/reels_proclub_backend/public/videos/1692120254.webm'}
                   videoUrl={reel.reels_url}
                   // videoUrl="https://dl.dropboxusercontent.com/s/7b21gtvsvicavoh/statue-of-admiral-yi-no-audio.mp4?dl=1"
@@ -148,40 +151,36 @@ export default function User_reels_list() {
                   height={80}
                   /> */}
                     <video
-                loop
-                autoPlay={false}
-                height="100%" width="100%"
-                controls={false}
-                src={reel.reels_url}
-                ></video>
+                      loop
+                      autoPlay={false}
+                      height="100%"
+                      width="100%"
+                      controls={false}
+                      src={reel.reels_url}
+                    ></video>
+                  </div>
+                </Col>
 
-                </div>
-              </Col>
-               
-              <Col xs={12} md={8}>
-                <div className="view-button">
-                  <Button
-                    variant="primary"
-                    // onClick={() => openModal(reel.reels_url)}
-                    onClick={() => {
-                      navigate("/reelvideo",
-                      {
-                        state: {
-                          reels_url: reel.reels_url
-                       
-                        },
-                      }
-                      
-                      );
-                    }}
-                    className="view-btn"
-                  >
-                    View
-                  </Button>
-                </div>
-              </Col>
-            </Row>
-          ))
+                <Col xs={12} md={8}>
+                  <div className="view-button">
+                    <Button
+                      variant="primary"
+                      // onClick={() => openModal(reel.reels_url)}
+                      onClick={() => {
+                        navigate("/reelvideo", {
+                          state: {
+                            reels_url: reel.reels_url,
+                          },
+                        });
+                      }}
+                      className="view-btn"
+                    >
+                      View
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
+            ))
           )}
           <Row className="accept-button-row">
             <Col xs={12} className="hh">
@@ -207,17 +206,15 @@ export default function User_reels_list() {
                 // light={true}
               /> */}
 
-
-                 <video
-                  id="background-video2"
-                  loop
-                  autoPlay
-                  ratio="16:9"
-                  resizeMode="cover" // height="720" width="1280"
-                  source
-                  
-                  src={selectedVideoUrl}
-                ></video>
+              <video
+                id="background-video2"
+                loop
+                autoPlay
+                ratio="16:9"
+                resizeMode="cover" // height="720" width="1280"
+                source
+                src={selectedVideoUrl}
+              ></video>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={closeModal}>
@@ -237,10 +234,34 @@ export default function User_reels_list() {
               <Modal.Title>Confirm Acceptance</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>Are you sure you want to accept these reels?</p>
+              <div id="example-collapse-text">
+                <InputGroup>
+                  <Form.Control
+                    as="textarea"
+                    aria-label="With textarea"
+                    className="txt_area"
+                    onChange={(e) => setReview(e.target.value)}
+                    placeholder="Review"
+                  />
+                </InputGroup>
+                <Rating
+        onClick={(rate)=>setRating(rate)}
+        // onPointerEnter={onPointerEnter}
+        // onPointerLeave={onPointerLeave}
+        // onPointerMove={onPointerMove}
+        /* Available Props */
+        // initialValue={3}
+        // readonly={true}
+      />
+              </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleAcceptModalClose}>
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  setShowAcceptModal(false);
+                }}
+              >
                 Cancel
               </Button>
               <Button variant="primary" onClick={handleAcceptModalClose}>
